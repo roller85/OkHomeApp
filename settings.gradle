@@ -1,0 +1,4 @@
+include ':app'
+include ':recyclerViewManager'
+
+project(':recyclerViewManager').projectDir=new File('C:/Users/josongmin/Documents/androidstudio_workspace/JoRecyclerManager/recyclerViewManager')

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/layerMenuItems_vBtnUserInfo"
+        android:paddingLeft="@dimen/layer_leftmenu_padding_common"
+        android:paddingTop="@dimen/layer_leftmenu_padding_common"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:id="@+id/layerMenuItems_ivPhoto"
+            android:src="@drawable/sample_face"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_below="@+id/layerMenuItems_ivPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="19sp"
+                android:textColor="#3b3e45"/>
+
+            <LinearLayout
+                android:layout_marginTop="-1dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Puri casablanka" android:textSize="11sp"
+                    android:textColor="#66000000"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:adjustViewBounds="true"
+            android:layout_width="17dp"
+            android:layout_height="wrap_content" android:src="@drawable/ic_tab_more"/>
+
+    </RelativeLayout>
+
+    <!--좌측메뉴-->
+    <LinearLayout
+        android:layout_marginTop="38dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnMakeReservation"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_marginLeft="10dp"
+                android:layout_width="2.5dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary"
+                android:id="@+id/view2" />
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:orientation="vertical">
+                <View
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="10dp"
+                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+                <View
+                    android:layout_marginTop="2dp"
+                    android:layout_width="16dp"
+                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+                <View
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="10dp"
+                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Make reservation" android:textSize="15.5sp"
+                android:textColor="#3b3e45"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnSchedule"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Calendar" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnCharge"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_width="3dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <TextView
+
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Charge point" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnSetting"
+            android:layout_marginTop="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_width="3dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Setting" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnNotice"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_width="3dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Notice" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnCustomerCenter"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_width="3dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Customer center" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

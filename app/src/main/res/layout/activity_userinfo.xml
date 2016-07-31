@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/actUserInfo_rlTop"
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+        <LinearLayout
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:id="@+id/actMain_llbtnMore"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <ImageView
+                android:adjustViewBounds="true"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="User Information" android:textSize="18.5sp"
+            android:textColor="@color/okHomeGrayDeep"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/actMain_llbtnMore" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_below="@+id/actUserInfo_rlTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:paddingLeft="32dp"
+                android:paddingRight="32dp"
+                android:paddingTop="25dp"
+                android:paddingBottom="25dp"
+                android:orientation="vertical" android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="My photo"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorLightGray" />
+
+                    <RelativeLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:layout_centerVertical="true"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:src="@drawable/sample_face"
+                            android:scaleType="centerCrop"
+                            app:riv_oval="true" />
+
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_rightarrow_gray"/>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#22000000"/>
+
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Phone"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorLightGray" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="+8210 9314 9449"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_rightarrow_gray"/>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#22000000"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="Email"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorLightGray" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="944899@gmail.com"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_rightarrow_gray"/>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#22000000"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!--집 정보-->
+                <LinearLayout
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:text="My house information"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorLightGray" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <LinearLayout
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="Puri Casablanka"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                        </LinearLayout>
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_rightarrow_gray"/>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#22000000"/>
+
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="42dp">
+
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="6dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_rightarrow_gray"/>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#22000000"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true">
+                            <TextView
+                                android:text="Casa grande"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="14dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:src="@drawable/ic_plus_appdeep"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"/>
+
+                        <LinearLayout
+                            android:layout_marginLeft="5dp"
+                            android:orientation="vertical"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textStyle="bold"
+                                android:text="Add house information"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/okHomeGrayDeep"
+                                android:textSize="12.5sp"
+                                android:id="@+id/textView" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center"
+        android:background="@color/colorAppPrimary"
+        android:paddingTop="15dp" android:paddingBottom="15dp"
+        android:paddingLeft="20dp" android:paddingRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginRight="5dp"
+            android:layout_width="13dp"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" android:src="@drawable/ic_chk_circle_white"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="id.co.okhome.okhomeapp.view.activity.MainActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/actMain_dlContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="54dp" android:id="@+id/actMain_rlTop">
+
+                <LinearLayout
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="14dp"
+                    android:id="@+id/actMain_llbtnMore"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+                    <View
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="10dp"
+                        android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+                    <View
+                        android:layout_marginTop="2dp"
+                        android:layout_width="16dp"
+                        android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+                    <View
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="10dp"
+                        android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Cleaning reservation" android:textSize="18.5sp"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/actMain_llbtnMore" />
+
+            </RelativeLayout>
+
+            <!-- 컨텐츠 영역 -->
+            <FrameLayout android:layout_width="match_parent"
+                android:layout_below="@+id/actMain_rlTop"
+                android:layout_height="match_parent"
+                android:id="@+id/actMain_flContent">
+
+                <!--sample -->
+
+            </FrameLayout>
+        </RelativeLayout>
+
+
+
+        <include android:layout_width="270dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"
+            android:layout_gravity="start"/>
+
+    </android.support.v4.widget.DrawerLayout>
+</RelativeLayout>

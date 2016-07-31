@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2d2f30</color>
+    <color name="colorAppPrimary">#0095da</color>
+    <color name="colorAppPrimary2">#008FD5</color>
+    <color name="colorPrimarySecond">#35d1f3</color>
+
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccentAlpha">#ddff25a0</color>
+    <color name="colorSearchBold">#d8057c</color>
+    <color name="colorSearchBoundBold">#aad8057c</color>
+    <color name="colorPetSister">#fa418f</color>
+
+    <color name="colorLightGray">#dd7f8a9e</color>
+    <color name="colorGray">#3b3e45</color>
+    <color name="okHomeGray">#808384</color>
+    <color name="okHomeGrayDeep">#454849</color>
+</resources>

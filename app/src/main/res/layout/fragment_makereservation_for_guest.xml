@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_above="@+id/fragMakeReservation_llBottom"
+        android:paddingLeft="15dp" android:paddingRight="15dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:id="@+id/layerMenuItems_ivPhoto"
+            android:src="@drawable/sample_model8"
+            android:scaleType="centerCrop"
+            app:riv_oval="true" />
+
+
+        <TextView
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Hello Jo Songmin!" android:textSize="16.5sp"
+            android:textColor="@color/okHomeGrayDeep"/>
+
+        <TextView
+            android:textColor="#4aacf1"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="15dp" android:text="Rp 50.000"/>
+
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="You can make reservation 5 time more" android:textSize="12.5sp"
+            android:textColor="@color/okHomeGray"/>
+
+
+        <RelativeLayout
+            android:layout_marginTop="30dp"
+            android:weightSum="10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginRight="10dp" android:layout_marginLeft="10dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/actMain_tvSubTitle"
+                android:text="Schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textColor="#55000000" android:textStyle="bold"
+                android:textSize="12.5sp" />
+
+            <View
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/actMain_tvSubTitle"
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#33000000"/>
+
+            <View
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/actMain_tvSubTitle"
+                android:layout_weight="3"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#33000000"/>
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_marginTop="22dp"
+            android:weightSum="10"
+            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+
+                android:layout_weight="10"
+                android:orientation="vertical"
+                android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="Tommorow, 7. 8(Mon), 13:00"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textColor="#55000000"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.joooonho.SelectableRoundedImageView
+                        android:layout_marginRight="8dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/sample_model4"
+                        android:scaleType="centerCrop"
+                        app:sriv_oval="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="Rmamana Cleaner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary"
+                                android:textSize="12.5sp" />
+
+                            <TextView
+                                android:text=" will visit your home for"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="#4e5562"
+                                android:textSize="12.5sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:text="Clear Clean"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary"
+                            android:textSize="12.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="10"
+            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="24dp"
+                android:layout_weight="10"
+                android:orientation="vertical"
+                android:layout_width="0dp" android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="2 days later, 7. 9(Tue), 13:00"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:textColor="#55000000"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <com.joooonho.SelectableRoundedImageView
+                        android:layout_marginRight="8dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/sample_model4"
+                        android:scaleType="centerCrop"
+                        app:sriv_oval="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="Rmamana Cleaner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary"
+                                android:textSize="12.5sp" />
+
+                            <TextView
+                                android:text=" will visit your home for"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:textColor="#4e5562"
+                                android:textSize="12.5sp" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:text="Clear Clean"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary"
+                            android:textSize="12.5sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_margin="1dp"
+                android:layout_width="3dp"
+                android:layout_height="3dp" android:background="@drawable/circle_gray_simple" />
+            <View
+                android:layout_margin="1dp"
+                android:layout_width="3dp"
+                android:layout_height="3dp" android:background="@drawable/circle_gray_simple" />
+            <View
+                android:layout_margin="1dp"
+                android:layout_width="3dp"
+                android:layout_height="3dp" android:background="@drawable/circle_gray_simple" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingBottom="10dp"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textStyle="bold"
+                android:text="See 5 more events"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textColor="#5d6061"
+                android:textSize="12.5sp"
+                android:id="@+id/textView" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragMakeReservation_llBottom"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Need help"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" android:background="#6681828c"
+            android:textColor="#ffffff"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:paddingLeft="20dp" android:paddingRight="20dp" />
+
+        <LinearLayout
+            android:layout_weight="6"
+            android:gravity="center"
+            android:background="@color/colorAppPrimary"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="14dp"
+                android:adjustViewBounds="true"
+                android:layout_height="wrap_content" android:src="@drawable/ic_chk_circle_white"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="Make reservation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"
+                />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</RelativeLayout>
