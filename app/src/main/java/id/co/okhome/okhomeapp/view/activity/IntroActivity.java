@@ -37,7 +37,7 @@ public class IntroActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
 
-        animate();;
+        animate();
     }
 
     private void animate(){

@@ -116,7 +116,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Calendar" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Schedule" android:textSize="15sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -135,7 +135,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Charge point" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Charge voucher" android:textSize="15sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -155,6 +155,24 @@
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="Setting" android:textSize="15sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnQnA"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <View
+                android:visibility="gone"
+                android:layout_width="3dp"
+                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="QnA" android:textSize="15sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>

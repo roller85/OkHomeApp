@@ -29,9 +29,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .setViewComponentInitiator(new MainDrawerViewComponentInitiator())
                 .commit()
                 .show(new MakeReservationFragment());
+
     }
-
-
 
     @Override
     public void onClick(View v) {
