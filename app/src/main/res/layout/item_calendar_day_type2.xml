@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="1dp" >
+
+    <RelativeLayout
+        android:id="@+id/itemCalendarDay_vBg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_centerInParent="true"
+            android:id="@+id/itemCalendarDay_tvDay"
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="10sp"
+            android:textColor="@color/okHomeGrayDeep"/>
+
+
+        <LinearLayout
+            android:layout_centerInParent="true"
+            android:id="@+id/itemCalendarDay_llTime"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+
+
+            <TextView
+                android:layout_marginTop="1dp"
+                android:textSize="9sp"
+                android:id="@+id/itemCalendarDay_tvTime"
+                android:gravity="center"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:text="06:00"
+                android:background="@drawable/circle_lightblue"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

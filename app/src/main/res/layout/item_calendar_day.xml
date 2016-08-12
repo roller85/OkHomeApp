@@ -14,7 +14,7 @@
             android:id="@+id/itemCalendarDay_tvDay"
             android:text="1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:textSize="11sp"
+            android:layout_height="wrap_content" android:textSize="10sp"
             android:textColor="@color/okHomeGrayDeep"/>
 
         <ImageView

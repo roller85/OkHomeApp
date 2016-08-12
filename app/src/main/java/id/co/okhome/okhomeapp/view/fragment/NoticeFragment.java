@@ -18,8 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.model.NoticeModel;
-import id.co.okhome.okhomeapp.viewholder.BlankHolder;
-import id.co.okhome.okhomeapp.viewholder.NoticeHolder;
+import id.co.okhome.okhomeapp.view.viewholder.BlankHolder;
+import id.co.okhome.okhomeapp.view.viewholder.NoticeHolder;
 
 /**
  * Created by josongmin on 2016-07-28.

@@ -1,4 +1,4 @@
-package id.co.okhome.okhomeapp.viewholder;
+package id.co.okhome.okhomeapp.view.viewholder;
 
 import android.view.View;
 import android.widget.TextView;

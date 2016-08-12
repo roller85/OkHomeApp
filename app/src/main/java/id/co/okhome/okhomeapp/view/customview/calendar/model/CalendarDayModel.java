@@ -3,14 +3,13 @@ package id.co.okhome.okhomeapp.view.customview.calendar.model;
 import java.util.Calendar;
 
 
-
 /**
  * Value object for a day
  * @author brownsoo
  *
  */
 public class CalendarDayModel {
-    
+
     public Calendar cal;
     private CharSequence msg = "";
 

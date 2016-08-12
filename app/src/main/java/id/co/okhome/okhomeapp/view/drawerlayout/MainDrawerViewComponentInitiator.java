@@ -15,7 +15,6 @@ import id.co.okhome.okhomeapp.view.fragment.CustomerCenterFragment;
 import id.co.okhome.okhomeapp.view.fragment.MakeReservationFragment;
 import id.co.okhome.okhomeapp.view.fragment.MyCleaningCalendarFragment;
 import id.co.okhome.okhomeapp.view.fragment.NoticeFragment;
-import id.co.okhome.okhomeapp.view.fragment.QnAFragment;
 import id.co.okhome.okhomeapp.view.fragment.SettingFragment;
 
 /**
@@ -39,7 +38,6 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
             R.id.layerMenuItems_vBtnUserInfo, R.id.layerMenuItems_vBtnMakeReservation, R.id.layerMenuItems_vBtnSetting
             , R.id.layerMenuItems_vBtnNotice
             , R.id.layerMenuItems_vBtnSchedule, R.id.layerMenuItems_vBtnCharge, R.id.layerMenuItems_vBtnCustomerCenter
-            , R.id.layerMenuItems_vBtnQnA
     })
     public void onBtnMakeReservationClick(View v){
         Fragment f = null;
@@ -50,10 +48,6 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 activity.startActivity(new Intent(activity, UserInfoActivity.class));
                 return;
 
-            //fragment
-            case R.id.layerMenuItems_vBtnQnA:
-                f = new QnAFragment();
-                break;
 
             case R.id.layerMenuItems_vBtnMakeReservation:
                 f = new MakeReservationFragment();
