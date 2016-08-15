@@ -1,4 +1,4 @@
-package id.co.okhome.okhomeapp.view.fragment;
+package id.co.okhome.okhomeapp.view.fragment.tabitem;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,10 +12,10 @@ import id.co.okhome.okhomeapp.R;
  * Created by josongmin on 2016-07-28.
  */
 
-public class CustomerCenterFragment extends Fragment {
+public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_customercenter, null);
+        return inflater.inflate(R.layout.fragment_setting, null);
     }
 
     @Override

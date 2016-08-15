@@ -9,8 +9,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
+import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.view.drawerlayout.MainDrawerViewComponentInitiator;
-import id.co.okhome.okhomeapp.view.fragment.MakeReservationFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .commit()
                 .show(new MakeReservationFragment());
 
+        Util.showToast(this, "오 빨라졋네");
     }
 
     @Override

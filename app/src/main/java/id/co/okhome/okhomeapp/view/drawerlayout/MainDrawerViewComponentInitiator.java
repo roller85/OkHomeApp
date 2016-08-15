@@ -11,11 +11,11 @@ import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
 import id.co.okhome.okhomeapp.view.activity.UserInfoActivity;
-import id.co.okhome.okhomeapp.view.fragment.CustomerCenterFragment;
-import id.co.okhome.okhomeapp.view.fragment.MakeReservationFragment;
-import id.co.okhome.okhomeapp.view.fragment.MyCleaningCalendarFragment;
-import id.co.okhome.okhomeapp.view.fragment.NoticeFragment;
-import id.co.okhome.okhomeapp.view.fragment.SettingFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.CustomerCenterFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.NoticeFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.SettingFragment;
 
 /**
  * Created by josongmin on 2016-07-28.

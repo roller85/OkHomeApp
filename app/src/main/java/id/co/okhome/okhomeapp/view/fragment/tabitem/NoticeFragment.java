@@ -1,4 +1,4 @@
-package id.co.okhome.okhomeapp.view.fragment;
+package id.co.okhome.okhomeapp.view.fragment.tabitem;
 
 import android.os.Bundle;
 import android.os.Handler;
