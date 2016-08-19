@@ -33,8 +33,7 @@
 
             <TextView
                 android:id="@+id/actMakeOneDayReservation_tvTitle"
-                android:textStyle="italic|bold"
-                android:textSize="14.5sp"
+                android:textSize="13.5sp"
                 android:textColor="#4f5661"
                 android:text="When do you want to get our service?"
                 android:layout_width="wrap_content"
@@ -61,13 +60,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" android:id="@+id/actMakeOneDayReservation_rlCalendar">
 
-        <android.support.v4.view.ViewPager
+        <id.co.okhome.okhomeapp.view.customview.OkHomeViewPager
             android:id="@+id/actMakeOneDayReservation_vpContents"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-        </android.support.v4.view.ViewPager>
+        </id.co.okhome.okhomeapp.view.customview.OkHomeViewPager>
     </LinearLayout>
 
     <LinearLayout

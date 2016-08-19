@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:paddingLeft="25dp" android:paddingRight="25dp"
+        android:paddingTop="25dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialogCommonInputbox_tvTitle"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorAppPrimary2"
+            android:text="Change phone number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/dialogCommonInputbox_tvSubTitle"
+            android:textSize="12sp"
+            android:textColor="@color/colorLightGray"
+            android:text="What is your phone number?"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <RelativeLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp" android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dialogChangePhoneNumber_vbtnSendSms"
+                android:paddingLeft="10dp" android:paddingRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@color/colorLightGray"
+                android:layout_alignParentBottom="true"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:text="Confirm"/>
+            </LinearLayout>
+
+            <EditText
+                android:inputType="phone"
+                android:id="@+id/dialogChangePhoneNumber_etInputPhoneNumber"
+                android:background="@drawable/bg_inputbox"
+                android:textSize="13sp"
+                android:hint="What is your phonenumber?"
+                android:padding="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="42dp" android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/dialogChangePhoneNumber_etInputVerificationCode"
+                android:inputType="phone"
+                android:background="@drawable/bg_inputbox"
+                android:textSize="13sp"
+                android:hint="Input verification code"
+                android:padding="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/dialogChangePhoneNumber_vbtnVerification"
+                android:paddingLeft="10dp" android:paddingRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="3dp"
+                android:layout_weight="1"
+                android:background="@color/colorLightGray"
+                android:layout_alignParentBottom="true"
+                android:layout_width="60dp"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:textColor="#ffffff"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:text="Confirm"/>
+            </LinearLayout>
+        </RelativeLayout>
+        <include layout="@layout/layer_dialog_actionbtns" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

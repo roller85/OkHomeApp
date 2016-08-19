@@ -17,12 +17,6 @@
             android:layout_height="wrap_content" android:textSize="10sp"
             android:textColor="@color/okHomeGrayDeep"/>
 
-        <ImageView
-            android:id="@+id/itemCalendarDay_ivCleaning"
-            android:layout_centerInParent="true"
-            android:layout_width="24dp"
-            android:layout_height="wrap_content" android:adjustViewBounds="true"
-            android:src="@drawable/ic_cleaning"/>
     </RelativeLayout>
 
 </RelativeLayout>

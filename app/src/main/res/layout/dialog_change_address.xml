@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+    <LinearLayout
+        android:paddingLeft="25dp" android:paddingRight="25dp"
+        android:paddingTop="25dp"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/dialogCommonInputbox_tvTitle"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorAppPrimary2"
+            android:text="House address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+
+            <!-- 아이템-->
+            <LinearLayout
+                android:id="@+id/dialogChangeAddress_vbtnState"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="State/Province"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <LinearLayout
+                        android:layout_centerVertical="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/dialogChangeAddress_tvState"
+                            android:text="(choose)"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorGray"
+                            android:layout_centerVertical="true" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="10dp"
+                        android:src="@drawable/ic_right_simplearrow_black"
+                        android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                    <View
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" android:background="#22000000"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- 아이템-->
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="City"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp">
+
+                    <LinearLayout
+                        android:layout_centerVertical="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:text="(Choose)"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorGray"
+                            android:layout_centerVertical="true" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginBottom="10dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="10dp"
+                        android:src="@drawable/ic_right_simplearrow_black"
+                        android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                    <View
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px" android:background="#22000000"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!-- 아이템-->
+            <LinearLayout
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Address line"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_inputbox"
+                        android:textSize="13sp"
+                        android:hint="Where do you live"
+                        android:padding="14dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <include layout="@layout/layer_dialog_actionbtns" />
+    </LinearLayout>
+
+
+</RelativeLayout>

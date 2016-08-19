@@ -25,6 +25,7 @@
             android:src="@drawable/img_noti_team"/>
 
         <LinearLayout
+            android:id="@+id/fragmentMakeReservationHouseInfo_vbtnHomeAddress"
             android:layout_marginTop="16dp"
             android:orientation="vertical"
             android:layout_width="match_parent"

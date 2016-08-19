@@ -19,8 +19,8 @@ import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.JoViewRepeater;
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.lib.dialogplus.DialogController;
-import id.co.okhome.okhomeapp.lib.dialogplus.ViewDialog;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.model.CleaningItemModel;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningDialog;
 
@@ -119,7 +119,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment {
                             //콜백 처리
                             , new ChooseCleaningDialog().setCommonCallback(new ViewDialog.DialogCommonCallback() {
                                 @Override
-                                public void onCallback(DialogPlus dialogPlus, Map<String, Object> params) {
+                                public void onCallback(Object dialog, Map<String, Object> params) {
                                     boolean isChked = (boolean)params.get("isChked");
                                     int pos = (int)params.get("pos");
                                     CleaningItemModel model = (CleaningItemModel)params.get("CleaningItemModel");

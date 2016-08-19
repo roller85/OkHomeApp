@@ -38,8 +38,6 @@ public class CalendarDayViewType1 extends CalendarDayView {
         vParent = v;
         tvDay = (TextView) v.findViewById(R.id.itemCalendarDay_tvDay);
         vgBg = (ViewGroup)v.findViewById(R.id.itemCalendarDay_vBg);
-        vCleaning = v.findViewById(R.id.itemCalendarDay_ivCleaning);
-        vCleaning.setVisibility(INVISIBLE);
     }
 
     @Override
@@ -52,7 +50,7 @@ public class CalendarDayViewType1 extends CalendarDayView {
         tvDay.setText(String.valueOf(getDayModel().get(Calendar.DAY_OF_MONTH)));
 
         if(getDayModel().isCurrentMonth){
-            vgBg.setBackgroundColor(Color.parseColor("#07000000"));
+            vgBg.setBackgroundColor(Color.parseColor("#05000000"));
             tvDay.setAlpha(1f);
         }else{
             vgBg.setBackgroundColor(Color.parseColor("#02000000"));
@@ -69,13 +67,5 @@ public class CalendarDayViewType1 extends CalendarDayView {
             tvDay.setTextColor(getResources().getColor(R.color.okHomeGrayDeep));
         }
 
-        vParent.setOnClickListener(onDayClickListener);
     }
-
-    OnClickListener onDayClickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            //흠..
-        }
-    };
 }

@@ -7,28 +7,31 @@
     <RelativeLayout
         android:id="@+id/actUserInfo_rlTop"
         android:layout_width="match_parent"
-        android:layout_height="54dp">
+        android:layout_height="52dp">
 
         <LinearLayout
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
             android:id="@+id/actMain_llbtnMore"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:orientation="vertical">
 
-            <ImageView
-                android:adjustViewBounds="true"
-                android:layout_width="16dp"
-                android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
 
-
+            <LinearLayout
+                android:id="@+id/common_vbtnBack"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
+            </LinearLayout>
         </LinearLayout>
 
         <TextView
             android:textStyle="bold"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="User Information" android:textSize="18.5sp"
+            android:layout_height="wrap_content" android:text="Profile setting" android:textSize="17.5sp"
             android:textColor="@color/okHomeGrayDeep"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/actMain_llbtnMore" />
@@ -36,7 +39,7 @@
         <View
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="1px" android:background="#33000000"/>
+            android:layout_height="1px" android:background="#22000000"/>
     </RelativeLayout>
 
 
@@ -60,13 +63,14 @@
 
 
                 <LinearLayout
+                    android:id="@+id/actUseInfo_vbtnPhoto"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:textStyle="bold"
-                        android:text="My photo"
+                        android:text="Photo"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -78,6 +82,7 @@
                         android:layout_height="60dp">
 
                         <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/actUserInfo_ivPhoto"
                             android:layout_centerVertical="true"
                             android:layout_width="42dp"
                             android:layout_height="42dp"
@@ -95,14 +100,15 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
+                            android:layout_height="1px" android:background="#18000000"/>
 
 
                     </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="20dp"
+                    android:id="@+id/actUserInfo_vbtnPhone"
+                    android:layout_marginTop="24dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -124,7 +130,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
-                                android:text="+8210 9314 9449"
+                                android:id="@+id/actUserInfo_tvPhone"
+                                android:text="주기설정"
                                 android:textSize="14sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -142,13 +149,14 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
+                            android:layout_height="1px" android:background="#18000000"/>
 
                     </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="20dp"
+                    android:id="@+id/actUserInfo_vbtnEmail"
+                    android:layout_marginTop="24dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -170,13 +178,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <TextView
+                                android:id="@+id/actUserInfo_tvEmail"
                                 android:text="944899@gmail.com"
                                 android:textSize="14sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"
                                 android:layout_centerVertical="true" />
-
                         </LinearLayout>
                         <ImageView
                             android:layout_centerVertical="true"
@@ -188,21 +196,21 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
+                            android:layout_height="1px" android:background="#18000000"/>
 
                     </RelativeLayout>
                 </LinearLayout>
 
                 <!--집 정보-->
                 <LinearLayout
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="24dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:textStyle="bold"
-                        android:text="My house information"
+                        android:text="House information"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -235,7 +243,7 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
+                            android:layout_height="1px" android:background="#18000000"/>
 
                     </RelativeLayout>
                     <RelativeLayout
@@ -252,7 +260,7 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
+                            android:layout_height="1px" android:background="#18000000"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -271,6 +279,7 @@
                     </RelativeLayout>
 
                     <LinearLayout
+                        android:id="@+id/actUserInfo_vbtnAddHomeInfo"
                         android:layout_marginTop="14dp"
                         android:gravity="center"
                         android:layout_width="match_parent"
@@ -307,7 +316,30 @@
 
     </ScrollView>
 
+
     <LinearLayout
+        android:layout_margin="14dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:id="@+id/fragmentMyCleaningCalendar_btnClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/shawdowcircle"
+            android:layout_width="48dp"
+            android:layout_height="48dp">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:gravity="center"
         android:layout_marginTop="35dp"

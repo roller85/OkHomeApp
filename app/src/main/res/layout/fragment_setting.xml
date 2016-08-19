@@ -143,6 +143,7 @@
 
                 <!--필드-->
                 <RelativeLayout
+                    android:id="@+id/fragSetting_vbtnLogout"
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="42dp">
@@ -185,6 +186,7 @@
 
                 <!--필드-->
                 <RelativeLayout
+                    android:id="@+id/fragSetting_vbtnDeleteAccount"
                     android:layout_width="match_parent"
                     android:layout_height="42dp">
 
@@ -226,6 +228,7 @@
 
                 <!--필드-->
                 <RelativeLayout
+                    android:id="@+id/fragSetting_vbtnVersion"
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="42dp">

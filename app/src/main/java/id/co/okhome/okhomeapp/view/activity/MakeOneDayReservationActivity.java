@@ -1,14 +1,16 @@
 package id.co.okhome.okhomeapp.view.activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,21 +19,23 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.view.customview.OkHomeViewPager;
 import id.co.okhome.okhomeapp.view.customview.ProgressDotsView;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.HouseInfoFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.RequestorInfoFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.ChooseDayFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.OnedayCleaningInvoiceFragment;
 
-public class MakeOneDayReservationActivity extends AppCompatActivity {
+public class MakeOneDayReservationActivity extends OkHomeActivityParent {
 
-    @BindView(R.id.actMakeOneDayReservation_vpContents) ViewPager vpContents;
+    @BindView(R.id.actMakeOneDayReservation_vpContents) OkHomeViewPager vpContents;
     @BindView(R.id.actMakeOneDayReservation_tvCount)    TextView tvCount;
     @BindView(R.id.actMakeOneDayReservation_pdv)        ProgressDotsView pdv;
     @BindView(R.id.actMakeOneDayReservation_tvTitle)    TextView tvTitle;
     @BindView(R.id.actMakeOneDayReservation_tvLeft)     TextView tvLeft;
-    @BindView(R.id.actMakeOneDayReservation_tvRight)     TextView tvRight;
+    @BindView(R.id.actMakeOneDayReservation_tvRight)    TextView tvRight;
 
 
     Reservation1DayCleaningAdapter pagerAdapter;
@@ -45,11 +49,17 @@ public class MakeOneDayReservationActivity extends AppCompatActivity {
         init();
     }
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
+
     private void init(){
-        Util.disableViewPagerSwiping(vpContents);
         pagerAdapter = new Reservation1DayCleaningAdapter(getSupportFragmentManager());
         pdv.setMaxCount(pagerAdapter.getCount());
 
+        vpContents.setPagingEnabled(false);
         vpContents.addOnPageChangeListener(pagerAdapter);
         vpContents.setAdapter(pagerAdapter);
         vpContents.setCurrentItem(0);

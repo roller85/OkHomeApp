@@ -1,17 +1,25 @@
 package id.co.okhome.okhomeapp.view.drawerlayout;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
+import id.co.okhome.okhomeapp.view.activity.MainActivity;
 import id.co.okhome.okhomeapp.view.activity.UserInfoActivity;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.ChargePointFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.CustomerCenterFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.HistoryFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.NoticeFragment;
@@ -25,30 +33,75 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
 
     DrawerLayoutController drawerLayoutController;
     FragmentActivity activity;
+    View vTabIconBefore = null;
+    TextView tvTitleBefore = null;
     //서랍뷰들 초기화
     @Override
-    public void initDrawerContent(FragmentActivity activity, DrawerLayoutController drawerLayoutController, DrawerLayout drawerLayout,  View vParent) {
+    public void initDrawerContent(FragmentActivity activity, DrawerLayoutController drawerLayoutController, DrawerLayout drawerLayout, View vParent) {
         ButterKnife.bind(this, vParent);
         this.activity = activity;
         this.drawerLayoutController = drawerLayoutController;
+
+        //최초마킹
+        markTabItem(activity.findViewById(R.id.layerMenuItems_vBtnMakeReservation));
     }
 
+    private void markTabItem(View vBtnTab){
 
-    @OnClick({
-            R.id.layerMenuItems_vBtnUserInfo, R.id.layerMenuItems_vBtnMakeReservation, R.id.layerMenuItems_vBtnSetting
+
+
+        if(vTabIconBefore != null){
+            vTabIconBefore.setVisibility(View.INVISIBLE);
+        }
+
+        View vTabIcon = vBtnTab.findViewById(R.id.tabIcon);
+        if(vTabIcon != null){
+            vTabIcon.setVisibility(View.VISIBLE);
+            vTabIconBefore  = vTabIcon;
+        }
+
+        //--------------------
+
+        if(tvTitleBefore != null){
+            //텍스트 작고 안 굵게
+            tvTitleBefore.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14.5f);
+            tvTitleBefore.setTextColor(Color.parseColor("#818895"));
+            Typeface tf = tvTitleBefore.getTypeface();
+            if(tvTitleBefore.getTypeface() != null){
+                tvTitleBefore.setTypeface(tf, Typeface.NORMAL);
+            }else{
+                tvTitleBefore.setTypeface(null, Typeface.NORMAL);
+            }
+        }
+
+        //타이틀부분 변경
+        TextView tvTitle = (TextView)((ViewGroup)vBtnTab).getChildAt(1);
+        if(tvTitle != null){
+            //텍스트 크고 굵게
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f);
+            tvTitle.setTextColor(Color.parseColor("#3b3e45"));
+            Typeface tf = tvTitle.getTypeface();
+            if(tf != null){
+                tvTitle.setTypeface(tf, Typeface.BOLD);
+            }else{
+                tvTitle.setTypeface(null, Typeface.BOLD);
+            }
+            tvTitleBefore = tvTitle;
+        }
+    }
+
+    @OnClick({R.id.layerMenuItems_vBtnMakeReservation, R.id.layerMenuItems_vBtnSetting, R.id.layerMenuItems_vBtnHistory
             , R.id.layerMenuItems_vBtnNotice
-            , R.id.layerMenuItems_vBtnSchedule, R.id.layerMenuItems_vBtnCharge, R.id.layerMenuItems_vBtnCustomerCenter
-    })
-    public void onBtnMakeReservationClick(View v){
+            , R.id.layerMenuItems_vBtnSchedule, R.id.layerMenuItems_vBtnCharge, R.id.layerMenuItems_vBtnCustomerCenter})
+    public void onBtnStartFragmentClick(View v){
+
+        markTabItem(v);
+        if(activity instanceof MainActivity){
+            ((MainActivity) activity).setSettingBtnClickListener(null); //리스너 취소. 버튼도 gone상태로
+        }
+
         Fragment f = null;
         switch(v.getId()){
-
-            //activity;
-            case R.id.layerMenuItems_vBtnUserInfo:
-                activity.startActivity(new Intent(activity, UserInfoActivity.class));
-                return;
-
-
             case R.id.layerMenuItems_vBtnMakeReservation:
                 f = new MakeReservationFragment();
                 break;
@@ -58,7 +111,7 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 break;
 
             case R.id.layerMenuItems_vBtnCharge:
-                f = new SettingFragment();
+                f = new ChargePointFragment();
                 break;
 
             case R.id.layerMenuItems_vBtnSetting:
@@ -72,9 +125,26 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
             case R.id.layerMenuItems_vBtnCustomerCenter:
                 f = new CustomerCenterFragment();
                 break;
+
+            case R.id.layerMenuItems_vBtnHistory:
+                f = new HistoryFragment();
+                break;
+
+
+        }
+        drawerLayoutController.show(f);
+    }
+
+    @OnClick({R.id.layerMenuItems_vBtnUserInfo})
+    public void onBtnStartActivityClick(View v){
+        switch(v.getId()) {
+            //activity;
+            case R.id.layerMenuItems_vBtnUserInfo:
+                activity.startActivity(new Intent(activity, UserInfoActivity.class));
+                return;
         }
 
-        drawerLayoutController.show(f);
+
     }
 
 

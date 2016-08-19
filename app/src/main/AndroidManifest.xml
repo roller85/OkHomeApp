@@ -3,15 +3,14 @@
     package="id.co.okhome.okhomeapp">
 
     <application
+        android:name=".view.OkHomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_okhome"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.MakeOneDayReservationActivity">
-
-        </activity>
+        <activity android:name=".view.activity.MakeOneDayReservationActivity"></activity>
         <activity android:name=".view.activity.IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.activity.UserInfoActivity" />
+        <activity android:name=".view.activity.StartActivity">
+
+
+        </activity>
     </application>
 
 </manifest>

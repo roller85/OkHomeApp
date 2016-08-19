@@ -108,14 +108,6 @@
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_marginRight="8dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/sample_model4"
-                        android:scaleType="centerCrop"
-                        app:sriv_oval="true" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -177,14 +169,6 @@
                     android:gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <com.joooonho.SelectableRoundedImageView
-                        android:layout_marginRight="8dp"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:adjustViewBounds="true"
-                        android:src="@drawable/sample_model4"
-                        android:scaleType="centerCrop"
-                        app:sriv_oval="true" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -263,17 +247,25 @@
         android:weightSum="10"
         android:layout_width="match_parent"
         android:layout_height="50dp">
-        <TextView
+        <LinearLayout
+            android:id="@+id/fragmentMakeReservation_vbtnHelp"
             android:layout_weight="4"
-            android:textStyle="bold"
-            android:textSize="15sp"
             android:gravity="center"
-            android:text="Need help"
-            android:layout_width="0dp"
-            android:layout_height="match_parent" android:background="#6681828c"
-            android:textColor="#ffffff"
+            android:background="#6681828c"
             android:paddingTop="10dp" android:paddingBottom="10dp"
-            android:paddingLeft="20dp" android:paddingRight="20dp" />
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textStyle="bold"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Need help"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textColor="#ffffff"/>
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/fragmentMakeReservation_vbtnDo"
@@ -286,13 +278,13 @@
 
             <ImageView
                 android:layout_marginRight="10dp"
-                android:layout_width="14dp"
+                android:layout_width="13dp"
                 android:adjustViewBounds="true"
                 android:layout_height="wrap_content" android:src="@drawable/ic_chk_circle_white"/>
 
             <TextView
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:gravity="center"
                 android:text="Make reservation"
                 android:layout_width="wrap_content"

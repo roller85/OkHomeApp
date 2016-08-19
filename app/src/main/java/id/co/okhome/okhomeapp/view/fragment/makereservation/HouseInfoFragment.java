@@ -14,8 +14,12 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.JoChoiceViewController;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
+import id.co.okhome.okhomeapp.view.dialog.HouseAddressDialog;
 
 /**
  * Created by josongmin on 2016-07-28.
@@ -68,6 +72,16 @@ public class HouseInfoFragment extends Fragment {
                         .addItem("Dog").addItem("Cat").addItem("Etc").addItem("Nope")
                         .build());
 
+    }
+
+    @OnClick(R.id.fragmentMakeReservationHouseInfo_vbtnHomeAddress)
+    public void onHomeAddressClick(View v){
+        DialogController.showCenterDialog(getContext(), new HouseAddressDialog(new ViewDialog.DialogCommonCallback() {
+            @Override
+            public void onCallback(Object dialog, Map<String, Object> params) {
+
+            }
+        }));
     }
 
     class CommonChoiceViewController extends JoChoiceViewController<String> {

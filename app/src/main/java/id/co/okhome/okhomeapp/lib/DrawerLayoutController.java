@@ -4,7 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
 
 import java.util.HashMap;
@@ -64,8 +66,17 @@ public class DrawerLayoutController {
         return this;
     }
 
-    public void show(Fragment fragment){
+    public DrawerLayoutController show(Fragment fragment){
         show(fragment, true);
+        return this;
+    }
+
+    public void toggle(){
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(Gravity.LEFT); //CLOSE Nav Drawer!
+        }else{
+            drawerLayout.openDrawer(Gravity.LEFT); //OPEN Nav Drawer!
+        }
     }
 
     public void show(final Fragment fragment, final boolean showContents){

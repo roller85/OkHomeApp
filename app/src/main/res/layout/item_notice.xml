@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:paddingLeft="14dp" android:paddingRight="14dp"
-        android:paddingTop="11dp" android:paddingBottom="11dp"
+        android:paddingTop="13dp" android:paddingBottom="13dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -33,11 +33,12 @@
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" android:text="Hello It is first notice!"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     android:textColor="#dd3b3e45"/>
             </LinearLayout>
 
             <TextView
+                android:layout_marginTop="2dp"
                 android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="2016.01.12"

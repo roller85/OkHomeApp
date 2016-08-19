@@ -98,6 +98,7 @@ public class CalendarMonthView extends LinearLayout implements View.OnClickListe
 
                 ll.addView(ov);
                 arrDayView.add(ov);
+
             }
         }
 
@@ -210,6 +211,10 @@ public class CalendarMonthView extends LinearLayout implements View.OnClickListe
 
     public CalendarDayView getDayView(String yyyymmdd){
         return mapDayView.get(yyyymmdd);
+    }
+
+    public CalendarDayView getDayViewSample(){
+        return arrDayView.get(0);
     }
 
     @Override

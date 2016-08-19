@@ -1,23 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:background="#ffffff"
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <id.co.okhome.okhomeapp.view.customview.ProgressDotsView
-        android:id="@+id/dialogCleaningList_pdv"
-        android:layout_marginTop="20dp"
+    <LinearLayout
+        android:orientation="vertical"
+        android:background="#ffffff"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </id.co.okhome.okhomeapp.view.customview.ProgressDotsView>
+        <LinearLayout
+            android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:weightSum="8"
+                android:layout_width="match_parent"
+                android:layout_height="53dp">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/dialogCleaningList_vp"
-        android:layout_width="match_parent"
-        android:layout_height="260dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
 
-    </android.support.v4.view.ViewPager>
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_1"
+                        android:layout_width="20dp"  android:alpha="1"
+                        android:layout_height="wrap_content" />
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_2"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_5"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_4"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_1"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_5"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_1"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_household_2"
+                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:weightSum="8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <View
+                    android:id="@+id/dialogCleaningList_vTabBar"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp" android:background="@color/colorAppPrimary2"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#39000000"/>
+
+        <id.co.okhome.okhomeapp.view.customview.ProgressDotsView
+            android:visibility="gone"
+            android:id="@+id/dialogCleaningList_pdv"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </id.co.okhome.okhomeapp.view.customview.ProgressDotsView>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/dialogCleaningList_vp"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
 </LinearLayout>

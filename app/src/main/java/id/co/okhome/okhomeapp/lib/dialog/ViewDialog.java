@@ -1,11 +1,13 @@
-package id.co.okhome.okhomeapp.lib.dialogplus;
+package id.co.okhome.okhomeapp.lib.dialog;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.orhanobut.dialogplus.DialogPlus;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -15,9 +17,9 @@ import java.util.Map;
 public abstract class ViewDialog {
     Context context;
     View view;
-    Map<String, Object> params = null;
-    DialogPlus dialogPlus;
+    Map<String, Object> params = new HashMap<>();
     DialogCommonCallback commonCallback;
+    Object dialog = null;
 
     public ViewDialog(Context context) {
         this.context = context;
@@ -39,16 +41,18 @@ public abstract class ViewDialog {
         return context;
     }
 
-    public void setDialogPlus(DialogPlus dialogPlus) {
-        this.dialogPlus = dialogPlus;
-    }
-
-    public DialogPlus getDialogPlus() {
-        return dialogPlus;
-    }
-
-    public void setParams(Map<String, Object> params) {
+    public ViewDialog setParams(Map<String, Object> params) {
         this.params = params;
+        return this;
+    }
+
+    public ViewDialog addParam(String key, Object value) {
+        params.put(key, value);
+        return this;
+    }
+
+    public Map<String, Object> getParams() {
+        return params;
     }
 
     public void setContext(Context context){
@@ -62,6 +66,14 @@ public abstract class ViewDialog {
 
     }
 
+    public void setDialog(Object dialog) {
+        this.dialog = dialog;
+    }
+
+    public Object getDialog() {
+        return dialog;
+    }
+
     public View getDecorView(){
         return view;
     }
@@ -71,6 +83,15 @@ public abstract class ViewDialog {
 
 
     public interface DialogCommonCallback{
-        public void onCallback(DialogPlus dialogPlus, Map<String, Object> params);
+        public void onCallback(Object dialog, Map<String, Object> params);
+    }
+
+    public void dismiss(){
+        if(getDialog() instanceof Dialog){
+            ((Dialog) getDialog()).dismiss();
+        }else if(getDialog() instanceof DialogPlus){
+            ((DialogPlus) getDialog()).dismiss();
+        }
+
     }
 }

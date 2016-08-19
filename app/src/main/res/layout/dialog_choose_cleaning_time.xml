@@ -41,7 +41,7 @@
             android:id="@+id/dialogChooseCleaningTime_ivChkTime1"
             android:adjustViewBounds="true"
             android:layout_width="20dp"
-            android:layout_height="wrap_content" android:src="@drawable/ic_checked" />
+            android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
 
         <TextView
             android:textSize="13sp"

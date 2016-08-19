@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:paddingLeft="23dp" android:paddingRight="23dp"
+            android:paddingTop="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/colorAppPrimary2"
+                android:text="Cleaning schedule setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Cleaning cycle setting"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray" />
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:background="#18000000"/>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_marginRight="10dp"
+                            android:layout_width="22dp"
+                            android:adjustViewBounds="true"
+                            android:layout_height="wrap_content" android:src="@drawable/ic_checked" />
+                        <TextView
+                            android:text="Every a week"
+                            android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorGray"
+                            android:layout_centerVertical="true" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textSize="9sp"
+                            android:textColor="#ffffff"
+                            android:gravity="center"
+                            android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp"
+                            android:text="Mon"
+                            android:layout_height="35dp" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_appcolor"
+                            android:layout_width="35dp" android:text="Tue" android:layout_height="35dp" />
+
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp" android:text="Wed" android:layout_height="35dp" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp" android:text="Thu" android:layout_height="35dp" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp" android:text="Fri" android:layout_height="35dp" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp" android:text="Sat" android:layout_height="35dp" />
+
+                        <TextView
+                            android:layout_marginLeft="4dp" android:textSize="9sp" android:textColor="#ffffff"
+                            android:gravity="center" android:background="@drawable/circle_gray_whitegray"
+                            android:layout_width="35dp" android:text="Sun" android:layout_height="35dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_centerVertical="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_marginRight="10dp"
+                            android:layout_width="22dp"
+                            android:adjustViewBounds="true"
+                            android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+                        <TextView
+                            android:text="Every 2 weeks"
+                            android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorGray"
+                            android:layout_centerVertical="true" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:text="Temporary holding off"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray" />
+
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:background="#18000000"/>
+
+                <LinearLayout
+                    android:background="@drawable/bg_inputbox"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+
+                        android:id="@+id/dialogCalendarSetting_vbtnTerm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textSize="13sp"
+                            android:hint="Choose term"
+                            android:padding="14dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_marginRight="10dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content" android:adjustViewBounds="true"
+                            android:src="@drawable/ic_downarrow"/>
+                    </RelativeLayout>
+                    <LinearLayout
+                        android:id="@+id/dialogCalendarSetting_vgHoldingTerm"
+                        android:paddingLeft="12dp" android:paddingRight="12dp"
+                        android:paddingBottom="12dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:orientation="vertical">
+
+                        <LinearLayout
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginRight="10dp"
+                                android:layout_width="22dp"
+                                android:adjustViewBounds="true"
+                                android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+                            <TextView
+                                android:text="1 Month"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:text="Until 16.02.2016"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorLightGray"
+                                android:layout_centerVertical="true" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginRight="10dp"
+                                android:layout_width="22dp"
+                                android:adjustViewBounds="true"
+                                android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+                            <TextView
+                                android:text="2 Month"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:text="Until 16.03.2016"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorLightGray"
+                                android:layout_centerVertical="true" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginRight="10dp"
+                                android:layout_width="22dp"
+                                android:adjustViewBounds="true"
+                                android:layout_height="wrap_content" android:src="@drawable/ic_checked" />
+                            <TextView
+                                android:text="3 Month"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                            <TextView
+                                android:layout_marginLeft="10dp"
+                                android:text="Until 16.04.2016"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorLightGray"
+                                android:layout_centerVertical="true" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <ImageView
+                                android:layout_marginRight="10dp"
+                                android:layout_width="22dp"
+                                android:adjustViewBounds="true"
+                                android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+                            <TextView
+                                android:text="Until specific date you want"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--visibile상태 변경 -->
+
+            </LinearLayout>
+
+
+            <include layout="@layout/layer_dialog_actionbtns" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

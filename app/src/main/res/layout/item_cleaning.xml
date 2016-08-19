@@ -4,47 +4,58 @@
     android:background="#ffffff"
     android:layout_height="match_parent" android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_above="@+id/itemCleaning_vbtnRequest"
         android:gravity="center"
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:id="@+id/itemCleaning_ivPhoto"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content" android:adjustViewBounds="true"
-            android:src="@drawable/img_noti_files"/>
+            android:src="@drawable/img_noti_cleaningitem_1"/>
+        <LinearLayout
 
-        <TextView
-            android:id="@+id/itemCleaning_tvTitle"
-            android:layout_marginTop="10dp"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorAppPrimary2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="Super-Super Home Cleaning package"/>
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/itemCleaning_tvDesc"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:textColor="@color/colorLightGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="Lorem ipsum is lorem ipsum\nkoala super magahome"/>
 
-        <TextView
-            android:id="@+id/itemCleaning_tvPrice"
-            android:textStyle="bold|italic"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:textColor="@color/colorGray"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:text="4 Hours / 180.000Rp"/>
+            <TextView
+                android:id="@+id/itemCleaning_tvTitle"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorAppPrimary2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Super-Super Home Cleaning package"/>
 
+            <TextView
+                android:id="@+id/itemCleaning_tvDesc"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:textSize="12sp"
+                android:textColor="@color/colorLightGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Lorem ipsum is lorem ipsum\nkoala super magahome"/>
+
+            <TextView
+                android:id="@+id/itemCleaning_tvPrice"
+                android:textStyle="bold|italic"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:textSize="13sp"
+                android:textColor="@color/colorGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="4 Hours / 180.000Rp"/>
+
+        </LinearLayout>
     </LinearLayout>
+
 
     <ImageView
         android:layout_alignParentRight="true"
@@ -59,13 +70,15 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="42dp">
+        android:layout_height="40dp">
+
         <TextView
+            android:textSize="13sp"
             android:id="@+id/itemCleaning_tvRequest"
             android:gravity="center"
             android:textColor="#ffffff"
             android:layout_width="match_parent"
-            android:layout_height="42dp" android:text="Request"/>
+            android:layout_height="match_parent" android:text="Request"/>
     </LinearLayout>
 
 

@@ -10,7 +10,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.lib.dialogplus.ViewDialog;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 
 /**
  * Created by josongmin on 2016-08-09.
@@ -54,7 +54,7 @@ public class ChooseCleaningTimeDialog extends ViewDialog{
                 break;
         }
 
-        getCommonCallback().onCallback(getDialogPlus(), Util.makeMap("TIME", time));
+        getCommonCallback().onCallback(getDialog(), Util.makeMap("TIME", time));
     }
 
 

@@ -67,43 +67,16 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <View
-                android:visibility="gone"
-                android:layout_marginLeft="10dp"
-                android:layout_width="2.5dp"
-                android:layout_height="18dp" android:background="@color/colorPrimary"
-                android:id="@+id/view2" />
-
-            <LinearLayout
-                android:layout_marginLeft="10dp"
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:orientation="vertical">
-                <View
-                    android:layout_marginLeft="4dp"
-                    android:layout_width="10dp"
-                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
-
-                <View
-                    android:layout_marginTop="2dp"
-                    android:layout_width="16dp"
-                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
-
-                <View
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="2dp"
-                    android:layout_width="10dp"
-                    android:layout_height="1.8dp" android:background="@drawable/bg_round_appcolor" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
-                android:textStyle="bold"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Make reservation" android:textSize="15.5sp"
-                android:textColor="#3b3e45"/>
+                android:layout_height="wrap_content" android:text="Make reservation" android:textSize="15sp"
+                android:textColor="#818895"/>
 
         </RelativeLayout>
 
@@ -111,12 +84,14 @@
             android:id="@+id/layerMenuItems_vBtnSchedule"
             android:layout_width="match_parent"
             android:layout_height="40dp">
-
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Schedule" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Schedule" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -126,16 +101,33 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <View
-                android:visibility="gone"
-                android:layout_width="3dp"
-                android:layout_height="18dp" android:background="@color/colorPrimary" />
-            <TextView
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
 
+            <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Charge voucher" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Charge point" android:textSize="14.5sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnHistory"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="History" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -146,15 +138,15 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <View
-                android:visibility="gone"
-                android:layout_width="3dp"
-                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Setting" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Setting" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -164,15 +156,15 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <View
-                android:visibility="gone"
-                android:layout_width="3dp"
-                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Notice" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Notice" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -182,15 +174,15 @@
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
-            <View
-                android:visibility="gone"
-                android:layout_width="3dp"
-                android:layout_height="18dp" android:background="@color/colorPrimary" />
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
             <TextView
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Customer center" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Customer center" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>

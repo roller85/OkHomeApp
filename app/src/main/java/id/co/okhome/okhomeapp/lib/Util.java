@@ -1,11 +1,14 @@
 package id.co.okhome.okhomeapp.lib;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -17,6 +20,29 @@ import java.util.Map;
  */
 
 public class Util {
+
+    /**etbox 키보드 컨트롤*/
+    public static void setSoftKeyboardVisiblity( EditText etTarget, boolean on){
+        if(on == true){
+            InputMethodManager imm = (InputMethodManager)etTarget.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(etTarget, InputMethodManager.SHOW_FORCED);
+            //imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+        }else{
+            InputMethodManager imm = (InputMethodManager)etTarget.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(etTarget.getWindowToken(), 0);
+        }
+    }
+
+    /**키보드 숨기기*/
+    public static final void hideKeyboard(Activity act){
+        try{
+            InputMethodManager inputManager = (InputMethodManager) act.getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputManager.hideSoftInputFromWindow(act.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }catch(Exception e){
+            ;
+        }
+
+    }
 
     /**dp를 픽셀로받기*/
     public static int getPixelByDp(Context context, int dp){
@@ -79,14 +105,14 @@ public class Util {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-                        break;
-                }
                 return true;
             }
         });
+    }
 
+    /** 뷰페이저 스와이핑 막기*/
+    public static final void ableViewPagerSwiping(ViewPager vp){
+        vp.setOnTouchListener(null);
     }
 
     /**화폐숫자 가져오기*/

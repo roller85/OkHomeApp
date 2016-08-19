@@ -3,13 +3,13 @@ package id.co.okhome.okhomeapp.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 
-public class IntroActivity extends AppCompatActivity {
+public class IntroActivity extends OkHomeActivityParent {
 
 
 

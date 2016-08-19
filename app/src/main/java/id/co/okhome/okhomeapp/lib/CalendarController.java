@@ -79,6 +79,10 @@ public class CalendarController {
         return this;
     }
 
+    public View getDayViewSample(){
+        return pagerAdapter.getCurrentMonthView().getDayViewSample();
+    }
+
     //캘린더초기화
     public CalendarController initCalendar(){
         vLoading.setVisibility(View.VISIBLE);
@@ -111,6 +115,10 @@ public class CalendarController {
                             tvYearMonth.setVisibility(View.VISIBLE);
 
                             vLoading.setVisibility(View.GONE);
+
+                            if(onCalendarChangeListener != null){
+                                onCalendarChangeListener.onCalendarLoad();
+                            }
                         }
                     }
                 }.sendEmptyMessageDelayed(pageDelayCount-1, 100);
@@ -260,6 +268,7 @@ public class CalendarController {
 
     public interface OnCalendarChangeListener{
         public void onMonthChange(int year, int month);
+        public void onCalendarLoad();
     }
 
 
