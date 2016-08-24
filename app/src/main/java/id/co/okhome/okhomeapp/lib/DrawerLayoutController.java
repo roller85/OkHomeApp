@@ -82,14 +82,15 @@ public class DrawerLayoutController {
     public void show(final Fragment fragment, final boolean showContents){
 
 
+        //현재 프래그먼트 어떻게 갖고오지?
         new android.os.Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 final FragmentTransaction tr = fm.beginTransaction();
                 tr.replace(contentId, fragment);
-//        tr.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-//                tr.addToBackStack(null);
+                tr.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                tr.addToBackStack(null);
                 tr.commit();
             }
         }, 280);

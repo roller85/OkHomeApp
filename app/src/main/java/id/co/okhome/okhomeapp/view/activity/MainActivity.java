@@ -12,6 +12,7 @@ import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
 import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 import id.co.okhome.okhomeapp.view.drawerlayout.MainDrawerViewComponentInitiator;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationGuestFragment;
 
 import static id.co.okhome.okhomeapp.lib.DrawerLayoutController.with;
 
@@ -37,7 +38,7 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
                 .with(this, R.id.actMain_flContent, drawerLayout)
                 .setViewComponentInitiator(new MainDrawerViewComponentInitiator())
                 .commit()
-                .show(new MakeReservationFragment());
+                .show(new MakeReservationGuestFragment());
     }
 
 

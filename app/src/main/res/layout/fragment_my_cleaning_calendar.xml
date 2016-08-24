@@ -84,9 +84,10 @@
 
         </LinearLayout>
 
+
         <View
             android:id="@+id/fragmentMyCleaningCalendar_vShadow"
-            android:alpha="0.25"
+            android:alpha="0.3"
             android:layout_width="match_parent"
             android:layout_height="55dp" android:background="@drawable/bg_circle_shadow_flip" />
 
@@ -98,180 +99,189 @@
 
 
         <LinearLayout
+            android:background="#ffffff"
             android:layout_below="@+id/fragmentMyCleaningCalendar_vShadow"
             android:id="@+id/fragmentMyCleaningCalendar_llPopupContent"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="255dp">
+            android:layout_height="wrap_content"
+            android:paddingTop="24dp"
+            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            >
 
             <LinearLayout
-                android:paddingLeft="22dp" android:paddingRight="22dp"
+                android:gravity="center_vertical"
+
                 android:orientation="vertical"
                 android:background="#ffffff"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-
-
                 <!--탭 -->
-                <LinearLayout
-                    android:layout_marginTop="15dp"
+                <RelativeLayout
                     android:background="#ffffff"
                     android:weightSum="10"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp">
+                    android:layout_height="wrap_content">
+
 
                     <LinearLayout
-                        android:layout_marginRight="2dp"
-                        android:gravity="center|left"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_marginRight="8dp"
-                            android:adjustViewBounds="true"
-                            android:layout_width="21dp"
-                            android:layout_height="wrap_content" android:src="@drawable/ic_checked"/>
-                        <TextView
-                            
-                            android:text="Periodic cleaning"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorAppPrimary2"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_marginLeft="2dp"
-                        android:gravity="center|left"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent">
-                        <ImageView
-                            android:layout_marginRight="8dp"
-                            android:adjustViewBounds="true"
-                            android:layout_width="21dp"
-                            android:layout_height="wrap_content" android:src="@drawable/ic_check_not"/>
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/fragmentMyCleaningCalendar_vbtnCancel"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
                         <TextView
-                            
-                            android:text="Cancel reservation"
+                            android:text="Hello Mr Jo!"
+                            android:textSize="12.5sp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorLightGray"/>
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/okHomeGray"
+                            android:id="@+id/textView6" />
+
+                        <TextView
+                            android:text="It is reservated automatically"
+                            android:textSize="12.5sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/okHomeGray"/>
+
 
                     </LinearLayout>
 
-                </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/fragmentMyCleaningCalendar_vbtnCancel"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="10dp" android:paddingRight="10dp"
+                        android:gravity="center"
+                        android:layout_gravity="right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp" android:background="@drawable/square_line_appcolor">
+
+                        <TextView
+
+                            android:textSize="12.5sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary2" android:text="Cancel Reservation"/>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
 
                 <!-- ON상태일대 컨텐츠-->
                 <LinearLayout
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="18dp"
                     android:orientation="vertical"
-                    android:background="#ffffff"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
+                        android:weightSum="10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="42dp">
 
+                        <RelativeLayout
+                            android:layout_marginRight="6dp"
+                            android:layout_weight="6"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp">
                             <LinearLayout
-                                android:layout_marginRight="16dp"
-                                android:gravity="left"
-                                android:layout_centerVertical="true"
+                                android:layout_marginTop="12dp"
+                                android:gravity="center_vertical"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
+                                <LinearLayout
+                                    android:layout_marginRight="6dp"
+                                    android:gravity="center"
+                                    android:layout_width="16dp"
+                                    android:layout_height="wrap_content">
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content" android:adjustViewBounds="true"
+                                        android:src="@drawable/ic_clock_3"/>
+
+                                </LinearLayout>
                                 <TextView
-                                    android:text="Mr Jo! We will go to your house"
+                                    android:gravity="left"
+                                    android:text="PM 03:00 ~ PM 07:00"
                                     android:textSize="12.5sp"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/okHomeGray"/>
-
-                                <TextView
-                                    
-                                    android:gravity="right"
-                                    android:text="PM 03:00"
-                                    android:textSize="12.5sp"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/colorGray"
-                                    android:layout_centerVertical="true" />
+                                    android:textColor="@color/okHomeGrayDeep" />
 
                             </LinearLayout>
                             <ImageView
                                 android:layout_centerVertical="true"
                                 android:layout_alignParentRight="true"
-                                android:layout_width="6dp"
-                                android:layout_height="wrap_content" android:adjustViewBounds="true"
-                                android:src="@drawable/ic_rightarrow_gray"/>
+                                android:layout_width="10dp"
+                                android:src="@drawable/ic_right_simplearrow_black"
+                                android:layout_height="wrap_content" android:adjustViewBounds="true" />
 
                             <View
                                 android:layout_alignParentBottom="true"
                                 android:layout_width="match_parent"
-                                android:layout_height="1px" android:background="#22000000"/>
-
+                                android:layout_height="1px" android:background="#44000000"/>
                         </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_marginLeft="6dp"
+                            android:layout_weight="4"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp">
+                            <LinearLayout
+                                android:layout_marginTop="12dp"
+                                android:gravity="center_vertical"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_marginRight="6dp"
+                                    android:gravity="center"
+                                    android:layout_width="16dp"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:layout_width="15dp"
+                                        android:layout_height="wrap_content" android:adjustViewBounds="true"
+                                        android:src="@drawable/ic_money"
+                                        android:id="@+id/imageView2" />
+
+                                </LinearLayout>
+                                <TextView
+                                    android:gravity="left"
+                                    android:text="200.000 Rp"
+                                    android:textSize="12.5sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/okHomeGrayDeep" />
+
+                            </LinearLayout>
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="10dp"
+                                android:src="@drawable/ic_right_simplearrow_black"
+                                android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px" android:background="#44000000"/>
+                        </RelativeLayout>
+
                     </LinearLayout>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="42dp">
 
-                        <LinearLayout
-                            android:gravity="left"
-                            android:layout_centerVertical="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                
-                                android:text="Cleaning time "
-                                android:textSize="12.5sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/okHomeGray"/>
-
-                            <TextView
-                                
-                                android:text="5 Hour, "
-                                android:textSize="12.5sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorAppPrimary2"/>
-
-                            <TextView
-                                
-                                android:text="Total price "
-                                android:textSize="12.5sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/okHomeGray"/>
-
-                            <TextView
-                                
-                                android:text="500.000Rp"
-                                android:textSize="12.5sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorAppPrimary2"/>
-
-
-                        </LinearLayout>
-
-                        <View
-                            android:layout_alignParentBottom="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
-
-                    </RelativeLayout>
 
                     <LinearLayout
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="26dp"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -280,30 +290,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-
-                            <LinearLayout
-                                android:id="@+id/fragmentMyCleaningCalendar_btnSeeAllSpecialCleaning"
-                                android:paddingLeft="12dp" android:paddingRight="12dp"
-                                android:gravity="center"
-                                android:layout_gravity="right"
-                                android:layout_width="wrap_content"
-                                android:layout_height="36dp" android:background="@color/colorAppPrimary2">
-
-                                <ImageView
-                                    android:layout_marginRight="8dp"
-                                    android:layout_width="14dp"
-                                    android:adjustViewBounds="true"
-                                    android:layout_height="wrap_content" android:src="@drawable/ic_more_2"/>
-                                <TextView
-                                    
-                                    android:textSize="12.5sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" android:textColor="#ffffff" android:text="Request"/>
-
-                            </LinearLayout>
-
                             <TextView
-                                
+
                                 android:layout_gravity="bottom"
                                 android:text="Special cleaning package"
                                 android:textSize="12.5sp"
@@ -311,27 +299,35 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/okHomeGray"
                                 android:id="@+id/textView3" />
+
+                            <LinearLayout
+                                android:id="@+id/fragmentMyCleaningCalendar_btnSeeAllSpecialCleaning"
+                                android:gravity="center"
+                                android:layout_gravity="right"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:textSize="12.5sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" android:textColor="@color/colorAppPrimary2" android:text="See all pacakge"/>
+
+                            </LinearLayout>
                         </FrameLayout>
 
-                        <View
-                            android:layout_marginTop="10dp"
-                            android:layout_alignParentBottom="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#22000000"/>
 
                         <LinearLayout
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="10dp"
                             android:orientation="vertical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
                             <LinearLayout
-                                android:weightSum="6"
+                                android:weightSum="8"
                                 android:layout_width="match_parent"
-                                android:layout_height="40dp">
+                                android:layout_height="30dp">
 
                                 <LinearLayout
                                     android:alpha="0.3"
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
@@ -339,14 +335,14 @@
                                     <ImageView
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/ic_household_4"
-                                        android:layout_width="22dp"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:alpha="0.3"
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
@@ -354,13 +350,13 @@
                                     <ImageView
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/ic_household_2"
-                                        android:layout_width="22dp"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
@@ -368,27 +364,27 @@
                                     <ImageView
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/ic_household_3"
-                                        android:layout_width="22dp"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
                                     <ImageView
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/ic_household_4"
-                                        android:layout_width="22dp"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
                                     android:alpha="0.3"
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
@@ -396,21 +392,49 @@
                                     <ImageView
                                         android:adjustViewBounds="true"
                                         android:src="@drawable/ic_household_1"
-                                        android:layout_width="22dp"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>
 
                                 <LinearLayout
-                                    android:gravity="center"
+                                    android:gravity="center_vertical|left"
                                     android:layout_weight="1"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent">
 
                                     <ImageView
                                         android:adjustViewBounds="true"
-                                        android:src="@drawable/ic_household_5"
-                                        android:layout_width="22dp"
+                                        android:src="@drawable/ic_household_2"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:gravity="center_vertical|left"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:adjustViewBounds="true"
+                                        android:src="@drawable/ic_household_3"
+                                        android:layout_width="20dp"
+                                        android:layout_height="wrap_content" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:gravity="center_vertical|left"
+                                    android:layout_weight="1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:adjustViewBounds="true"
+                                        android:src="@drawable/ic_household_1"
+                                        android:layout_width="20dp"
                                         android:layout_height="wrap_content" />
 
                                 </LinearLayout>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="40dp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/logo"/>
+
+
+        <TextView
+            android:id="@+id/fragmentMakeReservationGuest_tvSubTitle"
+            android:textColor="#717276"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="14sp"
+            android:text="You've just started to\nChange your life for better"/>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#f5f4f4"
+            android:layout_marginTop="26dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:layout_marginLeft="14dp"
+                android:alpha="0.7"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@drawable/ic_at"/>
+
+            <EditText
+                android:background="@null"
+                android:textSize="13sp"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:gravity="center_vertical"
+                android:hint="Email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/editText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#f5f4f4"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+            <ImageView
+                android:layout_marginLeft="14dp"
+                android:alpha="0.7"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@drawable/ic_lock2"/>
+
+            <EditText
+                android:background="@null"
+                android:textSize="13sp"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:gravity="center_vertical"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#f5f4f4"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:layout_marginLeft="14dp"
+                android:alpha="0.7"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@drawable/ic_lock2"/>
+
+            <EditText
+                android:background="@null"
+                android:textSize="13sp"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:gravity="center_vertical"
+                android:hint="Confirm password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingLeft="30dp" android:paddingRight="33dp"
+            android:layout_marginTop="30dp"
+            android:id="@+id/fragmentMakeReservationGuest_vbtnDo"
+            android:gravity="center"
+            android:background="@color/colorAppPrimary"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_marginRight="15dp"
+                android:layout_width="15dp"
+                android:adjustViewBounds="true"
+                android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Sign up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:textColor="#717276"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:text="By signing up, I agree to OkHome"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:textColor="@color/colorAppPrimary2"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:text="Terms of Service "/>
+
+                <TextView
+                    android:textColor="#717276"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:text="and "/>
+
+                <TextView
+                    android:textColor="@color/colorAppPrimary2"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="12sp"
+                    android:text="Privacy policy"
+                    android:id="@+id/textView7" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

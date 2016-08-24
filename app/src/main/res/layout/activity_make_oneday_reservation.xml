@@ -74,7 +74,7 @@
         android:layout_alignParentBottom="true"
         android:id="@+id/actMakeOneDayReservation_llBottom"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="50dp">
 
         <LinearLayout
             android:id="@+id/actMakeOneDayReservation_vbtnLeft"

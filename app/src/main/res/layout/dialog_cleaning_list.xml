@@ -43,7 +43,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_2"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -57,7 +57,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_5"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -70,7 +70,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_4"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -84,7 +84,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_1"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -98,7 +98,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_5"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -111,7 +111,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_1"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -124,7 +124,7 @@
                     <ImageView
                         android:adjustViewBounds="true"
                         android:src="@drawable/ic_household_2"
-                        android:layout_width="20dp"  android:alpha="0.5"
+                        android:layout_width="20dp"  android:alpha="0.4"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>

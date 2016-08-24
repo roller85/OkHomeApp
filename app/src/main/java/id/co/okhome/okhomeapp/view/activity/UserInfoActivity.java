@@ -16,7 +16,6 @@ import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.view.dialog.ChangePhoneNumberDialog;
 import id.co.okhome.okhomeapp.view.dialog.CommonInputDialog;
-import id.co.okhome.okhomeapp.view.dialog.HouseAddressDialog;
 
 public class UserInfoActivity extends OkHomeActivityParent {
 
@@ -39,15 +38,6 @@ public class UserInfoActivity extends OkHomeActivityParent {
         OkHomeUtil.setBackbtnListener(this);
     }
 
-    @OnClick(R.id.actUserInfo_vbtnAddHomeInfo)
-    public void onAddHomeInfo(View v){
-        DialogController.showCenterDialog(this, new HouseAddressDialog(new ViewDialog.DialogCommonCallback() {
-            @Override
-            public void onCallback(Object dialog, Map<String, Object> params) {
-
-            }
-        }));
-    }
 
     @OnClick(R.id.actUserInfo_vbtnEmail)
     public void onEmailClick(View v){

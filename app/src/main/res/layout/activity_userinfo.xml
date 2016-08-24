@@ -36,10 +36,6 @@
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/actMain_llbtnMore" />
 
-        <View
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:layout_height="1px" android:background="#22000000"/>
     </RelativeLayout>
 
 
@@ -54,10 +50,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <LinearLayout
-                android:paddingLeft="32dp"
-                android:paddingRight="32dp"
+                android:paddingLeft="35dp"
+                android:paddingRight="35dp"
                 android:paddingTop="25dp"
-                android:paddingBottom="25dp"
+                android:paddingBottom="35dp"
                 android:orientation="vertical" android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -68,13 +64,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:textStyle="bold"
-                        android:text="Photo"
-                        android:textSize="13sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLightGray" />
 
                     <RelativeLayout
                         android:layout_marginTop="5dp"
@@ -100,7 +89,7 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#18000000"/>
+                            android:layout_height="1px" android:background="#33000000"/>
 
 
                     </RelativeLayout>
@@ -108,22 +97,22 @@
 
                 <LinearLayout
                     android:id="@+id/actUserInfo_vbtnPhone"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:textStyle="bold"
                         android:text="Phone"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorLightGray" />
+                        android:textColor="@color/colorLightGray"
+                        android:id="@+id/textView5" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp">
+                        android:layout_height="46dp">
 
                         <LinearLayout
                             android:layout_centerVertical="true"
@@ -131,8 +120,8 @@
                             android:layout_height="wrap_content">
                             <TextView
                                 android:id="@+id/actUserInfo_tvPhone"
-                                android:text="주기설정"
-                                android:textSize="14sp"
+                                android:text="+82 10 9314 9449"
+                                android:textSize="13.5sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"
@@ -149,20 +138,19 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#18000000"/>
+                            android:layout_height="1px" android:background="#33000000"/>
 
                     </RelativeLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/actUserInfo_vbtnEmail"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:textStyle="bold"
                         android:text="Email"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
@@ -171,7 +159,7 @@
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp">
+                        android:layout_height="46dp">
 
                         <LinearLayout
                             android:layout_centerVertical="true"
@@ -180,7 +168,7 @@
                             <TextView
                                 android:id="@+id/actUserInfo_tvEmail"
                                 android:text="944899@gmail.com"
-                                android:textSize="14sp"
+                                android:textSize="13.5sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"
@@ -196,121 +184,199 @@
                         <View
                             android:layout_alignParentBottom="true"
                             android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#18000000"/>
+                            android:layout_height="1px" android:background="#33000000"/>
 
                     </RelativeLayout>
                 </LinearLayout>
 
                 <!--집 정보-->
                 <LinearLayout
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:textStyle="bold"
-                        android:text="House information"
+                        android:text="Home address"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorLightGray" />
 
-                    <RelativeLayout
+                    <!-- 아이템-->
+                    <LinearLayout
+                        android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="42dp">
+                        android:layout_height="wrap_content">
 
-                        <LinearLayout
-                            android:layout_centerVertical="true"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:text="Puri Casablanka"
-                                android:textSize="14sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorGray"
-                                android:layout_centerVertical="true" />
+                            android:layout_height="46dp">
 
-                        </LinearLayout>
-                        <ImageView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="6dp"
-                            android:layout_height="wrap_content" android:adjustViewBounds="true"
-                            android:src="@drawable/ic_rightarrow_gray"/>
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:hint="City"
+                                    android:textSize="13.5sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/colorGray"
+                                    android:layout_centerVertical="true" />
 
-                        <View
-                            android:layout_alignParentBottom="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#18000000"/>
+                            </LinearLayout>
 
-                    </RelativeLayout>
-                    <RelativeLayout
+                            <ImageView
+                                android:layout_marginBottom="10dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="10dp"
+                                android:src="@drawable/ic_right_simplearrow_black"
+                                android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px" android:background="#33000000"/>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="42dp">
-
-                        <ImageView
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="6dp"
-                            android:layout_height="wrap_content" android:adjustViewBounds="true"
-                            android:src="@drawable/ic_rightarrow_gray"/>
-
-                        <View
-                            android:layout_alignParentBottom="true"
-                            android:layout_width="match_parent"
-                            android:layout_height="1px" android:background="#18000000"/>
+                        android:layout_height="wrap_content" android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true">
-                            <TextView
-                                android:text="Casa grande"
-                                android:textSize="14sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorGray"
-                                android:layout_centerVertical="true" />
+                            android:weightSum="10">
+
+                            <LinearLayout
+                                android:layout_marginRight="10dp"
+                                android:layout_weight="5"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="46dp">
+
+                                    <LinearLayout
+                                        android:layout_centerVertical="true"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:hint="State / Province"
+                                            android:textSize="13.5sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorGray"
+                                            android:layout_centerVertical="true" />
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_width="10dp"
+                                        android:src="@drawable/ic_right_simplearrow_black"
+                                        android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                                    <View
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1px" android:background="#33000000"/>
+
+                                </RelativeLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_marginLeft="10dp"
+                                android:layout_weight="5"
+                                android:orientation="vertical"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="46dp">
+
+                                    <LinearLayout
+                                        android:layout_centerVertical="true"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+                                        <TextView
+                                            android:id="@+id/dialogChangeAddress_tvState"
+                                            android:hint="State / Province"
+                                            android:textSize="13.5sp"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:textColor="@color/colorGray"
+                                            android:layout_centerVertical="true" />
+
+                                    </LinearLayout>
+
+                                    <ImageView
+                                        android:layout_marginBottom="10dp"
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_width="10dp"
+                                        android:src="@drawable/ic_right_simplearrow_black"
+                                        android:layout_height="wrap_content" android:adjustViewBounds="true" />
+
+                                    <View
+                                        android:layout_alignParentBottom="true"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1px" android:background="#33000000"/>
+
+                                </RelativeLayout>
+                            </LinearLayout>
 
                         </LinearLayout>
 
-                    </RelativeLayout>
 
-                    <LinearLayout
-                        android:id="@+id/actUserInfo_vbtnAddHomeInfo"
-                        android:layout_marginTop="14dp"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="46dp">
 
-                        <ImageView
-                            android:layout_width="16dp"
-                            android:src="@drawable/ic_plus_appdeep"
-                            android:layout_height="wrap_content" android:adjustViewBounds="true"/>
+                            <LinearLayout
+                                android:layout_centerVertical="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:hint="Address line"
+                                    android:textSize="13.5sp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/colorGray"
+                                    android:layout_centerVertical="true" />
 
-                        <LinearLayout
-                            android:layout_marginLeft="5dp"
-                            android:orientation="vertical"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            </LinearLayout>
 
-                            <TextView
-                                android:textStyle="bold"
-                                android:text="Add house information"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" android:textColor="@color/okHomeGrayDeep"
-                                android:textSize="12.5sp"
-                                android:id="@+id/textView" />
+                            <ImageView
+                                android:layout_marginBottom="10dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_width="10dp"
+                                android:src="@drawable/ic_right_simplearrow_black"
+                                android:layout_height="wrap_content" android:adjustViewBounds="true" />
 
-                        </LinearLayout>
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:layout_width="match_parent"
+                                android:layout_height="1px" android:background="#33000000"/>
+
+                        </RelativeLayout>
+
+
 
                     </LinearLayout>
 
                 </LinearLayout>
-
-
             </LinearLayout>
         </LinearLayout>
 

@@ -7,16 +7,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
-import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
-import id.co.okhome.okhomeapp.view.activity.MakeOneDayReservationActivity;
+import id.co.okhome.okhomeapp.view.activity.MakeReservationActivity;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
 
 /**
@@ -25,7 +26,7 @@ import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
 
 public class MakeReservationFragment extends Fragment {
 
-
+    @BindView(R.id.layerMenuItems_ivPhoto)  ImageView ivPhoto;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +42,11 @@ public class MakeReservationFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        ivPhoto.getDrawable().setCallback(null);
+    }
 
     @OnClick(R.id.fragmentMakeReservation_vbtnDo)
     public void onClick(View v){
@@ -49,9 +55,9 @@ public class MakeReservationFragment extends Fragment {
             @Override
             public void onCallback(Object dialog, Map<String, Object> params) {
                 if(params.get("ONCLICK").equals("ONETIME")){
-                    startActivity(new Intent(getContext(), MakeOneDayReservationActivity.class));
+                    startActivity(new Intent(getContext(), MakeReservationActivity.class).putExtra("TYPE", "ONEDAY"));
                 }else{
-                    Util.showToast(getContext(), "Not yet");
+                    startActivity(new Intent(getContext(), MakeReservationActivity.class).putExtra("TYPE", "PERIOD"));
                 }
             }
         }));

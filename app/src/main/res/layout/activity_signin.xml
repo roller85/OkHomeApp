@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="40dp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="170dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/logo"/>
+
+
+        <TextView
+            android:id="@+id/fragmentMakeReservationGuest_tvSubTitle"
+            android:textColor="#717276"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="14sp"
+            android:text="You've just started to\nChange your life for better"/>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#f5f4f4"
+            android:layout_marginTop="22dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <ImageView
+                android:alpha="0.7"
+                android:layout_marginLeft="14dp"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@drawable/ic_at"/>
+
+            <EditText
+                android:background="@null"
+                android:textSize="13sp"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:gravity="center_vertical"
+                android:hint="Email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="#f5f4f4"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+            <ImageView
+                android:alpha="0.7"
+                android:layout_marginLeft="14dp"
+                android:layout_width="16dp"
+                android:layout_height="wrap_content" android:adjustViewBounds="true" android:src="@drawable/ic_lock2"/>
+
+            <EditText
+                android:background="@null"
+                android:textSize="13sp"
+                android:paddingLeft="14dp" android:paddingRight="14dp"
+                android:gravity="center_vertical"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:paddingLeft="30dp" android:paddingRight="32dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/fragmentMakeReservationGuest_vbtnDo"
+            android:gravity="center"
+            android:background="@color/colorAppPrimary"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_marginRight="15dp"
+                android:layout_width="15dp"
+                android:adjustViewBounds="true"
+                android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:gravity="center"
+                android:text="Sign in"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Forgot password"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAppPrimary2" />
+
+            <View
+                android:layout_marginLeft="10dp"
+                android:layout_width="3dp"
+                android:layout_height="3dp" android:background="@drawable/circle_gray_simple"/>
+
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="10dp"
+                android:text="Sign up"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAppPrimary2" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="38dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/actMain_tvSubTitle"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#44000000"/>
+
+            <View
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/actMain_tvSubTitle"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#44000000"/>
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:id="@+id/actMain_tvSubTitle"
+                android:text="Or you can"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textColor="#99000000"
+                android:textSize="12.5sp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:weightSum="10"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/actSignin_ivbtnFb"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" android:src="@drawable/ic_fb_gray"/>
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="13sp"
+                    android:text="Start with\nFacebook"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginLeft="20dp"
+                android:gravity="center"
+                android:layout_weight="5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/actSignin_ivbtnGg"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" android:src="@drawable/ic_gg_gray"/>
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:textSize="13sp"
+                    android:text="Start with\nGoogle+"/>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

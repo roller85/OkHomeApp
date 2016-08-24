@@ -2,7 +2,6 @@ package id.co.okhome.okhomeapp.view.drawerlayout;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -10,6 +9,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tsengvn.typekit.Typekit;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -64,14 +65,9 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
 
         if(tvTitleBefore != null){
             //텍스트 작고 안 굵게
-            tvTitleBefore.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14.5f);
+            tvTitleBefore.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f);
             tvTitleBefore.setTextColor(Color.parseColor("#818895"));
-            Typeface tf = tvTitleBefore.getTypeface();
-            if(tvTitleBefore.getTypeface() != null){
-                tvTitleBefore.setTypeface(tf, Typeface.NORMAL);
-            }else{
-                tvTitleBefore.setTypeface(null, Typeface.NORMAL);
-            }
+            tvTitleBefore.setTypeface(Typekit.createFromAsset(activity, "NotoSans-Regular.ttf"));
         }
 
         //타이틀부분 변경
@@ -80,12 +76,7 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
             //텍스트 크고 굵게
             tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15f);
             tvTitle.setTextColor(Color.parseColor("#3b3e45"));
-            Typeface tf = tvTitle.getTypeface();
-            if(tf != null){
-                tvTitle.setTypeface(tf, Typeface.BOLD);
-            }else{
-                tvTitle.setTypeface(null, Typeface.BOLD);
-            }
+            tvTitle.setTypeface(Typekit.createFromAsset(activity, "NotoSans-Bold.ttf"));
             tvTitleBefore = tvTitle;
         }
     }

@@ -3,14 +3,104 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:paddingLeft="20dp" android:paddingRight="20dp"
-        android:id="@+id/actMakeOneDayReservation_tvTitle"
-        android:textStyle="italic|bold"
-        android:textSize="14sp"
-        android:textColor="#4f5661"
-        android:text="History"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:paddingLeft="10dp" android:paddingRight="10dp"
+        android:weightSum="8"
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textStyle=""
+                android:textColor="@color/okHomeGrayDeep"
+                android:textSize="13.5sp"
+                android:text="All"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/okHomeGrayDeep"
+                android:textSize="13.5sp"
+                android:text="Spend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textColor="@color/okHomeGrayDeep"
+                android:textSize="13.5sp"
+                android:text="Charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:paddingLeft="10dp" android:paddingRight="10dp"
+        android:weightSum="8"
+        android:layout_width="match_parent"
+        android:layout_height="2dp">
+
+        <RelativeLayout
+            android:id="@+id/fragmentHistory_vTabBar"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <View
+                android:layout_marginLeft="10dp" android:layout_marginRight="10dp"
+                android:background="@color/colorAppPrimary2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+        </RelativeLayout>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px" android:background="#33000000"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fragmentHistory_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></android.support.v4.view.ViewPager>
+    </RelativeLayout>
 </LinearLayout>

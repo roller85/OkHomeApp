@@ -5,13 +5,13 @@
 
     <LinearLayout
         android:layout_marginTop="0.5dp" android:layout_marginBottom="0.5dp"
-        android:layout_marginLeft="0.5dp" android:layout_marginRight="0.5dp"
+        android:layout_marginLeft="1dp" android:layout_marginRight="1dp"
         android:id="@+id/itemCommonToggle_vItemBg"
         android:background="@color/colorAppPrimary2"
         android:layout_weight="1"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="32dp">
+        android:layout_height="36dp">
         <TextView
             android:id="@+id/itemCommonToggle_tvItem"
             android:layout_marginLeft="5dp"

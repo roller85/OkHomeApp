@@ -120,6 +120,10 @@ public class Util {
         return getMoneyString(str, ',');
     }
 
+    public static final String getMoneyString(int money, char ch){
+        return getMoneyString(money + "", ch);
+    }
+
     /**화폐숫자 가져오기*/
     public static final String getMoneyString(String str, char ch){
 

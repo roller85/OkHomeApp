@@ -27,7 +27,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -66,7 +66,7 @@
                 <!--필드-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -105,7 +105,7 @@
                 <!--필드-->
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -146,7 +146,7 @@
                     android:id="@+id/fragSetting_vbtnLogout"
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -188,7 +188,7 @@
                 <RelativeLayout
                     android:id="@+id/fragSetting_vbtnDeleteAccount"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -231,7 +231,7 @@
                     android:id="@+id/fragSetting_vbtnVersion"
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="42dp">
+                    android:layout_height="46dp">
 
                     <LinearLayout
                         android:layout_centerVertical="true"
@@ -277,56 +277,6 @@
                 </RelativeLayout>
 
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginTop="24dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:text="Address"
-                        android:textSize="11sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorGray"
-                        android:layout_centerVertical="true" />
-                    <TextView
-                        android:text="Puri A3205, Jalan Puri casablanka, Kuningan, Jakarta selatan"
-                        android:textSize="11sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLightGray"
-                        android:layout_centerVertical="true" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:text="Contact us"
-                        android:textSize="11sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorGray"
-                        android:layout_centerVertical="true" />
-                    <TextView
-                        android:text="dhkim@gmail.com"
-                        android:textSize="11sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLightGray"
-                        android:layout_centerVertical="true" />
-                    <TextView
-                        android:text="+6231 8100 6162"
-                        android:textSize="11sp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorLightGray"
-                        android:layout_centerVertical="true" />
-                </LinearLayout>
 
             </LinearLayout>
 

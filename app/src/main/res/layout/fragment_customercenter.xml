@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#ffffff"
-    android:padding="70dp"
+    android:paddingLeft="60dp" android:paddingRight="60dp"
     android:gravity="center"
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -9,138 +9,203 @@
 
 
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="150dp"
         android:adjustViewBounds="true"
         android:layout_height="wrap_content" android:src="@drawable/logo"/>
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
+    <RelativeLayout
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
         <LinearLayout
-            android:gravity="center"
-            android:padding="12dp"
-            android:background="@color/colorAppPrimary"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_phone"/>
+            </LinearLayout>
 
             <TextView
-                android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/okHomeGrayDeep"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="14sp"
                 android:text="Contact via Telephone"/>
 
+
         </LinearLayout>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/ic_rightarrow_gray"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#30000000"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
         <LinearLayout
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="23dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_email"/>
+            </LinearLayout>
 
             <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="@color/okHomeGray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="12sp"
-                android:text="We will contact you within 24 hour"/>
-
-        </LinearLayout>
-    </LinearLayout>
-
-    <View
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px" android:background="#16000000" />
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:gravity="center"
-            android:padding="12dp"
-            android:background="@color/colorAppPrimary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/okHomeGrayDeep"
+                android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:textSize="14sp"
                 android:text="Contact via Email"/>
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/ic_rightarrow_gray"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#30000000"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
         <LinearLayout
-            android:gravity="center"
-            android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_lock"/>
+            </LinearLayout>
 
 
             <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="@color/okHomeGray"
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/okHomeGrayDeep"
+                android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="12sp"
-                android:text="We will contact you within 24 hour"/>
+                android:layout_height="wrap_content" android:textSize="14sp"
+                android:text="Contact via Whats App"/>
 
         </LinearLayout>
-    </LinearLayout>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/ic_rightarrow_gray"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#30000000"/>
 
-    <View
-        android:layout_marginTop="12dp"
-        android:layout_width="match_parent"
-        android:layout_height="1px" android:background="#16000000" />
+
+    </RelativeLayout>
+
 
     <LinearLayout
+        android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
             android:gravity="center"
-            android:padding="12dp"
-            android:background="@color/colorAppPrimary"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <TextView
                 android:textStyle="bold"
-                android:textColor="#ffffff"
+                android:text="Address"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="14sp"
-                android:text="Contact via WhatsApp"/>
-
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:gravity="center"
+                android:text="Puri A3205, Jalan Puri casablanka, Kuningan, Jakarta selatan"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"
+                android:layout_centerVertical="true" />
         </LinearLayout>
+
         <LinearLayout
             android:gravity="center"
             android:orientation="vertical"
-            android:layout_gravity="center_vertical"
+            android:layout_marginTop="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-
             <TextView
-                android:layout_marginTop="3dp"
-                android:textColor="@color/okHomeGray"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Contact us"
+                android:textSize="11sp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="12sp"
-                android:text="We will contact you within 24 hour"/>
-
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorGray"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:gravity="center"
+                android:text="dhkim@gmail.com"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"
+                android:layout_centerVertical="true" />
+            <TextView
+                android:gravity="center"
+                android:text="+6231 8100 6162"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"
+                android:layout_centerVertical="true" />
         </LinearLayout>
     </LinearLayout>
+
 
 
 

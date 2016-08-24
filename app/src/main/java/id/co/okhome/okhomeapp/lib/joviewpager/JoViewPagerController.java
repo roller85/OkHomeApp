@@ -87,7 +87,9 @@ public class JoViewPagerController<T> implements ViewPager.OnPageChangeListener{
     //시작
     public JoViewPagerController build(){
         size = listModel.size();
-        pdv.setMaxCount(size);
+        if(pdv != null){
+            pdv.setMaxCount(size);
+        }
         vp.setAdapter(adapter);
         vp.addOnPageChangeListener(this);
         onPageSelected(0);

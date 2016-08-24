@@ -120,7 +120,8 @@ public class HouseInfoFragment extends Fragment {
                 h.vItemBg.setBackgroundColor(getContext().getResources().getColor(R.color.colorAppPrimary2));
                 h.tvItem.setTextColor(Color.parseColor("#ffffff"));
             }else{
-                h.vItemBg.setBackgroundColor(Color.parseColor("#e7eced"));
+//                h.vItemBg.setBackgroundColor(Color.parseColor("#e7eced"));
+                h.vItemBg.setBackgroundResource(R.drawable.bg_inputbox);
                 h.tvItem.setTextColor(getContext().getResources().getColor(R.color.colorGray));
             }
         }

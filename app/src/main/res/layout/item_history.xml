@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:paddingLeft="20dp" android:paddingRight="20dp"
+        android:paddingTop="17dp" android:paddingBottom="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/itemHistory_tvMoney"
+                        android:text="+ 500.000 Credit"
+                        android:textColor="#35a9f3"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/itemHistory_tvType"
+                        android:gravity="center"
+                        android:layout_marginRight="6dp"
+                        android:textSize="11sp"
+                        android:paddingTop="5dp" android:paddingBottom="5dp"
+                        android:background="@color/colorLightGray"
+                        android:text="Card" android:textColor="#ffffff"
+                        android:layout_width="44dp"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:id="@+id/itemHistory_tvComment"
+                        android:text="Using 100.000 Rupiah, it was charged"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:textSize="12sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/itemHistory_tvTime"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="3dp"
+            android:text="Today 10:10PM"
+            android:textColor="@color/okHomeGrayDeep"
+            android:textSize="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <View
+        android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px" android:background="#28000000"/>
+
+</LinearLayout>
+
+

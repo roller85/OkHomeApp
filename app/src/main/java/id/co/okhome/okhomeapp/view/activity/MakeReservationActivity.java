@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.tsengvn.typekit.TypekitContextWrapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -27,8 +29,9 @@ import id.co.okhome.okhomeapp.view.fragment.makereservation.HouseInfoFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.RequestorInfoFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.ChooseDayFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.OnedayCleaningInvoiceFragment;
+import id.co.okhome.okhomeapp.view.fragment.makereservation.periodic.ChooseCleaningPeriodFragment;
 
-public class MakeOneDayReservationActivity extends OkHomeActivityParent {
+public class MakeReservationActivity extends OkHomeActivityParent {
 
     @BindView(R.id.actMakeOneDayReservation_vpContents) OkHomeViewPager vpContents;
     @BindView(R.id.actMakeOneDayReservation_tvCount)    TextView tvCount;
@@ -49,23 +52,41 @@ public class MakeOneDayReservationActivity extends OkHomeActivityParent {
         init();
     }
 
-
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 
     private void init(){
-        pagerAdapter = new Reservation1DayCleaningAdapter(getSupportFragmentManager());
+        pagerAdapter = new Reservation1DayCleaningAdapter(getSupportFragmentManager(), makeTabItems(getIntent().getStringExtra("TYPE")));
         pdv.setMaxCount(pagerAdapter.getCount());
 
         vpContents.setPagingEnabled(false);
         vpContents.addOnPageChangeListener(pagerAdapter);
+        vpContents.setOffscreenPageLimit(pagerAdapter.getCount());
         vpContents.setAdapter(pagerAdapter);
         vpContents.setCurrentItem(0);
-        vpContents.setOffscreenPageLimit(5);
+
         pagerAdapter.onPageSelected(0);
 
+    }
+
+    private List<ModelPageItem> makeTabItems(String type){
+        List<ModelPageItem> list = new ArrayList<>();
+
+        if(type == null || type.equals("ONEDAY")){
+            list.add(new ModelPageItem(new ChooseDayFragment(), "When do you want to get our service?"));
+            list.add(new ModelPageItem(new HouseInfoFragment(), "Let us know your home information"));
+            list.add(new ModelPageItem(new RequestorInfoFragment(), "Let us your information"));
+            list.add(new ModelPageItem(new OnedayCleaningInvoiceFragment(), "Check invoice below"));
+        }else{
+            list.add(new ModelPageItem(new ChooseCleaningPeriodFragment(), "When do you want to get our service?"));
+            list.add(new ModelPageItem(new HouseInfoFragment(), "Let us know your home information"));
+            list.add(new ModelPageItem(new RequestorInfoFragment(), "Let us your information"));
+
+        }
+
+        return list;
     }
 
 
@@ -89,39 +110,37 @@ public class MakeOneDayReservationActivity extends OkHomeActivityParent {
         }
     }
 
+    class ModelPageItem{
+        public ModelPageItem(Fragment fragment, String title) {
+            this.fragment = fragment;
+            this.title = title;
+        }
+
+        Fragment fragment;
+        String title;
+    }
 
     class Reservation1DayCleaningAdapter extends FragmentStatePagerAdapter implements ViewPager.OnPageChangeListener{
-        public Reservation1DayCleaningAdapter(FragmentManager fm) {
-            super(fm);
-        }
+
         final Map<Integer, Fragment> mapFragment = new HashMap<Integer, Fragment>();
-        final String[] arrTabTitle = new String[]{
-                "When do you want to get our service?", "Let us know your home information", "Let us your information", "Check invoice below"};
+
+        List<ModelPageItem> listItem = new ArrayList<>();
+        public Reservation1DayCleaningAdapter(FragmentManager fm, List<ModelPageItem> list) {
+            super(fm);
+            this.listItem = list;
+        }
+
+
         @Override
         public Fragment getItem(int position) {
-            Fragment f = null;
-            switch(position){
-                case 0:
-                    f = new ChooseDayFragment();
-                    break;
-                case 1:
-                    f = new HouseInfoFragment();
-                    break;
-                case 2:
-                    f = new RequestorInfoFragment();
-                    break;
-                case 3:
-                    f = new OnedayCleaningInvoiceFragment();
-                    break;
-
-            }
+            Fragment f = listItem.get(position).fragment;
             mapFragment.put(position, f);
             return f;
         }
 
         @Override
         public int getCount() {
-            return 4;
+            return listItem.size();
         }
 
 
@@ -135,7 +154,7 @@ public class MakeOneDayReservationActivity extends OkHomeActivityParent {
             tvCount.setText("(" + (position+1) + "/" + this.getCount() + ")");
             pdv.setCurrentPos(position);
             //텍스트 변경
-            tvTitle.setText(arrTabTitle[position]);
+            tvTitle.setText(listItem.get(position).title);
 
             //버튼텍스트
             if(position == 0){
@@ -166,6 +185,5 @@ public class MakeOneDayReservationActivity extends OkHomeActivityParent {
             super.destroyItem(container, position, object);
             mapFragment.remove(position);
         }
-
     }
 }

@@ -26,24 +26,32 @@
             android:layout_below="@+id/layerMenuItems_ivPhoto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:visibility="gone"
+                    android:alpha="0.9"
+                    android:layout_marginRight="6dp"
+                    android:layout_width="16dp"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_money"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="100.000 Credit" android:textSize="13sp"
+                    android:textColor="@color/okHomeGrayDeep"/>
+            </LinearLayout>
+
             <TextView
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="19sp"
                 android:textColor="#3b3e45"/>
-
-            <LinearLayout
-                android:layout_marginTop="-1dp"
-                android:gravity="center_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Puri casablanka" android:textSize="11sp"
-                    android:textColor="#66000000"/>
-            </LinearLayout>
-
-
         </LinearLayout>
 
         <ImageView
@@ -57,7 +65,7 @@
 
     <!--좌측메뉴-->
     <LinearLayout
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="34dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -132,9 +140,10 @@
 
         </RelativeLayout>
 
+
         <RelativeLayout
-            android:id="@+id/layerMenuItems_vBtnSetting"
-            android:layout_marginTop="22dp"
+            android:layout_marginTop="15dp"
+            android:id="@+id/layerMenuItems_vBtnCustomerCenter"
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -146,7 +155,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Setting" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Customer center" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -168,9 +177,9 @@
                 android:textColor="#818895"/>
 
         </RelativeLayout>
-
         <RelativeLayout
-            android:id="@+id/layerMenuItems_vBtnCustomerCenter"
+            android:id="@+id/layerMenuItems_vBtnSetting"
+
             android:layout_width="match_parent"
             android:layout_height="40dp">
 
@@ -182,10 +191,11 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Customer center" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Setting" android:textSize="14.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
+
 
     </LinearLayout>
 

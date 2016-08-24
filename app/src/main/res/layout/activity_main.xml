@@ -86,10 +86,10 @@
 
             </FrameLayout>
         </RelativeLayout>
+fe
 
 
-
-        <include android:layout_width="270dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"
+        <include android:layout_width="275dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"
             android:layout_gravity="start"/>
 
     </android.support.v4.widget.DrawerLayout>

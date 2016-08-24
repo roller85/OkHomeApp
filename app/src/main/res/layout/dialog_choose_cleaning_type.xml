@@ -41,7 +41,8 @@
         android:layout_height="45dp">
 
         <LinearLayout
-            android:background="@color/colorAppPrimary2"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/square_line_appcolor"
             android:layout_weight="5"
             android:id="@+id/dialogChooseCleaningType_vbtnOneTimeCleaning"
             android:gravity="center"
@@ -51,15 +52,15 @@
             <TextView
                 android:textStyle="bold"
                 android:textSize="13sp"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorAppPrimary2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="One time cleaning"/>
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_marginLeft="10dp"
-            android:background="@color/colorAppPrimary2"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/square_line_appcolor"
             android:layout_weight="5"
             android:id="@+id/dialogChooseCleaningType_vbtnPeriodicCleaning"
             android:gravity="center"
@@ -69,7 +70,7 @@
             <TextView
                 android:textStyle="bold"
                 android:textSize="13sp"
-                android:textColor="#ffffff"
+                android:textColor="@color/colorAppPrimary2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="Periodic cleaning"/>
         </LinearLayout>
