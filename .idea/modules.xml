@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/OkHomeApp.iml" filepath="$PROJECT_DIR$/OkHomeApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/../JoRecyclerManager/recyclerViewManager/recyclerViewManager.iml" filepath="$PROJECT_DIR$/../JoRecyclerManager/recyclerViewManager/recyclerViewManager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/typekit/typekit.iml" filepath="$PROJECT_DIR$/typekit/typekit.iml" />
     </modules>
   </component>
 </project>

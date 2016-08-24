@@ -1,4 +1,6 @@
-include ':app'
+include ':app', ':typekit'
 include ':recyclerViewManager'
+
+
 
 project(':recyclerViewManager').projectDir=new File('C:/Users/josongmin/Documents/androidstudio_workspace/JoRecyclerManager/recyclerViewManager')

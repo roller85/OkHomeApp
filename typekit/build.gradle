@@ -1,0 +1,79 @@
+apply plugin: 'com.android.library'
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'typekit'
+
+    publishedGroupId = 'com.tsengvn'
+    libraryName = 'typekit'
+    artifact = 'typekit'
+
+    libraryDescription = 'Replce textview style with custom font'
+
+    siteUrl = 'https://github.com/tsengvn/typekit'
+    gitUrl = 'https://github.com/tsengvn/typekit.git'
+
+    libraryVersion = '1.0.1'
+
+    developerId = 'tsengvn'
+    developerName = 'Hien Ngo'
+    developerEmail = 'nmhien88@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+    override = true
+}
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+    }
+}
+
+android {
+    signingConfigs {
+    }
+    compileSdkVersion 22
+    buildToolsVersion "21.1.2"
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 22
+        versionCode 2
+        versionName "1.0.1"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.1.1'
+}
+
+
+//apply from: '../gradle/deploy.gradle'
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
+
