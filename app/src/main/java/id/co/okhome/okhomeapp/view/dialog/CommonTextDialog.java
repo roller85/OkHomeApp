@@ -33,6 +33,11 @@ public class CommonTextDialog extends ViewDialog{
         this.content = content;
     }
 
+    public CommonTextDialog(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
+
     @Override
     public View getView(LayoutInflater inflater) {
         return inflater.inflate(R.layout.dialog_common_text, null);
@@ -48,13 +53,15 @@ public class CommonTextDialog extends ViewDialog{
 
     @OnClick(R.id.dialogCommon_vbtnConfirm)
     public void onConfirmClick(View v){
-        callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "OK"));
+        if(callback!= null)
+            callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "OK"));
         dismiss();
     }
 
     @OnClick(R.id.dialogCommon_vbtnCancel)
     public void onCancelClick(View v){
-        callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "CANCEL"));
+        if(callback != null)
+            callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "CANCEL"));
         dismiss();
     }
 

@@ -17,8 +17,11 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.view.customview.calendar.CalendarMonthView;
+
+import static id.co.okhome.okhomeapp.lib.CalendarController.MonthlySlidePagerAdapter.PAGES;
 
 /**
  * Created by josongmin on 2016-08-05.
@@ -41,8 +44,11 @@ public class CalendarController {
     private CalendarMonthView[] monthViews;
     private MonthlySlidePagerAdapter pagerAdapter;
     private Context context;
-
     private int pageDelayCount = 3; //버그해결용
+    private boolean onListener = false;
+    private int month, year;
+    private int defYear, defMonth;
+    private int loadingCount = 0;
 
     public static final CalendarController with(Activity activity){
         CalendarController calendarController = new CalendarController(activity);
@@ -54,6 +60,13 @@ public class CalendarController {
         return calendarController;
     }
 
+    public CalendarController setDefaultYearMonth(int year, int month){
+        defYear = year;
+        defMonth = month;
+
+        return this;
+    }
+
     public CalendarController(Activity activity){
         ButterKnife.bind(this, activity);
         this.context = activity;
@@ -62,6 +75,9 @@ public class CalendarController {
     public CalendarController(Fragment fragment){
         ButterKnife.bind(this, fragment.getView());
         context = fragment.getContext();
+
+        defMonth = Util.getCurrentMonth();
+        defYear = Util.getCurrentYear();
     }
 
     public CalendarController setCalendarType(CalendarMonthView.CalendarType calendarType){
@@ -79,14 +95,35 @@ public class CalendarController {
         return this;
     }
 
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public CalendarMonthView getCurrentMonthView(){
+        return pagerAdapter.getCurrentMonthView();
+    }
+
     public View getDayViewSample(){
         return pagerAdapter.getCurrentMonthView().getDayViewSample();
     }
 
+    public void showLoading(){
+        vLoading.setVisibility(View.VISIBLE);
+    }
+
+    public void dismissLoading(){
+            vLoading.setVisibility(View.GONE);
+    }
+
     //캘린더초기화
     public CalendarController initCalendar(){
-        vLoading.setVisibility(View.VISIBLE);
-        monthViews = new CalendarMonthView[MonthlySlidePagerAdapter.PAGES];
+        showLoading();
+
+        monthViews = new CalendarMonthView[PAGES];
         vp.setVisibility(View.INVISIBLE);
         tvYearMonth.setVisibility(View.INVISIBLE);
 
@@ -99,7 +136,7 @@ public class CalendarController {
 
                 vp.setAdapter(pagerAdapter);
                 vp.addOnPageChangeListener(pagerAdapter);
-                vp.setCurrentItem(pagerAdapter.getPosition(Util.getCurrentYear(), Util.getCurrentMonth()+pageDelayCount));
+                vp.setCurrentItem(pagerAdapter.getPosition(defYear, defMonth+pageDelayCount));
                 vp.setOffscreenPageLimit(1);
 
                 //왠 이상한 버그때문에 이렇게 함
@@ -107,14 +144,14 @@ public class CalendarController {
                     @Override
                     public void dispatchMessage(Message msg) {
                         if(msg.what > 0){
-                            vp.setCurrentItem(pagerAdapter.getPosition(Util.getCurrentYear(), Util.getCurrentMonth()+ msg.what));
+                            vp.setCurrentItem(pagerAdapter.getPosition(defYear, defMonth+ msg.what));
                             sendEmptyMessageDelayed(msg.what - 1, 100);
                         }else{
-                            vp.setCurrentItem(pagerAdapter.getPosition(Util.getCurrentYear(), Util.getCurrentMonth()));
+                            vp.setCurrentItem(pagerAdapter.getPosition(defYear, defMonth));
                             vp.setVisibility(View.VISIBLE);
                             tvYearMonth.setVisibility(View.VISIBLE);
 
-                            vLoading.setVisibility(View.GONE);
+                            dismissLoading();
 
                             if(onCalendarChangeListener != null){
                                 onCalendarChangeListener.onCalendarLoad();
@@ -131,7 +168,7 @@ public class CalendarController {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0; i < MonthlySlidePagerAdapter.PAGES; i++) {
+                for(int i = 0; i < PAGES; i++) {
                     monthViews[i] = new CalendarMonthView(context);
                     monthViews[i].setCalendarType(calendarType);
                     monthViews[i].setOnDayClickListener(onDayClickListner);
@@ -144,10 +181,46 @@ public class CalendarController {
 
         return this;
     }
+
     private void onMonthChange(int year, int month){
+        this.month = month;
+        this.year = year;
         tvYearMonth.setText(year + "." + Util.fillupWithZero(month, "XX"));
     }
 
+    public void nextMonth(){
+        int tobeMonth = month + 1;
+        int tobeYear = year;
+        if(tobeMonth == 13){
+            tobeMonth = 1;
+            tobeYear ++;
+        }
+
+        vp.setCurrentItem(pagerAdapter.getPosition(tobeYear, tobeMonth), true);
+
+    }
+
+    public void prevMonth(){
+
+        int tobeMonth = month - 1;
+        int tobeYear = year;
+        if(tobeMonth == 0){
+            tobeMonth = 12;
+            tobeYear --;
+        }
+
+        vp.setCurrentItem(pagerAdapter.getPosition(tobeYear, tobeMonth), true);
+    }
+
+    @OnClick(R.id.layerCalendar_vbtnLeft)
+    public void onLeftClick(View v){
+        prevMonth();
+    }
+
+    @OnClick(R.id.layerCalendar_vbtnRight)
+    public void onRightClick(View v){
+        nextMonth();
+    }
 
     //어댑터
     class MonthlySlidePagerAdapter extends PagerAdapter implements ViewPager.OnPageChangeListener {
@@ -213,6 +286,8 @@ public class CalendarController {
             month = cal.get(Calendar.MONTH);
             monthViews[position].make(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH));
 
+            Util.Log("CalendarController -> instantiateItem " + year + " " + month);
+
             return monthViews[position];
         }
 
@@ -260,8 +335,15 @@ public class CalendarController {
             year = params.get("YEAR");
             month = params.get("MONTH")+1;
             onMonthChange(year, month);
-            if(onCalendarChangeListener != null){
-                onCalendarChangeListener.onMonthChange(year, month);
+
+            if(year == defYear && month == defMonth){
+                onListener = true;
+            }
+
+            if(onListener){
+                if(onCalendarChangeListener != null){
+                    onCalendarChangeListener.onMonthChange(year, month);
+                }
             }
         }
     }

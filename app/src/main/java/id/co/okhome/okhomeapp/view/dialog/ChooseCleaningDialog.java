@@ -4,21 +4,16 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
-import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerController;
-import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerItem;
-import id.co.okhome.okhomeapp.model.CleaningItemModel;
+import id.co.okhome.okhomeapp.model.CleaningModel;
 import id.co.okhome.okhomeapp.view.customview.ProgressDotsView;
 
 /**
@@ -63,7 +58,7 @@ public class ChooseCleaningDialog extends ViewDialog{
         viewPagerController = JoViewPagerController
                 .with(getContext(), vp)
                 .setProgressDotsView(pdv)
-                .setViewPageItemClass(this, CleaningPageItem.class)
+                .setViewPageItemClass(this, CleaningModel.class)
                 .putParam(ChooseCleaningDialog.class.getName(), this);
 
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -106,72 +101,72 @@ public class ChooseCleaningDialog extends ViewDialog{
         List list = viewPagerController.getListModel();
         if(list == null){
             list = new ArrayList();
-            list.add(new CleaningItemModel(R.drawable.ic_household_1, "Super-Super restroom cleaning", "We improve your performance.\nThat's why you need us", "450000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_2, "Extream dapur cleaning", "Lorem Ipsum is simply dummy text of the printing and s", "150000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_3, "Mega kamar tidurcleaning", "d it to make a type specimen book. It has survived not only five centuries, but also the", "150000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_4, "Super-Super restroom cleaning", "pular belief, Lorem Ipsum is not simply random text.", "150000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_5, "Super-Super A cleaning", "pular belief, Lorem Ipsum is not simply random text. It has", "150000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_1, "Super-Super restroom cleaning", "We improve your performance.\nThat's why you need us", "450000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_2, "Extream dapur cleaning", "Lorem Ipsum is simply dummy text of the printing and typesetting i's", "150000", "2"));
-            list.add(new CleaningItemModel(R.drawable.ic_household_3, "Mega kamar tidurcleaning", "d it to make a type specimen book. It has survived not", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_1, "Super-Super restroom cleaning", "We improve your performance.\nThat's why you need us", "450000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_2, "Extream dapur cleaning", "Lorem Ipsum is simply dummy text of the printing and s", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_3, "Mega kamar tidurcleaning", "d it to make a type specimen book. It has survived not only five centuries, but also the", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_4, "Super-Super restroom cleaning", "pular belief, Lorem Ipsum is not simply random text.", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_5, "Super-Super A cleaning", "pular belief, Lorem Ipsum is not simply random text. It has", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_1, "Super-Super restroom cleaning", "We improve your performance.\nThat's why you need us", "450000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_2, "Extream dapur cleaning", "Lorem Ipsum is simply dummy text of the printing and typesetting i's", "150000", "2"));
+//            list.add(new CleaningItemModel(R.drawable.ic_household_3, "Mega kamar tidurcleaning", "d it to make a type specimen book. It has survived not", "150000", "2"));
         }
 
         viewPagerController.setListModel(list).build();
 
     }
 
-    //클리닝 아이템
-    public class CleaningPageItem extends JoViewPagerItem<CleaningItemModel>{
-
-        @BindView(R.id.itemCleaning_vbtnRequest)    View vbtnReq;
-        @BindView(R.id.itemCleaning_tvDesc)         TextView tvDesc;
-        @BindView(R.id.itemCleaning_tvPrice)        TextView tvPrice;
-        @BindView(R.id.itemCleaning_tvTitle)        TextView tvTitle;
-        @BindView(R.id.itemCleaning_tvRequest)      TextView tvRequest;
-        @BindView(R.id.itemCleaning_ivChk)          ImageView ivChk;
-
-        @Override
-        public View getView(LayoutInflater inflater) {
-            return inflater.inflate(R.layout.item_cleaning, null);
-        }
-
-        @Override
-        public void onViewCreated() {
-            ButterKnife.bind(this, getDecorView());
-        }
-
-        @Override
-        public void onViewSelected(CleaningItemModel model, int position) {
-            tvDesc.setText(model.desc);
-            tvPrice.setText(model.hour + "Hours / " + Util.getMoneyString(model.price)+"Rp");
-            tvTitle.setText(model.title);
-
-            if(model.isChecked){
-                vbtnReq.setBackgroundColor(getContext().getResources().getColor(R.color.colorLightGray));
-                ivChk.setImageResource(R.drawable.ic_cross_white);
-                tvRequest.setText("Cancel");
-            }else{
-                vbtnReq.setBackgroundColor(getContext().getResources().getColor(R.color.colorAppPrimary2));
-                ivChk.setImageResource(R.drawable.ic_check_type2);
-                tvRequest.setText("Request");
-            }
-        }
-
-        @OnClick({R.id.itemCleaning_vbtnRequest})
-        public void onBtnRequest(){
-            getModel().isChecked = !getModel().isChecked;
-            refresh();
-
-            ChooseCleaningDialog dialog = getGlobalParam(ChooseCleaningDialog.class.getName());
-            dialog.dismiss();
-
-
-            //콜백 던지기
-            getCommonCallback().onCallback(dialog.getDialog(),
-                    Util.makeMap("pos", getPosition(), "isChked", getModel().isChecked, "CleaningItemModel", getModel()));
-        }
-
-    }
+//    //클리닝 아이템
+//    public class CleaningPageItem extends JoViewPagerItem<CleaningItemModel>{
+//
+//        @BindView(R.id.itemCleaning_vbtnRequest)    View vbtnReq;
+//        @BindView(R.id.itemCleaning_tvDesc)         TextView tvDesc;
+//        @BindView(R.id.itemCleaning_tvPrice)        TextView tvPrice;
+//        @BindView(R.id.itemCleaning_tvTitle)        TextView tvTitle;
+//        @BindView(R.id.itemCleaning_tvRequest)      TextView tvRequest;
+//        @BindView(R.id.itemCleaning_ivChk)          ImageView ivChk;
+//
+//        @Override
+//        public View getView(LayoutInflater inflater) {
+//            return inflater.inflate(R.layout.item_cleaning, null);
+//        }
+//
+//        @Override
+//        public void onViewCreated() {
+//            ButterKnife.bind(this, getDecorView());
+//        }
+//
+//        @Override
+//        public void onViewSelected(CleaningModel model, int position) {
+//            tvDesc.setText(model.desc);
+//            tvPrice.setText(model.hour + "Hours / " + Util.getMoneyString(model.price, '.')+"Rp");
+//            tvTitle.setText(model.title);
+//
+////            if(model.isChecked){
+////                vbtnReq.setBackgroundColor(getContext().getResources().getColor(R.color.colorLightGray));
+////                ivChk.setImageResource(R.drawable.ic_cross_white);
+////                tvRequest.setText("Cancel");
+////            }else{
+////                vbtnReq.setBackgroundColor(getContext().getResources().getColor(R.color.colorAppPrimary2));
+////                ivChk.setImageResource(R.drawable.ic_check_type2);
+////                tvRequest.setText("Request");
+////            }
+//        }
+//
+//        @OnClick({R.id.itemCleaning_vbtnRequest})
+//        public void onBtnRequest(){
+////            getModel().isChecked = !getModel().isChecked;
+//            refresh();
+//
+//            ChooseCleaningDialog dialog = getGlobalParam(ChooseCleaningDialog.class.getName());
+//            dialog.dismiss();
+//
+//
+//            //콜백 던지기
+////            getCommonCallback().onCallback(dialog.getDialog(),
+////                    Util.makeMap("pos", getPosition(), "isChked", getModel().isChecked, "CleaningItemModel", getModel()));
+//        }
+//
+//    }
 
     //모델
 

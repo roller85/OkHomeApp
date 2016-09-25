@@ -2,6 +2,6 @@
     android:shape="rectangle" >
 
 
-    <stroke android:width="1px" android:color="#88808384" />
+    <stroke android:width="1px" android:color="#aa808384" />
 </shape>
 

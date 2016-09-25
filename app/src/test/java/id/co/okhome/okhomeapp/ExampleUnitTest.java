@@ -4,40 +4,46 @@ import org.junit.Test;
 
 import java.lang.reflect.Constructor;
 
+import static java.lang.System.out;
+
 /**
  * Example local unit test, which will execute on the development machine (host).
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-
-//        Constructor c = SampleModel.class.getDeclaredConstructor();
-//        c.setAccessible(true);
 
 
-        Integer a= getParam("a");
-        instance(this, Sampe2Model.class);
+    public static class Tv{
+        int channel = 0;
 
+        public void channelUp(){
+            channel ++;
+        }
 
+        public int getCurrentChannel(){
+            return channel;
+        }
     }
 
-    private void instance(Object obj, Class targetClass) throws Exception{
-        print(obj.getClass().getName());
+    public static class JoTv extends Tv{
 
-        if(targetClass.isMemberClass()){
-            Constructor innerConstructor = targetClass.getDeclaredConstructor(obj.getClass());
-            Object newObject = innerConstructor.newInstance(obj);
-
-            print(newObject);
-
-            Sampe2Model m = (Sampe2Model) newObject;
-            m.getText();
-
-        }else{
-
+        @Override
+        public void channelUp() {
+            super.channelUp();
+            channel += 10;
         }
+    }
+
+
+    @Test
+    public void sdfdasf() throws Exception {
+
+        Class fragmentClass = SampleModel.class;
+        Constructor[] allConstructors = fragmentClass.getDeclaredConstructors();
+        out.println("O " + " ::: " + "왓다" + allConstructors.length);
+        SampleModel sampleModel = (SampleModel)allConstructors[0].newInstance();
+        out.println(sampleModel.aa);
     }
 
     public <T> T getParam(String key){
@@ -46,7 +52,7 @@ public class ExampleUnitTest {
 
     private void print(Object s){
         final String tag = "SIBALSO";
-        System.out.println(tag + " ::: " + s);
+        out.println(tag + " ::: " + s);
     }
 
     public class Sampe2Model extends SampleModel{

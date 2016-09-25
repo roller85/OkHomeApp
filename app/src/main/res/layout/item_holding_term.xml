@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:paddingBottom="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/itemHoldingTerm_ivChk"
+            android:layout_marginRight="10dp"
+            android:layout_width="22dp"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+        <TextView
+            android:id="@+id/itemHoldingTerm_tvTitle"
+            android:text="1 Month"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/itemHoldingTerm_tvSubTitle"
+            android:layout_marginLeft="10dp"
+            android:text="Until 16.02.2016"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorLightGray"
+            android:layout_centerVertical="true" />
+    </LinearLayout>
+</LinearLayout>

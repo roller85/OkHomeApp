@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="22dp"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:paddingLeft="5dp" android:paddingRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/itemExtraCleaningItem_ivIcon"
+                    android:adjustViewBounds="true"
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_household_3"/>
+
+                <LinearLayout
+                    android:layout_marginLeft="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/itemExtraCleaningItem_tvName"
+                        android:textSize="13sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Bathroom"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/itemExtraCleaningItem_tvHour"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="#818895"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="4hr"/>
+
+                        <ImageView
+                            android:layout_marginRight="5dp" android:layout_marginLeft="5dp"
+                            android:layout_width="2dp"
+                            android:layout_height="2dp" android:src="@drawable/circle_gray_simple"/>
+
+                        <TextView
+                            android:id="@+id/itemExtraCleaningItem_tvPrice"
+                            android:gravity="center"
+                            android:textSize="11sp"
+                            android:textColor="#818895"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="180.000Rp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/itemExtraCleaningItem_ivChk"
+            android:layout_alignParentRight="true"
+            android:layout_width="20dp"
+            android:layout_height="20dp" android:src="@drawable/ic_checked"/>
+    </RelativeLayout>
+</LinearLayout>

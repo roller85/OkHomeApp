@@ -19,25 +19,31 @@ import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayType2Mod
  */
 public class CalendarDayViewType2 extends CalendarDayView {
 
-    private TextView tvDay;
-    private TextView tvTime;
-    private ViewGroup vgBg;
-    private View vgTime;
+    TextView tvDay;
+    ViewGroup vgBg;
+    View vCleaning;
+    View vParent;
+    View vTime;
+    TextView tvTime;
+    View vLine;
 
     public CalendarDayViewType2(Context context) {
         super(context);
     }
+
     public CalendarDayViewType2(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
     @Override
     public void initView(Context context) {
-        View v = inflate(context, R.layout.item_calendar_day_type2, this);
+        View v = inflate(context, R.layout.item_calendar_day, this);
+        vParent = v;
         tvDay = (TextView) v.findViewById(R.id.itemCalendarDay_tvDay);
         vgBg = (ViewGroup)v.findViewById(R.id.itemCalendarDay_vBg);
+        vTime = v.findViewById(R.id.itemCalendarDay_vTime);
         tvTime = (TextView)v.findViewById(R.id.itemCalendarDay_tvTime);
-        vgTime = v.findViewById(R.id.itemCalendarDay_llTime);
+        vLine = v.findViewById(R.id.itemCalendarDay_vLine);
     }
 
     @Override
@@ -46,33 +52,37 @@ public class CalendarDayViewType2 extends CalendarDayView {
     }
 
     @Override
+    public void clear() {
+
+    }
+
+    @Override
     public void refresh() {
         tvDay.setText(String.valueOf(getDayModel().get(Calendar.DAY_OF_MONTH)));
+        vTime.setVisibility(View.GONE);
+        vLine.setVisibility(View.GONE);
 
-        if(getDayModel().isCurrentMonth){
-            tvDay.setAlpha(1f);
-        }else{
-            tvDay.setAlpha(0.3f);
-        }
-
+        //일요일 처리
         if(getDayModel().get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
             tvDay.setTextColor(Color.parseColor("#e53434"));
         }
+        //토요일 처리
         else if(getDayModel().get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
             tvDay.setTextColor(Color.parseColor("#3494e5"));
         }
+        //일반 처리
         else {
             tvDay.setTextColor(getResources().getColor(R.color.okHomeGrayDeep));
         }
 
-        //
-        if(getDayModel().time == null){
-            vgTime.setVisibility(GONE);
+        if(getDayModel().isCurrentMonth){
+            vgBg.setBackgroundColor(Color.parseColor("#06000000"));
+            tvDay.setAlpha(1f);
         }else{
-            vgTime.setVisibility(VISIBLE);
-            tvTime.setText(getDayModel().time);
+            vgBg.setBackgroundColor(Color.parseColor("#02000000"));
+            tvDay.setAlpha(0.5f);
         }
 
     }
-    
+
 }

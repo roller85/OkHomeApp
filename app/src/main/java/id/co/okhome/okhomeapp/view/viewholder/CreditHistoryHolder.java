@@ -11,13 +11,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.model.CreditHistoryModel;
+import id.co.okhome.okhomeapp.model.CreditLogModel;
+
+import static java.lang.Integer.parseInt;
 
 /**
  * Created by josongmin on 2016-08-17.
  */
 @LayoutMatcher(layoutId = R.layout.item_history)
-public class CreditHistoryHolder extends JoViewHolder<CreditHistoryModel> implements View.OnClickListener{
+public class CreditHistoryHolder extends JoViewHolder<CreditLogModel> implements View.OnClickListener{
 
     @BindView(R.id.itemHistory_tvComment)       TextView tvComment;
     @BindView(R.id.itemHistory_tvMoney)         TextView tvMoney;
@@ -36,19 +38,24 @@ public class CreditHistoryHolder extends JoViewHolder<CreditHistoryModel> implem
     }
 
     @Override
-    public void onBind(CreditHistoryModel m, int pos, int absPos) {
+    public void onBind(CreditLogModel m, int pos, int absPos) {
         super.onBind(m, pos, absPos);
 
-        Integer credit = Integer.parseInt(m.credit);
-        if(credit < 0){
-            //사용함
-            tvMoney.setTextColor(Color.parseColor("#787878"));
-        }else{
+        Integer credit = parseInt(m.credit);
+        if(m.type.equals("CHARGE")){
             tvMoney.setTextColor(Color.parseColor("#35a9f3"));
+        }else{
+            tvMoney.setTextColor(Color.parseColor("#787878"));
         }
+        int totalCredit = Integer.parseInt(m.credit) + Integer.parseInt(m.bonusCredit);
 
-        tvMoney.setText(Util.getMoneyString(credit, '.') + " Credit");
-        tvType.setText(m.type);
+        tvMoney.setText(Util.getMoneyString(totalCredit, '.') + " Credit");
+        tvTime.setText(Util.getFormattedDateString(m.insertDate, "MM-dd hh:mma"));
+        tvType.setText(m.typeValue);
+
+        tvComment.setText(m.comment);
+        //
+
     }
 
     @Override

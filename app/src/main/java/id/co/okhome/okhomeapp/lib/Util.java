@@ -2,8 +2,15 @@ package id.co.okhome.okhomeapp.lib;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,15 +18,291 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.lang.reflect.Constructor;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import id.co.okhome.okhomeapp.config.Variables;
+import id.co.okhome.okhomeapp.model.CommonCheckitemModel;
 
 /**
  * Created by josongmin on 2016-07-29.
  */
 
 public class Util {
+
+
+
+
+    /**포맷형태로 날짜 더해서 변환*/
+    public static final String getCurrentDateSimpleTypeWithAdd(int calendarField, int value){
+        try{
+            Calendar c = Calendar.getInstance();
+            c.setTimeInMillis(System.currentTimeMillis());
+            c.add(calendarField, value);
+
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            String date = format.format(c.getTime());
+            return date;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    /**포맷형태로 날짜 더해서 변환*/
+    public static final String getCurrentDateWithAdd(String formatString, int calendarField, int value){
+        try{
+            Calendar c = Calendar.getInstance();
+            c.setTimeInMillis(System.currentTimeMillis());
+            c.add(calendarField, value);
+
+            SimpleDateFormat format = new SimpleDateFormat(formatString);
+            String date = format.format(c.getTime());
+            return date;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    /**포맷형태로 날짜 변환*/
+    public static final String getCurrentDate(String formatString){
+        try{
+            SimpleDateFormat format = new SimpleDateFormat(formatString);
+            String date = format.format(System.currentTimeMillis());
+            return date;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    /**yyyy-MM-dd 형태로 날짜 변환*/
+    public static final String getCurrentDateSimpleType(){
+        return getCurrentDate("yyyy-MM-dd");
+    }
+
+    /**날짜형식 변경*/
+    public static final String getPatternedTimeString(String dateString, String patternFrom, String patternDest){
+
+        try{
+            SimpleDateFormat formatFrom = new SimpleDateFormat(patternFrom);
+            SimpleDateFormat formatDest = new SimpleDateFormat(patternDest);
+
+            return formatDest.format(formatFrom.parse(dateString).getTime());
+        }catch(Exception e){
+            return "err";
+        }
+    }
+
+    /**pivot데이트 기준으로 targetDate가 몇번재 주인지 가져오기*/
+    public static final int getWeekFromSpecificDate(String pivotDate, String targetDate) throws ParseException {
+
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date datePivot = dateFormat.parse(pivotDate);
+        Date dateTarget = dateFormat.parse(targetDate);
+
+        Calendar cPivot = Calendar.getInstance();
+        cPivot.setTime(datePivot);
+        cPivot.set(Calendar.HOUR, 0);
+        cPivot.set(Calendar.MINUTE, 0);
+        cPivot.set(Calendar.SECOND, 0);
+
+        Calendar cTarget = Calendar.getInstance();
+        cTarget.setTime(dateTarget);
+        cTarget.set(Calendar.HOUR, 0);
+        cTarget.set(Calendar.MINUTE, 0);
+        cTarget.set(Calendar.SECOND, 0);
+
+
+        //시작일은 무슨요일
+        int dayOfWeekPivot = cPivot.get(Calendar.DAY_OF_WEEK);
+        int dayOfWeekTarget = cTarget.get(Calendar.DAY_OF_WEEK);
+
+        long diff = cTarget.getTimeInMillis() - cPivot.getTimeInMillis();
+
+        Calendar cDiff = Calendar.getInstance();
+        cDiff.setTimeInMillis(diff);
+
+        int diffDay = (int)(diff / 1000 / 60 / 60 / 24);
+        int weekFromDay = ((dayOfWeekPivot-1) + diffDay) / 7;
+
+        return weekFromDay;
+    }
+
+    public static String getFull2Decimal(int decimal){
+        if(decimal < 10){
+            return "0" + decimal;
+        }else{
+            return decimal + "";
+        }
+    }
+
+    /**1개월을 42일로 나누어서 전, 후 월 일부도 다 가져옴*/
+    public static final Map<String, String> getMonthRange42(int year, int month){
+        String startDate = "", endDate = "";
+
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, 1);
+        cal.setFirstDayOfWeek(Calendar.SUNDAY);//Sunday is first day of week in this sample
+
+        int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);//Get day of the week in first day of this month
+
+        cal.add(Calendar.DAY_OF_MONTH, Calendar.SUNDAY - dayOfWeek);//Move to first day of first week
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        startDate = dateFormat.format(cal.getTime());
+        cal.add(Calendar.DAY_OF_MONTH, 41);
+        endDate = dateFormat.format(cal.getTime());
+        //
+        return Util.makeStringMap("startDate", startDate, "endDate", endDate);
+    }
+
+    /**프래그먼트 파라미터랑 같이 생성*/
+    public final static<T> T makeFragmentInstance(Class<T> fragmentClass, Map<String, Object> params){
+        try{
+
+            Constructor[] allConstructors = fragmentClass.getDeclaredConstructors();
+            Util.Log("makeFragmentInstance constructor : " + allConstructors.length);
+            T f = (T)allConstructors[0].newInstance();
+
+
+            Bundle bundle = new Bundle();
+            for (Map.Entry<String, Object> entry : params.entrySet()) {
+                String key = entry.getKey();
+                Object value = entry.getValue();
+
+                if(value instanceof Integer){
+                    bundle.putInt(key, (int)value);
+                }
+                else if(value instanceof String){
+                    bundle.putString(key, (String)value);
+                }
+                else if(value instanceof Float){
+                    bundle.putFloat(key, (Float)value);
+                }
+            }
+
+            ((Fragment)f).setArguments(bundle);
+            return f;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public static final boolean isEmpty(String value){
+        if(value == null || value.equals("")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**앱 버전 갖고오기*/
+    public final static String getAppVersionName(Activity context) {
+
+        PackageManager pm = context.getPackageManager();
+        try {
+            PackageInfo packageInfo = pm.getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionName;
+
+        } catch (PackageManager.NameNotFoundException e) {
+            return "Unknown";
+        }
+
+    }
+
+
+    public final static void openMarketIntent(Context context, String packageName){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("market://details?id=" + packageName));
+        context.startActivity(intent);
+    }
+
+    public final static void openWhatsAppMessageIntent(Context context, String phone, String subject, String text){
+        try{
+//            Intent waIntent = new Intent(Intent.ACTION_SEND);
+//            waIntent.setType("text/plain");
+//            PackageInfo info= context.getPackageManager().getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+//            waIntent.setPackage("com.whatsapp");
+//            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+//            context.startActivity(Intent.createChooser(waIntent, "Share with"));
+
+            Uri uri = Uri.parse("smsto:" + phone);
+            Intent i = new Intent(Intent.ACTION_SENDTO, uri);
+            i.setPackage("com.whatsapp");
+            context.startActivity(Intent.createChooser(i, ""));
+        }catch(Exception e){
+            openMarketIntent(context, "com.whatsapp");
+        }
+    }
+
+    public final static void openEmailIntent(Context context, String email, String subject, String text){
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"+email));
+        i.putExtra(Intent.EXTRA_SUBJECT, subject);
+        i.putExtra(Intent.EXTRA_TEXT, text);
+        context.startActivity(i);
+    }
+
+    public final static void openWebIntent(Context context, String url){
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        context.startActivity(i);
+    }
+
+    public static void openPhoneDialIntent(Context context, String phone){
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+        context.startActivity(intent);
+    }
+
+    public final static String getFormattedDateString(String date, String format){
+        try{
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            long time = dateFormat.parse(date).getTime();
+
+            SimpleDateFormat dateFormat2 = new SimpleDateFormat(format, Locale.US);
+            String s = dateFormat2.format(time);
+            return s;
+        }catch(Exception e){
+            return e.toString();
+        }
+    }
+
+    public final static String getCurrentDateTime(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return dateFormat.format(new Date(System.currentTimeMillis()));
+    }
+
+    //**이메일 정규식체크*/
+    public final static boolean isValidEmail(String email) {
+        boolean err = false;
+        String regex = "^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$";
+
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(email);
+        if( m.matches() ) {
+            err = true;
+        }
+        return err;
+    }
+
+    /**맵값을 캐스팅없이 가져옴*/
+    public static <T> T getMapValue(Map map, String key){
+        return (T)map.get(key);
+    }
+
+    /**로그 뿌리기*/
+    public static final void Log(Object msg){
+        Log.d(Variables.LOGTAG, msg.toString());
+    }
 
     /**etbox 키보드 컨트롤*/
     public static void setSoftKeyboardVisiblity( EditText etTarget, boolean on){
@@ -84,6 +367,16 @@ public class Util {
         return params;
     }
 
+    public static Map<String, String> makeStringMap(String ... objs){
+        Map<String, String> params = new HashMap<String, String>();
+
+        for(int i = 0; i < objs.length; i+=2){
+            params.put((String)objs[i], objs[i+1]);
+        }
+
+        return params;
+    }
+
     /**현재 년도 가져오기*/
     public static final int getCurrentYear(){
         return Calendar.getInstance().get(Calendar.YEAR);
@@ -95,8 +388,8 @@ public class Util {
     }
 
     /**토스트 띄우기*/
-    public static final void showToast(Context context,String msg){
-        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+    public static final void showToast(Context context, String msg){
+        if(context != null) Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
     }
 
     /** 뷰페이저 스와이핑 막기*/

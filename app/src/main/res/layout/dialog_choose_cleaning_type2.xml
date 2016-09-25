@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    android:gravity="center_horizontal"
+    android:background="#ffffff"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:adjustViewBounds="true"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content" android:src="@drawable/img_noti_alarm"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp" android:paddingRight="20dp"
+        android:id="@+id/actMakeOneDayReservation_tvTitle"
+        android:textSize="14sp"
+        android:textColor="#4f5661"
+        android:text="Which cleaning type do you want?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_marginTop="2dp"
+        android:id="@+id/dialogChooseCleaningType_tvSubText"
+        android:text="We recommend you periodic cleaning service shashasha"
+        android:textSize="13sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorLightGray"/>
+
+
+    <LinearLayout
+        android:id="@+id/dialogChooseCleaningType_vbtnPeriodicCleaning"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+        android:background="@drawable/square_line_appcolor"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:textColor="@color/colorAppPrimary2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Periodic cleaning"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp" android:layout_marginRight="20dp"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="45dp">
+
+        <LinearLayout
+            android:layout_marginRight="5dp"
+            android:background="@drawable/square_line_appcolor"
+            android:layout_weight="5"
+            android:id="@+id/dialogChooseCleaningType_vbtnOneTimeCleaning"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="@color/colorAppPrimary2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="One time cleaning"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/square_line_appcolor"
+            android:layout_weight="5"
+
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:textColor="@color/colorAppPrimary2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="One time cleaning 2"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+
+

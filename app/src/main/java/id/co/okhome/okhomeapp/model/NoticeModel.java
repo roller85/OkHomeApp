@@ -5,5 +5,6 @@ package id.co.okhome.okhomeapp.model;
  */
 
 public class NoticeModel {
-    public String title, content, date;
+    public String subject, content, insertDate;
+    public boolean isOpened = false;
 }

@@ -27,6 +27,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/layerCalendar_vbtnLeft"
             android:layout_marginRight="40dp"
             android:adjustViewBounds="true"
             android:layout_width="12.5dp"
@@ -40,6 +41,7 @@
             android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/colorAppPrimary"/>
 
         <ImageView
+            android:id="@+id/layerCalendar_vbtnRight"
             android:layout_marginLeft="40dp"
             android:adjustViewBounds="true"
             android:layout_width="12.5dp"

@@ -1,15 +1,16 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
 
+
 android {
     compileSdkVersion 23
-    buildToolsVersion '24.0.0 rc4'
+    buildToolsVersion '24.0.2'
     defaultConfig {
         applicationId "id.co.okhome.okhomeapp"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -18,26 +19,42 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':recyclerViewManager')
     compile project(':typekit')
-
-    compile 'com.github.castorflex.verticalviewpager:library:19.0.1'
-    compile 'se.emilsjolander:StickyScrollViewItems:1.1.0'
-    compile 'com.makeramen:roundedimageview:2.2.1'
+    //페북
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+    //레트로핏 / 연결라이브러리
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    //이미지처리
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.edmodo:cropper:1.0.1'
+    //구글서비스
+    compile 'com.google.android.gms:play-services-gcm:9.4.0'
+    compile 'com.google.android.gms:play-services-auth:9.4.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:cardview-v7:23.4.0'
     compile 'com.android.support:recyclerview-v7:23.4.0'
+    //기타
+    compile 'com.github.castorflex.verticalviewpager:library:19.0.1'
+    compile 'se.emilsjolander:StickyScrollViewItems:1.1.0'
+    compile 'com.makeramen:roundedimageview:2.2.1'
     compile 'com.jakewharton:butterknife:8.0.1'
     compile 'com.joooonho:selectableroundedimageview:1.0.1'
     compile 'com.orhanobut:dialogplus:1.11@aar'
-
+    //암호화
+    compile 'com.lambdaworks:scrypt:1.4.0'
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'
     androidTestCompile 'com.android.support:support-annotations:23.4.0'
     apt 'com.jakewharton:butterknife-compiler:8.0.1'
 }
+apply plugin: 'com.google.gms.google-services'

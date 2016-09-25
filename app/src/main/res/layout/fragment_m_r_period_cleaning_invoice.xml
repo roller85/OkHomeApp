@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center_horizontal"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:paddingLeft="30dp" android:paddingRight="30dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="청소시작일"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:text="2016.06.29 ~"
+                        android:id="@+id/fragmentMakeReservationPeriodInvoice_tvStartDate"
+                        android:textSize="13.5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGray"
+                        android:layout_centerVertical="true" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:background="#33000000"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="22dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="하루 청소 비용"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/fragmentMakeReservationPeriodInvoice_tvPrice"
+                        android:text="시간당 80.000Rp X 4시간 = 320.000Rp"
+                        android:textSize="13.5sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGray"
+                        android:layout_centerVertical="true" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:background="#33000000"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="22dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="청소 주기 일정"
+                android:textSize="13sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorLightGray"/>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:background="#ffffff"
+                    android:paddingLeft="1dp" android:paddingRight="1dp"
+                    android:paddingBottom="5dp" android:paddingTop="10dp"
+                    android:weightSum="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Sun"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Mon"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Tue"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Wed"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Thu"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Fri"/>
+
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
+                        android:textColor="@color/okHomeGrayDeep"
+                        android:gravity="center" android:layout_weight="1" android:text="Sat"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:id="@+id/fragmentMakeReservationPeriodInvoice_vgDays"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <!---->
+        <LinearLayout
+            android:layout_marginTop="28dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="※ "
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <TextView
+                    android:text="결제는 청소시작 2일전 자동으로 충전된 금액에서 차감됩니다."
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="※ "
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <TextView
+                    android:text="금액이 충분하지 않은 경우에는 청소예약이 취소됩니다."
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="※ "
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+
+                <TextView
+                    android:text="3번 이상 청소가 취소되면 전체 청소 일정이 비활성화됩니다."
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorLightGray"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

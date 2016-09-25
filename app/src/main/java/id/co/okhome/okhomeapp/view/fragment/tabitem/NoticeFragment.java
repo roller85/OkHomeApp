@@ -1,8 +1,6 @@
 package id.co.okhome.okhomeapp.view.fragment.tabitem;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,13 +9,15 @@ import android.view.ViewGroup;
 
 import com.mrjodev.jorecyclermanager.JoRecyclerAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
+import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.NoticeModel;
+import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.viewholder.BlankHolder;
 import id.co.okhome.okhomeapp.view.viewholder.NoticeHolder;
 
@@ -58,21 +58,26 @@ public class NoticeFragment extends Fragment {
 
     private void loadList(){
         vLoading.setVisibility(View.VISIBLE);
-        new Handler(){
+
+        RestClient.getNoticeClient().getNoticeList().enqueue(new RetrofitCallback<List<NoticeModel>>() {
+
             @Override
-            public void dispatchMessage(Message msg) {
-                List<NoticeModel> list = new ArrayList<NoticeModel>();
-
-                for(int i = 0; i < 40; i++){
-                    NoticeModel m = new NoticeModel();
-                    m.title = "Hello Notice title test " + (i+1);
-                    list.add(m);
-                }
-
-                adapter.setListItems(list);
+            public void onFinish() {
                 vLoading.setVisibility(View.GONE);
             }
-        }.sendEmptyMessageDelayed(0, 1000);
+
+            @Override
+            public void onSuccess(List<NoticeModel> result) {
+                adapter.setListItems(result);
+                vLoading.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onJodevError(ErrorModel jodevErrorModel) {
+
+            }
+        });
+
 
     }
 

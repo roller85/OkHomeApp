@@ -9,19 +9,24 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.AnimatedTooltipImageController;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
+import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.activity.SignupActivity;
-import id.co.okhome.okhomeapp.view.activity.StartActivity;
+import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class MakeReservationGuestFragment extends Fragment {
+public class MakeReservationFragment2 extends Fragment {
 
 
     @BindView(R.id.fragmentMakeReservationGuest_ivThumb)
@@ -71,6 +76,18 @@ public class MakeReservationGuestFragment extends Fragment {
         super.onDestroy();
     }
 
+    @OnClick(R.id.fragmentMakeReservationGuest_vbtnDo)
+    public void onMakeReservation(View v){
+        DialogController.showBottomDialog(getContext(), new ChooseCleaningTypeDialog(this, true, new ViewDialog.DialogCommonCallback() {
+            @Override
+            public void onCallback(Object dialog, Map<String, Object> params) {
+
+            }
+        }));
+
+    }
+
+
     @OnClick(R.id.fragmentMakeReservationGuest_tvbtnSignup)
     public void onBtnSignup(View v){
         startActivity(new Intent(getContext(), SignupActivity.class));
@@ -78,7 +95,7 @@ public class MakeReservationGuestFragment extends Fragment {
 
     @OnClick(R.id.fragmentMakeReservationGuest_tvbtnLogin)
     public void onBtnLogin(View v){
-        startActivity(new Intent(getContext(), StartActivity.class));
+        startActivity(new Intent(getContext(), SigninActivity.class));
     }
 
 

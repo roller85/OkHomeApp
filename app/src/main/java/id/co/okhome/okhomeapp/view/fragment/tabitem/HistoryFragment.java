@@ -1,8 +1,6 @@
 package id.co.okhome.okhomeapp.view.fragment.tabitem;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -18,9 +16,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerController;
 import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerItem;
-import id.co.okhome.okhomeapp.model.CreditHistoryModel;
+import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
+import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
+import id.co.okhome.okhomeapp.model.CreditLogModel;
+import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.viewholder.CreditHistoryHolder;
 
 /**
@@ -129,36 +131,28 @@ public class HistoryFragment extends Fragment {
         @Override
         public void onViewSelected(String type, int position) {
             if(type.equals("ALL")){
-                loadList();
+                loadList("ALL");
             }else if(type.equals("SPEND")){
-                loadList();
+                loadList("USE");
             }else if(type.equals("CHARGE")){
-                loadList();
+                loadList("CHARGE");
             }
         }
 
-        final int[] arrCredit = new int[]{-100000, 50000, 100000, 70000, 100000, 30000, 900000, 150000};
-        final String[] type = new String[]{"Card", "Credit", "Cash", "Bonus"};
-        private void loadList(){
+        private void loadList(String type){
             vLoading.setVisibility(View.VISIBLE);
-            new Handler(){
+            RestClient.getCreditClient().getCreditList(CurrentUserInfo.getId(getContext()), type, "0", "20").enqueue(new RetrofitCallback<List<CreditLogModel>>() {
                 @Override
-                public void dispatchMessage(Message msg) {
-                    List<CreditHistoryModel> list = new ArrayList();
-
-                    for(int i = 0; i < 40; i++){
-                        CreditHistoryModel m = new CreditHistoryModel();
-
-                        m.credit = arrCredit[i % arrCredit.length] + "";
-                        m.type = type[i % type.length];
-
-                        list.add(m);
-                    }
-
-                    adapter.setListItems(list);
+                public void onSuccess(List<CreditLogModel> result) {
+                    adapter.setListItems(result);
                     vLoading.setVisibility(View.GONE);
                 }
-            }.sendEmptyMessageDelayed(0, 1000);
+
+                @Override
+                public void onJodevError(ErrorModel jodevErrorModel) {
+
+                }
+            });
 
         }
 

@@ -195,6 +195,7 @@ public class CalendarMonthView extends LinearLayout implements View.OnClickListe
                 addView(arrWeek.get(count / 7));
             }
             CalendarDayView dayView = arrDayView.get(count);
+            dayView.clear();
             dayView.setDay(dayModel);
             dayView.refresh();
 
@@ -226,7 +227,7 @@ public class CalendarMonthView extends LinearLayout implements View.OnClickListe
             String month  = Util.fillupWithZero(dayModel.get(Calendar.MONTH)+1, "XX");
             String day = Util.fillupWithZero(dayModel.get(Calendar.DAY_OF_MONTH), "XX");
 
-            onDayClickListener.onDayClick(arrDayView, dayModel, year, month, day);
+            onDayClickListener.onDayClick(arrDayView, ov, dayModel, year, month, day);
         }
 
     }
@@ -234,6 +235,6 @@ public class CalendarMonthView extends LinearLayout implements View.OnClickListe
 
     public interface OnDayClickListener<T extends CalendarDayModel>{
         public void onDayClick(
-                List<CalendarDayView> listCalendarDayView, T dayModel, String year, String month, String day);
+                List<CalendarDayView> listCalendarDayView, CalendarDayView dayview, T dayModel, String year, String month, String day);
     }
 }

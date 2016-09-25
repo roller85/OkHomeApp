@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:paddingLeft="20dp" android:paddingRight="20dp"
-        android:paddingTop="17dp" android:paddingBottom="17dp"
+        android:paddingTop="19dp" android:paddingBottom="19dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -15,7 +15,6 @@
 
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <LinearLayout
@@ -34,25 +33,25 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="7dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/itemHistory_tvType"
                         android:gravity="center"
-                        android:layout_marginRight="6dp"
+                        android:layout_marginRight="8dp"
                         android:textSize="11sp"
-                        android:paddingTop="5dp" android:paddingBottom="5dp"
                         android:background="@color/colorLightGray"
                         android:text="Card" android:textColor="#ffffff"
                         android:layout_width="44dp"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="30dp" />
                     <TextView
                         android:id="@+id/itemHistory_tvComment"
                         android:text="Using 100.000 Rupiah, it was charged"
                         android:textColor="@color/okHomeGrayDeep"
-                        android:textSize="12sp"
+                        android:textSize="11.5sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 

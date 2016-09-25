@@ -6,53 +6,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+
+    <LinearLayout
         android:paddingLeft="14dp" android:paddingRight="14dp"
         android:paddingTop="13dp" android:paddingBottom="13dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:id="@+id/itemNotice_llContent"
-            android:orientation="vertical"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:gravity="center_vertical"
+                android:id="@+id/itemNotice_llContent"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_marginRight="8dp"
-                    android:adjustViewBounds="true"
-                    android:layout_width="3dp"
-                    android:layout_height="3dp"
-                    android:background="@drawable/circle_appcolor"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_marginRight="8dp"
+                        android:adjustViewBounds="true"
+                        android:layout_width="3dp"
+                        android:layout_height="3dp"
+                        android:background="@drawable/circle_appcolor"/>
+                    <TextView
+                        android:id="@+id/itemNotice_tvTitle"
+                        android:layout_centerVertical="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Hello It is first notice!"
+                        android:textSize="14sp"
+                        android:textColor="#dd3b3e45"/>
+                </LinearLayout>
+
                 <TextView
-                    android:id="@+id/itemNotice_tvTitle"
+                    android:id="@+id/itemNotice_tvDate"
+                    android:layout_marginTop="2dp"
                     android:layout_centerVertical="true"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Hello It is first notice!"
-                    android:textSize="14sp"
-                    android:textColor="#dd3b3e45"/>
+                    android:layout_height="wrap_content" android:text="2016.01.12"
+                    android:textSize="10sp"
+                    android:textColor="#7f8a9e"/>
             </LinearLayout>
 
-            <TextView
-                android:layout_marginTop="2dp"
+            <ImageView
+                android:rotation="-90"
+                android:id="@+id/itemNotice_ivArrow"
+                android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="2016.01.12"
-                android:textSize="10sp"
-                android:textColor="#7f8a9e"/>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_alignParentRight="true"
+                android:adjustViewBounds="true"
+                android:layout_width="11dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_downarrow"/>
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/itemNotice_tvContents"
             android:layout_centerVertical="true"
-            android:adjustViewBounds="true"
-            android:layout_width="11dp"
-            android:layout_height="wrap_content" android:src="@drawable/ic_downarrow"/>
-    </RelativeLayout>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Hello It is first notice!"
+            android:textSize="13sp"
+            android:textColor="#dd3b3e45"/>
+    </LinearLayout>
+
+
 
 
     <View

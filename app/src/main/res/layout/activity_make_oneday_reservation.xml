@@ -6,14 +6,14 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:paddingTop="14dp" android:paddingBottom="14dp"
+        android:paddingTop="18dp" android:paddingBottom="18dp"
         android:id="@+id/actMakeOneDayReservation_rlTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:id="@+id/actMain_llbtnMore"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
 
             <TextView
                 android:id="@+id/actMakeOneDayReservation_tvTitle"
-                android:textSize="13.5sp"
+                android:textSize="14.5sp"
                 android:textColor="#4f5661"
                 android:text="When do you want to get our service?"
                 android:layout_width="wrap_content"
@@ -69,27 +69,62 @@
         </id.co.okhome.okhomeapp.view.customview.OkHomeViewPager>
     </LinearLayout>
 
+
     <LinearLayout
+        android:visibility="gone"
+        android:gravity="right"
+        android:paddingLeft="12dp" android:paddingRight="12dp"
+        android:paddingTop="12dp" android:paddingBottom="12dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/actMakeOneDayReservation_llBottom2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/shawdowcircle"
+            android:layout_width="46dp"
+            android:layout_height="46dp">
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_right_white"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:background="@drawable/shawdowcircle"
+            android:layout_width="46dp"
+            android:layout_height="46dp">
+            <ImageView
+                android:layout_width="13dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_left_white"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="5dp"
         android:weightSum="10"
         android:layout_alignParentBottom="true"
         android:id="@+id/actMakeOneDayReservation_llBottom"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="47dp">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/actMakeOneDayReservation_vbtnLeft"
             android:layout_weight="5"
             android:layout_alignParentBottom="true"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:background="#6681828c"
-            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:background="#7781828c"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <TextView
+                android:layout_centerInParent="true"
                 android:id="@+id/actMakeOneDayReservation_tvLeft"
-                android:textStyle="bold"
                 android:textSize="14sp"
                 android:gravity="center"
                 android:text="Cancel"
@@ -97,41 +132,46 @@
                 android:layout_height="wrap_content"
                 android:textColor="#ffffff" />
 
+        </RelativeLayout>
 
-        </LinearLayout>
-
-        <LinearLayout
+        <RelativeLayout
+            android:layout_marginLeft="5dp"
             android:id="@+id/actMakeOneDayReservation_vbtnRight"
             android:layout_weight="5"
             android:layout_alignParentBottom="true"
-            android:gravity="center"
             android:layout_gravity="center"
             android:background="@color/colorAppPrimary"
-            android:paddingLeft="20dp" android:paddingRight="20dp"
             android:layout_width="0dp"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/actMakeOneDayReservation_tvRight"
-                android:textStyle="bold"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:text="Berikut"
+            <LinearLayout
+                android:layout_centerInParent="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff" />
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/actMakeOneDayReservation_tvRight"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:text="Berikut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff" />
 
-            <TextView
-                android:paddingTop="1dp"
-                android:id="@+id/actMakeOneDayReservation_tvCount"
-                android:layout_marginLeft="4dp"
-                android:textSize="13sp"
-                android:gravity="center"
-                android:text="(1/5)"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#ffffff" />
+                <TextView
+                    android:paddingTop="3dp"
+                    android:id="@+id/actMakeOneDayReservation_tvCount"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:text="(1/5)"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
     </LinearLayout>
 </RelativeLayout>

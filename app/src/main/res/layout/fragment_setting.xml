@@ -26,6 +26,7 @@
                 android:layout_height="wrap_content">
 
                 <RelativeLayout
+                    android:id="@+id/fragmentSetting_vPushChk"
                     android:layout_width="match_parent"
                     android:layout_height="46dp">
 
@@ -50,6 +51,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
+                            android:id="@+id/fragmentSetting_ivPushChk"
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/ic_checked"/>
@@ -65,6 +67,7 @@
 
                 <!--필드-->
                 <RelativeLayout
+                    android:id="@+id/fragmentSetting_vSoundChk"
                     android:layout_width="match_parent"
                     android:layout_height="46dp">
 
@@ -89,6 +92,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
+                            android:id="@+id/fragmentSetting_ivSoundChk"
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/ic_checked"/>
@@ -104,6 +108,7 @@
 
                 <!--필드-->
                 <RelativeLayout
+                    android:id="@+id/fragmentSetting_vVibeChk"
                     android:layout_width="match_parent"
                     android:layout_height="46dp">
 
@@ -128,6 +133,7 @@
                         android:layout_height="match_parent">
 
                         <ImageView
+                            android:id="@+id/fragmentSetting_ivVibeChk"
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/ic_checked"/>
@@ -248,14 +254,25 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center|right"
                         android:layout_marginRight="20dp"
                         android:layout_alignParentRight="true"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent">
                         <TextView
-                            android:text="1.0.0.1(The latest ver.)"
+                            android:id="@+id/fragmentSetting_tvCurrentVersion"
+                            android:text="1.0.0.1"
                             android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/okHomeGray"
+                            android:layout_centerVertical="true" />
+
+                        <TextView
+                            android:id="@+id/fragmentSetting_tvVersionSubText"
+                            android:text="(The latest version)"
+                            android:textSize="11sp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/okHomeGray"
@@ -263,6 +280,7 @@
 
                     </LinearLayout>
                     <ImageView
+                        android:id="@+id/fragmentSetting_vVersionArrow"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
                         android:layout_width="6dp"
@@ -270,6 +288,7 @@
                         android:src="@drawable/ic_rightarrow_gray"/>
 
                     <View
+
                         android:layout_alignParentBottom="true"
                         android:layout_width="match_parent"
                         android:layout_height="1px" android:background="#22000000"/>

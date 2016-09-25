@@ -16,7 +16,7 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:id="@+id/layerMenuItems_ivPhoto"
-            android:src="@drawable/sample_face"
+            android:src="@drawable/img_user_blank"
             app:riv_oval="true" />
 
         <LinearLayout
@@ -41,13 +41,26 @@
                     android:adjustViewBounds="true"
                     android:layout_height="wrap_content" android:src="@drawable/ic_money"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="100.000 Credit" android:textSize="13sp"
-                    android:textColor="@color/okHomeGrayDeep"/>
+                <LinearLayout
+                    android:id="@+id/layerMenuItems_vgCredit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/layerMenuItems_tvCredit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="100.000" android:textSize="13sp"
+                        android:textColor="@color/okHomeGrayDeep"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text=" Credit" android:textSize="13sp"
+                        android:textColor="@color/okHomeGrayDeep"/>
+                </LinearLayout>
             </LinearLayout>
 
             <TextView
+                android:id="@+id/layerMenuItems_tvName"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="19sp"
@@ -55,6 +68,7 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/layerMenuItems_ivMore"
             android:layout_marginRight="15dp"
             android:layout_alignParentRight="true"
             android:adjustViewBounds="true"
@@ -65,7 +79,7 @@
 
     <!--좌측메뉴-->
     <LinearLayout
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="32dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -73,7 +87,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnMakeReservation"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -83,7 +97,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Make reservation" android:textSize="15sp"
+                android:layout_height="wrap_content" android:text="Reservation" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -91,7 +105,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnSchedule"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_height="wrap_content"/>
@@ -99,7 +113,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Schedule" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Schedule" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -107,7 +121,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnCharge"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -117,7 +131,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Charge point" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Charge point" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -125,7 +139,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnHistory"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -135,17 +149,17 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="History" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="History" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
 
+        <View android:layout_width="match_parent" android:layout_height="15dp" android:id="@+id/layerMenuItems_vPadding"/>
 
         <RelativeLayout
-            android:layout_marginTop="15dp"
             android:id="@+id/layerMenuItems_vBtnCustomerCenter"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -155,7 +169,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Customer center" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Customer center" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -163,7 +177,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnNotice"
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -173,7 +187,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Notice" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Notice" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -181,7 +195,7 @@
             android:id="@+id/layerMenuItems_vBtnSetting"
 
             android:layout_width="match_parent"
-            android:layout_height="40dp">
+            android:layout_height="42dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -191,16 +205,51 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Setting" android:textSize="14.5sp"
+                android:layout_height="wrap_content" android:text="Setting" android:textSize="15.5sp"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_marginTop="16dp"
+            android:id="@+id/layerMenuItems_vBtnLogin"
+
+            android:layout_width="match_parent"
+            android:layout_height="42dp">
+
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Login" android:textSize="15.5sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnSignup"
+
+            android:layout_width="match_parent"
+            android:layout_height="42dp">
+
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="Sign up" android:textSize="15.5sp"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

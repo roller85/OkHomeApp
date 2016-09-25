@@ -80,6 +80,8 @@ public abstract class ViewDialog {
 
     public abstract View getView(LayoutInflater inflater);
     public abstract void onViewCreated();
+    public void show(){}
+
 
 
     public interface DialogCommonCallback{

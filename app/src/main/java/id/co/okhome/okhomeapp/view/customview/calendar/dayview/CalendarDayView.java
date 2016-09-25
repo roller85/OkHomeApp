@@ -54,4 +54,5 @@ public abstract class CalendarDayView extends RelativeLayout {
 
     public abstract void initView(Context context);
     public abstract void refresh();
+    public abstract void clear();
 }

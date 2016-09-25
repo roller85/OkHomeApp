@@ -5,38 +5,51 @@ import android.content.Context;
 import android.view.Gravity;
 
 import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnCancelListener;
 import com.orhanobut.dialogplus.ViewHolder;
+
+import id.co.okhome.okhomeapp.R;
 
 /**
  * Created by josongmin on 2016-08-09.
  */
 
 public class DialogController {
+
+    public final static DialogPlus showBottomDialog(final Context context, ViewDialog viewDialog, OnCancelListener onCancelListener){
+        return showDialog(context, viewDialog, Gravity.BOTTOM, onCancelListener);
+    }
+
     public final static DialogPlus showBottomDialog(final Context context, ViewDialog viewDialog){
-        return showDialog(context, viewDialog, Gravity.BOTTOM);
+        return showDialog(context, viewDialog, Gravity.BOTTOM, null);
     }
 
     public final static DialogPlus showTopDialog(final Context context, ViewDialog viewDialog){
-        return showDialog(context, viewDialog, Gravity.TOP);
+        return showDialog(context, viewDialog, Gravity.TOP, null);
     }
 
     public final static JoDialog showCenterDialog(final Context context, ViewDialog viewDialog){
         return showPlainDialog(context, viewDialog, Gravity.CENTER);
     }
 
-    public final static DialogPlus showDialog(final Context context, ViewDialog viewDialog, int gravity){
+
+
+    public final static DialogPlus showDialog(final Context context, ViewDialog viewDialog, int gravity, OnCancelListener onCancelListener){
         viewDialog.setContext(context);
         viewDialog.init();
 
         DialogPlus dialog = DialogPlus.newDialog(context)
                 .setContentHolder(new ViewHolder(viewDialog.getDecorView()))
-                .setContentBackgroundResource(0)
+                .setContentBackgroundResource(android.R.color.white)
                 .setGravity(gravity)
                 .setCancelable(true)
+                .setOverlayBackgroundResource(R.color.transparentBlack)
+                .setOnCancelListener(onCancelListener)
                 .create();
 
         viewDialog.setDialog(dialog);
         viewDialog.onViewCreated();
+        viewDialog.show();
         dialog.show();
         return dialog;
     }

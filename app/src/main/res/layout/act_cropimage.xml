@@ -1,0 +1,75 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:layout_above="@+id/actCropImage_llBox"
+        android:layout_alignParentTop="true"
+        android:background="#000000"
+        android:padding="@dimen/activity_horizontal_margin" >
+
+        <com.edmodo.cropper.CropImageView
+            android:id="@+id/actCropImage_cropImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:id="@+id/actCropImage_llBox"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        android:weightSum="3" >
+
+        <TextView
+            android:id="@+id/actCropImage_done"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorAppPrimary"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:scaleX="0.98"
+            android:text="Ok"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/actCropImage_rotate"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_margin="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorAppPrimary"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:scaleX="0.98"
+            android:text="Rotate"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/actCropImage_cancel"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="@color/colorAppPrimary"
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp"
+            android:scaleX="0.98"
+            android:text="Cancel"
+            android:textColor="#ffffff"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/itemChargeCredit_ivChk"
+            android:layout_marginRight="10dp"
+            android:layout_width="22dp"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
+        <TextView
+            android:id="@+id/itemChargeCredit_tvRupiah"
+            android:textStyle=""
+            android:text="1.000.000 Rp"
+            android:textSize="13sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/itemChargeCredit_tvSummary"
+            android:layout_marginLeft="10dp"
+            android:text="+ bonus 10.000 gift"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorLightGray"
+            android:layout_centerVertical="true" />
+    </LinearLayout>
+
+</LinearLayout>

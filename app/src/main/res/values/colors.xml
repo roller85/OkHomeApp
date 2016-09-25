@@ -13,7 +13,10 @@
     <color name="colorPetSister">#fa418f</color>
 
     <color name="colorLightGray">#dd7f8a9e</color>
+    <color name="colorLightGray2">#7f8a9e</color>
     <color name="colorGray">#3b3e45</color>
     <color name="okHomeGray">#808384</color>
     <color name="okHomeGrayDeep">#454849</color>
+
+    <color name="transparentBlack">#aa000000</color>
 </resources>

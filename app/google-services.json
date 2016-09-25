@@ -1,0 +1,51 @@
+{
+  "project_info": {
+    "project_number": "349081708256",
+    "project_id": "firebase-okhome"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:349081708256:android:81c5754b279c50a9",
+        "android_client_info": {
+          "package_name": "id.co.okhome.okhomeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "349081708256-21kg7m26qr6jcg4rp7qdi2u4g70v632g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.okhome.okhomeapp",
+            "certificate_hash": "A5C05812FAA721ACF9232058959F334267FD0939"
+          }
+        },
+        {
+          "client_id": "349081708256-40c79peief63p2k8rd0pt50sk3ib732r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk8vNN409OPcYPuZSj-H-fLH64XyxEEKg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-83271066-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -41,6 +41,7 @@ public class DrawerLayoutController {
     private int contentId;
     private DrawerLayout drawerLayout;
     private FragmentManager fm;
+    private String lastFragmentString = "";
 
     private ViewComponentInitiator viewComponentInitiator = null;
 
@@ -54,6 +55,10 @@ public class DrawerLayoutController {
     public DrawerLayoutController setViewComponentInitiator(ViewComponentInitiator viewComponentInitiator){
         this.viewComponentInitiator = viewComponentInitiator;
         return this;
+    }
+
+    public String getLastFragmentString() {
+        return lastFragmentString;
     }
 
     public ViewComponentInitiator getViewComponentInitiator(){
@@ -79,8 +84,13 @@ public class DrawerLayoutController {
         }
     }
 
-    public void show(final Fragment fragment, final boolean showContents){
 
+    public DrawerLayout getDrawerLayout() {
+        return drawerLayout;
+    }
+
+
+    public void show(final Fragment fragment, final boolean showContents){
 
         //현재 프래그먼트 어떻게 갖고오지?
         new android.os.Handler().postDelayed(new Runnable() {
@@ -92,6 +102,9 @@ public class DrawerLayoutController {
                 tr.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
                 tr.addToBackStack(null);
                 tr.commit();
+
+                lastFragmentString = fragment.getClass().getName();
+
             }
         }, 280);
 
@@ -101,8 +114,13 @@ public class DrawerLayoutController {
 
     }
 
+    public void onDestroy(){
+        getViewComponentInitiator().onDestroy();
+    }
+
     public interface ViewComponentInitiator{
         public void initDrawerContent(FragmentActivity activity, DrawerLayoutController drawerLayoutController, DrawerLayout drawerLayout, View vParent);
+        public void onDestroy();
     }
 
 }

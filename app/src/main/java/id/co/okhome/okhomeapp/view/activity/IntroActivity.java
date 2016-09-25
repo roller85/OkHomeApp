@@ -6,8 +6,19 @@ import android.os.Message;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
+import java.util.List;
+
+import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.config.CurrentUserInfo;
+import id.co.okhome.okhomeapp.lib.JoSharedPreference;
 import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
+import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
+import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
+import id.co.okhome.okhomeapp.model.CleaningModel;
+import id.co.okhome.okhomeapp.model.UserModel;
+import id.co.okhome.okhomeapp.restclient.RestClient;
 
 public class IntroActivity extends OkHomeActivityParent {
 
@@ -18,25 +29,64 @@ public class IntroActivity extends OkHomeActivityParent {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
+        ButterKnife.bind(this);
+
         new android.os.Handler(){
             @Override
             public void dispatchMessage(Message msg) {
+                initDefaultDatas();
 
-                startActivity(new Intent(IntroActivity.this, MainActivity.class));
-                finish();
             }
-        }.sendEmptyMessageDelayed(0, 2500);
+        }.sendEmptyMessageDelayed(0, 2000);
     }
 
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
+    private void initDefaultDatas(){
+        RestClient.getCleaningClient().getCleaningList().enqueue(new RetrofitCallback<List<CleaningModel>>() {
+            @Override
+            public void onSuccess(List<CleaningModel> result) {
+                JoSharedPreference.with(IntroActivity.this).push("ExtraCleaningList", result);
+                login();
+
+            }
+
+            @Override
+            public void onJodevError(ErrorModel jodevErrorModel) {
+                Util.showToast(IntroActivity.this, jodevErrorModel.message);
+            }
+        });
     }
+
+
+    private void login(){
+        String id = CurrentUserInfo.getId(this);
+        if(id == null){
+            startActivity(new Intent(IntroActivity.this, MainActivity.class));
+            finish();
+        }else{
+            RestClient.getUserRestClient().getUser(id).enqueue(new RetrofitCallback<UserModel>() {
+                @Override
+                public void onSuccess(UserModel result) {
+                    CurrentUserInfo.set(IntroActivity.this, result);
+                    startActivity(new Intent(IntroActivity.this, MainActivity.class));
+                    finish();
+                }
+
+                @Override
+                public void onJodevError(ErrorModel jodevErrorModel) {
+                    Util.showToast(IntroActivity.this, jodevErrorModel.message);
+                    finish();
+                }
+            });
+        }
+
+    }
+
+
+
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-
         animate();
     }
 

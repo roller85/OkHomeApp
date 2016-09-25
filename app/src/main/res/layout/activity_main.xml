@@ -86,7 +86,6 @@
 
             </FrameLayout>
         </RelativeLayout>
-fe
 
 
         <include android:layout_width="275dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"

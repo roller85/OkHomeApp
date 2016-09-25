@@ -55,10 +55,11 @@
                     android:gravity="center"
                     android:textColor="#ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:text="Confirm"/>
+                    android:layout_height="match_parent" android:text="SEND"/>
             </LinearLayout>
 
             <EditText
+                android:layout_toLeftOf="@+id/dialogChangePhoneNumber_vbtnSendSms"
                 android:inputType="phone"
                 android:id="@+id/dialogChangePhoneNumber_etInputPhoneNumber"
                 android:background="@drawable/bg_inputbox"
@@ -73,11 +74,13 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/dialogChangePhoneNumber_vgCertCode"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="42dp" android:orientation="vertical">
 
             <EditText
+                android:layout_toLeftOf="@+id/dialogChangePhoneNumber_vbtnVerification"
                 android:id="@+id/dialogChangePhoneNumber_etInputVerificationCode"
                 android:inputType="phone"
                 android:background="@drawable/bg_inputbox"
@@ -103,8 +106,14 @@
                     android:gravity="center"
                     android:textColor="#ffffff"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:text="Confirm"/>
+                    android:layout_height="match_parent" android:text="CHECK"/>
             </LinearLayout>
+
+            <View
+                android:visibility="invisible"
+                android:id="@+id/dialogChangePhoneNumber_vCertDisable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" android:background="#ddffffff"/>
         </RelativeLayout>
         <include layout="@layout/layer_dialog_actionbtns" />
 

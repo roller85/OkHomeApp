@@ -17,6 +17,53 @@
             android:layout_height="wrap_content" android:textSize="10sp"
             android:textColor="@color/okHomeGrayDeep"/>
 
+        
+
     </RelativeLayout>
 
+
+
+    <LinearLayout
+        android:id="@+id/itemCalendarDay_vCleaning"
+        android:gravity="center"
+        android:padding="3dp"
+        android:background="#887f8a9e"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/itemCalendarDay_tvCleaning"
+            android:textSize="9sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reserved"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/colorAppPrimary2"
+        android:padding="3dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/itemCalendarDay_vTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/itemCalendarDay_tvTime"
+            android:textSize="9sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="11:00"/>
+
+    </LinearLayout>
+
+    <View
+        android:visibility="gone"
+        android:id="@+id/itemCalendarDay_vLine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:background="@drawable/bg_inputbox_focus" />
 </RelativeLayout>

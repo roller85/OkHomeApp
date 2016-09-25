@@ -125,7 +125,7 @@
 
             <TextView
                 android:layout_marginBottom="8dp"
-                android:text="How many room at your home?"
+                android:text="How many floor at your home?"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
