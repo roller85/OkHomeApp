@@ -17,11 +17,7 @@
             android:layout_height="wrap_content" android:textSize="10sp"
             android:textColor="@color/okHomeGrayDeep"/>
 
-        
-
     </RelativeLayout>
-
-
 
     <LinearLayout
         android:id="@+id/itemCalendarDay_vCleaning"
