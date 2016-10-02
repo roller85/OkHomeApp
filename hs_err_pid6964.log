@@ -1,0 +1,749 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 131088 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=6964, tid=0x0000000000001814
+#
+# JRE version: OpenJDK Runtime Environment (8.0_76-b03) (build 1.8.0_76-release-b03)
+# Java VM: OpenJDK 64-Bit Server VM (25.76-b03 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000000001b2f7800):  JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=6164, stack(0x000000001cd10000,0x000000001ce10000)]
+
+Stack: [0x000000001cd10000,0x000000001ce10000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:15009221 47310       4       org.gradle.util.ConfigureUtil::configure (51 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000255ab800 JavaThread "Stdin handler" [_thread_blocked, id=11396, stack(0x000000002b6b0000,0x000000002b7b0000)]
+  0x00000000255ac800 JavaThread "Asynchronous log dispatcher for org.gradle.launcher.daemon.server.DefaultDaemonConnection@1b413e4c" [_thread_blocked, id=11872, stack(0x0000000045790000,0x0000000045890000)]
+  0x00000000255ad000 JavaThread "Daemon worker Thread 43" [_thread_in_Java, id=11356, stack(0x000000003d3a0000,0x000000003d4a0000)]
+  0x00000000255ab000 JavaThread "Cancel handler" [_thread_blocked, id=11400, stack(0x000000001f350000,0x000000001f450000)]
+  0x00000000255ae800 JavaThread "Handler for socket connection from /127.0.0.1:51425 to /127.0.0.1:52193" [_thread_in_native, id=10264, stack(0x0000000037400000,0x0000000037500000)]
+  0x000000002aa2b800 JavaThread "Daemon Thread 43" [_thread_blocked, id=12256, stack(0x00000000262d0000,0x00000000263d0000)]
+  0x00000000255a9800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=11092, stack(0x00000000568c0000,0x00000000569c0000)]
+  0x00000000255a8800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=6304, stack(0x00000000567a0000,0x00000000568a0000)]
+  0x00000000255a8000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=5716, stack(0x00000000561f0000,0x00000000562f0000)]
+  0x00000000255a7000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=5756, stack(0x0000000056640000,0x0000000056740000)]
+  0x000000002ab7f000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=12260, stack(0x0000000056530000,0x0000000056630000)]
+  0x000000002ab7d800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=11516, stack(0x0000000056310000,0x0000000056410000)]
+  0x000000002ab7f800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10356, stack(0x00000000465c0000,0x00000000466c0000)]
+  0x000000002ab7c800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=12064, stack(0x0000000056070000,0x0000000056170000)]
+  0x0000000022748800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11900, stack(0x0000000055080000,0x0000000055180000)]
+  0x0000000022733000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=11060, stack(0x0000000055e70000,0x0000000055f70000)]
+  0x0000000022736000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=11572, stack(0x0000000055cb0000,0x0000000055db0000)]
+  0x0000000022734000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=11616, stack(0x0000000049be0000,0x0000000049ce0000)]
+  0x0000000022737800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=11628, stack(0x0000000055ab0000,0x0000000055bb0000)]
+  0x0000000022735800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=11576, stack(0x0000000055640000,0x0000000055740000)]
+  0x0000000022734800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=11612, stack(0x0000000055950000,0x0000000055a50000)]
+  0x000000002272f800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=11608, stack(0x0000000055760000,0x0000000055860000)]
+  0x0000000022732800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11920, stack(0x00000000554c0000,0x00000000555c0000)]
+  0x0000000022730000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11604, stack(0x0000000054e70000,0x0000000054f70000)]
+  0x0000000024065000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9416, stack(0x0000000054f80000,0x0000000055080000)]
+  0x000000002406c000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=11348, stack(0x0000000054d40000,0x0000000054e40000)]
+  0x000000002274d000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10176, stack(0x000000001f100000,0x000000001f200000)]
+  0x000000002274c000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=11928, stack(0x0000000054bf0000,0x0000000054cf0000)]
+  0x000000002274b800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10932, stack(0x0000000054a40000,0x0000000054b40000)]
+  0x000000002274a800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3656, stack(0x00000000548d0000,0x00000000549d0000)]
+  0x000000002274a000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=11840, stack(0x0000000052b40000,0x0000000052c40000)]
+  0x0000000022740800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11800, stack(0x0000000054720000,0x0000000054820000)]
+  0x0000000022749000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11820, stack(0x00000000545f0000,0x00000000546f0000)]
+  0x0000000022747000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=11988, stack(0x0000000054340000,0x0000000054440000)]
+  0x0000000022746000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=12008, stack(0x0000000054160000,0x0000000054260000)]
+  0x0000000022745800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=11996, stack(0x0000000054030000,0x0000000054130000)]
+  0x0000000022744800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9676, stack(0x000000001f560000,0x000000001f660000)]
+  0x0000000022743800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=7896, stack(0x0000000052cb0000,0x0000000052db0000)]
+  0x0000000022743000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=11108, stack(0x0000000053f30000,0x0000000054030000)]
+  0x0000000022742000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10564, stack(0x000000004d600000,0x000000004d700000)]
+  0x0000000022738800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11912, stack(0x0000000053db0000,0x0000000053eb0000)]
+  0x0000000022741800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10344, stack(0x0000000053c80000,0x0000000053d80000)]
+  0x000000002273f000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=12228, stack(0x00000000537e0000,0x00000000538e0000)]
+  0x000000002273e800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=12224, stack(0x00000000535f0000,0x00000000536f0000)]
+  0x000000002273d800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=12220, stack(0x0000000053440000,0x0000000053540000)]
+  0x000000002273d000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=12216, stack(0x00000000532b0000,0x00000000533b0000)]
+  0x000000002273c000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=12212, stack(0x0000000053160000,0x0000000053260000)]
+  0x000000002273b800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=12208, stack(0x0000000052f30000,0x0000000053030000)]
+  0x000000002273a800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=12204, stack(0x00000000510f0000,0x00000000511f0000)]
+  0x000000002273a000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=12200, stack(0x0000000052dc0000,0x0000000052ec0000)]
+  0x0000000022739000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=12196, stack(0x0000000050bb0000,0x0000000050cb0000)]
+  0x000000002ab7c000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=4172, stack(0x00000000529f0000,0x0000000052af0000)]
+  0x000000002ab80800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10664, stack(0x0000000052850000,0x0000000052950000)]
+  0x000000002ab7b000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=7380, stack(0x000000004a570000,0x000000004a670000)]
+  0x000000002ab76800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9288, stack(0x0000000051330000,0x0000000051430000)]
+  0x000000002ab78000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=6516, stack(0x0000000052740000,0x0000000052840000)]
+  0x000000002ab79000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10396, stack(0x0000000051730000,0x0000000051830000)]
+  0x000000002ab79800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=4668, stack(0x0000000052620000,0x0000000052720000)]
+  0x000000002ab77800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11064, stack(0x00000000524c0000,0x00000000525c0000)]
+  0x000000002ab7a800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=2040, stack(0x0000000052340000,0x0000000052440000)]
+  0x000000002ab8e000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8228, stack(0x0000000051ff0000,0x00000000520f0000)]
+  0x000000002ab8d000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=6244, stack(0x0000000051e30000,0x0000000051f30000)]
+  0x000000002ab8c800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=7412, stack(0x0000000051d10000,0x0000000051e10000)]
+  0x000000002ab8b800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8488, stack(0x0000000051ba0000,0x0000000051ca0000)]
+  0x000000002ab89800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9336, stack(0x00000000519e0000,0x0000000051ae0000)]
+  0x000000002ab88000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9588, stack(0x0000000051830000,0x0000000051930000)]
+  0x000000002ab8b000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=3600, stack(0x0000000051630000,0x0000000051730000)]
+  0x000000002ab8a000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11204, stack(0x0000000051430000,0x0000000051530000)]
+  0x000000002ab88800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=4448, stack(0x0000000051220000,0x0000000051320000)]
+  0x000000002ab87000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9740, stack(0x0000000050e10000,0x0000000050f10000)]
+  0x000000002ab86800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=5728, stack(0x0000000050ce0000,0x0000000050de0000)]
+  0x000000002ab85800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10728, stack(0x0000000050ab0000,0x0000000050bb0000)]
+  0x000000002ab85000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10560, stack(0x0000000050970000,0x0000000050a70000)]
+  0x000000002ab83800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9692, stack(0x00000000506d0000,0x00000000507d0000)]
+  0x000000002ab84000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10864, stack(0x000000004a670000,0x000000004a770000)]
+  0x000000002ab82800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10784, stack(0x0000000050200000,0x0000000050300000)]
+  0x000000002ab82000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=1320, stack(0x000000001f450000,0x000000001f550000)]
+  0x000000002ab81000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11212, stack(0x000000004ff90000,0x0000000050090000)]
+  0x000000002ab75000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=6636, stack(0x0000000050330000,0x0000000050430000)]
+  0x000000002ab74800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=4428, stack(0x00000000500b0000,0x00000000501b0000)]
+  0x000000002ab73800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9608, stack(0x000000004fe70000,0x000000004ff70000)]
+  0x000000002ab73000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=6284, stack(0x000000004f020000,0x000000004f120000)]
+  0x000000002ab72000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=1416, stack(0x000000004fc90000,0x000000004fd90000)]
+  0x000000002ab71800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10388, stack(0x000000004fb80000,0x000000004fc80000)]
+  0x000000002ab70800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10380, stack(0x000000004eb50000,0x000000004ec50000)]
+  0x000000002ab70000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4232, stack(0x000000004ae40000,0x000000004af40000)]
+  0x000000002aa39800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10464, stack(0x000000004b530000,0x000000004b630000)]
+  0x000000002aa19800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10496, stack(0x000000004fa20000,0x000000004fb20000)]
+  0x000000002aa18000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10444, stack(0x000000004f870000,0x000000004f970000)]
+  0x000000002aa17000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10148, stack(0x000000004f690000,0x000000004f790000)]
+  0x000000002aa16800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=6488, stack(0x000000004f530000,0x000000004f630000)]
+  0x000000002aa13800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=11028, stack(0x000000004f430000,0x000000004f530000)]
+  0x000000002aa1a000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10280, stack(0x000000004f330000,0x000000004f430000)]
+  0x000000002aa24000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9324, stack(0x000000004f160000,0x000000004f260000)]
+  0x000000002aa15800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8956, stack(0x000000004ef20000,0x000000004f020000)]
+  0x0000000024079800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10512, stack(0x000000004c610000,0x000000004c710000)]
+  0x000000002aa14000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10544, stack(0x000000004e9c0000,0x000000004eac0000)]
+  0x000000002aa12800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=3464, stack(0x000000004e8b0000,0x000000004e9b0000)]
+  0x000000002aa12000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=11208, stack(0x000000004e3b0000,0x000000004e4b0000)]
+  0x000000002aa25800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8892, stack(0x000000004e5f0000,0x000000004e6f0000)]
+  0x000000002407c800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10640, stack(0x000000004e720000,0x000000004e820000)]
+  0x0000000024078000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9284, stack(0x000000004e4c0000,0x000000004e5c0000)]
+  0x000000002407a800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10732, stack(0x000000004b650000,0x000000004b750000)]
+  0x000000002407c000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10248, stack(0x000000004e290000,0x000000004e390000)]
+  0x000000002407b000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10616, stack(0x000000004dfd0000,0x000000004e0d0000)]
+  0x0000000024076800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=11260, stack(0x000000004dc90000,0x000000004dd90000)]
+  0x0000000024076000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10384, stack(0x000000004daa0000,0x000000004dba0000)]
+  0x0000000024075000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10188, stack(0x000000004d8b0000,0x000000004d9b0000)]
+  0x0000000024074800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=2720, stack(0x000000004d700000,0x000000004d800000)]
+  0x0000000024073800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10144, stack(0x000000004d500000,0x000000004d600000)]
+  0x0000000024073000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3408, stack(0x000000004d390000,0x000000004d490000)]
+  0x0000000024071800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10904, stack(0x000000004c3a0000,0x000000004c4a0000)]
+  0x0000000024072000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=5060, stack(0x000000004c4e0000,0x000000004c5e0000)]
+  0x0000000024070800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=9720, stack(0x000000004b400000,0x000000004b500000)]
+  0x0000000024063800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9472, stack(0x000000004d270000,0x000000004d370000)]
+  0x0000000024063000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10092, stack(0x000000004d110000,0x000000004d210000)]
+  0x0000000024062000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10592, stack(0x000000001efc0000,0x000000001f0c0000)]
+  0x0000000024061800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=11020, stack(0x000000004cf20000,0x000000004d020000)]
+  0x0000000024060800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9988, stack(0x000000004ce10000,0x000000004cf10000)]
+  0x0000000024060000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3436, stack(0x000000004c8c0000,0x000000004c9c0000)]
+  0x000000002405f000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=4112, stack(0x000000004ccb0000,0x000000004cdb0000)]
+  0x000000002405e800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=9468, stack(0x000000001f200000,0x000000001f300000)]
+  0x000000002405d800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=1376, stack(0x000000004c720000,0x000000004c820000)]
+  0x0000000027aae800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10936, stack(0x000000004c260000,0x000000004c360000)]
+  0x0000000023948800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=7928, stack(0x000000004bed0000,0x000000004bfd0000)]
+  0x000000002a68b000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=5032, stack(0x000000004c0f0000,0x000000004c1f0000)]
+  0x000000002aa32000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10220, stack(0x000000004bff0000,0x000000004c0f0000)]
+  0x000000002aa35800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9160, stack(0x000000004bd40000,0x000000004be40000)]
+  0x0000000027de2000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9860, stack(0x000000004bbb0000,0x000000004bcb0000)]
+  0x0000000027deb800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=2328, stack(0x000000004baa0000,0x000000004bba0000)]
+  0x0000000027de3000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=6640, stack(0x000000004b8c0000,0x000000004b9c0000)]
+  0x0000000027ddf000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=9656, stack(0x000000004b770000,0x000000004b870000)]
+  0x0000000027dec000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9264, stack(0x000000004b2f0000,0x000000004b3f0000)]
+  0x0000000027ddd800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=6528, stack(0x000000004b130000,0x000000004b230000)]
+  0x0000000027de0000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=7556, stack(0x000000004afc0000,0x000000004b0c0000)]
+  0x0000000027de1800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10180, stack(0x0000000047a10000,0x0000000047b10000)]
+  0x000000002aa26000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9760, stack(0x000000004ad30000,0x000000004ae30000)]
+  0x000000002aa27800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10976, stack(0x0000000046460000,0x0000000046560000)]
+  0x000000002aa29000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=3748, stack(0x000000004a0c0000,0x000000004a1c0000)]
+  0x000000002aa28800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=2852, stack(0x000000004ab80000,0x000000004ac80000)]
+  0x000000002aa27000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10336, stack(0x000000004aa10000,0x000000004ab10000)]
+  0x000000002aa21000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7236, stack(0x000000004a460000,0x000000004a560000)]
+  0x000000002aa20000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=11044, stack(0x000000004a310000,0x000000004a410000)]
+  0x000000002aa1f800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9320, stack(0x000000004a1d0000,0x000000004a2d0000)]
+  0x000000002aa1e800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=4656, stack(0x00000000489d0000,0x0000000048ad0000)]
+  0x000000002aa1e000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8128, stack(0x0000000049fa0000,0x000000004a0a0000)]
+  0x000000002aa1d000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10960, stack(0x0000000049de0000,0x0000000049ee0000)]
+  0x000000002aa1c800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=11244, stack(0x0000000049ce0000,0x0000000049de0000)]
+  0x000000002aa1b800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=1548, stack(0x000000003dee0000,0x000000003dfe0000)]
+  0x000000002aa1b000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10596, stack(0x0000000049940000,0x0000000049a40000)]
+  0x000000002aa10000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10588, stack(0x0000000049ad0000,0x0000000049bd0000)]
+  0x000000002aa0f800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10764, stack(0x0000000049840000,0x0000000049940000)]
+  0x000000002aa0e800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9332, stack(0x0000000049160000,0x0000000049260000)]
+  0x000000002aa0e000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10916, stack(0x0000000048770000,0x0000000048870000)]
+  0x000000002aa0d000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8852, stack(0x0000000049710000,0x0000000049810000)]
+  0x000000002aa0c800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=4108, stack(0x0000000049610000,0x0000000049710000)]
+  0x000000002aa0b800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9716, stack(0x0000000049470000,0x0000000049570000)]
+  0x000000002aa0b000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=9328, stack(0x0000000049280000,0x0000000049380000)]
+  0x000000002aa0a000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11156, stack(0x0000000049060000,0x0000000049160000)]
+  0x0000000023650000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=3224, stack(0x0000000048cf0000,0x0000000048df0000)]
+  0x0000000023651800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10584, stack(0x0000000048b20000,0x0000000048c20000)]
+  0x0000000023650800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10692, stack(0x00000000488c0000,0x00000000489c0000)]
+  0x0000000023649800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=3604, stack(0x0000000048660000,0x0000000048760000)]
+  0x000000002aa2b000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9308, stack(0x00000000480e0000,0x00000000481e0000)]
+  0x000000002aa38800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10020, stack(0x0000000048560000,0x0000000048660000)]
+  0x000000002aa2f800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10792, stack(0x000000003c520000,0x000000003c620000)]
+  0x000000002aa31000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10288, stack(0x00000000483d0000,0x00000000484d0000)]
+  0x000000002aa2e800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=11052, stack(0x00000000481f0000,0x00000000482f0000)]
+  0x0000000027dea000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7868, stack(0x000000003eaf0000,0x000000003ebf0000)]
+  0x0000000027de9000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8444, stack(0x0000000047e20000,0x0000000047f20000)]
+  0x0000000027de8800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=11228, stack(0x0000000047cd0000,0x0000000047dd0000)]
+  0x0000000027de7800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9576, stack(0x0000000047b20000,0x0000000047c20000)]
+  0x0000000027de7000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10908, stack(0x0000000047910000,0x0000000047a10000)]
+  0x0000000027de6000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10572, stack(0x0000000047750000,0x0000000047850000)]
+  0x0000000027de5800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10392, stack(0x0000000047080000,0x0000000047180000)]
+  0x0000000027de4800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=2724, stack(0x00000000466d0000,0x00000000467d0000)]
+  0x0000000027de3800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8540, stack(0x0000000047630000,0x0000000047730000)]
+  0x0000000027ab9000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9464, stack(0x00000000472b0000,0x00000000473b0000)]
+  0x0000000027ab7800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10116, stack(0x00000000471b0000,0x00000000472b0000)]
+  0x0000000027ab8000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9304, stack(0x0000000046f20000,0x0000000047020000)]
+  0x0000000027aaa000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10192, stack(0x0000000046de0000,0x0000000046ee0000)]
+  0x0000000027aad000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=2968, stack(0x0000000046c70000,0x0000000046d70000)]
+  0x0000000027aad800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=11216, stack(0x0000000046b40000,0x0000000046c40000)]
+  0x0000000027aac000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=5288, stack(0x000000003ec20000,0x000000003ed20000)]
+  0x0000000027aaa800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=3836, stack(0x0000000046970000,0x0000000046a70000)]
+  0x0000000027aaf000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10928, stack(0x00000000467e0000,0x00000000468e0000)]
+  0x0000000027ab6000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10488, stack(0x00000000460e0000,0x00000000461e0000)]
+  0x0000000027ab5000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=5680, stack(0x0000000045f80000,0x0000000046080000)]
+  0x0000000027ab4800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=4128, stack(0x0000000042fe0000,0x00000000430e0000)]
+  0x0000000027ab3800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=5704, stack(0x0000000045df0000,0x0000000045ef0000)]
+  0x0000000027ab3000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9812, stack(0x000000003e010000,0x000000003e110000)]
+  0x0000000027ab2000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10432, stack(0x0000000045cf0000,0x0000000045df0000)]
+  0x0000000027ab1800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9796, stack(0x0000000045b40000,0x0000000045c40000)]
+  0x0000000027ab0800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=11220, stack(0x0000000045960000,0x0000000045a60000)]
+  0x0000000027ab0000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=1152, stack(0x0000000042c70000,0x0000000042d70000)]
+  0x0000000023896000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=4636, stack(0x0000000045480000,0x0000000045580000)]
+  0x000000001d681000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=11160, stack(0x0000000045210000,0x0000000045310000)]
+  0x000000001d689000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9392, stack(0x0000000040080000,0x0000000040180000)]
+  0x000000001e624000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10508, stack(0x0000000045310000,0x0000000045410000)]
+  0x000000001e62f800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10824, stack(0x00000000430e0000,0x00000000431e0000)]
+  0x000000001e621000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8172, stack(0x0000000042ee0000,0x0000000042fe0000)]
+  0x0000000023944000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=11188, stack(0x0000000042de0000,0x0000000042ee0000)]
+  0x0000000023947800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10992, stack(0x00000000408b0000,0x00000000409b0000)]
+  0x0000000023949000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10988, stack(0x000000003e140000,0x000000003e240000)]
+  0x000000002313e000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10224, stack(0x0000000042b70000,0x0000000042c70000)]
+  0x000000002313e800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=7496, stack(0x0000000041e40000,0x0000000041f40000)]
+  0x0000000023142800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=6156, stack(0x0000000042980000,0x0000000042a80000)]
+  0x0000000023141800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=1364, stack(0x0000000042860000,0x0000000042960000)]
+  0x000000002313f800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10632, stack(0x00000000426f0000,0x00000000427f0000)]
+  0x0000000023143000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=11164, stack(0x000000003f0f0000,0x000000003f1f0000)]
+  0x0000000023144000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9248, stack(0x0000000042560000,0x0000000042660000)]
+  0x0000000023941000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10376, stack(0x0000000042400000,0x0000000042500000)]
+  0x0000000023946000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=9952, stack(0x0000000042060000,0x0000000042160000)]
+  0x0000000023941800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10060, stack(0x0000000041f50000,0x0000000042050000)]
+  0x0000000023947000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10580, stack(0x0000000041370000,0x0000000041470000)]
+  0x0000000023655000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=11056, stack(0x0000000041d10000,0x0000000041e10000)]
+  0x000000002364e800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10428, stack(0x0000000041620000,0x0000000041720000)]
+  0x000000002364d800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10404, stack(0x0000000041470000,0x0000000041570000)]
+  0x0000000023653800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10708, stack(0x0000000041260000,0x0000000041360000)]
+  0x000000002364d000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10832, stack(0x0000000041140000,0x0000000041240000)]
+  0x0000000023648000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=5732, stack(0x00000000409d0000,0x0000000040ad0000)]
+  0x000000002364c000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=3188, stack(0x000000003fa80000,0x000000003fb80000)]
+  0x000000002aa2c800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10468, stack(0x00000000418e0000,0x00000000419e0000)]
+  0x000000002aa38000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=10460, stack(0x00000000419f0000,0x0000000041af0000)]
+  0x000000002aa33800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10452, stack(0x00000000417d0000,0x00000000418d0000)]
+  0x000000002aa2e000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=10312, stack(0x0000000041000000,0x0000000041100000)]
+  0x000000002aa2d000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10268, stack(0x0000000040ec0000,0x0000000040fc0000)]
+  0x000000002aa2a000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10320, stack(0x0000000040be0000,0x0000000040ce0000)]
+  0x000000002aa36800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10276, stack(0x0000000040d50000,0x0000000040e50000)]
+  0x0000000023140000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10244, stack(0x0000000040ae0000,0x0000000040be0000)]
+  0x0000000023144800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=6604, stack(0x0000000039aa0000,0x0000000039ba0000)]
+  0x000000002313b800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=4632, stack(0x00000000405a0000,0x00000000406a0000)]
+  0x000000002313b000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=5012, stack(0x000000003d900000,0x000000003da00000)]
+  0x000000002313a000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=10056, stack(0x0000000040440000,0x0000000040540000)]
+  0x0000000023139800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=4036, stack(0x0000000040320000,0x0000000040420000)]
+  0x0000000023138800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8904, stack(0x0000000040190000,0x0000000040290000)]
+  0x0000000023138000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9312, stack(0x000000003ff70000,0x0000000040070000)]
+  0x0000000023137000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=10160, stack(0x000000003fe20000,0x000000003ff20000)]
+  0x0000000023136800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=9488, stack(0x000000003fc60000,0x000000003fd60000)]
+  0x0000000023135800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=4152, stack(0x000000003f600000,0x000000003f700000)]
+  0x000000001fdca800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=5688, stack(0x000000003f910000,0x000000003fa10000)]
+  0x000000001fdca000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8696, stack(0x000000003f720000,0x000000003f820000)]
+  0x000000001d685800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8544, stack(0x000000003ee80000,0x000000003ef80000)]
+  0x000000001d683000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=7984, stack(0x000000003f4e0000,0x000000003f5e0000)]
+  0x000000001d688800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=4596, stack(0x000000003f340000,0x000000003f440000)]
+  0x000000001d682800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8568, stack(0x000000003f210000,0x000000003f310000)]
+  0x000000001d687000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8232, stack(0x000000003eff0000,0x000000003f0f0000)]
+  0x000000001d684000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8764, stack(0x000000003ed60000,0x000000003ee60000)]
+  0x000000001d686000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=5604, stack(0x0000000039060000,0x0000000039160000)]
+  0x000000002393e000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=2716, stack(0x000000003e7e0000,0x000000003e8e0000)]
+  0x000000002393d000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=3768, stack(0x0000000039ba0000,0x0000000039ca0000)]
+  0x000000002393c800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9252, stack(0x000000003e6d0000,0x000000003e7d0000)]
+  0x000000002393b800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=7892, stack(0x0000000037bf0000,0x0000000037cf0000)]
+  0x000000002393b000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9628, stack(0x0000000035860000,0x0000000035960000)]
+  0x000000002393a000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10068, stack(0x000000003e4f0000,0x000000003e5f0000)]
+  0x000000001e859000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=5652, stack(0x000000003e3d0000,0x000000003e4d0000)]
+  0x000000001fdc8800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4620, stack(0x000000003e270000,0x000000003e370000)]
+  0x000000001fdc7800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8728, stack(0x000000003ca00000,0x000000003cb00000)]
+  0x000000001fdd0800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8856, stack(0x000000003dca0000,0x000000003dda0000)]
+  0x000000001fdd0000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9684, stack(0x000000003dde0000,0x000000003dee0000)]
+  0x000000001fdcf000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=7724, stack(0x000000003bc80000,0x000000003bd80000)]
+  0x000000001fdce800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9652, stack(0x000000003c400000,0x000000003c500000)]
+  0x000000001fdcd800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9624, stack(0x000000003db80000,0x000000003dc80000)]
+  0x000000001fdcd000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9752, stack(0x000000003da00000,0x000000003db00000)]
+  0x000000001fdcc000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9632, stack(0x000000003d7f0000,0x000000003d8f0000)]
+  0x000000001fdcb800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=10132, stack(0x000000003d670000,0x000000003d770000)]
+  0x000000001fdc9000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8780, stack(0x000000003d4d0000,0x000000003d5d0000)]
+  0x000000001fdc6000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8616, stack(0x000000003cff0000,0x000000003d0f0000)]
+  0x000000001fdc5800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9368, stack(0x000000003ce20000,0x000000003cf20000)]
+  0x000000001fdc4800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=6568, stack(0x00000000348e0000,0x00000000349e0000)]
+  0x000000001fdc4000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=3180, stack(0x000000003cce0000,0x000000003cde0000)]
+  0x000000001fdc3000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=10172, stack(0x000000003cb10000,0x000000003cc10000)]
+  0x000000001fdc2800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8760, stack(0x000000003c200000,0x000000003c300000)]
+  0x000000001fdc1800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9916, stack(0x000000003c8e0000,0x000000003c9e0000)]
+  0x00000000294ff800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=2288, stack(0x000000003c7a0000,0x000000003c8a0000)]
+  0x000000001e625800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8448, stack(0x000000003c640000,0x000000003c740000)]
+  0x000000002938b000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=4720, stack(0x000000003c300000,0x000000003c400000)]
+  0x0000000029389800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9960, stack(0x000000003bea0000,0x000000003bfa0000)]
+  0x000000002938a800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8720, stack(0x000000003c050000,0x000000003c150000)]
+  0x000000002938c800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9496, stack(0x000000003bda0000,0x000000003bea0000)]
+  0x0000000029388000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=7760, stack(0x000000003bb70000,0x000000003bc70000)]
+  0x0000000029386800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=4396, stack(0x000000003ba60000,0x000000003bb60000)]
+  0x0000000029387800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=6336, stack(0x0000000032be0000,0x0000000032ce0000)]
+  0x0000000029389000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8560, stack(0x0000000039720000,0x0000000039820000)]
+  0x000000001d68a800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=6020, stack(0x000000003b920000,0x000000003ba20000)]
+  0x000000001d67f800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=1392, stack(0x000000003b5f0000,0x000000003b6f0000)]
+  0x000000001d67e800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=5808, stack(0x00000000347d0000,0x00000000348d0000)]
+  0x000000001d67e000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=1388, stack(0x000000003b420000,0x000000003b520000)]
+  0x000000001d67d000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=4168, stack(0x000000003b230000,0x000000003b330000)]
+  0x000000001d67c800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=2708, stack(0x000000003b0d0000,0x000000003b1d0000)]
+  0x000000001d67b800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=4100, stack(0x000000003af60000,0x000000003b060000)]
+  0x0000000023898000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=2816, stack(0x000000003ae20000,0x000000003af20000)]
+  0x0000000022a77000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4752, stack(0x000000003ad10000,0x000000003ae10000)]
+  0x000000001e858800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=1904, stack(0x000000003ab40000,0x000000003ac40000)]
+  0x0000000022da1800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7564, stack(0x000000003a270000,0x000000003a370000)]
+  0x0000000022da0000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9300, stack(0x000000003a820000,0x000000003a920000)]
+  0x0000000022da2800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=9764, stack(0x000000003a700000,0x000000003a800000)]
+  0x0000000022da3000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9900, stack(0x000000003a570000,0x000000003a670000)]
+  0x0000000029390800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9816, stack(0x000000003a3c0000,0x000000003a4c0000)]
+  0x000000002938f800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=9492, stack(0x0000000034340000,0x0000000034440000)]
+  0x000000002938f000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9316, stack(0x000000003a140000,0x000000003a240000)]
+  0x000000002938e000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=5828, stack(0x0000000039510000,0x0000000039610000)]
+  0x000000002938d800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10216, stack(0x0000000039fa0000,0x000000003a0a0000)]
+  0x0000000029385000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=10140, stack(0x0000000039990000,0x0000000039a90000)]
+  0x0000000029384800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9008, stack(0x0000000039850000,0x0000000039950000)]
+  0x0000000029383800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=6252, stack(0x0000000039620000,0x0000000039720000)]
+  0x0000000029383000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9848, stack(0x00000000392e0000,0x00000000393e0000)]
+  0x0000000029382000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9824, stack(0x0000000039410000,0x0000000039510000)]
+  0x0000000029381800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8548, stack(0x00000000391a0000,0x00000000392a0000)]
+  0x0000000023994000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8864, stack(0x0000000038f60000,0x0000000039060000)]
+  0x0000000023894800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8044, stack(0x00000000383f0000,0x00000000384f0000)]
+  0x0000000023893800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=10212, stack(0x0000000036380000,0x0000000036480000)]
+  0x0000000022a74800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=2912, stack(0x0000000038db0000,0x0000000038eb0000)]
+  0x0000000022a74000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=6912, stack(0x0000000038c90000,0x0000000038d90000)]
+  0x0000000022a73000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=3424, stack(0x0000000035060000,0x0000000035160000)]
+  0x0000000022a72800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=288, stack(0x0000000037fb0000,0x00000000380b0000)]
+  0x0000000022a71800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8844, stack(0x0000000038a70000,0x0000000038b70000)]
+  0x0000000022a71000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=10152, stack(0x0000000038b90000,0x0000000038c90000)]
+  0x0000000022a70000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9832, stack(0x0000000037660000,0x0000000037760000)]
+  0x000000002958a800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8628, stack(0x0000000038960000,0x0000000038a60000)]
+  0x0000000023993800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=3308, stack(0x0000000038820000,0x0000000038920000)]
+  0x0000000023992000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=3724, stack(0x0000000037560000,0x0000000037660000)]
+  0x0000000023991000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8772, stack(0x00000000382a0000,0x00000000383a0000)]
+  0x0000000023990800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8752, stack(0x00000000380c0000,0x00000000381c0000)]
+  0x000000002398f800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9444, stack(0x0000000037ea0000,0x0000000037fa0000)]
+  0x000000002398f000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=3048, stack(0x0000000037d00000,0x0000000037e00000)]
+  0x000000002398e000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3572, stack(0x00000000377b0000,0x00000000378b0000)]
+  0x000000002398d000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8732, stack(0x0000000037ad0000,0x0000000037bd0000)]
+  0x000000001e629800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8684, stack(0x0000000037910000,0x0000000037a10000)]
+  0x0000000023893000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=1088, stack(0x000000002c600000,0x000000002c700000)]
+  0x0000000022d9e800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7116, stack(0x00000000372c0000,0x00000000373c0000)]
+  0x0000000022d9e000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=6644, stack(0x0000000037180000,0x0000000037280000)]
+  0x0000000022d9d000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=3944, stack(0x0000000036ff0000,0x00000000370f0000)]
+  0x0000000022d9c800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=5624, stack(0x0000000036e60000,0x0000000036f60000)]
+  0x00000000294fb000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8868, stack(0x0000000036ca0000,0x0000000036da0000)]
+  0x0000000021c00000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8756, stack(0x0000000036ab0000,0x0000000036bb0000)]
+  0x0000000021bfd000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=752, stack(0x0000000036970000,0x0000000036a70000)]
+  0x0000000021bfe000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=7492, stack(0x0000000036800000,0x0000000036900000)]
+  0x0000000021bfb800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=7992, stack(0x0000000030020000,0x0000000030120000)]
+  0x000000001e854800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=9004, stack(0x0000000036620000,0x0000000036720000)]
+  0x000000001e853800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=4792, stack(0x00000000364f0000,0x00000000365f0000)]
+  0x000000001e853000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8204, stack(0x0000000036220000,0x0000000036320000)]
+  0x000000001e852000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8676, stack(0x0000000036090000,0x0000000036190000)]
+  0x000000001b37e800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=3316, stack(0x0000000035ef0000,0x0000000035ff0000)]
+  0x000000001b37d800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=1352, stack(0x0000000034c90000,0x0000000034d90000)]
+  0x000000001b37d000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=3780, stack(0x0000000035d40000,0x0000000035e40000)]
+  0x000000001b37c000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=7228, stack(0x0000000035bb0000,0x0000000035cb0000)]
+  0x000000001b37b800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=1080, stack(0x000000002cea0000,0x000000002cfa0000)]
+  0x0000000023246000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8896, stack(0x0000000035540000,0x0000000035640000)]
+  0x0000000023245000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=9212, stack(0x0000000035410000,0x0000000035510000)]
+  0x0000000023244800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8748, stack(0x00000000352b0000,0x00000000353b0000)]
+  0x0000000023243800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8224, stack(0x0000000035160000,0x0000000035260000)]
+  0x0000000023243000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=6976, stack(0x0000000034f60000,0x0000000035060000)]
+  0x000000002371d000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8380, stack(0x0000000034dc0000,0x0000000034ec0000)]
+  0x000000002371c000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=7972, stack(0x0000000034b50000,0x0000000034c50000)]
+  0x000000002371b800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=3172, stack(0x00000000349f0000,0x0000000034af0000)]
+  0x000000002371a800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=2532, stack(0x000000002de30000,0x000000002df30000)]
+  0x00000000218a6800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7276, stack(0x0000000034550000,0x0000000034650000)]
+  0x00000000218a6000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8872, stack(0x00000000346a0000,0x00000000347a0000)]
+  0x00000000218a5000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8144, stack(0x0000000034440000,0x0000000034540000)]
+  0x00000000218a4800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=4888, stack(0x00000000331d0000,0x00000000332d0000)]
+  0x00000000294fe000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=9164, stack(0x0000000034230000,0x0000000034330000)]
+  0x00000000294fa000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3328, stack(0x00000000340c0000,0x00000000341c0000)]
+  0x00000000294fb800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8428, stack(0x0000000033fa0000,0x00000000340a0000)]
+  0x0000000029500000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4188, stack(0x0000000033c80000,0x0000000033d80000)]
+  0x00000000294fd000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8940, stack(0x00000000328d0000,0x00000000329d0000)]
+  0x0000000021bfb000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=7256, stack(0x0000000033e00000,0x0000000033f00000)]
+  0x0000000021bfa000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8124, stack(0x0000000033a30000,0x0000000033b30000)]
+  0x0000000021bf9800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8576, stack(0x0000000033b30000,0x0000000033c30000)]
+  0x000000002958b000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=6068, stack(0x0000000033690000,0x0000000033790000)]
+  0x0000000029589800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8948, stack(0x00000000319b0000,0x0000000031ab0000)]
+  0x000000002958f000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8880, stack(0x0000000033890000,0x0000000033990000)]
+  0x000000002958d800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=5560, stack(0x0000000033790000,0x0000000033890000)]
+  0x00000000294fe800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=7956, stack(0x0000000032d90000,0x0000000032e90000)]
+  0x00000000294fc800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8996, stack(0x0000000033510000,0x0000000033610000)]
+  0x00000000294f9800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8944, stack(0x0000000032ae0000,0x0000000032be0000)]
+  0x000000001d8fe800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=7672, stack(0x0000000030ba0000,0x0000000030ca0000)]
+  0x0000000025554000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=7340, stack(0x00000000329d0000,0x0000000032ad0000)]
+  0x0000000025554800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8832, stack(0x00000000327d0000,0x00000000328d0000)]
+  0x0000000025555800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=6956, stack(0x00000000323f0000,0x00000000324f0000)]
+  0x0000000022d4c800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=3396, stack(0x0000000032210000,0x0000000032310000)]
+  0x0000000022d4e000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8680, stack(0x0000000030930000,0x0000000030a30000)]
+  0x0000000022d4f000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=6264, stack(0x00000000314a0000,0x00000000315a0000)]
+  0x000000002958c800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=9148, stack(0x00000000320d0000,0x00000000321d0000)]
+  0x0000000022d4d800 JavaThread "pool-15-thread-4" [_thread_blocked, id=3300, stack(0x0000000031dc0000,0x0000000031ec0000)]
+  0x000000001d8ff000 JavaThread "pool-15-thread-3" [_thread_blocked, id=1732, stack(0x0000000031ac0000,0x0000000031bc0000)]
+  0x0000000025553000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=4780, stack(0x0000000031880000,0x0000000031980000)]
+  0x0000000025552800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=7720, stack(0x0000000031710000,0x0000000031810000)]
+  0x0000000025551800 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=6940, stack(0x000000002e380000,0x000000002e480000)]
+  0x0000000025550800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=9172, stack(0x00000000315e0000,0x00000000316e0000)]
+  0x0000000025550000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=176, stack(0x0000000031380000,0x0000000031480000)]
+  0x000000002554f000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=5888, stack(0x0000000031250000,0x0000000031350000)]
+  0x000000002554e800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=7260, stack(0x0000000028560000,0x0000000028660000)]
+  0x000000001d900000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4292, stack(0x00000000310c0000,0x00000000311c0000)]
+  0x000000001d900800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=7432, stack(0x0000000030cd0000,0x0000000030dd0000)]
+  0x000000002a68f800 JavaThread "pool-15-thread-2" [_thread_blocked, id=8140, stack(0x0000000030a80000,0x0000000030b80000)]
+  0x0000000022d49800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8272, stack(0x0000000030830000,0x0000000030930000)]
+  0x0000000022d49000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8276, stack(0x0000000030680000,0x0000000030780000)]
+  0x0000000022d48000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8424, stack(0x00000000303e0000,0x00000000304e0000)]
+  0x000000001e62e000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8292, stack(0x00000000304e0000,0x00000000305e0000)]
+  0x000000001e628000 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8288, stack(0x00000000302d0000,0x00000000303d0000)]
+  0x000000001e626800 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8280, stack(0x0000000030120000,0x0000000030220000)]
+  0x000000001e627000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=6632, stack(0x000000002fef0000,0x000000002fff0000)]
+  0x000000002a687800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8284, stack(0x000000002f610000,0x000000002f710000)]
+  0x000000002a691000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=3232, stack(0x000000002fd00000,0x000000002fe00000)]
+  0x000000002a68c800 JavaThread "pool-15-thread-1" [_thread_blocked, id=1680, stack(0x000000002f7b0000,0x000000002f8b0000)]
+  0x000000001e56b800 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=3900, stack(0x000000002c0c0000,0x000000002c1c0000)]
+  0x000000001e56a800 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=7332, stack(0x000000002f2f0000,0x000000002f3f0000)]
+  0x000000001e56a000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=6324, stack(0x000000002f1d0000,0x000000002f2d0000)]
+  0x000000001e569000 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=200, stack(0x000000002f010000,0x000000002f110000)]
+  0x000000001e568800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=668, stack(0x000000002e4d0000,0x000000002e5d0000)]
+  0x000000002a68a000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=6972, stack(0x000000002ee50000,0x000000002ef50000)]
+  0x000000002a68b800 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=9092, stack(0x0000000025d00000,0x0000000025e00000)]
+  0x000000002a68e000 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=4640, stack(0x000000002ecf0000,0x000000002edf0000)]
+  0x000000002a68d000 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=9104, stack(0x000000002eb50000,0x000000002ec50000)]
+  0x000000001d8fb800 JavaThread "pool-8-thread-2" [_thread_blocked, id=8912, stack(0x000000002cca0000,0x000000002cda0000)]
+  0x000000001e62e800 JavaThread "pool-8-thread-1" [_thread_blocked, id=8828, stack(0x000000002d900000,0x000000002da00000)]
+  0x000000001e62b000 JavaThread "RxComputationThreadPool-8" daemon [_thread_blocked, id=8784, stack(0x000000002d3f0000,0x000000002d4f0000)]
+  0x000000002a697000 JavaThread "RxComputationThreadPool-7" daemon [_thread_blocked, id=8808, stack(0x000000002d270000,0x000000002d370000)]
+  0x000000002a696000 JavaThread "RxComputationThreadPool-6" daemon [_thread_blocked, id=8744, stack(0x000000002bdc0000,0x000000002bec0000)]
+  0x000000002a695800 JavaThread "RxComputationThreadPool-5" daemon [_thread_blocked, id=8736, stack(0x000000002d160000,0x000000002d260000)]
+  0x000000002a694800 JavaThread "RxComputationThreadPool-4" daemon [_thread_blocked, id=8796, stack(0x000000002cfb0000,0x000000002d0b0000)]
+  0x000000002a694000 JavaThread "RxComputationThreadPool-3" daemon [_thread_blocked, id=8816, stack(0x000000002cda0000,0x000000002cea0000)]
+  0x000000002a693000 JavaThread "RxComputationThreadPool-2" daemon [_thread_blocked, id=8804, stack(0x0000000028f30000,0x0000000029030000)]
+  0x000000002a692800 JavaThread "RxComputationThreadPool-1" daemon [_thread_blocked, id=8776, stack(0x000000002cb40000,0x000000002cc40000)]
+  0x000000002a691800 JavaThread "RxCachedWorkerPoolEvictor-1" daemon [_thread_blocked, id=8800, stack(0x000000002c1d0000,0x000000002c2d0000)]
+  0x000000001e8e9000 JavaThread "File lock request listener" [_thread_in_native, id=3452, stack(0x0000000020df0000,0x0000000020ef0000)]
+  0x000000001e227000 JavaThread "pool-1-thread-1" [_thread_blocked, id=2540, stack(0x000000001eeb0000,0x000000001efb0000)]
+  0x000000001de96000 JavaThread "Incoming local TCP Connector on port 51425" [_thread_in_native, id=3812, stack(0x000000001eb60000,0x000000001ec60000)]
+  0x000000001b33a800 JavaThread "Service Thread" daemon [_thread_blocked, id=7524, stack(0x000000001cfb0000,0x000000001d0b0000)]
+  0x000000001b335000 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=7296, stack(0x000000001c4a0000,0x000000001c5a0000)]
+=>0x000000001b2f7800 JavaThread "C2 CompilerThread2" daemon [_thread_in_native, id=6164, stack(0x000000001cd10000,0x000000001ce10000)]
+  0x000000001b2e1000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=4304, stack(0x000000001cb60000,0x000000001cc60000)]
+  0x000000001b2d5000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=2836, stack(0x000000001ca50000,0x000000001cb50000)]
+  0x000000001b2d2800 JavaThread "Attach Listener" daemon [_thread_blocked, id=4164, stack(0x000000001c910000,0x000000001ca10000)]
+  0x000000001b2bd000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=4796, stack(0x000000001c6f0000,0x000000001c7f0000)]
+  0x000000001a0ef000 JavaThread "Finalizer" daemon [_thread_blocked, id=2180, stack(0x000000001c5f0000,0x000000001c6f0000)]
+  0x000000001a0e8000 JavaThread "Reference Handler" daemon [_thread_blocked, id=1200, stack(0x000000001c370000,0x000000001c470000)]
+  0x000000000043f000 JavaThread "main" [_thread_blocked, id=8180, stack(0x00000000026a0000,0x00000000027a0000)]
+
+Other Threads:
+  0x000000001a0df000 VMThread [stack: 0x000000001c230000,0x000000001c330000] [id=5576]
+  0x000000001b33c800 WatcherThread [stack: 0x000000001d190000,0x000000001d290000] [id=7180]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 907264K, used 49871K [0x0000000780000000, 0x00000007bec00000, 0x00000007c0000000)
+  eden space 790528K, 6% used [0x0000000780000000,0x00000007830b3c30,0x00000007b0400000)
+  from space 116736K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bec00000)
+  to   space 118784K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7800000)
+ ParOldGen       total 389120K, used 114843K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 29% used [0x0000000700000000,0x0000000707026cc0,0x0000000717c00000)
+ Metaspace       used 172505K, capacity 181754K, committed 183680K, reserved 1210368K
+  class space    used 20884K, capacity 23319K, committed 23680K, reserved 1048576K
+
+Card table byte_map: [0x0000000011b60000,0x0000000012170000] byte_map_base: 0x000000000e360000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000057da9d00
+ Begin Bits: [0x0000000013100000, 0x0000000016100000)
+ End Bits:   [0x0000000016100000, 0x0000000019100000)
+
+Polling page: 0x0000000000330000
+
+CodeCache: size=245760Kb used=142700Kb max_used=142717Kb free=103059Kb
+ bounds [0x00000000027a0000, 0x000000000b3f0000, 0x00000000117a0000]
+ total_blobs=35298 nmethods=34497 adapters=712
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 14654.699 Thread 0x000000001b2e1000 47307       4       java.util.concurrent.ConcurrentLinkedQueue::isEmpty (13 bytes)
+Event: 14654.701 Thread 0x000000001b2e1000 nmethod 47307 0x000000000b3dfc50 code [0x000000000b3dfda0, 0x000000000b3dfef8]
+Event: 15001.033 Thread 0x000000001b335000 47308       3       rx.internal.schedulers.ScheduledAction::isUnsubscribed (8 bytes)
+Event: 15001.033 Thread 0x000000001b335000 nmethod 47308 0x000000000b3dd7d0 code [0x000000000b3dd920, 0x000000000b3ddb10]
+Event: 15001.036 Thread 0x000000001b335000 47309       3       rx.internal.schedulers.ScheduledAction::add (17 bytes)
+Event: 15001.036 Thread 0x000000001b335000 nmethod 47309 0x00000000032f75d0 code [0x00000000032f7740, 0x00000000032f7aa8]
+Event: 15003.561 Thread 0x000000001b2f7800 47310       4       org.gradle.util.ConfigureUtil::configure (51 bytes)
+Event: 15003.564 Thread 0x000000001b2d5000 47311       4       org.gradle.api.internal.DefaultNamedDomainObjectList::getStore (5 bytes)
+Event: 15003.566 Thread 0x000000001b2d5000 nmethod 47311 0x0000000003b40f10 code [0x0000000003b41060, 0x0000000003b41108]
+Event: 15003.569 Thread 0x000000001b2e1000 47312       4       com.google.common.collect.ImmutableSet$Builder::add (8 bytes)
+
+GC Heap History (10 events):
+Event: 13641.960 GC heap before
+{Heap before GC invocations=165 (full 43):
+ PSYoungGen      total 909312K, used 863995K [0x0000000780000000, 0x00000007c0000000, 0x00000007c0000000)
+  eden space 783872K, 100% used [0x0000000780000000,0x00000007afd80000,0x00000007afd80000)
+  from space 125440K, 63% used [0x00000007afd80000,0x00000007b4bbee98,0x00000007b7800000)
+  to   space 132608K, 0% used [0x00000007b7e80000,0x00000007b7e80000,0x00000007c0000000)
+ ParOldGen       total 389120K, used 119050K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 30% used [0x0000000700000000,0x0000000707442af8,0x0000000717c00000)
+ Metaspace       used 173446K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+Event: 13641.977 GC heap after
+Heap after GC invocations=165 (full 43):
+ PSYoungGen      total 911872K, used 40955K [0x0000000780000000, 0x00000007bf500000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 121344K, 33% used [0x00000007b7e80000,0x00000007ba67edb8,0x00000007bf500000)
+  to   space 123392K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7c80000)
+ ParOldGen       total 389120K, used 119050K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 30% used [0x0000000700000000,0x0000000707442af8,0x0000000717c00000)
+ Metaspace       used 173446K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+}
+Event: 13739.605 GC heap before
+{Heap before GC invocations=166 (full 43):
+ PSYoungGen      total 911872K, used 700313K [0x0000000780000000, 0x00000007bf500000, 0x00000007c0000000)
+  eden space 790528K, 83% used [0x0000000780000000,0x00000007a83e77a8,0x00000007b0400000)
+  from space 121344K, 33% used [0x00000007b7e80000,0x00000007ba67edb8,0x00000007bf500000)
+  to   space 123392K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7c80000)
+ ParOldGen       total 389120K, used 119050K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 30% used [0x0000000700000000,0x0000000707442af8,0x0000000717c00000)
+ Metaspace       used 173458K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+Event: 13739.613 GC heap after
+Heap after GC invocations=166 (full 43):
+ PSYoungGen      total 799744K, used 9135K [0x0000000780000000, 0x00000007bf000000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 9216K, 99% used [0x00000007b0400000,0x00000007b0cebc78,0x00000007b0d00000)
+  to   space 120832K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bf000000)
+ ParOldGen       total 389120K, used 119050K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 30% used [0x0000000700000000,0x0000000707442af8,0x0000000717c00000)
+ Metaspace       used 173458K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+}
+Event: 13739.613 GC heap before
+{Heap before GC invocations=167 (full 44):
+ PSYoungGen      total 799744K, used 9135K [0x0000000780000000, 0x00000007bf000000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 9216K, 99% used [0x00000007b0400000,0x00000007b0cebc78,0x00000007b0d00000)
+  to   space 120832K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bf000000)
+ ParOldGen       total 389120K, used 119050K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 30% used [0x0000000700000000,0x0000000707442af8,0x0000000717c00000)
+ Metaspace       used 173458K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+Event: 13739.983 GC heap after
+Heap after GC invocations=167 (full 44):
+ PSYoungGen      total 799744K, used 0K [0x0000000780000000, 0x00000007bf000000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 9216K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b0d00000)
+  to   space 120832K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bf000000)
+ ParOldGen       total 389120K, used 121362K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 31% used [0x0000000700000000,0x0000000707684908,0x0000000717c00000)
+ Metaspace       used 173458K, capacity 182876K, committed 183680K, reserved 1210368K
+  class space    used 21054K, capacity 23550K, committed 23680K, reserved 1048576K
+}
+Event: 14642.562 GC heap before
+{Heap before GC invocations=168 (full 44):
+ PSYoungGen      total 799744K, used 574442K [0x0000000780000000, 0x00000007bf000000, 0x00000007c0000000)
+  eden space 790528K, 72% used [0x0000000780000000,0x00000007a30faaa0,0x00000007b0400000)
+  from space 9216K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b0d00000)
+  to   space 120832K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bf000000)
+ ParOldGen       total 389120K, used 121362K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 31% used [0x0000000700000000,0x0000000707684908,0x0000000717c00000)
+ Metaspace       used 173518K, capacity 182958K, committed 183680K, reserved 1210368K
+  class space    used 21055K, capacity 23553K, committed 23680K, reserved 1048576K
+Event: 14642.569 GC heap after
+Heap after GC invocations=168 (full 44):
+ PSYoungGen      total 907264K, used 2432K [0x0000000780000000, 0x00000007bec00000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 116736K, 2% used [0x00000007b7a00000,0x00000007b7c60240,0x00000007bec00000)
+  to   space 118784K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7800000)
+ ParOldGen       total 389120K, used 121370K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 31% used [0x0000000700000000,0x0000000707686908,0x0000000717c00000)
+ Metaspace       used 173518K, capacity 182958K, committed 183680K, reserved 1210368K
+  class space    used 21055K, capacity 23553K, committed 23680K, reserved 1048576K
+}
+Event: 14642.569 GC heap before
+{Heap before GC invocations=169 (full 45):
+ PSYoungGen      total 907264K, used 2432K [0x0000000780000000, 0x00000007bec00000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 116736K, 2% used [0x00000007b7a00000,0x00000007b7c60240,0x00000007bec00000)
+  to   space 118784K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7800000)
+ ParOldGen       total 389120K, used 121370K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 31% used [0x0000000700000000,0x0000000707686908,0x0000000717c00000)
+ Metaspace       used 173518K, capacity 182958K, committed 183680K, reserved 1210368K
+  class space    used 21055K, capacity 23553K, committed 23680K, reserved 1048576K
+Event: 14642.933 GC heap after
+Heap after GC invocations=169 (full 45):
+ PSYoungGen      total 907264K, used 0K [0x0000000780000000, 0x00000007bec00000, 0x00000007c0000000)
+  eden space 790528K, 0% used [0x0000000780000000,0x0000000780000000,0x00000007b0400000)
+  from space 116736K, 0% used [0x00000007b7a00000,0x00000007b7a00000,0x00000007bec00000)
+  to   space 118784K, 0% used [0x00000007b0400000,0x00000007b0400000,0x00000007b7800000)
+ ParOldGen       total 389120K, used 114843K [0x0000000700000000, 0x0000000717c00000, 0x0000000780000000)
+  object space 389120K, 29% used [0x0000000700000000,0x0000000707026cc0,0x0000000717c00000)
+ Metaspace       used 172503K, capacity 181754K, committed 183680K, reserved 1210368K
+  class space    used 20884K, capacity 23319K, committed 23680K, reserved 1048576K
+}
+
+Deoptimization events (10 events):
+Event: 12509.659 Thread 0x0000000024079000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000abc5bd0 method=java.util.Spliterators.spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator; @ 8
+Event: 12509.662 Thread 0x0000000024079000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x000000000abc5bd0 method=java.util.Spliterators.spliterator(Ljava/util/Collection;I)Ljava/util/Spliterator; @ 8
+Event: 13043.870 Thread 0x000000002ab7e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000009f5a630 method=com.sun.tools.javac.jvm.Gen.completeBinop(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Lcom/sun/tools/ja\Ñ3»ıy…@
+Event: 13043.920 Thread 0x000000002ab7e000 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000009debf48 method=com.sun.tools.javac.jvm.Gen.completeBinop(Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/tree/JCTree;Lcom/sun/tools/javac/code/Symbol$OperatorSymbol;)Lcom/sun/tools/jaìqb++°…@
+Event: 13122.337 Thread 0x000000002aa2b800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000007d12480 method=org.slf4j.helpers.MessageFormatter.deeplyAppendParameter(Ljava/lang/StringBuilder;Ljava/lang/Object;Ljava/util/Map;)V @ 1
+Event: 13615.010 Thread 0x0000000024069800 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000000008f3dd64 method=com.sun.tools.javac.comp.Resolve.lookupMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/6æZMÅó @
+Event: 13615.010 Thread 0x0000000024069800 Uncommon trap: reason=speculate_class_check action=maybe_recompile pc=0x0000000008f3dd64 method=com.sun.tools.javac.comp.Resolve.lookupMethod(Lcom/sun/tools/javac/comp/Env;Lcom/sun/tools/javac/util/JCDiagnostic$DiagnosticPosition;Lcom/sun/tools/javac/code/˛ó∆µA§ @
+Event: 13640.513 Thread 0x000000002406d800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000a169528 method=com.android.build.gradle.internal.incremental.InstantRunVerifier$1.areEqual(Lorg/objectweb/asm/tree/FieldNode;Lorg/objectweb/asm/tree/FieldNode;)Z @ 45
+Event: 13640.513 Thread 0x000000002406d800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000a1456ec method=com.android.build.gradle.internal.incremental.InstantRunVerifier$1.areEqual(Lorg/objectweb/asm/tree/FieldNode;Lorg/objectweb/asm/tree/FieldNode;)Z @ 45
+Event: 14638.379 Thread 0x00000000255ab800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x000000000685bc04 method=java.util.concurrent.locks.AbstractQueuedSynchronizer.unparkSuccessor(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$Node;)V @ 22
+
+Internal exceptions (10 events):
+Event: 10476.811 Thread 0x000000002aa2b800 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000007800f8dc8) thrown at [C:\src\android\AOSP-openjdk\external\jetbrains\jdk\hotspot\src\share\vm\prims\jni.cpp, line 1591]
+Event: 10796.983 Thread 0x0000000022d4d800 Implicit null exception at 0x0000000007fb470a to 0x0000000007fb5e51
+Event: 10797.946 Thread 0x0000000022d4d800 Implicit null exception at 0x0000000005ac638d to 0x0000000005ac7181
+Event: 11048.913 Thread 0x000000002aa2b000 Implicit null exception at 0x000000000a00c2fa to 0x000000000a010d5d
+Event: 11724.468 Thread 0x000000002aa39800 Implicit null exception at 0x0000000007892535 to 0x00000000078925d5
+Event: 11725.729 Thread 0x000000002aa39800 Implicit null exception at 0x00000000075c34cf to 0x00000000075c3e15
+Event: 11731.027 Thread 0x000000002aa18800 Exception <a 'java/lang/NoSuchMethodError': <clinit>> (0x00000007a337ab00) thrown at [C:\src\android\AOSP-openjdk\external\jetbrains\jdk\hotspot\src\share\vm\prims\jni.cpp, line 1591]
+Event: 12508.692 Thread 0x0000000024069000 Implicit null exception at 0x0000000007d125c7 to 0x0000000007d14001
+Event: 13122.337 Thread 0x000000002aa2b800 Implicit null exception at 0x0000000007d12059 to 0x0000000007d12469
+Event: 14638.379 Thread 0x00000000255ab800 Implicit null exception at 0x000000000685a906 to 0x000000000685bbe5
+
+Events (10 events):
+Event: 15003.299 Thread 0x00000000255ae800 Thread added: 0x00000000255ae800
+Event: 15003.299 Executing VM operation: RevokeBias
+Event: 15003.299 Executing VM operation: RevokeBias done
+Event: 15003.301 Thread 0x00000000255ab000 Thread added: 0x00000000255ab000
+Event: 15003.304 Thread 0x00000000255ad000 Thread added: 0x00000000255ad000
+Event: 15003.305 Thread 0x00000000255ac800 Thread added: 0x00000000255ac800
+Event: 15003.305 Thread 0x00000000255ab800 Thread added: 0x00000000255ab800
+Event: 15003.554 Executing VM operation: ForceSafepoint
+Event: 15003.554 Executing VM operation: ForceSafepoint done
+Event: 15003.568 Thread 0x000000001b2d5000 flushing nmethod 0x0000000004c9c350
+
+
+Dynamic libraries:
+0x000000013f8e0000 - 0x000000013f911000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\bin\java.exe
+0x0000000077680000 - 0x000000007782a000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000077460000 - 0x000000007757f000 	C:\Windows\system32\kernel32.dll
+0x000007fefd410000 - 0x000007fefd47a000 	C:\Windows\system32\KERNELBASE.dll
+0x000007feff710000 - 0x000007feff7eb000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefdc80000 - 0x000007fefdd1f000 	C:\Windows\system32\msvcrt.dll
+0x000007feff920000 - 0x000007feff93f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefdd20000 - 0x000007fefde4d000 	C:\Windows\system32\RPCRT4.dll
+0x0000000077580000 - 0x000000007767a000 	C:\Windows\system32\USER32.dll
+0x000007fefe250000 - 0x000007fefe2b7000 	C:\Windows\system32\GDI32.dll
+0x000007feff7f0000 - 0x000007feff7fe000 	C:\Windows\system32\LPK.dll
+0x000007fefe100000 - 0x000007fefe1ca000 	C:\Windows\system32\USP10.dll
+0x000007fefbb40000 - 0x000007fefbd34000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_fa3b1e3d17594757\COMCTL32.dll
+0x000007fefe1d0000 - 0x000007fefe241000 	C:\Windows\system32\SHLWAPI.dll
+0x000007feff130000 - 0x000007feff15e000 	C:\Windows\system32\IMM32.DLL
+0x000007feff800000 - 0x000007feff909000 	C:\Windows\system32\MSCTF.dll
+0x0000000057510000 - 0x00000000575e2000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\msvcr100.dll
+0x00000000575f0000 - 0x0000000057e24000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\server\jvm.dll
+0x000007fefbeb0000 - 0x000007fefbeb9000 	C:\Windows\system32\WSOCK32.dll
+0x000007feff940000 - 0x000007feff98d000 	C:\Windows\system32\WS2_32.dll
+0x000007feff910000 - 0x000007feff918000 	C:\Windows\system32\NSI.dll
+0x000007fefa7c0000 - 0x000007fefa7fb000 	C:\Windows\system32\WINMM.dll
+0x000007fefc490000 - 0x000007fefc49c000 	C:\Windows\system32\VERSION.dll
+0x0000000077840000 - 0x0000000077847000 	C:\Windows\system32\PSAPI.DLL
+0x000007fefb660000 - 0x000007fefb66f000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\verify.dll
+0x000007fef6030000 - 0x000007fef6059000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\java.dll
+0x000007fef6010000 - 0x000007fef6026000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\zip.dll
+0x000007fefe2c0000 - 0x000007feff049000 	C:\Windows\system32\SHELL32.dll
+0x000007fefde50000 - 0x000007fefe053000 	C:\Windows\system32\ole32.dll
+0x000007fefd3d0000 - 0x000007fefd3df000 	C:\Windows\system32\profapi.dll
+0x000007fef5ff0000 - 0x000007fef600a000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\net.dll
+0x000007fefcba0000 - 0x000007fefcbf5000 	C:\Windows\system32\mswsock.dll
+0x000007fefcb90000 - 0x000007fefcb97000 	C:\Windows\System32\wship6.dll
+0x000007fef5180000 - 0x000007fef5191000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\nio.dll
+0x000007fef2a80000 - 0x000007fef2a92000 	C:\Users\josongmin\.gradle\native\19\windows-amd64\native-platform.dll
+0x000007fefcc00000 - 0x000007fefcc18000 	C:\Windows\system32\CRYPTSP.dll
+0x000007fefc8c0000 - 0x000007fefc907000 	C:\Windows\system32\rsaenh.dll
+0x000007fefd720000 - 0x000007fefd73e000 	C:\Windows\system32\USERENV.dll
+0x000007fefd260000 - 0x000007fefd26f000 	C:\Windows\system32\CRYPTBASE.dll
+0x000007fefa000000 - 0x000007fefa027000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fef9ff0000 - 0x000007fef9ffb000 	C:\Windows\system32\WINNSI.DLL
+0x000007fef9710000 - 0x000007fef9728000 	C:\Windows\system32\dhcpcsvc.DLL
+0x000007fef96f0000 - 0x000007fef9701000 	C:\Windows\system32\dhcpcsvc6.DLL
+0x000007fefb650000 - 0x000007fefb65d000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\management.dll
+0x000007fefd200000 - 0x000007fefd257000 	C:\Windows\system32\apphelp.dll
+0x000007fef4030000 - 0x000007fef4054000 	C:\Users\Public\Documents\android-studio-ide-145.2915834-windows\android-studio\jre\jre\bin\sunec.dll
+0x000007fefc560000 - 0x000007fefc567000 	C:\Windows\System32\wshtcpip.dll
+0x000007fefca20000 - 0x000007fefca7b000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef8960000 - 0x000007fef8968000 	C:\Windows\system32\rasadhlp.dll
+0x000007fef97f0000 - 0x000007fef9843000 	C:\Windows\System32\fwpuclnt.dll
+
+VM Arguments:
+jvm_args: -XX:MaxPermSize=1024m -XX:+HeapDumpOnOutOfMemoryError -Xmx3072m -Dfile.encoding=UTF-8 -Duser.country=KR -Duser.language=ko -Duser.variant 
+java_command: org.gradle.launcher.daemon.bootstrap.GradleDaemon 2.14.1
+java_class_path (initial): C:\Users\josongmin\.gradle\wrapper\dists\gradle-2.14.1-all\8bnwg5hd3w55iofp58khbp6yv\gradle-2.14.1\lib\gradle-launcher-2.14.1.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_66\
+CLASSPATH=%classpath%;.;.;.
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Wizvera\Delfino;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Java\jdk1.8.0_66\bin;C:\Program Files\nodejs\;C:\Program Files\Git\bin\;%GRADLE_HOME%bin\;C:\Users\josongmin\AppData\Roaming\npm;C:\Users\josongmin\.gradle\wrapper\dists\gradle-2.2.1-all\c64ydeuardnfqctvr1gm30w53\gradle-2.2.1\\bin;
+USERNAME=josongmin
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 70 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 (6.1.7601.23418)
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 70 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 16683512k(4088060k free), swap 18068308k(4484k free)
+
+vm_info: OpenJDK 64-Bit Server VM (25.76-b03) for windows-amd64 JRE (1.8.0_76-release-b03), built on Jun 29 2016 19:09:20 by "ralucas" with MS VC++ 10.0 (VS2010)
+
+time: Thu Sep 08 15:50:05 2016
+elapsed time: 15003 seconds (0d 4h 10m 3s)
+
