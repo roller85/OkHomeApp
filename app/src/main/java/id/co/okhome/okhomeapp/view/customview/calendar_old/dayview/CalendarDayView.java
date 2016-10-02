@@ -1,4 +1,4 @@
-package id.co.okhome.okhomeapp.view.customview.calendar.dayview;
+package id.co.okhome.okhomeapp.view.customview.calendar_old.dayview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,7 +6,7 @@ import android.widget.RelativeLayout;
 
 import java.util.Calendar;
 
-import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayModel;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayModel;
 
 /**
  * View to display a day

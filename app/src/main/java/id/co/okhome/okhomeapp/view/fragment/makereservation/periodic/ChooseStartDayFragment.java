@@ -19,10 +19,10 @@ import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.CalendarController;
 import id.co.okhome.okhomeapp.lib.OkhomeException;
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.view.customview.calendar.CalendarMonthView;
-import id.co.okhome.okhomeapp.view.customview.calendar.dayview.CalendarDayView;
-import id.co.okhome.okhomeapp.view.customview.calendar.dayview.CalendarDayViewType1;
-import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayType1Model;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.CalendarMonthView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayViewType1;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayType1Model;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationFlow;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationParam;
 

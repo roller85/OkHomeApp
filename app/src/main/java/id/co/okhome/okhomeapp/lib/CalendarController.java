@@ -19,7 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
-import id.co.okhome.okhomeapp.view.customview.calendar.CalendarMonthView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.CalendarMonthView;
 
 import static id.co.okhome.okhomeapp.lib.CalendarController.MonthlySlidePagerAdapter.PAGES;
 

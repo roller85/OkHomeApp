@@ -1,4 +1,4 @@
-package id.co.okhome.okhomeapp.view.customview.calendar;
+package id.co.okhome.okhomeapp.view.customview.calendar_old;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.view.customview.calendar.dayview.CalendarDayView;
-import id.co.okhome.okhomeapp.view.customview.calendar.dayview.CalendarDayViewType1;
-import id.co.okhome.okhomeapp.view.customview.calendar.dayview.CalendarDayViewType2;
-import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayModel;
-import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayType1Model;
-import id.co.okhome.okhomeapp.view.customview.calendar.model.CalendarDayType2Model;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayViewType1;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayViewType2;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayModel;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayType1Model;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayType2Model;
 
 public class CalendarMonthView extends LinearLayout implements View.OnClickListener {
 
