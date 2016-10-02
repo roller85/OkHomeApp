@@ -251,7 +251,6 @@ public class TypekitLayoutInflater extends LayoutInflater {
         }
     }
 
-
     /**
      * Nasty method to inflate custom layouts that haven't been handled else where. If this fails it
      * will fall back through to the PhoneLayoutInflater method of inflating custom views where

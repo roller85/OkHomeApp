@@ -6,4 +6,5 @@ package id.co.okhome.okhomeapp.model;
 
 public class AddressItemModel {
     public String id, value;
+    public String test;
 }
