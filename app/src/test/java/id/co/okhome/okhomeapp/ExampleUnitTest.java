@@ -14,6 +14,13 @@ import static java.lang.System.out;
 public class ExampleUnitTest {
 
 
+    public class Node<T>{
+        Node left;
+        Node right;
+        T data;
+    }
+
+
     public static class Tv{
         int channel = 0;
 

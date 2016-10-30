@@ -13,6 +13,11 @@ public class OkHomeViewPager extends ViewPager {
 
     private boolean enabled;
 
+    public OkHomeViewPager(Context context) {
+        super(context);
+        this.enabled = true;
+    }
+
     public OkHomeViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.enabled = true;

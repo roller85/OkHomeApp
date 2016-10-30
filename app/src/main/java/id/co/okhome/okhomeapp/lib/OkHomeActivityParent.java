@@ -1,9 +1,12 @@
 package id.co.okhome.okhomeapp.lib;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,10 +50,10 @@ public class OkHomeActivityParent extends AppCompatActivity{
     }
 
 //
-//    @Override
-//    protected void attachBaseContext(Context newBase) {
-//        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
-//    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

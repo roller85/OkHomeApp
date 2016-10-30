@@ -109,6 +109,8 @@ public class CleaningScheduleSettingDialog extends ViewDialog{
         repeatorDay2Week.notifyDataSetChanged();
         repeatorDay2Week.enableSquare();
 
+        vgDays2WeekParent.setVisibility(View.INVISIBLE);
+        vgDaysAWeekParent.setVisibility(View.INVISIBLE);
         getMyPeriod();
     }
 

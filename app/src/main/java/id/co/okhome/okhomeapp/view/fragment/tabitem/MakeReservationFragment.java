@@ -24,12 +24,13 @@ import id.co.okhome.okhomeapp.view.activity.MainActivity;
 import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.activity.SignupActivity;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class MakeReservationFragment extends Fragment {
+public class MakeReservationFragment extends Fragment implements TabFragmentFlow {
 
 
     @BindView(R.id.fragmentMakeReservationGuest_ivThumb)
@@ -42,6 +43,16 @@ public class MakeReservationFragment extends Fragment {
     ViewGroup vgLogin;
 
     AnimatedTooltipImageController tooltipImageController;
+
+    @Override
+    public String getTitle() {
+        return "Make reservation";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

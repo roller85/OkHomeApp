@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.mrjodev.jorecyclermanager.JoRecyclerAdapter;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerController;
@@ -23,22 +25,30 @@ import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.CreditLogModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 import id.co.okhome.okhomeapp.view.viewholder.CreditHistoryHolder;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends Fragment implements TabFragmentFlow {
 
-    @BindView(R.id.fragmentHistory_vp)
-    ViewPager vp;
-
-    @BindView(R.id.fragmentHistory_vTabBar)
-    View vTabBar;
+    @BindView(R.id.fragmentHistory_vp)              ViewPager vp;
+    @BindView(R.id.fragmentHistory_vTabBar)         View vTabBar;
 
     JoViewPagerController viewPagerController;
     int tabBarWidth;
+
+    @Override
+    public String getTitle() {
+        return "Point history";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -99,6 +109,25 @@ public class HistoryFragment extends Fragment {
         }
 
         viewPagerController.setListModel(list).build();
+
+    }
+
+    @OnClick({R.id.fragmentHistory_vbtnTabAll, R.id.fragmentHistory_vbtnTabSpend, R.id.fragmentHistory_vbtnTabCharge})
+    public void onTabClick(View v){
+        switch(v.getId()){
+            case R.id.fragmentHistory_vbtnTabAll:
+                vp.setCurrentItem(0);
+                break;
+
+            case R.id.fragmentHistory_vbtnTabSpend:
+                vp.setCurrentItem(1);
+                break;
+
+            case R.id.fragmentHistory_vbtnTabCharge:
+                vp.setCurrentItem(2);
+                break;
+
+        }
 
     }
 

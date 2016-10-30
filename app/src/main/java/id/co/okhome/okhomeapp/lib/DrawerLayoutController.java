@@ -105,13 +105,14 @@ public class DrawerLayoutController {
 
                 lastFragmentString = fragment.getClass().getName();
 
+
+                //fragment에 특정 인터페이스 따라오면 textView처리
             }
         }, 280);
 
         if(showContents){
             drawerLayout.closeDrawers();
         }
-
     }
 
     public void onDestroy(){

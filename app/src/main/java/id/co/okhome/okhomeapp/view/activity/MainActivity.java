@@ -52,20 +52,11 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
             drawerLayoutController.show(new MakeReservationFragment());
         }
 
+
         FacebookSdk.sdkInitialize(getApplicationContext());
-        setSettingBtnClickListener(null);
     }
 
 
-
-    public void setSettingBtnClickListener(View.OnClickListener onClickListener){
-        if(onClickListener == null){
-            vbtnSetting.setVisibility(View.GONE);
-        }else{
-            vbtnSetting.setOnClickListener(onClickListener);
-            vbtnSetting.setVisibility(View.VISIBLE);
-        }
-    }
 
     @OnClick(R.id.actMain_llbtnMore)
     public void onClickMore(){
@@ -92,7 +83,6 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
             if(drawerLayoutController.getLastFragmentString().equals(MakeReservationFragment.class.getName())){
                 DelayedFinish.finish(this, "한번 더 누르면 종료됩니다.");
             }else{
-                setSettingBtnClickListener(null);
                 drawerLayoutController.show(new MakeReservationFragment());
             }
         }else{
@@ -100,5 +90,8 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
         }
     }
 
-
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+    }
 }

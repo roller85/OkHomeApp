@@ -208,8 +208,6 @@ public class ChooseDayFragment extends Fragment implements CalendarMonthView.OnD
                     }
                 }
 
-
-
                 if(!time.equals("")){
                     datetime = year + "-" + month + "-" + day + " " + dayModel.time;
                 }

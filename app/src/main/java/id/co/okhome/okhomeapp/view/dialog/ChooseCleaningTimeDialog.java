@@ -57,7 +57,7 @@ public class ChooseCleaningTimeDialog extends ViewDialog{
         ivChktime2.setImageResource(R.drawable.ic_check_not);
         ivChktimeCancel.setImageResource(R.drawable.ic_check_not);
 
-        if(chkTime == null || chkTime.equals("")){
+        if(chkTime == null || chkTime.equals("") || chkTime.equals("X")){
             ;
         }
         else if(chkTime.equals("11:00")){

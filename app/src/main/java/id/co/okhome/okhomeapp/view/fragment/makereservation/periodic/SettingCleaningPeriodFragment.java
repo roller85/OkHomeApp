@@ -116,6 +116,10 @@ public class SettingCleaningPeriodFragment extends Fragment implements MakeReser
 
         setChkItems();
         isEveryWeekChk = true;
+
+        vgEvery2Week.setVisibility(View.INVISIBLE);
+        vgEveryWeek.setVisibility(View.INVISIBLE);
+
         calcViewSize();
 
     }

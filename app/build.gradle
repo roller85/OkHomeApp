@@ -26,8 +26,10 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':recyclerViewManager')
     compile project(':typekit')
+
     //페북
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
+
     //레트로핏 / 연결라이브러리
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
@@ -53,6 +55,7 @@ dependencies {
     compile 'com.orhanobut:dialogplus:1.11@aar'
     //암호화
     compile 'com.lambdaworks:scrypt:1.4.0'
+
     testCompile 'junit:junit:4.12'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:2.2.2'
     androidTestCompile 'com.android.support.test:runner:0.5'

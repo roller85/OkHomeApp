@@ -1,14 +1,10 @@
 package id.co.okhome.okhomeapp.view.fragment.makereservation.periodic;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,12 +16,13 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
+import id.co.okhome.okhomeapp.lib.CalendarController;
 import id.co.okhome.okhomeapp.lib.OkhomeException;
 import id.co.okhome.okhomeapp.lib.Util;
-import id.co.okhome.okhomeapp.view.customview.calendar.CalendarView;
-import id.co.okhome.okhomeapp.view.customview.calendar.DayModel;
-import id.co.okhome.okhomeapp.view.customview.calendar.MonthGridView;
-import id.co.okhome.okhomeapp.view.customview.calendar.MonthViewListener;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.CalendarMonthView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayView;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayViewType1;
+import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayType1Model;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationFlow;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationParam;
 
@@ -33,86 +30,38 @@ import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservation
  * Created by josongmin on 2016-07-28.
  */
 
-public class ChooseStartDayFragment extends Fragment implements MakeReservationFlow, MonthViewListener {
-    @BindView(R.id.fragmentMakeReservationChooseDay_flContents)           FrameLayout flContent;
-    @BindView(R.id.fragmentMakeReservationChooseDay_tvYearMonth)          TextView tvYearMonth;
-    @BindView(R.id.fragmentMakeReservationChooseDay_vbtnLeft)             View vbtnMonthLeft;
-    @BindView(R.id.fragmentMakeReservationChooseDay_vbtnRight)            View vbtnMonthRight;
-    @BindView(R.id.fragmentMakeReservationChooseDay_vLoading)             View vLoading;
+public class ChooseStartDayFragment_old extends Fragment implements CalendarMonthView.OnDayClickListener<CalendarDayType1Model>, CalendarController.OnCalendarChangeListener, MakeReservationFlow{
 
-    CalendarView calendarView;
-    MonthGridView currentMonthGridView;
-    DayModel prevDayModel = null;
+    @BindView(R.id.layerCalendar_pbLoading)
+    View vLoading;
 
-    int targetYear, targetMonth;
+    CalendarDayView dayViewPrev = null;
+    CalendarController calendarController;
+    boolean calendarLoaded = false;
     MakeReservationParam params;
     String startDate = "";
     int currentYear, currentMonth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_m_r_choose_day2, null);
+        return inflater.inflate(R.layout.fragment_m_r_choose_day, null);
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         ButterKnife.bind(this, getView());
 
-        targetYear = Util.getCurrentYear();
-        targetMonth = Util.getCurrentMonth();
-
-        getView().post(new Runnable() {
-            @Override
-            public void run() {
-                mesuredViewSize();
-            }
-        });
-    }
-
-    //캘린더 초기화
-    private void initCalendar() {
-        final int height = flContent.getHeight();
-        flContent.removeAllViews();
-        new Thread() {
-            @Override
-            public void run() {
-                calendarView = new CalendarView(flContent.getContext());
-                calendarView.initCalendar(targetYear, targetMonth, height, ChooseStartDayFragment.this);
-                handler.sendEmptyMessage(0);
-            }
-
-            Handler handler = new Handler() {
-                @Override
-                public void dispatchMessage(Message msg) {
-                    flContent.addView(calendarView);
-                    onCalendarInit(calendarView);
-                }
-            };
-        }.start();
-
-    }
-
-    private void setLoadingVisibility(final boolean on){
-        try{
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    if(on){
-                        vLoading.setVisibility(View.VISIBLE);
-                    }else{
-                        vLoading.setVisibility(View.GONE);
-                    }
-                }
-            });
-        }catch(NullPointerException e){
-            ;
-        }
-
+        calendarController = CalendarController.with(this)
+                .setCalendarType(CalendarMonthView.CalendarType.TYPE1)
+                .setOnDayClickListner(this)
+                .setOnCalendarChangeListener(this);
+        calendarController.initCalendar();
     }
 
     public void loadSchedule(){
-        currentMonthGridView.clear();
+
         try{
 
             if(params == null){
@@ -131,6 +80,7 @@ public class ChooseStartDayFragment extends Fragment implements MakeReservationF
             String endDate = mapYyyymm.get("endDate");
 
             Calendar cMonthCursor = Calendar.getInstance();
+//            Calendar cDatePivot = Calendar.getInstance();
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             try{
                 cMonthCursor.setTime(dateFormat.parse(beginDate));
@@ -182,13 +132,17 @@ public class ChooseStartDayFragment extends Fragment implements MakeReservationF
                     listScheduledDate.add(yyyyMMdd + " " + scheduledTime);
                 }else{
 
-//                    //다지우기
-//                    try{
-//                        String yyyymmddReduced = yyyyMMdd.substring(0, 10).replace("-", "");
-//                        currentMonthGridView.getDayModel(yyyymmddReduced).optPlanned = false;
-//                    }catch(Exception e){
-//                        Util.showToast(getContext(), yyyyMMdd);
-//                    }
+                    //다지우기
+                    try{
+                        String yyyymmddReduced = yyyyMMdd.substring(0, 10).replace("-", "");
+                        final CalendarDayViewType1 cDayView = (CalendarDayViewType1)calendarController.getCurrentMonthView().getDayView(yyyymmddReduced);
+                        cDayView.setScheduledDate(null);
+                        cDayView.refresh();
+                    }catch(Exception e){
+                        Util.showToast(getContext(), yyyyMMdd);
+                    }
+
+
                 }
 
                 cMonthCursor.add(Calendar.DAY_OF_MONTH, 1);
@@ -203,73 +157,38 @@ public class ChooseStartDayFragment extends Fragment implements MakeReservationF
         }
     }
 
-
-    Handler handlerForNotifyCurrentMonthView = new Handler(){
-        @Override
-        public void dispatchMessage(Message msg) {
-            super.dispatchMessage(msg);
-            currentMonthGridView.notifyDataSetChanged();
-        }
-    };
-
+    //스케쥴 동기화
     private void adaptCalendarWithSchedule(final List<String> listResult){
-
         new Thread(){
             @Override
             public void run() {
                 try{
                     for(String date : listResult){
                         String yyyymmdd = date.substring(0, 10).replace("-", "");
-                        currentMonthGridView.getDayModel(yyyymmdd).optPlanned = true;
+                        final CalendarDayViewType1 cDayView = (CalendarDayViewType1)calendarController.getCurrentMonthView().getDayView(yyyymmdd);
+
+                        cDayView.setScheduledDate(date);
+
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                cDayView.refresh();
+                            }
+                        });
+
                     }
 
-                    handlerForNotifyCurrentMonthView.sendEmptyMessage(0);
-
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            calendarController.dismissLoading();
+                        }
+                    });
                 }catch(Exception e){
                     e.printStackTrace();
                 }
             }
         }.start();
-    }
-
-
-    //달력로드완료
-    private void onCalendarInit(final CalendarView calendarView) {
-        calendarView.setMonthNavigator(vbtnMonthLeft, vbtnMonthRight, tvYearMonth);
-    }
-
-    public void mesuredViewSize(){
-        initCalendar();
-    }
-
-    @Override
-    public void onMonthSelected(int year, int month, MonthGridView monthGridView) {
-        currentYear = year;
-        currentMonth = month;
-        currentMonthGridView = monthGridView;
-        loadSchedule();
-    }
-
-    @Override
-    public void onDayClick(int position, int week, final DayModel dayModel) {
-        if(!dayModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth())){
-            return;
-        }
-
-        if(dayModel.cleaningScheduleModel != null){
-            Util.showToast(getContext(), "Already reserved");
-            return;
-        }
-
-        if(prevDayModel != null){
-            prevDayModel.optBeginDay = false;
-        }
-
-        dayModel.optBeginDay = true;
-
-        prevDayModel = dayModel;
-
-        currentMonthGridView.notifyDataSetChanged();
     }
 
     @Override
@@ -289,4 +208,55 @@ public class ChooseStartDayFragment extends Fragment implements MakeReservationF
         }
 
     }
+
+    @Override
+    public void onMonthChange(final int year, final int month) {
+        currentYear = year;
+        currentMonth = month;
+        loadSchedule();
+    }
+
+    @Override
+    public void onCalendarLoad() {
+        //불름성공
+        calendarLoaded = true;
+
+    }
+
+    @Override
+    public void onDayClick(final List<CalendarDayView> listCalendarDayView, final CalendarDayView calendarDayView, final CalendarDayType1Model dayModel
+            , final String year, final String month, final String day) {
+
+
+        if(!dayModel.chkAbleReservation()){
+            return;
+        }
+
+        CalendarDayViewType1 cdv = (CalendarDayViewType1)calendarDayView;
+        if(cdv.getCleaningReservationModel() != null){
+            Util.showToast(getContext(), "Already reserved");
+            return;
+        }
+
+
+        if(dayViewPrev != null){
+            ((CalendarDayType1Model)dayViewPrev.getDayModel()).isStartDate = false;
+            dayViewPrev.refresh();
+        }
+
+        for(CalendarDayView dv : listCalendarDayView){
+            if(dv.getDayModel() == dayModel){
+                ((CalendarDayType1Model)dv.getDayModel()).isStartDate = true;
+                dayViewPrev = dv;
+                dv.refresh();
+                startDate = year + "-" + month + "-" + day;
+                break;
+            }
+        }
+
+        if(!startDate.equals("")){
+            loadSchedule();
+        }
+    }
+
 }

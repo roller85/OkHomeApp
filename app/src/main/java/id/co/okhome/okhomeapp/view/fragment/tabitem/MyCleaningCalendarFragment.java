@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -34,7 +35,6 @@ import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.CleaningModel;
 import id.co.okhome.okhomeapp.model.CleaningScheduleModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
-import id.co.okhome.okhomeapp.view.activity.MainActivity;
 import id.co.okhome.okhomeapp.view.customview.OkHomeViewPager;
 import id.co.okhome.okhomeapp.view.customview.calendar_old.CalendarMonthView;
 import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayView;
@@ -42,14 +42,14 @@ import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayVi
 import id.co.okhome.okhomeapp.view.customview.calendar_old.model.CalendarDayType1Model;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningGridDialog;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
-import id.co.okhome.okhomeapp.view.dialog.CleaningScheduleSettingDialog;
 import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class MyCleaningCalendarFragment extends Fragment implements CalendarMonthView.OnDayClickListener<CalendarDayType1Model>, CalendarController.OnCalendarChangeListener{
+public class MyCleaningCalendarFragment extends Fragment implements TabFragmentFlow, CalendarMonthView.OnDayClickListener<CalendarDayType1Model>, CalendarController.OnCalendarChangeListener{
 
     @BindView(R.id.fragmentMyCleaningCalendar_incCalendar)              View vCalendar;
     @BindView(R.id.layerCalendar_rlDays)                                View vDays;
@@ -83,6 +83,16 @@ public class MyCleaningCalendarFragment extends Fragment implements CalendarMont
     CleaningScheduleModel currentScheduleModel = null;
 
     @Override
+    public String getTitle() {
+        return "Schedule";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_my_cleaning_calendar, null);
     }
@@ -105,45 +115,6 @@ public class MyCleaningCalendarFragment extends Fragment implements CalendarMont
 
         //툴팁 변경 핸들러
         AnimatedTooltipTextController.with(tvToolTip).setArrTooltips(new String[]{"For changing schedule, Click setting icon", "Click day for making reservation"}).start();
-
-        //세팅 클릭시처리. 메인화면 설정 버튼임.
-        if(getActivity() instanceof MainActivity){
-            ((MainActivity) getActivity()).setSettingBtnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    //주기청소 아니면
-//                    CurrentUserInfo.get(getContext()).
-
-                    final int pId = ProgressDialogController.show(getContext());
-                    RestClient.getUserRestClient().getUserFieldValue(CurrentUserInfo.getId(getContext()), "periodicCleaningYn").enqueue(new RetrofitCallback<String>() {
-
-                        @Override
-                        public void onFinish() {
-                            ProgressDialogController.dismiss(pId);
-                        }
-
-                        @Override
-                        public void onSuccess(String result) {
-                            if(result.equals("Y")){
-                                DialogController.showCenterDialog(getContext(), new CleaningScheduleSettingDialog(new ViewDialog.DialogCommonCallback() {
-                                    @Override
-                                    public void onCallback(Object dialog, Map<String, Object> params) {
-                                        //다시불러오기
-                                        loadSchedule(currentYear, currentMonth);
-                                    }
-                                })).show();
-                            }else{
-                                DialogController.showCenterDialog(getContext(), new CommonTextDialog("You are a not periodic cleaning user",
-                                        "You need to make periodic cleaning reservation"));
-                            }
-                        }
-
-                    });
-
-                }
-            });
-        }
 
         vPreventClick.setVisibility(View.GONE);
     }
@@ -258,14 +229,11 @@ public class MyCleaningCalendarFragment extends Fragment implements CalendarMont
         }.start();
     }
 
-
-
     @Override
     public void onStop() {
         super.onStop();
         AnimatedTooltipTextController.with(tvToolTip).stop();
     }
-
 
     @Override
     public void onMonthChange(final int year, final int month) {

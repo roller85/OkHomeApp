@@ -21,7 +21,6 @@ import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.model.UserModel;
-import id.co.okhome.okhomeapp.view.activity.MainActivity;
 import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.activity.SignupActivity;
 import id.co.okhome.okhomeapp.view.activity.UserInfoActivity;
@@ -29,9 +28,10 @@ import id.co.okhome.okhomeapp.view.fragment.tabitem.ChargePointFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.CustomerCenterFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.HistoryFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
-import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment2;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.NoticeFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.SettingFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
@@ -39,11 +39,14 @@ import id.co.okhome.okhomeapp.view.fragment.tabitem.SettingFragment;
 
 public class MainDrawerViewComponentInitiator implements DrawerLayoutController.ViewComponentInitiator, CurrentUserInfo.OnUserInfoChangeListener{
 
+    TextView tvTitle;
+    View vbtnRightSetting;
+    ImageView ivRightSetting;
+
     @BindView(R.id.layerMenuItems_tvCredit)             TextView tvCredit;
     @BindView(R.id.layerMenuItems_tvName)               TextView tvName;
     @BindView(R.id.layerMenuItems_ivPhoto)              ImageView ivPhoto;
     @BindView(R.id.layerMenuItems_ivMore)               ImageView ivMore;
-
 
     @BindView(R.id.layerMenuItems_vBtnMakeReservation)  View vbtnMakeReservation;
     @BindView(R.id.layerMenuItems_vBtnCustomerCenter)   View vbtnCustomerCenter;
@@ -57,8 +60,6 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
     @BindView(R.id.layerMenuItems_vPadding)             View vPadding;
     @BindView(R.id.layerMenuItems_vBtnLogin)            View vbtnLogin;
     @BindView(R.id.layerMenuItems_vBtnSignup)           View vbtnSignup;
-
-
 
     DrawerLayoutController drawerLayoutController;
     FragmentActivity activity;
@@ -74,6 +75,10 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
         this.drawerLayoutController = drawerLayoutController;
 
         initTextViewSetting();
+
+        tvTitle  = (TextView)activity.findViewById(R.id.actMain_tvTitle);
+        vbtnRightSetting = activity.findViewById(R.id.actMain_vbtnSetting);
+        ivRightSetting = (ImageView)activity.findViewById(R.id.actMain_ivSetting);
 
         //최초마킹
         markTabItem(activity.findViewById(R.id.layerMenuItems_vBtnMakeReservation));
@@ -166,10 +171,6 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
     public void onBtnStartFragmentClick(View v){
 
         markTabItem(v);
-        if(activity instanceof MainActivity){
-            ((MainActivity) activity).setSettingBtnClickListener(null); //리스너 취소. 버튼도 gone상태로
-        }
-
         Fragment f = null;
         switch(v.getId()){
             case R.id.layerMenuItems_vBtnMakeReservation:
@@ -177,7 +178,7 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 break;
 
             case R.id.layerMenuItems_vBtnSchedule:
-                f = new MyCleaningCalendarFragment();
+                f = new MyCleaningCalendarFragment2();
                 break;
 
             case R.id.layerMenuItems_vBtnCharge:
@@ -201,7 +202,25 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 break;
         }
 
-        drawerLayoutController.show(f);
+        startFragment(f);
+    }
+
+    public void startFragment(Fragment fragment){
+        drawerLayoutController.show(fragment);
+
+        if(fragment instanceof TabFragmentFlow){
+            TabFragmentFlow tabFlow = (TabFragmentFlow)fragment;
+            String title = tabFlow.getTitle();
+            tvTitle.setText(title);
+
+            View.OnClickListener onClickListener = tabFlow.onTabSettingClick(ivRightSetting);
+            vbtnRightSetting.setOnClickListener(onClickListener);
+            if(onClickListener == null){
+                vbtnRightSetting.setVisibility(View.INVISIBLE);
+            }else{
+                vbtnRightSetting.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
     @OnClick({R.id.layerMenuItems_vBtnUserInfo, R.id.layerMenuItems_vBtnSignup, R.id.layerMenuItems_vBtnLogin})

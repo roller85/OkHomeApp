@@ -20,12 +20,13 @@ import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.CreditProductModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class ChargePointFragment extends Fragment {
+public class ChargePointFragment extends Fragment implements TabFragmentFlow {
 
     @BindView(R.id.fragmentChargePoint_vLoading)        View vLoading;
     @BindView(R.id.fragmentChargePoint_vgProduct)       ViewGroup vgProduct;
@@ -46,6 +47,16 @@ public class ChargePointFragment extends Fragment {
         creditProductChooser = new CreditProductChooser(getContext(), vgProduct, false, 1);
 
         getProductList();
+    }
+
+    @Override
+    public String getTitle() {
+        return "Charge point";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
     }
 
     //상품갖고오기

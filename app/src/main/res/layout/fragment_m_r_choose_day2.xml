@@ -1,47 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
     android:layout_height="match_parent">
+
     <RelativeLayout
-        android:id="@+id/layerCalendar_rlDays"
-        android:layout_below="@+id/layerCalendar_llWeeks"
+        android:layout_below="@+id/fragmentMakeReservationChooseDay_llWeeks"
+        android:id="@+id/fragmentMakeReservationChooseDay_rlDays"
         android:paddingLeft="1dp" android:paddingRight="1dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <id.co.okhome.okhomeapp.view.customview.OkHomeViewPager
-            android:id="@+id/layerCalendar_vp"
-            android:layout_width="match_parent" android:layout_height="match_parent"/>
+        <FrameLayout
+            android:id="@+id/fragmentMakeReservationChooseDay_flContents"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
 
         <ProgressBar
-            android:id="@+id/layerCalendar_pbLoading"
+            android:id="@+id/fragmentMakeReservationChooseDay_vLoading"
             android:layout_width="30dp"
             android:layout_height="30dp" android:layout_centerInParent="true"/>
     </RelativeLayout>
 
     <LinearLayout
         android:background="#ffffff"
-        android:id="@+id/layerCalendar_llTop"
+        android:id="@+id/fragmentMakeReservationChooseDay_llTop"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/layerCalendar_vbtnLeft"
+            android:id="@+id/fragmentMakeReservationChooseDay_vbtnLeft"
             android:layout_marginRight="40dp"
             android:adjustViewBounds="true"
             android:layout_width="12.5dp"
             android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_right_black"/>
 
         <TextView
-            android:id="@+id/layerCalendar_tvYearMonth"
+            android:id="@+id/fragmentMakeReservationChooseDay_tvYearMonth"
             android:textStyle="bold"
             android:text="2016.09"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/colorAppPrimary"/>
 
         <ImageView
-            android:id="@+id/layerCalendar_vbtnRight"
+            android:id="@+id/fragmentMakeReservationChooseDay_vbtnRight"
             android:layout_marginLeft="40dp"
             android:adjustViewBounds="true"
             android:layout_width="12.5dp"
@@ -51,8 +56,8 @@
 
     <LinearLayout
         android:background="#ffffff"
-        android:layout_below="@+id/layerCalendar_llTop"
-        android:id="@+id/layerCalendar_llWeeks"
+        android:layout_below="@+id/fragmentMakeReservationChooseDay_llTop"
+        android:id="@+id/fragmentMakeReservationChooseDay_llWeeks"
         android:paddingLeft="1dp" android:paddingRight="1dp"
         android:paddingBottom="5dp" android:paddingTop="15dp"
         android:weightSum="7"

@@ -27,12 +27,13 @@ import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.activity.MainActivity;
 import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class SettingFragment extends Fragment {
+public class SettingFragment extends Fragment implements TabFragmentFlow {
 
     @BindView(R.id.fragmentSetting_ivPushChk)           ImageView ivPushChk;
     @BindView(R.id.fragmentSetting_ivSoundChk)          ImageView ivSoundChk;
@@ -41,6 +42,17 @@ public class SettingFragment extends Fragment {
     @BindView(R.id.fragmentSetting_tvVersionSubText)    TextView tvVersionText;
 
     UserModel userModel;
+
+
+    @Override
+    public String getTitle() {
+        return "Setting";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

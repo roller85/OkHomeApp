@@ -22,7 +22,6 @@ public class OkhomeGcmController {
     public final static String REGISTRATION_GENERATING = "registrationGenerating";
     public final static String REGISTRATION_READY = "registrationReady";
 
-
     private Activity activitiy;
     private BroadcastReceiver registrationBcr;
     private OkHomeGcmListener okHomeGcmListener;

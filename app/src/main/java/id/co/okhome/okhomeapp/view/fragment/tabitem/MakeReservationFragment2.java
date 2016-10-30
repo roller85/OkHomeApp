@@ -21,12 +21,13 @@ import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.activity.SignupActivity;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningTypeDialog;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
 /**
  * Created by josongmin on 2016-07-28.
  */
 
-public class MakeReservationFragment2 extends Fragment {
+public class MakeReservationFragment2 extends Fragment implements TabFragmentFlow {
 
 
     @BindView(R.id.fragmentMakeReservationGuest_ivThumb)
@@ -56,14 +57,19 @@ public class MakeReservationFragment2 extends Fragment {
 
         tooltipImageController.start();
 
-//        AnimatedTooltipTextController.with(tvSubTitle).setArrTooltips(
-//                new String[]{"You've just started to\nChange your life for better1"
-//                        , "You've just started to\nChange your life for better2"
-//                        , "You've just started to\nChange your life for better3"
-//                        , "You've just started to\nChange your life for better4"
-//                        , "You've just started to\nChange your life for better5"}).start();
 
     }
+
+    @Override
+    public String getTitle() {
+        return "Make reservation";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
+    }
+
 
     @Override
     public void onPause() {

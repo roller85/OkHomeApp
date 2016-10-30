@@ -27,9 +27,9 @@ import id.co.okhome.okhomeapp.view.customview.OkHomeViewPager;
 import id.co.okhome.okhomeapp.view.customview.ProgressDotsView;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationFlow;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationParam;
-import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.ChooseDayFragment;
+import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.ChooseDayFragment2;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.OnedayCleaningInvoiceFragment;
-import id.co.okhome.okhomeapp.view.fragment.makereservation.periodic.ChooseStartDayFragment;
+import id.co.okhome.okhomeapp.view.fragment.makereservation.periodic.ChooseStartDayFragment_old;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.periodic.PeriodicCleaningInvoiceFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.periodic.SettingCleaningPeriodFragment;
 
@@ -84,14 +84,14 @@ public class MakeReservationActivity extends OkHomeActivityParent {
         Util.Log(MakeReservationActivity.class + " " + "type :: " + type);
 
         if(type == null || type.equals("ONEDAY")){
-            list.add(new ModelPageItem(Util.makeFragmentInstance(ChooseDayFragment.class, Util.makeMap("defaultDate", defaultDate)), "When to go your home?"));
+            list.add(new ModelPageItem(Util.makeFragmentInstance(ChooseDayFragment2.class, Util.makeMap("defaultDate", defaultDate)), "When to go your home?"));
 //            list.add(new ModelPageItem(new HouseInfoFragment(), "Let us know your home information"));
 //            list.add(new ModelPageItem(new RequestorInfoFragment(), "Let us your information"));
             list.add(new ModelPageItem(
                     Util.makeFragmentInstance(OnedayCleaningInvoiceFragment.class, Util.makeMap("type", type)), "Check invoice below"));
 
         }else if(type.equals("MOVEIN")){
-            list.add(new ModelPageItem(Util.makeFragmentInstance(ChooseDayFragment.class, Util.makeMap("defaultDate", defaultDate)), "When to go your home?"));
+            list.add(new ModelPageItem(Util.makeFragmentInstance(ChooseDayFragment2.class, Util.makeMap("defaultDate", defaultDate)), "When to go your home?"));
 //            list.add(new ModelPageItem(new HouseInfoFragment(), "Let us know your home information"));
 //            list.add(new ModelPageItem(new RequestorInfoFragment(), "Let us your information"));
             list.add(new ModelPageItem(
@@ -100,7 +100,7 @@ public class MakeReservationActivity extends OkHomeActivityParent {
 
         else{
             list.add(new ModelPageItem(new SettingCleaningPeriodFragment(), "Setting your cleaning schedule"));
-            list.add(new ModelPageItem(new ChooseStartDayFragment(), "Which day to begin cleaning?"));
+            list.add(new ModelPageItem(new ChooseStartDayFragment_old(), "Which day to begin cleaning?"));
 //            list.add(new ModelPageItem(new HouseInfoFragment(), "Let us know your home information"));
 //            list.add(new ModelPageItem(new RequestorInfoFragment(), "Let us your information"));
             list.add(new ModelPageItem(new PeriodicCleaningInvoiceFragment(), "Check invoice below"));

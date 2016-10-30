@@ -22,13 +22,10 @@ import id.co.okhome.okhomeapp.restclient.RestClient;
 
 public class IntroActivity extends OkHomeActivityParent {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-
         ButterKnife.bind(this);
 
         new android.os.Handler(){
@@ -46,7 +43,6 @@ public class IntroActivity extends OkHomeActivityParent {
             public void onSuccess(List<CleaningModel> result) {
                 JoSharedPreference.with(IntroActivity.this).push("ExtraCleaningList", result);
                 login();
-
             }
 
             @Override
@@ -56,7 +52,6 @@ public class IntroActivity extends OkHomeActivityParent {
         });
     }
 
-
     private void login(){
         String id = CurrentUserInfo.getId(this);
         if(id == null){
@@ -64,6 +59,7 @@ public class IntroActivity extends OkHomeActivityParent {
             finish();
         }else{
             RestClient.getUserRestClient().getUser(id).enqueue(new RetrofitCallback<UserModel>() {
+
                 @Override
                 public void onSuccess(UserModel result) {
                     CurrentUserInfo.set(IntroActivity.this, result);
@@ -91,6 +87,7 @@ public class IntroActivity extends OkHomeActivityParent {
     }
 
     private void animate(){
+
         View[] arrViewCharacter = new View[]{
                 findViewById(R.id.actIntro_ivO), findViewById(R.id.actIntro_ivK), findViewById(R.id.actIntro_ivH),
                 findViewById(R.id.actIntro_ivO2), findViewById(R.id.actIntro_ivM), findViewById(R.id.actIntro_ivE)
@@ -102,8 +99,10 @@ public class IntroActivity extends OkHomeActivityParent {
 
         vSymbol.setAlpha(0);
         vSymbol.animate().alpha(1f).setDuration(1000).start();
+
         vJakarta.setAlpha(0);
         vJakarta.animate().alpha(1f).setDuration(2000).start();
+
         vgCharac.setAlpha(0);
         vgCharac.animate().alpha(1f).setDuration(1800).start();
 
@@ -119,6 +118,8 @@ public class IntroActivity extends OkHomeActivityParent {
             vTarget.animate().translationX(0).setDuration(2000)
                     .setInterpolator(AnimationUtils.loadInterpolator(this, android.R.anim.accelerate_decelerate_interpolator)).start();
         }
+
+
     }
 
 }

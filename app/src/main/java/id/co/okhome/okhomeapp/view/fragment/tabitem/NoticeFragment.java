@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.mrjodev.jorecyclermanager.JoRecyclerAdapter;
 
@@ -18,6 +19,7 @@ import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.NoticeModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 import id.co.okhome.okhomeapp.view.viewholder.BlankHolder;
 import id.co.okhome.okhomeapp.view.viewholder.NoticeHolder;
 
@@ -25,7 +27,7 @@ import id.co.okhome.okhomeapp.view.viewholder.NoticeHolder;
  * Created by josongmin on 2016-07-28.
  */
 
-public class NoticeFragment extends Fragment {
+public class NoticeFragment extends Fragment implements TabFragmentFlow {
 
     @BindView(R.id.fragCommonRecyclerView_rcv)
     RecyclerView rcv;
@@ -54,6 +56,16 @@ public class NoticeFragment extends Fragment {
 
         adapter.addHeaderItem("");
         loadList();
+    }
+
+    @Override
+    public String getTitle() {
+        return "Notice";
+    }
+
+    @Override
+    public View.OnClickListener onTabSettingClick(ImageView ivIcon) {
+        return null;
     }
 
     private void loadList(){
