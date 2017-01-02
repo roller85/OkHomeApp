@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_above="@+id/fragmentMRPSC_llBottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <!-- 리스트 컨텐츠 -->
+                <LinearLayout
+                    android:paddingLeft="16dp" android:paddingRight="16dp"
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/dialogPeriodSpecialPackage_vgItems"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/item_periodcleaning_forspecial" />
+                    <include layout="@layout/item_periodcleaning_forspecial" />
+                    <include layout="@layout/item_periodcleaning_forspecial" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragmentMRPSC_llBottom"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#99000000"/>
+        <LinearLayout
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="14dp" android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorLightGray2"
+                    android:textSize="14sp"
+                    android:text="※ 청소 가격 : "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/fragmentMRPSC_tvPrice"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:textSize="14sp"
+                    android:text="400.000 Rupiah"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@color/colorLightGray2"
+                    android:textSize="14sp"
+                    android:text="※ 청소 시간 : "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/fragmentMRPSC_tvHour"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:textSize="14sp"
+                    android:text="4 Hours"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

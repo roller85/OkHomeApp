@@ -76,7 +76,7 @@ public class JoGoogleLogin extends JoThirdpartyLogin{
 
             Map param = Util.makeMap(
                     JoThirdpartyLogin.PARAM_AUTHKEY, "",
-                    JoThirdpartyLogin.PARAM_IMG_URL, acct.getPhotoUrl().toString(),
+                    JoThirdpartyLogin.PARAM_IMG_URL, acct.getPhotoUrl() != null ? acct.getPhotoUrl().toString() : "",
                     JoThirdpartyLogin.PARAM_EMAIL, acct.getEmail(),
                     JoThirdpartyLogin.PARAM_ID, acct.getId(),
                     JoThirdpartyLogin.PARAM_NAME, acct.getDisplayName(),
@@ -84,7 +84,7 @@ public class JoGoogleLogin extends JoThirdpartyLogin{
 
             loginListener.onLogin(param);
         } else {
-            loginListener.onLogout();
+            loginListener.onFailed(result.getStatus().getStatusCode() + " " + result.getStatus().getStatus().toString());
         }
     }
 

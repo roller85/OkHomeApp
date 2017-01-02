@@ -23,8 +23,11 @@ import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.view.customview.OkHomeViewPager;
 import id.co.okhome.okhomeapp.view.customview.ProgressDotsView;
+import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationFlow;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationParam;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday.ChooseDayFragment2;
@@ -139,6 +142,21 @@ public class MakeReservationActivity extends OkHomeActivityParent {
         }else{
             vpContents.setCurrentItem(prevPos);
         }
+    }
+
+    @OnClick(R.id.actMain_llbtnX)
+    public void onClickBtnX(View v){
+        DialogController.showCenterDialog(this,
+                new CommonTextDialog("Really cancel reservation?", "All things being written is not saved", new ViewDialog.DialogCommonCallback() {
+                    @Override
+                    public void onCallback(Object dialog, Map<String, Object> params) {
+                        String onClick = (String)params.get("ONCLICK");
+                        if(onClick.equals("OK")){
+                            finish();
+                        }
+                    }
+                }));
+
     }
 
     //

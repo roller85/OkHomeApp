@@ -105,8 +105,10 @@ public class UserInfoActivity extends OkHomeActivityParent implements CurrentUse
                 tvAddress.setText(homeModel.address1 + " " + homeModel.address2 + " " + homeModel.address3 + " " + homeModel.address4);
             }
 
+            //홈정보 나타내기!
             if(!homeModel.homeSize.equals("")){
-                tvHomeInfo.setText(homeModel.type +", " + homeModel.homeSize + ", " + homeModel.restroomCnt + " restroom, " + homeModel.floorCnt + " floor");
+//                tvHomeInfo.setText(homeModel.type +", " + homeModel.homeSize + ", " + homeModel.restroomCnt + " restroom, " + homeModel.roomCnt + " room");
+                tvHomeInfo.setText("집 정보가 등록되어있습니다.");
             }
         }else{
             ;;
@@ -129,7 +131,7 @@ public class UserInfoActivity extends OkHomeActivityParent implements CurrentUse
 
     @OnClick({R.id.actUserInfo_vbtnAddress})
     public void onAddressClick(View v){
-        DialogController.showCenterDialog(this, new HouseAddressDialog(userModel.listHomeModel.get(0).id, true, new ViewDialog.DialogCommonCallback() {
+        DialogController.showCenterDialog(this, new HouseAddressDialog(userModel.listHomeModel.get(0), true, new ViewDialog.DialogCommonCallback() {
             @Override
             public void onCallback(Object dialog, Map<String, Object> params) {
                 boolean isSuccess = (Boolean)params.get("SUCCESS");
@@ -144,7 +146,8 @@ public class UserInfoActivity extends OkHomeActivityParent implements CurrentUse
     @OnClick(R.id.actUserInfo_vbtnName)
     public void onNameClick(View v){
         final String name = tvName.getText().toString();
-        DialogController.showCenterDialog(this, new CommonInputDialog("Change your name", "What is your name?", name, new ViewDialog.DialogCommonCallback() {
+
+        CommonInputDialog commonInputDialog = new CommonInputDialog("Change your name", "What is your name?", name, new ViewDialog.DialogCommonCallback() {
             @Override
             public void onCallback(Object dialog, Map<String, Object> params) {
 //                Util.makeMap("ONCLICK", "OK", "TEXT", etInput.getText().toString()));
@@ -173,7 +176,11 @@ public class UserInfoActivity extends OkHomeActivityParent implements CurrentUse
                 }
 
             }
-        }));
+        });
+
+        DialogController.showCenterDialog(this, commonInputDialog);
+        commonInputDialog.getEtInput().setSingleLine(true);
+        commonInputDialog.getEtInput().setHint("Input your name");
     }
 
     //홈 엑스트라 정보
@@ -198,7 +205,7 @@ public class UserInfoActivity extends OkHomeActivityParent implements CurrentUse
     @OnClick(R.id.actUserInfo_vbtnPhone)
     public void onPhoneClick(View v){
         String currentPhone = userModel.phone;
-        DialogController.showCenterDialog(this, new ChangePhoneNumberDialog(currentPhone, new ViewDialog.DialogCommonCallback() {
+        DialogController.showCenterDialog(this, new ChangePhoneNumberDialog(this, currentPhone, new ViewDialog.DialogCommonCallback() {
             @Override
             public void onCallback(Object dialog, Map<String, Object> params) {
                 String method = Util.getMapValue(params, "ONCLICK");

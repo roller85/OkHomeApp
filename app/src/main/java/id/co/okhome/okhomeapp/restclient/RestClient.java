@@ -48,6 +48,14 @@ public class RestClient {
         return RestClient.getInstance(CreditClient.class);
     }
 
+    public final static CreditPromotionClient getCreditPromotionClient(){
+        return RestClient.getInstance(CreditPromotionClient.class);
+    }
+
+    public final static NicepayClient getNicepayClient(){
+        return RestClient.getInstance(NicepayClient.class);
+    }
+
     public final static CleaningClient getCleaningClient(){
         return RestClient.getInstance(CleaningClient.class);
     }

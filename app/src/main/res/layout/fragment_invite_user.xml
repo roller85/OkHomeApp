@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center_vertical"
+    android:padding="30dp"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/layerCleaningTipItem_tvTitle"
+        android:textColor="@color/okHomeGrayDeep"
+        android:textSize="22sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you want to get extra Point?"/>
+
+    <TextView
+        android:textColor="#717276"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textSize="14sp"
+        android:text="Share Okhome to user friend and get extra point for Free Cleaning Service."/>
+
+    <TextView
+        android:textColor="#717276"
+        android:layout_marginTop="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textSize="14sp"
+        android:text="When your friend join Okhome with your promotion code, You can get 80.000Rp point"/>
+
+    <RelativeLayout
+        android:layout_marginTop="30dp"
+        android:weightSum="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+             android:layout_marginRight="10dp"
+            android:id="@+id/actMain_tvSubTitle"
+            android:text="Your promotion code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textColor="@color/colorLightGray2"
+            android:textSize="12.5sp" />
+
+        <View
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/actMain_tvSubTitle"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:paddingLeft="15dp" android:paddingRight="15dp"
+        android:background="@drawable/bg_inputbox"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+        <TextView
+            android:id="@+id/fragmentInviteUser_tvUuid"
+            android:text="b51ad12db7"
+            android:textSize="15sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorGray"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/fragmentInviteUser_tvbtnCopy"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:text="Copy"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorAppPrimary"
+            android:layout_centerVertical="true" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:paddingLeft="30dp" android:paddingRight="30dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/fragmentInviteUser_tvbtnSend"
+        android:gravity="center"
+        android:background="@color/colorAppPrimary"
+        android:paddingTop="10dp" android:paddingBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_width="15dp"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+        <TextView
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Send invitation to user friend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff" />
+
+    </LinearLayout>
+
+</LinearLayout>

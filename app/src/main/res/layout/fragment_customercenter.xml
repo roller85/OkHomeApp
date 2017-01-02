@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#ffffff"
-    android:paddingLeft="60dp" android:paddingRight="60dp"
+    android:paddingLeft="44dp" android:paddingRight="44dp"
     android:gravity="center"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:layout_width="150dp"
-        android:adjustViewBounds="true"
-        android:layout_height="wrap_content" android:src="@drawable/logo"/>
 
 
     <RelativeLayout
         android:id="@+id/fragmentCustomerCenter_vbtnContactTel"
-        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="58dp">
         <LinearLayout
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
@@ -30,7 +25,7 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:adjustViewBounds="true"
-                    android:layout_width="26dp"
+                    android:layout_width="24dp"
                     android:layout_height="wrap_content" android:src="@drawable/ic_phone"/>
             </LinearLayout>
 
@@ -39,7 +34,7 @@
                 android:textColor="@color/okHomeGrayDeep"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="14sp"
+                android:layout_height="wrap_content" android:textSize="15sp"
                 android:text="Contact via Telephone"/>
 
 
@@ -60,7 +55,7 @@
     <RelativeLayout
         android:id="@+id/fragmentCustomerCenter_vbtnEmail"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="58dp">
         <LinearLayout
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
@@ -74,7 +69,7 @@
 
                 <ImageView
                     android:adjustViewBounds="true"
-                    android:layout_width="23dp"
+                    android:layout_width="21dp"
                     android:layout_height="wrap_content" android:src="@drawable/ic_email"/>
             </LinearLayout>
 
@@ -83,7 +78,7 @@
                 android:textColor="@color/okHomeGrayDeep"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="14sp"
+                android:layout_height="wrap_content" android:textSize="15sp"
                 android:text="Contact via Email"/>
 
         </LinearLayout>
@@ -104,7 +99,7 @@
     <RelativeLayout
         android:id="@+id/fragmentCustomerCenter_vbtnWhatsApp"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="58dp">
         <LinearLayout
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
@@ -116,7 +111,7 @@
                 android:layout_height="wrap_content">
                 <ImageView
                     android:adjustViewBounds="true"
-                    android:layout_width="26dp"
+                    android:layout_width="24dp"
                     android:layout_height="wrap_content" android:src="@drawable/ic_lock"/>
             </LinearLayout>
 
@@ -126,8 +121,95 @@
                 android:textColor="@color/okHomeGrayDeep"
                 android:gravity="center"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:textSize="14sp"
+                android:layout_height="wrap_content" android:textSize="15sp"
                 android:text="Contact via Whats App"/>
+
+        </LinearLayout>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/ic_rightarrow_gray"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#34000000"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragmentCustomerCenter_vbtnLine"
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_lock"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/okHomeGrayDeep"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="15sp"
+                android:text="Contact via Line"
+                android:id="@+id/textView12" />
+
+        </LinearLayout>
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="6dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/ic_rightarrow_gray"/>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#34000000"/>
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragmentCustomerCenter_vbtnKakaoTalk"
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="24dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_lock"/>
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_marginLeft="12dp"
+                android:textColor="@color/okHomeGrayDeep"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="15sp"
+                android:text="Contact via KakaoTalk"/>
 
         </LinearLayout>
         <ImageView
@@ -190,14 +272,17 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorGray"
                 android:layout_centerVertical="true" />
+
             <TextView
                 android:gravity="center"
-                android:text="dhkim@gmail.com"
+                android:text="ask@okhome.id"
                 android:textSize="11sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorLightGray"
-                android:layout_centerVertical="true" />
+                android:layout_centerVertical="true"
+                android:id="@+id/textView11" />
+
             <TextView
                 android:gravity="center"
                 android:text="+6231 8100 6162"

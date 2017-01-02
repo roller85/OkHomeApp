@@ -6,39 +6,39 @@
         android:background="@drawable/circle_appcolor" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
     <View android:layout_width="6dp" android:layout_height="6dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="6dp"
         android:background="@drawable/circle_gray_whitegray" />
 
 </LinearLayout>

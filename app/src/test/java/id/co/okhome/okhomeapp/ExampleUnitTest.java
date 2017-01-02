@@ -1,10 +1,10 @@
 package id.co.okhome.okhomeapp;
 
+import org.joda.time.DateTimeConstants;
+import org.joda.time.LocalDate;
 import org.junit.Test;
 
-import java.lang.reflect.Constructor;
-
-import static java.lang.System.out;
+import id.co.okhome.okhomeapp.view.customview.calendar.DayModel;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -14,55 +14,25 @@ import static java.lang.System.out;
 public class ExampleUnitTest {
 
 
-    public class Node<T>{
-        Node left;
-        Node right;
-        T data;
-    }
-
-
-    public static class Tv{
-        int channel = 0;
-
-        public void channelUp(){
-            channel ++;
-        }
-
-        public int getCurrentChannel(){
-            return channel;
-        }
-    }
-
-    public static class JoTv extends Tv{
-
-        @Override
-        public void channelUp() {
-            super.channelUp();
-            channel += 10;
-        }
-    }
 
 
     @Test
     public void sdfdasf() throws Exception {
+        int year = 2017;
+        int month = 1;
 
-        Class fragmentClass = SampleModel.class;
-        Constructor[] allConstructors = fragmentClass.getDeclaredConstructors();
-        out.println("O " + " ::: " + "왓다" + allConstructors.length);
-        SampleModel sampleModel = (SampleModel)allConstructors[0].newInstance();
-        out.println(sampleModel.aa);
+        LocalDate targetDate = new LocalDate().withYear(year).withMonthOfYear(month).withDayOfMonth(1).minusWeeks(1).withDayOfWeek(DateTimeConstants.SUNDAY);
+        for(int i = 0; i < 42; i++){
+            targetDate = targetDate.plusDays(1);
+            DayModel dayModel = new DayModel(
+                    targetDate.getYear(), targetDate.getMonthOfYear(), targetDate.getDayOfMonth(), targetDate.getDayOfWeek(),
+                    targetDate.toDate().getTime());
+
+            String yyyymmdd = dayModel.yyyymmdd;
+            //yyyymmdd만들어서 키로 보관
+
+            System.out.println(yyyymmdd);
+        }
     }
 
-    public <T> T getParam(String key){
-        return (T)key;
-    }
-
-    private void print(Object s){
-        final String tag = "SIBALSO";
-        out.println(tag + " ::: " + s);
-    }
-
-    public class Sampe2Model extends SampleModel{
-
-    }
 }

@@ -39,6 +39,7 @@ public class StringHolder extends JoViewHolder<String> implements View.OnClickLi
     @Override
     public void onClick(View v) {
         String item = getModel();
+        int pos = getPos();
         Object caller = getRcvParams().getParam("CALLER");
         if(caller instanceof CommonListDialog){
             ((CommonListDialog) caller).onItemClick(item);

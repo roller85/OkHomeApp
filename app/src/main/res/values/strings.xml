@@ -2,4 +2,5 @@
     <string name="app_name">OkHome</string>
     <string name="facebook_app_id">663995213758662</string>
     <string name="fb_login_protocol_scheme">fb663995213758662</string>
+    <string name="title_activity_poll">PollActivity</string>
 </resources>

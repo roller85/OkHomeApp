@@ -125,7 +125,7 @@
 
             <TextView
                 android:layout_marginBottom="8dp"
-                android:text="How many floor at your home?"
+                android:text="How many rooms at your home?"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
             <TextView
                 android:layout_marginBottom="8dp"
-                android:text="How many restroom at your home?"
+                android:text="How many restrooms at your home?"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

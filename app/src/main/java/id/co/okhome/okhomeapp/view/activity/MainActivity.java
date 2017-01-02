@@ -17,7 +17,6 @@ import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.view.drawerlayout.MainDrawerViewComponentInitiator;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
-import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment_old;
 
 import static id.co.okhome.okhomeapp.lib.DrawerLayoutController.with;
 
@@ -52,11 +51,23 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
             drawerLayoutController.show(new MakeReservationFragment());
         }
 
-
         FacebookSdk.sdkInitialize(getApplicationContext());
+
+//        startActivity(new Intent(this, CollisionCleaningManagerActivity.class));
+
     }
 
-
+//    private boolean chkHasPhoneNumber(){
+//        UserModel userModel = CurrentUserInfo.get(this);
+//        if(userModel != null){
+//            if(userModel.phone == null || userModel.phone.equals("")){
+//                startActivity(new Intent(this, SignupPhoneActivity.class));
+//                return false;
+//            }
+//        }
+//
+//        return true;
+//    }
 
     @OnClick(R.id.actMain_llbtnMore)
     public void onClickMore(){
@@ -67,12 +78,14 @@ public class MainActivity extends OkHomeActivityParent implements View.OnClickLi
     public void onClick(View v) {
         switch(v.getId()){
         }
-        with(this).show(new MakeReservationFragment_old());
+        with(this).show(new MakeReservationFragment());
     }
 
     @Override
     protected void onDestroy() {
-        drawerLayoutController.onDestroy();
+        if(drawerLayoutController != null){
+            drawerLayoutController.onDestroy();
+        }
         super.onDestroy();
     }
 

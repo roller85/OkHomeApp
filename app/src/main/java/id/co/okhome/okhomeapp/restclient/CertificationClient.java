@@ -12,7 +12,7 @@ public interface CertificationClient {
     Call<Boolean> chkValidCode(@Query("phone") String phone, @Query("code") String code);
 
     @POST("certification/sms")
-    Call<String> sendCertCode(@Query("phone") String phone);
+    Call<String> sendCertCode(@Query("phone") String phone, @Query("forUpdate") String forUpdate);
 
 
 }

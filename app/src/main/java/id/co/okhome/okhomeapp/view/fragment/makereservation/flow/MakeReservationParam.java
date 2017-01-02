@@ -16,7 +16,7 @@ public class MakeReservationParam {
     public String homeId;
     public String homeType;
     public String homeSize;
-    public String floorcount;
+    public String roomCount;
     public String toiletCount;
     public String pet;
     public String name, phone, address1, address2, address3, address4;
@@ -53,4 +53,10 @@ public class MakeReservationParam {
 
         return pricePerHour;
     }
+
+
+
+
+
+
 }

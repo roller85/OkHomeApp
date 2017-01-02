@@ -17,9 +17,14 @@ public class JoSharedPreference {
 
 	private final static String TOKEN = "¿";
 	static Gson gson = new Gson();
+	public static Context context;
 
 	SharedPreferences sharedPreferences;
 	SharedPreferences.Editor editor;
+
+	public static void setContext(Context context) {
+		JoSharedPreference.context = context;
+	}
 
 	public JoSharedPreference(Context context) {
 		this.sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
@@ -114,5 +119,7 @@ public class JoSharedPreference {
 		return new JoSharedPreference(context);
 	}
 
-
+	public static final JoSharedPreference with(){
+		return new JoSharedPreference(context);
+	}
 }

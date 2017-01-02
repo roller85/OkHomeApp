@@ -127,7 +127,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/actSignin_tvbtnForgetPassword"
-                    android:text="Forgot password"
+                    android:text="Forgot Email or Password"
                     android:textSize="13sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -22,35 +22,45 @@
             android:id="@+id/fragmentMakeReservationChooseDay_vLoading"
             android:layout_width="30dp"
             android:layout_height="30dp" android:layout_centerInParent="true"/>
+
     </RelativeLayout>
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_marginTop="4dp"
         android:background="#ffffff"
         android:id="@+id/fragmentMakeReservationChooseDay_llTop"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/fragmentMakeReservationChooseDay_vbtnLeft"
-            android:layout_marginRight="40dp"
-            android:adjustViewBounds="true"
-            android:layout_width="12.5dp"
-            android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_right_black"/>
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/fragmentMakeReservationChooseDay_tvYearMonth"
-            android:textStyle="bold"
-            android:text="2016.09"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/colorAppPrimary"/>
+            <ImageView
+                android:id="@+id/fragmentMakeReservationChooseDay_vbtnLeft"
+                android:layout_marginRight="40dp"
+                android:adjustViewBounds="true"
+                android:layout_width="12.5dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_right_black"/>
 
-        <ImageView
-            android:id="@+id/fragmentMakeReservationChooseDay_vbtnRight"
-            android:layout_marginLeft="40dp"
-            android:adjustViewBounds="true"
-            android:layout_width="12.5dp"
-            android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_black"/>
+            <TextView
+                android:id="@+id/fragmentMakeReservationChooseDay_tvYearMonth"
+                android:textStyle="bold"
+                android:text="2016.09"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/colorAppPrimary"/>
+
+            <ImageView
+                android:id="@+id/fragmentMakeReservationChooseDay_vbtnRight"
+                android:layout_marginLeft="40dp"
+                android:adjustViewBounds="true"
+                android:layout_width="12.5dp"
+                android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_black"/>
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -59,7 +69,7 @@
         android:layout_below="@+id/fragmentMakeReservationChooseDay_llTop"
         android:id="@+id/fragmentMakeReservationChooseDay_llWeeks"
         android:paddingLeft="1dp" android:paddingRight="1dp"
-        android:paddingBottom="5dp" android:paddingTop="15dp"
+        android:paddingBottom="5dp" android:paddingTop="10dp"
         android:weightSum="7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

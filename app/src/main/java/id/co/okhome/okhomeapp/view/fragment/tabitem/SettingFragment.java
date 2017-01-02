@@ -46,7 +46,7 @@ public class SettingFragment extends Fragment implements TabFragmentFlow {
 
     @Override
     public String getTitle() {
-        return "Setting";
+        return "설정";
     }
 
     @Override
@@ -168,21 +168,28 @@ public class SettingFragment extends Fragment implements TabFragmentFlow {
                 new CommonTextDialog("Really cancel your account?", "Your profile and any listings will disappear.\nWe'll miss you terribly", new ViewDialog.DialogCommonCallback() {
                     @Override
                     public void onCallback(Object dialog, Map<String, Object> params) {
-                        final int pId = ProgressDialogController.show(getContext());
-                        RestClient.getUserRestClient().quit(CurrentUserInfo.getId(getContext())).enqueue(new RetrofitCallback<String>() {
-                            @Override
-                            public void onSuccess(String result) {
-                                ProgressDialogController.dismiss(pId);
-                                getActivity().finish();
-                                startActivity(new Intent(getContext(), SigninActivity.class));
-                            }
 
-                            @Override
-                            public void onJodevError(ErrorModel jodevErrorModel) {
-                                ProgressDialogController.dismiss(pId);
-                                Util.showToast(getContext(), jodevErrorModel.message);
-                            }
-                        });
+                        String onClick = (String)params.get("ONCLICK");
+                        if(onClick.equals("OK")){
+                            final int pId = ProgressDialogController.show(getContext());
+                            RestClient.getUserRestClient().quit(CurrentUserInfo.getId(getContext())).enqueue(new RetrofitCallback<String>() {
+                                @Override
+                                public void onSuccess(String result) {
+                                    Util.showToast(getContext(), "탈퇴되었습니다");
+                                    ProgressDialogController.dismiss(pId);
+                                    getActivity().finish();
+
+                                    startActivity(new Intent(getContext(), SigninActivity.class));
+                                }
+
+                                @Override
+                                public void onJodevError(ErrorModel jodevErrorModel) {
+                                    ProgressDialogController.dismiss(pId);
+                                    Util.showToast(getContext(), jodevErrorModel.message);
+                                }
+                            });
+                        }
+
                     }
                 }));
     }

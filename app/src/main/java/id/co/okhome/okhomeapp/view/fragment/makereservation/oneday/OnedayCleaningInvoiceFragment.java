@@ -20,7 +20,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.config.CurrentUserInfo;
-import id.co.okhome.okhomeapp.lib.JoSharedPreference;
 import id.co.okhome.okhomeapp.lib.ProgressDialogController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.DialogController;
@@ -29,7 +28,7 @@ import id.co.okhome.okhomeapp.lib.joviewrepeator.JoRepeatorCallback;
 import id.co.okhome.okhomeapp.lib.joviewrepeator.JoViewRepeator;
 import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
-import id.co.okhome.okhomeapp.model.CleaningModel;
+import id.co.okhome.okhomeapp.model.SpcCleaningModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.dialog.ChooseCleaningGridDialog;
 import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
@@ -54,8 +53,8 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
 
     DialogPlus dialogChooseCleaning; //팝업 프레임
     ChooseCleaningGridDialog dialogCleaningGrid; //실제 팝업내용
-    JoViewRepeator<CleaningModel> viewRepeater;
-    JoViewRepeator<CleaningModel> viewRepeaterForSpecialService;
+    JoViewRepeator<SpcCleaningModel> viewRepeater;
+    JoViewRepeator<SpcCleaningModel> viewRepeaterForSpecialService;
 
     int hour = 0;
     int pricePerHour = 0;
@@ -65,7 +64,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
     String type = ""; //ONEDAY, MOVEIN
     String mainCleaningName = "";
 
-    List<CleaningModel> listChoosedItems = new ArrayList<>();
+    List<SpcCleaningModel> listChoosedItems = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -76,7 +75,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
     public void onCurrentPage(int pos, MakeReservationParam params) {
 
         //params에서 분석
-        tvDateTime.setText(Util.getFormattedDateString(params.datetime+":00", "yyyy-MM-dd ahh:mm "));
+//        tvDateTime.setText(Util.getFormattedDateString(params.datetime+":00", "yyyy-MM-dd ahh:mm "));
 
         type = getArguments().getString("type");
 
@@ -94,14 +93,14 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
 
 
         //시간, 가격 기본셋 처리
-        if(params.homeType == null){
-            hour = 4;
-        }
-        else if(params.homeType.equals("1") && params.homeSize.equals("2")){
-            hour = 5;
-        }else{
-            hour = 4;
-        }
+//        if(params.homeType == null){
+//            hour = 4;
+//        }
+//        else if(params.homeType.equals("1") && params.homeSize.equals("2")){
+//            hour = 5;
+//        }else{
+//            hour = 4;
+//        }
 
 
         adaptServiceList();
@@ -116,17 +115,17 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
     @Override
     public boolean next(final MakeReservationParam paramsCleaning) {
 
-        try{
-            paramsCleaning.homeId = CurrentUserInfo.getHomeId(getContext());
-            paramsCleaning.specialCleaingIds = specialCleaningIds;
-            paramsCleaning.consultingYN = consultingYN;
-            paramsCleaning.cleaningDuration = hour+"";
-            paramsCleaning.type = (type.equals("MOVEIN") ? "2" : "1");
-
-        }catch(Exception e){
-            Util.showToast(getContext(), e.getMessage());
-            return false;
-        }
+//        try{
+//            paramsCleaning.homeId = CurrentUserInfo.getHomeId(getContext());
+//            paramsCleaning.specialCleaingIds = specialCleaningIds;
+//            paramsCleaning.consultingYN = consultingYN;
+//            paramsCleaning.cleaningDuration = hour+"";
+//            paramsCleaning.type = (type.equals("MOVEIN") ? "2" : "1");
+//
+//        }catch(Exception e){
+//            Util.showToast(getContext(), e.getMessage());
+//            return false;
+//        }
 
         DialogController.showCenterDialog(getContext(), new CommonTextDialog("Proceed?", "Touch Confirm, Cleaning reservation will be complete", new ViewDialog.DialogCommonCallback() {
             @Override
@@ -166,12 +165,12 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
         ButterKnife.bind(this, getView());
 
         //인보이스내용
-        viewRepeater = new JoViewRepeator<CleaningModel>(getContext())
+        viewRepeater = new JoViewRepeator<SpcCleaningModel>(getContext())
                 .setContainer(vgServiceItem)
                 .setItemLayoutId(R.layout.item_cleaning_simple)
                 .setCallBack(new InvoiceRepetorCallback(true));
 
-        viewRepeaterForSpecialService = new JoViewRepeator<CleaningModel>(getContext())
+        viewRepeaterForSpecialService = new JoViewRepeator<SpcCleaningModel>(getContext())
                 .setContainer(vgCleaningItem)
                 .setItemLayoutId(R.layout.item_cleaning_simple)
                 .setCallBack(new InvoiceRepetorCallback(false));
@@ -187,41 +186,41 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
 
     //모든청소 리스트 설정
     private void initCleaningList(){
-        if(dialogCleaningGrid == null){
-            List<CleaningModel> listExtraCleaning =  JoSharedPreference.with(getContext()).get("ExtraCleaningList");
-
-            dialogCleaningGrid = new ChooseCleaningGridDialog(hour, listExtraCleaning, new ChooseCleaningGridDialog.OnExtraCleaningChoosedListener() {
-                @Override
-                public void onChoosed(List<CleaningModel> list) {
-                    if(list.size() > 0){
-                        String ids = "";
-                        for(CleaningModel m : list){
-                            ids += "," + m.id;
-                        }
-                        ids = ids.substring(1);
-
-                        //서버에 날릴거
-                        specialCleaningIds = ids;
-                    }else{
-                        specialCleaningIds = "";
-                    }
-                    listChoosedItems = list;
-                    adaptExtraServiceList();
-                }
-            });
-        }
+//        if(dialogCleaningGrid == null){
+//            List<SpcCleaningModel> listExtraCleaning =  JoSharedPreference.with(getContext()).get("ExtraCleaningList");
+//
+//            dialogCleaningGrid = new ChooseCleaningGridDialog(hour, listExtraCleaning, new ChooseCleaningGridDialog.OnExtraCleaningChoosedListener() {
+//                @Override
+//                public void onChoosed(List<SpcCleaningModel> list) {
+//                    if(list.size() > 0){
+//                        String ids = "";
+//                        for(SpcCleaningModel m : list){
+//                            ids += "," + m.id;
+//                        }
+//                        ids = ids.substring(1);
+//
+//                        //서버에 날릴거
+//                        specialCleaningIds = ids;
+//                    }else{
+//                        specialCleaningIds = "";
+//                    }
+//                    listChoosedItems = list;
+//                    adaptExtraServiceList();
+//                }
+//            });
+//        }
 
     }
 
 
     private void adaptServiceList(){
-        List<CleaningModel> listCurrentCleaningItems = new ArrayList<>();
+        List<SpcCleaningModel> listCurrentCleaningItems = new ArrayList<>();
 
-        listCurrentCleaningItems.add(new CleaningModel("", mainCleaningName, hour, pricePerHour * hour, "", true));
+        listCurrentCleaningItems.add(new SpcCleaningModel("", mainCleaningName, hour, pricePerHour * hour, "", true));
 
         if(CurrentUserInfo.get(getContext()).cleaningCount.equals("0")){
             consultingYN = "Y";
-            listCurrentCleaningItems.add(new CleaningModel("", "Consulting", 0, 0, "", true));
+            listCurrentCleaningItems.add(new SpcCleaningModel("", "Consulting", 0, 0, "", true));
         }
 
         viewRepeater.setList(listCurrentCleaningItems);
@@ -276,12 +275,12 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
         int price = 0;
         int hour = 0;
 
-        List<CleaningModel> listAllCleaningItems = new ArrayList<>();
+        List<SpcCleaningModel> listAllCleaningItems = new ArrayList<>();
 
         listAllCleaningItems.addAll(viewRepeater.getList());
         listAllCleaningItems.addAll(viewRepeaterForSpecialService.getList());
 
-        for(CleaningModel m : listAllCleaningItems){
+        for(SpcCleaningModel m : listAllCleaningItems){
             price += m.price;
             hour += m.hour;
 
@@ -313,7 +312,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
     }
 
     //인보이스 아이템 리피터
-    class InvoiceRepetorCallback extends JoRepeatorCallback<CleaningModel>{
+    class InvoiceRepetorCallback extends JoRepeatorCallback<SpcCleaningModel>{
 
         boolean hasFooter;
         public InvoiceRepetorCallback(boolean hasFooter) {
@@ -344,7 +343,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
         }
 
         @Override
-        public void onBind(View v, CleaningModel model) {
+        public void onBind(View v, SpcCleaningModel model) {
             TextView tvTitle = (TextView) v.findViewById(R.id.itemCleaningSimple_tvTitle);
             TextView tvPrice = (TextView) v.findViewById(R.id.itemCleaningSimple_tvPrice);
             TextView tvDuration = (TextView) v.findViewById(R.id.itemCleaningSimple_tvDuration);
@@ -369,7 +368,7 @@ public class OnedayCleaningInvoiceFragment extends Fragment implements MakeReser
             @Override
             public void onClick(View v) {
                 //아이템에서 제거하는이벤튼데..
-                CleaningModel model = (CleaningModel)v.getTag();
+                SpcCleaningModel model = (SpcCleaningModel)v.getTag();
                 getViewRepeator().getList().remove(model);
                 listChoosedItems = getViewRepeator().getList();
                 adaptExtraServiceList();

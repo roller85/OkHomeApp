@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/fullpopupSpecialCleaningPromo_vContents"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#0095da"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fullpopupSpecialCleaningPromo_tvText1"
+            android:textColor="#ffffff"
+            android:textSize="21sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조금 더 깔끔한 청소를 원하세요?"/>
+
+        <TextView
+            android:id="@+id/fullpopupSpecialCleaningPromo_tvText2"
+            android:layout_marginTop="5dp"
+            android:textColor="#ffffff"
+            android:textSize="21sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="스페셜 집중청소를 경험해보세요!"/>
+
+        <LinearLayout
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_2_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="빨래정리"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem2"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem3"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem4"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem5"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem6"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem7"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="냉장고"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem8"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="청소기"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem9"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="청소기"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fullpopupSpecialCleaningPromo_vCleaingItem10"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_cleaning_1_white"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="#ffffff"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="청소기"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fullpopupSpecialCleaningPromo_tvText3"
+            android:layout_marginTop="30dp"
+            android:textColor="#ffffff"
+            android:textSize="21sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="오케이홈이 책임집니다!"/>
+
+
+        <LinearLayout
+            android:id="@+id/fullpopupSpecialCleaningPromo_vgButtons"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:id="@+id/fullpopupSpecialCleaningPromo_vbtnReq"
+                android:background="#ffffff"
+                android:layout_width="250dp"
+                android:layout_height="55dp">
+
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="#0095da"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:textColor="#ffffff"
+                        android:textSize="19sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="확인했어요!"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</io.codetail.widget.RevealFrameLayout>

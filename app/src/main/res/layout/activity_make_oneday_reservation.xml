@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/actMakeOneDayReservation_rlContents"
     android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:paddingTop="18dp" android:paddingBottom="18dp"
+        android:layout_marginTop="0dp" android:paddingBottom="5dp"
+        android:paddingTop="18dp"
         android:id="@+id/actMakeOneDayReservation_rlTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -14,7 +16,7 @@
         <LinearLayout
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:id="@+id/actMain_llbtnMore"
+            android:id="@+id/actMain_llbtnX"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:orientation="vertical">
@@ -31,16 +33,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:orientation="vertical">
 
+            <View
+                android:layout_width="10dp"
+                android:layout_height="10dp" />
             <TextView
                 android:id="@+id/actMakeOneDayReservation_tvTitle"
-                android:textSize="14.5sp"
+                android:textSize="16.5sp"
                 android:textColor="#4f5661"
-                android:text="When do you want to get our service?"
+                android:text="Loading..."
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <id.co.okhome.okhomeapp.view.customview.ProgressDotsView
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/actMakeOneDayReservation_pdv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></id.co.okhome.okhomeapp.view.customview.ProgressDotsView>
@@ -111,7 +116,7 @@
         android:layout_alignParentBottom="true"
         android:id="@+id/actMakeOneDayReservation_llBottom"
         android:layout_width="match_parent"
-        android:layout_height="47dp">
+        android:layout_height="49dp">
 
         <RelativeLayout
             android:id="@+id/actMakeOneDayReservation_vbtnLeft"
@@ -125,7 +130,7 @@
             <TextView
                 android:layout_centerInParent="true"
                 android:id="@+id/actMakeOneDayReservation_tvLeft"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:gravity="center"
                 android:text="Cancel"
                 android:layout_width="wrap_content"
@@ -150,7 +155,7 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/actMakeOneDayReservation_tvRight"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:gravity="center"
                     android:text="Berikut"
                     android:layout_width="wrap_content"

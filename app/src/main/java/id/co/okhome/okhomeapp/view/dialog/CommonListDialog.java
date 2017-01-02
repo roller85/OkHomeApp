@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.mrjodev.jorecyclermanager.JoRecyclerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -22,6 +23,8 @@ import id.co.okhome.okhomeapp.view.viewholder.StringHolder;
  */
 
 public class CommonListDialog extends ViewDialog{
+
+    public final static String TAG_ITEM = "ITEM";
 
     @BindView(R.id.dialogCommonInputbox_tvTitle)
     TextView tvTitle;
@@ -39,6 +42,15 @@ public class CommonListDialog extends ViewDialog{
         this.title = title;
         this.listItems = listItems;
         this.callback = callback;
+    }
+
+    public CommonListDialog(String title, String [] arr, DialogCommonCallback callback) {
+        this.title = title;
+        this.callback = callback;
+        listItems = new ArrayList<>();
+        for(String s : arr){
+            listItems.add(s);
+        }
     }
 
     @Override
@@ -66,8 +78,9 @@ public class CommonListDialog extends ViewDialog{
 
     }
 
+    //외부에서 호출됨. 건들지말라
     public void onItemClick(String item){
-        callback.onCallback(getDialog(), Util.makeMap("ITEM", item));
+        callback.onCallback(getDialog(), Util.makeMap(TAG_ITEM, item));
         dismiss();
     }
 

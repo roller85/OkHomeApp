@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="#dd000000"
+        android:layout_height="wrap_content" android:textSize="16sp"
+        android:text="포인트 구매"/>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/dialogChargeCredit_vbtnChk1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/dialogChargeCredit_ivChk1"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_done_circle"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="100.000 포인트"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:gravity="center_vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="100 Ribu"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+
+        <LinearLayout
+            android:id="@+id/dialogChargeCredit_vbtnChk2"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/dialogChargeCredit_ivChk2"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_done_circle"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="200.000 포인트"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="200 Ribu"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+
+        <LinearLayout
+            android:id="@+id/dialogChargeCredit_vbtnChk3"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <ImageView
+                android:id="@+id/dialogChargeCredit_ivChk3"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_done_circle"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/itemPeriodPaymentItem_tvTitle"
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="300.000 포인트"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/itemPeriodPaymentItem_tvPrice"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="300 Ribu"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+
+        <LinearLayout
+            android:id="@+id/dialogChargeCredit_vbtnChk4"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="52dp">
+
+            <ImageView
+                android:id="@+id/dialogChargeCredit_ivChk4"
+                android:layout_marginRight="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_done_circle"
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_marginRight="14dp"
+                    android:layout_toLeftOf="@+id/dialogChargeCredit_llRight"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:lines="1"
+                        android:id="@+id/dialogChargeCredit_etPoint"
+                        android:background="@drawable/bg_inputbox_black"
+                        android:hint="얼마 충전할까요"
+                        android:padding="13dp"
+                        android:textSize="15sp"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dialogChargeCredit_llRight"
+                    android:gravity="right"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:id="@+id/dialogChargeCredit_tvInputRp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:textColor="#aa000000"
+                        android:layout_height="wrap_content" android:textSize="15sp"
+                        android:text="0 Rp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="14dp"
+        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/dialogCommon_vbtnCancel"
+            android:textColor="@color/colorAppPrimary2"
+            android:textSize="14sp"
+            android:layout_width="80dp"
+            android:layout_height="30dp" android:text="닫기"/>
+        <TextView
+            android:gravity="center_vertical|right"
+            android:id="@+id/dialogCommon_vbtnConfirm"
+            android:textColor="@color/colorAppPrimary2"
+            android:textSize="14sp"
+            android:layout_width="80dp"
+            android:layout_height="30dp" android:text="포인트구입"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+

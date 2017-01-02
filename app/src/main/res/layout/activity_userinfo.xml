@@ -41,7 +41,7 @@
         <View
             android:layout_alignParentBottom="true"
             android:layout_width="match_parent"
-            android:layout_height="1px" android:background="#28000000"/>
+            android:layout_height="1px" android:background="#35000000"/>
     </RelativeLayout>
 
     <ScrollView
@@ -62,20 +62,53 @@
                 android:orientation="vertical" android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/actUserInfo_tvEmail"
-                    android:text="-"
-                    android:textSize="13sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorLightGray"/>
                 <LinearLayout
+                    android:layout_marginTop="18dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Email"
+                        android:textSize="13sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorLightGray"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="46dp">
+
+                        <LinearLayout
+                            android:layout_centerVertical="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:text="Loading"
+                                android:id="@+id/actUserInfo_tvEmail"
+                                android:textSize="14sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="1px" android:background="#33000000"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
                     android:layout_marginTop="5dp"
                     android:id="@+id/actUseInfo_vbtnPhoto"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-
 
                     <RelativeLayout
                         android:id="@+id/actUserInfo_vbtnPhoto"
@@ -132,7 +165,7 @@
                             <TextView
                                 android:hint="What is your name"
                                 android:id="@+id/actUserInfo_tvName"
-                                android:textSize="13.5sp"
+                                android:textSize="14sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"
@@ -180,7 +213,7 @@
                             <TextView
                                 android:hint="What is your phone number"
                                 android:id="@+id/actUserInfo_tvPhone"
-                                android:textSize="13.5sp"
+                                android:textSize="14sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"
@@ -232,16 +265,19 @@
                                     android:layout_height="46dp">
 
                                     <LinearLayout
+                                        android:layout_toLeftOf="@+id/arrow"
                                         android:id="@+id/actUserInfo_vbtnAddress"
                                         android:layout_centerVertical="true"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content">
                                         <TextView
-                                            android:maxLines="2"
+                                            android:paddingRight="20dp"
+                                            android:maxLines="1"
+                                            android:ellipsize="start"
                                             android:id="@+id/actUserInfo_tvAddress"
                                             android:hint="Where is your home"
-                                            android:textSize="13.5sp"
-                                            android:layout_width="wrap_content"
+                                            android:textSize="14sp"
+                                            android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/colorGray"
                                             android:layout_centerVertical="true" />
@@ -249,6 +285,7 @@
                                     </LinearLayout>
 
                                     <ImageView
+                                        android:id="@+id/arrow"
                                         android:layout_centerVertical="true"
                                         android:layout_alignParentRight="true"
                                         android:layout_width="10dp"
@@ -319,7 +356,7 @@
                                 android:maxLines="2"
                                 android:id="@+id/actUserInfo_tvHomeinfo"
                                 android:hint="Let us know about your home"
-                                android:textSize="13.5sp"
+                                android:textSize="14sp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textColor="@color/colorGray"

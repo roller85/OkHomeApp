@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -20,10 +19,6 @@ import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
-import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
-import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
-import id.co.okhome.okhomeapp.model.CleaningScheduleModel;
-import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.customview.calendar.CalendarView;
 import id.co.okhome.okhomeapp.view.customview.calendar.DayModel;
 import id.co.okhome.okhomeapp.view.customview.calendar.MonthGridView;
@@ -127,43 +122,43 @@ public class ChooseDayFragment2 extends Fragment implements MakeReservationFlow,
         String homeId = CurrentUserInfo.getHomeId(getContext());
 
         setLoadingVisibility(true);
-        RestClient.getCleaningRequestClient().getMonthlyFilteredSchedule(userId, homeId, sYear + sMonth).enqueue(new RetrofitCallback<List<CleaningScheduleModel>>() {
-
-            @Override
-            public void onFinish() {
-                super.onFinish();
-                setLoadingVisibility(false);
-            }
-
-            @Override
-            public void onSuccess(final List<CleaningScheduleModel> listResult) {
-                if (monthGridView != null) {
-                    monthGridView.clear();
-
-                    for(DayModel m : monthGridView.getListDayModels()){
-                        m.cleaningScheduleModel = null;
-                    }
-
-                    for (CleaningScheduleModel m : listResult) {
-
-                        DayModel dayModel = monthGridView.getDayModel(m.yyyymmdd());
-
-                        if (dayModel != null) {
-                            dayModel.cleaningScheduleModel = m;
-                        }else{
-                        }
-                    }
-                    //리스트 변경
-                    monthGridView.notifyDataSetChanged();
-                }else{
-                }
-            }
-
-            @Override
-            public void onJodevError(ErrorModel jodevErrorModel) {
-                Util.showToast(getContext(), jodevErrorModel.message);
-            }
-        });
+//        RestClient.getCleaningRequestClient().getMonthlyFilteredSchedule(userId, homeId, sYear + sMonth).enqueue(new RetrofitCallback<List<CleaningScheduleModel>>() {
+//
+//            @Override
+//            public void onFinish() {
+//                super.onFinish();
+//                setLoadingVisibility(false);
+//            }
+//
+//            @Override
+//            public void onSuccess(final List<CleaningScheduleModel> listResult) {
+//                if (monthGridView != null) {
+//                    monthGridView.clear();
+//
+//                    for(DayModel m : monthGridView.getListDayModels()){
+//                        m.cleaningScheduleModel = null;
+//                    }
+//
+//                    for (CleaningScheduleModel m : listResult) {
+//
+//                        DayModel dayModel = monthGridView.getDayModel(m.yyyymmdd());
+//
+//                        if (dayModel != null) {
+//                            dayModel.cleaningScheduleModel = m;
+//                        }else{
+//                        }
+//                    }
+//                    //리스트 변경
+//                    monthGridView.notifyDataSetChanged();
+//                }else{
+//                }
+//            }
+//
+//            @Override
+//            public void onJodevError(ErrorModel jodevErrorModel) {
+//                Util.showToast(getContext(), jodevErrorModel.message);
+//            }
+//        });
     }
 
     //달력로드완료
@@ -223,7 +218,7 @@ public class ChooseDayFragment2 extends Fragment implements MakeReservationFlow,
 
             return false;
         }else{
-            params.datetime = datetime;
+//            params.datetime = datetime;
             return true;
         }
     }

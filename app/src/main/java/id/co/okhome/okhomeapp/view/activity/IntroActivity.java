@@ -1,59 +1,106 @@
 package id.co.okhome.okhomeapp.view.activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
-import java.util.List;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.JoSharedPreference;
 import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
+import id.co.okhome.okhomeapp.lib.TutoriorPreference;
 import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
+import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
-import id.co.okhome.okhomeapp.model.CleaningModel;
 import id.co.okhome.okhomeapp.model.UserModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
 
 public class IntroActivity extends OkHomeActivityParent {
 
+
+    boolean started = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
         ButterKnife.bind(this);
 
-        new android.os.Handler(){
-            @Override
-            public void dispatchMessage(Message msg) {
-                initDefaultDatas();
+        TutoriorPreference.clear();
+        JoSharedPreference.with().push("ExtraCleaningList", null);
 
-            }
-        }.sendEmptyMessageDelayed(0, 2000);
+        getVersion();
+
+        //셋
     }
 
-    private void initDefaultDatas(){
-        RestClient.getCleaningClient().getCleaningList().enqueue(new RetrofitCallback<List<CleaningModel>>() {
+    private void getVersion(){
+        RestClient.getCommonClient().getVersion("android").enqueue(new RetrofitCallback<Map>() {
             @Override
-            public void onSuccess(List<CleaningModel> result) {
-                JoSharedPreference.with(IntroActivity.this).push("ExtraCleaningList", result);
-                login();
-            }
-
-            @Override
-            public void onJodevError(ErrorModel jodevErrorModel) {
-                Util.showToast(IntroActivity.this, jodevErrorModel.message);
+            public void onSuccess(Map result) {
+                chkVersion((String)result.get("version"), (String)result.get("mandatory"), (String)result.get("text"), (String)result.get("url"));
             }
         });
     }
 
+    private void moveToUrl(String url){
+        if(url.contains("market://")){
+            Intent marketLaunch = new Intent(Intent.ACTION_VIEW);
+            marketLaunch.setData(Uri.parse(url));
+            startActivity(marketLaunch);
+        }else{
+            //웹
+            Util.openWebIntent(this, url);
+        }
+        finish();
+    }
+
+
+    private void chkVersion(String version, String isMandatory, String text, final String url){
+        String appVersion = Util.getAppVersionName(this);
+        int iAppVersion = Integer.parseInt(appVersion.replace(".", ""));
+        int iNewVersion = Integer.parseInt(version.replace(".", ""));
+
+        if(iNewVersion > iAppVersion){
+            if(isMandatory.equals("Y")){
+                //업데이트 후에 진행가능
+
+                DialogController.showAlertDialog(this, "Okhome 필수업데이트", text, true, new ViewDialog.DialogCommonCallback() {
+                    @Override
+                    public void onCallback(Object dialog, Map<String, Object> params) {
+                        //마켓으로 이동
+                        moveToUrl(url);
+                    }
+                });
+            }else{
+                DialogController.showAlertDialog(this, "Okhome 필수업데이트", text, false, new ViewDialog.DialogCommonCallback() {
+                    @Override
+                    public void onCallback(Object dialog, Map<String, Object> params) {
+                        //마켓으로 이동
+                        if(params.get(DialogController.TAG_CLICK).equals("OK")){
+                            login();
+                        }else{
+                            moveToUrl(url);
+                        }
+                    }
+                });
+                //업데이트 권고
+            }
+
+        }else{
+            login();
+        }
+
+    }
+
     private void login(){
-        String id = CurrentUserInfo.getId(this);
+        final String id = CurrentUserInfo.getId(this);
         if(id == null){
             startActivity(new Intent(IntroActivity.this, MainActivity.class));
             finish();
@@ -69,7 +116,7 @@ public class IntroActivity extends OkHomeActivityParent {
 
                 @Override
                 public void onJodevError(ErrorModel jodevErrorModel) {
-                    Util.showToast(IntroActivity.this, jodevErrorModel.message);
+                    Util.showToast(IntroActivity.this, "getUser " + id + jodevErrorModel.message);
                     finish();
                 }
             });
@@ -77,13 +124,13 @@ public class IntroActivity extends OkHomeActivityParent {
 
     }
 
-
-
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        animate();
+        if(started == false){
+            animate();
+            started =true;
+        }
     }
 
     private void animate(){

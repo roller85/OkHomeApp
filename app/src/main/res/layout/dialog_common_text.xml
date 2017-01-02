@@ -33,7 +33,7 @@
             <TextView
                 android:id="@+id/dialogCommonText_tvContent"
                 android:layout_marginTop="13dp"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textColor="@color/colorLightGray"
                 android:text="ganananansdfnaldf"
                 android:layout_width="wrap_content"

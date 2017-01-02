@@ -60,7 +60,7 @@ public class NoticeFragment extends Fragment implements TabFragmentFlow {
 
     @Override
     public String getTitle() {
-        return "Notice";
+        return "공지사항";
     }
 
     @Override

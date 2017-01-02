@@ -11,7 +11,7 @@
     <TextView
         android:paddingLeft="20dp" android:paddingRight="20dp"
         android:id="@+id/actMakeOneDayReservation_tvDate"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textColor="@color/colorAppPrimary2"
         android:text="2016.02.29"
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_marginTop="4dp"
         android:paddingLeft="20dp" android:paddingRight="20dp"
         android:id="@+id/actMakeOneDayReservation_tvTitle"
-        android:textSize="14sp"
+        android:textSize="15sp"
         android:textColor="#4f5661"
         android:text="Choose time of starting cleaning"
         android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
 
         <TextView
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/okHomeGrayDeep"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
             android:layout_width="22dp"
             android:layout_height="wrap_content" android:src="@drawable/ic_checked"/>
         <TextView
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/okHomeGrayDeep"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
             android:layout_width="22dp"
             android:layout_height="wrap_content" android:src="@drawable/ic_checked"/>
         <TextView
-            android:textSize="14sp"
+            android:textSize="15sp"
             android:textColor="@color/okHomeGrayDeep"
             android:layout_marginLeft="10dp"
             android:layout_width="wrap_content"

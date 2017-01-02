@@ -33,7 +33,10 @@ public class RetrofitFactory {
 //                    HttpUrl url = request.url().newBuilder().addQueryParameter("staticParam","JOSONGMIN").build();
 //                    request = request.newBuilder().url(url).build();
 
-                    Headers headers = request.headers().newBuilder().add("Accept", "application/json").build();
+                    Headers headers = request.headers().newBuilder()
+                            .add("Accept", "application/json")
+                            .add("Accept-Language", "kr")
+                            .build();
                     request = request.newBuilder().headers(headers).build();
 
                     return chain.proceed(request);
@@ -42,8 +45,8 @@ public class RetrofitFactory {
 
             //클라이언트 설정
             OkHttpClient client = new OkHttpClient.Builder()
-                    .connectTimeout(10, TimeUnit.SECONDS)
-                    .readTimeout(10, TimeUnit.SECONDS)
+                    .connectTimeout(20, TimeUnit.SECONDS)
+                    .readTimeout(20, TimeUnit.SECONDS)
                     .addInterceptor(interceptor).
                     build();
             //gSON설정

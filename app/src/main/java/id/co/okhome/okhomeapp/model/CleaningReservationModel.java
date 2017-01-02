@@ -7,8 +7,9 @@ import java.util.List;
  */
 public class CleaningReservationModel {
     public String
-            rownum, id, userId, homeId, managerId, periodicYN, counsultingYN,
-            type, status, userComment, specialCleaningIds, when, duration, insertDate;
+            rownum, id, cTicketId, orderNo, userId, homeId, managerId,
+            basicCleaningPrice,
+            status, spcCleaningIds, when, whenDate, duration, expiryDate, insertDate;
 
     public int price;
     public List listExtraCleaning = null;

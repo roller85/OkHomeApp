@@ -6,13 +6,14 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/layerMenuItems_vBtnUserInfo"
+        android:layout_marginTop="@dimen/layer_leftmenu_padding_common"
+
         android:paddingLeft="@dimen/layer_leftmenu_padding_common"
-        android:paddingTop="@dimen/layer_leftmenu_padding_common"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.makeramen.roundedimageview.RoundedImageView
+            android:visibility="gone"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:id="@+id/layerMenuItems_ivPhoto"
@@ -20,7 +21,7 @@
             app:riv_oval="true" />
 
         <LinearLayout
-            android:layout_marginTop="14dp"
+            android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:layout_centerVertical="true"
             android:layout_below="@+id/layerMenuItems_ivPhoto"
@@ -28,7 +29,32 @@
             android:layout_height="wrap_content">
 
 
+            <RelativeLayout
+                android:id="@+id/layerMenuItems_vBtnUserInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/layerMenuItems_tvName"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="20sp"
+                    android:textColor="#3b3e45"/>
+                <ImageView
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/layerMenuItems_tvName"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/layerMenuItems_ivMore"
+                    android:layout_marginRight="15dp"
+                    android:adjustViewBounds="true"
+                    android:layout_width="17dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_tab_more"/>
+            </RelativeLayout>
+
+
+
+
             <LinearLayout
+                android:layout_marginTop="4dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" >
@@ -42,44 +68,102 @@
                     android:layout_height="wrap_content" android:src="@drawable/ic_money"/>
 
                 <LinearLayout
+                    android:layout_marginTop="1dp"
+                    android:visibility="visible"
                     android:id="@+id/layerMenuItems_vgCredit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/layerMenuItems_tvCredit"
+                    <LinearLayout
+                        android:id="@+id/layerMenuItems_vBtnPoint"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text="100.000" android:textSize="13sp"
-                        android:textColor="@color/okHomeGrayDeep"/>
+                        android:layout_height="wrap_content">
 
-                    <TextView
+                        <TextView
+                            android:id="@+id/layerMenuItems_tvCredit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="100개" android:textSize="13sp"
+                            android:textColor="@color/okHomeGrayDeep"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text=" 포인트" android:textSize="13sp"
+                            android:textColor="@color/okHomeGrayDeep" />
+
+                    </LinearLayout>
+                    <View
+                        android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_gray_simple"
+                        android:layout_width="3dp"
+                        android:layout_height="3dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layerMenuItems_vBtnCleaningTicket"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text=" Credit" android:textSize="13sp"
-                        android:textColor="@color/okHomeGrayDeep"/>
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/layerMenuItems_tvCleaning"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="10개" android:textSize="13sp"
+                            android:textColor="@color/okHomeGrayDeep"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text=" 청소권" android:textSize="13sp"
+                            android:textColor="@color/okHomeGrayDeep"/>
+
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/layerMenuItems_tvName"
-                android:textStyle="bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="19sp"
-                android:textColor="#3b3e45"/>
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:background="@color/colorLightGray2"
+                    android:paddingLeft="10dp" android:paddingRight="10dp"
+                    android:paddingTop="8dp" android:paddingBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="100 포인트" android:textSize="12sp"
+                        android:textColor="#ffffff"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="5dp"
+                    android:background="@color/colorLightGray2"
+                    android:paddingLeft="10dp" android:paddingRight="10dp"
+                    android:paddingTop="8dp" android:paddingBottom="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="5개" android:textSize="12sp"
+                        android:textColor="#ffffff"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text=" 청소권" android:textSize="12sp"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/layerMenuItems_ivMore"
-            android:layout_marginRight="15dp"
-            android:layout_alignParentRight="true"
-            android:adjustViewBounds="true"
-            android:layout_width="17dp"
-            android:layout_height="wrap_content" android:src="@drawable/ic_tab_more"/>
+
 
     </RelativeLayout>
 
     <!--좌측메뉴-->
     <LinearLayout
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -87,7 +171,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnMakeReservation"
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -97,7 +181,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Reservation" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="청소 예약하기" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -105,7 +189,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnSchedule"
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_height="wrap_content"/>
@@ -113,33 +197,15 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Schedule" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="캘린더" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
-
         <RelativeLayout
-            android:id="@+id/layerMenuItems_vBtnCharge"
-            android:layout_width="match_parent"
-            android:layout_height="42dp">
-
-            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Charge point" android:textSize="15.5sp"
-                android:textColor="#818895"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/layerMenuItems_vBtnHistory"
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -149,17 +215,63 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="History" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="결제내역" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnPromotion"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
 
-        <View android:layout_width="match_parent" android:layout_height="15dp" android:id="@+id/layerMenuItems_vPadding"/>
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
 
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="프로모션" android:textSize="@dimen/leftmenu_text"
+                android:textColor="#818895"/>
+
+            <TextView
+                android:visibility="gone"
+                android:gravity="right"
+                android:textSize="11sp"
+                android:layout_marginRight="10dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorPetSister"
+                android:text="무료 청소 기회를\n놓치지마세요!"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+
+        <View android:layout_width="match_parent" android:layout_height="14dp" android:id="@+id/layerMenuItems_vPadding"/>
+        <RelativeLayout
+            android:id="@+id/layerMenuItems_vBtnInviteFriend"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="친구 초대하기" android:textSize="@dimen/leftmenu_text"
+                android:textColor="#818895"/>
+
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnCustomerCenter"
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -169,7 +281,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Customer center" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="고객센터" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -177,7 +289,7 @@
         <RelativeLayout
             android:id="@+id/layerMenuItems_vBtnNotice"
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -187,7 +299,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Notice" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="공지사항" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -195,7 +307,7 @@
             android:id="@+id/layerMenuItems_vBtnSetting"
 
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -205,7 +317,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Setting" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="설정" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -215,7 +327,7 @@
             android:id="@+id/layerMenuItems_vBtnLogin"
 
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -225,7 +337,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Login" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="로그인" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>
@@ -234,7 +346,7 @@
             android:id="@+id/layerMenuItems_vBtnSignup"
 
             android:layout_width="match_parent"
-            android:layout_height="42dp">
+            android:layout_height="45dp">
 
             <include layout="@layout/layer_tab_indicator" android:layout_width="wrap_content"
                 android:layout_centerVertical="true"
@@ -244,7 +356,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="Sign up" android:textSize="15.5sp"
+                android:layout_height="wrap_content" android:text="로그아웃" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>

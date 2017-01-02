@@ -16,10 +16,12 @@ import id.co.okhome.okhomeapp.lib.OkHomeActivityParent;
 import id.co.okhome.okhomeapp.lib.OkhomeException;
 import id.co.okhome.okhomeapp.lib.SCryptPassword;
 import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.UserModel;
 import id.co.okhome.okhomeapp.restclient.RestClient;
+import id.co.okhome.okhomeapp.view.dialog.ForgotEmailOrPassDialog;
 
 public class SigninActivity extends OkHomeActivityParent {
 
@@ -105,12 +107,13 @@ public class SigninActivity extends OkHomeActivityParent {
 
     @OnClick(R.id.actSignin_tvbtnForgetPassword)
     public void onForgotPassword(View v){
+        DialogController.showBottomDialog(this, new ForgotEmailOrPassDialog());
         ;
     }
 
     @OnClick(R.id.actSignin_tvbtnSignUp)
     public void onSignup(View v){
-        startActivity(new Intent(this, SigninActivity.class));
+        startActivity(new Intent(this, SignupActivity.class));
     }
 
     @Override

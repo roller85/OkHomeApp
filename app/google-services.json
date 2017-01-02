@@ -13,11 +13,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "349081708256-21kg7m26qr6jcg4rp7qdi2u4g70v632g.apps.googleusercontent.com",
+          "client_id": "349081708256-c8j8p9e1iqsnevt59fv9cg79tke81l5q.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "id.co.okhome.okhomeapp",
-            "certificate_hash": "A5C05812FAA721ACF9232058959F334267FD0939"
+            "certificate_hash": "A5BADD6A5693D026B1E6259225E2DF5E7370FF59"
           }
         },
         {

@@ -19,6 +19,7 @@ public interface CreditClient {
     @GET("credit/product")
     Call<List<CreditProductModel>> getCreditProductList();
 
+
 }
 
 

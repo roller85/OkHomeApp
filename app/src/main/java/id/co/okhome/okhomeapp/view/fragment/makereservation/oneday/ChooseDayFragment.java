@@ -19,10 +19,7 @@ import id.co.okhome.okhomeapp.lib.CalendarController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
-import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
-import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
 import id.co.okhome.okhomeapp.model.CleaningScheduleModel;
-import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.customview.calendar_old.CalendarMonthView;
 import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayView;
 import id.co.okhome.okhomeapp.view.customview.calendar_old.dayview.CalendarDayViewType1;
@@ -74,60 +71,60 @@ public class ChooseDayFragment extends Fragment implements CalendarMonthView.OnD
         String userId = CurrentUserInfo.getId(getContext());
         String homeId = CurrentUserInfo.getHomeId(getContext());
 
-        RestClient.getCleaningRequestClient().getMonthlyFilteredSchedule(userId, homeId, sYear+sMonth).enqueue(new RetrofitCallback<List<CleaningScheduleModel>>() {
-
-
-            @Override
-            public void onSuccess(final List<CleaningScheduleModel> listResult) {
-                new Handler(){
-                    @Override
-                    public void dispatchMessage(Message msg) {
-                        adaptCalendarWithSchedule(listResult);
-                    }
-                }.sendEmptyMessageDelayed(0, 200);
-
-
-            }
-
-            @Override
-            public void onJodevError(ErrorModel jodevErrorModel) {
-                calendarController.dismissLoading();
-                Util.showToast(getContext(), jodevErrorModel.message);
-            }
-        });
+//        RestClient.getCleaningRequestClient().getMonthlyFilteredSchedule(userId, homeId, sYear+sMonth).enqueue(new RetrofitCallback<List<CleaningScheduleModel>>() {
+//
+//
+//            @Override
+//            public void onSuccess(final List<CleaningScheduleModel> listResult) {
+//                new Handler(){
+//                    @Override
+//                    public void dispatchMessage(Message msg) {
+//                        adaptCalendarWithSchedule(listResult);
+//                    }
+//                }.sendEmptyMessageDelayed(0, 200);
+//
+//
+//            }
+//
+//            @Override
+//            public void onJodevError(ErrorModel jodevErrorModel) {
+//                calendarController.dismissLoading();
+//                Util.showToast(getContext(), jodevErrorModel.message);
+//            }
+//        });
     }
 
     private void adaptCalendarWithSchedule(final List<CleaningScheduleModel> listResult){
-        new Thread(){
-            @Override
-            public void run() {
-                try{
-                    for(CleaningScheduleModel m : listResult){
-                        String yyyymmdd = m.datetime.substring(0, 10).replace("-", "");
-                        final CalendarDayViewType1 cDayView = (CalendarDayViewType1)calendarController.getCurrentMonthView().getDayView(yyyymmdd);
-
-                        cDayView.setCleaningReservationModel(m);
-
-                        getActivity().runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                cDayView.refresh();
-                            }
-                        });
-
-                    }
-
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            calendarController.dismissLoading();
-                        }
-                    });
-                }catch(Exception e){
-                    e.printStackTrace();
-                }
-            }
-        }.start();
+//        new Thread(){
+//            @Override
+//            public void run() {
+//                try{
+//                    for(CleaningScheduleModel m : listResult){
+//                        String yyyymmdd = m.datetime.substring(0, 10).replace("-", "");
+//                        final CalendarDayViewType1 cDayView = (CalendarDayViewType1)calendarController.getCurrentMonthView().getDayView(yyyymmdd);
+//
+//                        cDayView.setCleaningReservationModel(m);
+//
+//                        getActivity().runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                cDayView.refresh();
+//                            }
+//                        });
+//
+//                    }
+//
+//                    getActivity().runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            calendarController.dismissLoading();
+//                        }
+//                    });
+//                }catch(Exception e){
+//                    e.printStackTrace();
+//                }
+//            }
+//        }.start();
     }
 
     @Override
@@ -142,7 +139,7 @@ public class ChooseDayFragment extends Fragment implements CalendarMonthView.OnD
 
             return false;
         }else{
-            params.datetime = datetime;
+//            params.datetime = datetime;
             return true;
         }
 

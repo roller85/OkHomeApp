@@ -77,6 +77,14 @@ public class JoViewRepeator<E> {
         return this;
     }
 
+    public void enableSquare(int height){
+        JoViewRepeator.this.itemWidth = height;
+        for(E item : list){
+            View vItem = mapModelView.get(item);
+            vItem.getLayoutParams().height = itemWidth;
+        }
+    }
+
     public JoViewRepeator enableSquare(){
         this.enableSquare = true;
         vg.post(new Runnable() {
@@ -111,6 +119,13 @@ public class JoViewRepeator<E> {
             callBack.onBind(vItem, model);
         }
     }
+
+    public void notifyAllDataChange(){
+        for(E model : list){
+            notifyDataChange(model);
+        }
+    }
+
 
     /**최종 만들기*/
     public JoViewRepeator notifyDataSetChanged(){

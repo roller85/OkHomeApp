@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.lib.joviewpager.JoViewPagerController;
-import id.co.okhome.okhomeapp.model.CleaningModel;
+import id.co.okhome.okhomeapp.model.SpcCleaningModel;
 import id.co.okhome.okhomeapp.view.customview.ProgressDotsView;
 
 /**
@@ -58,7 +58,7 @@ public class ChooseCleaningDialog extends ViewDialog{
         viewPagerController = JoViewPagerController
                 .with(getContext(), vp)
                 .setProgressDotsView(pdv)
-                .setViewPageItemClass(this, CleaningModel.class)
+                .setViewPageItemClass(this, SpcCleaningModel.class)
                 .putParam(ChooseCleaningDialog.class.getName(), this);
 
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -136,7 +136,7 @@ public class ChooseCleaningDialog extends ViewDialog{
 //        }
 //
 //        @Override
-//        public void onViewSelected(CleaningModel model, int position) {
+//        public void onViewSelected(SpcCleaningModel model, int position) {
 //            tvDesc.setText(model.desc);
 //            tvPrice.setText(model.hour + "Hours / " + Util.getMoneyString(model.price, '.')+"Rp");
 //            tvTitle.setText(model.title);

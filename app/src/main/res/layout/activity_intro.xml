@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/actIntro_ivSymbol"
             android:adjustViewBounds="true"
-            android:layout_width="46dp"
+            android:layout_width="48dp"
             android:layout_height="wrap_content" android:src="@drawable/logo_symbol"/>
 
         <LinearLayout
@@ -34,41 +34,41 @@
                 android:id="@+id/actIntro_ivO"
                 android:layout_marginRight="5dp"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_o"/>
 
             <ImageView
                 android:id="@+id/actIntro_ivK"
                 android:layout_marginRight="5dp"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_k"/>
 
             <ImageView
                 android:id="@+id/actIntro_ivH"
                 android:layout_marginRight="5dp"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_h"/>
 
             <ImageView
                 android:id="@+id/actIntro_ivO2"
                 android:layout_marginRight="8dp"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_o2"/>
 
             <ImageView
                 android:id="@+id/actIntro_ivM"
                 android:layout_marginRight="5dp"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_m"/>
 
             <ImageView
                 android:id="@+id/actIntro_ivE"
                 android:adjustViewBounds="true"
-                android:layout_width="21dp"
+                android:layout_width="23dp"
                 android:layout_height="wrap_content" android:src="@drawable/logo_character_e"/>
 
         </LinearLayout>
@@ -77,7 +77,7 @@
             android:id="@+id/actIntro_ivJakrta"
             android:layout_marginTop="14dp"
             android:adjustViewBounds="true"
-            android:layout_width="85dp"
+            android:layout_width="86dp"
             android:layout_height="wrap_content" android:src="@drawable/logo_jakarta"/>
 
     </LinearLayout>

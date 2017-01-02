@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="40dp" android:paddingRight="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_marginTop="-10dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content" android:adjustViewBounds="true"
+            android:src="@drawable/logo"/>
+
+        <TextView
+            android:id="@+id/activitySignupPhone_tvHello"
+            android:textColor="#717276"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="14sp"
+            android:text="Hello! Josongmin!"/>
+
+        <TextView
+            android:textColor="#717276"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:textSize="14sp"
+            android:text="To complete sign up,\nPlease inform us your phone number"/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:id="@+id/actSignupPhone_vgVerification"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:inputType="phone"
+                    android:background="@null"
+                    android:layout_marginTop="10dp"
+                    android:lines="1"
+                    android:textSize="13sp"
+                    android:gravity="center_vertical"
+                    android:hint="Input your phone number without '-' character"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:id="@+id/actSignupPhone_etPhone" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:layout_marginTop="0dp"
+                    android:background="#77000000"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/actSignupPhone_vgVerificationCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:orientation="vertical">
+                <EditText
+                    android:inputType="numberDecimal"
+                    android:background="@null"
+                    android:lines="1"
+                    android:textSize="13sp"
+                    android:gravity="center_vertical"
+                    android:hint="Input verification code"
+                    android:layout_width="match_parent"
+                    android:layout_height="46dp"
+                    android:id="@+id/actSignupPhone_etVerificationCode" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:layout_marginTop="0dp"
+                    android:background="#77000000"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:paddingLeft="30dp" android:paddingRight="33dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/actSignupPhone_vbtnSendVerificationCode"
+                android:gravity="center"
+                android:background="@color/colorAppPrimary"
+                android:paddingTop="10dp" android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="15dp"
+                    android:adjustViewBounds="true"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:text="Send verification code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:id="@+id/textView8" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/actSignupPhone_vgConfirmVerfication"
+                android:weightSum="10"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+
+                <LinearLayout
+                    android:id="@+id/actSignupPhone_vbtnResendVerificationCode"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:background="#cc7f8a9e"
+                    android:paddingTop="10dp" android:paddingBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp">
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:text="Re-Send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="7"
+                    android:id="@+id/actSignupPhone_vbtnConfirmVerificationCode"
+                    android:gravity="center"
+                    android:background="@color/colorAppPrimary"
+                    android:paddingTop="10dp" android:paddingBottom="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp">
+
+                    <ImageView
+                        android:layout_marginRight="10dp"
+                        android:layout_width="15dp"
+                        android:adjustViewBounds="true"
+                        android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+                    <TextView
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:gravity="center"
+                        android:text="Confirm verification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#ffffff"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

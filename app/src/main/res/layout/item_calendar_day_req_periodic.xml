@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:padding="1dp"
+        android:id="@+id/itemCalendarDayBasic_vgParent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/itemCalendarDayBasic_vItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/itemCalendarDayBasic_tvDay"
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:textSize="10sp"
+                android:textColor="@color/okHomeGrayDeep"/>
+
+            <!--<View android:layout_width="4dp"-->
+                <!--android:id="@+id/itemCalendarDayBasic_vRedLight"-->
+                <!--android:layout_height="4dp" android:background="@drawable/circle_lightred"-->
+                <!--android:layout_margin="5dp" android:layout_gravity="right"/>-->
+
+            <!--android:background="@drawable/bg_inputbox_focus"-->
+
+            <TextView
+                android:gravity="center"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:layout_gravity="bottom"
+                android:textColor="#ffffff"
+                android:textSize="10sp"
+                android:id="@+id/itemCalendarDayBasic_tvCleaning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </FrameLayout>
+    </FrameLayout>
+</FrameLayout>

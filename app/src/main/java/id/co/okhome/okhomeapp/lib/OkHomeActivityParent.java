@@ -11,10 +11,6 @@ import com.tsengvn.typekit.TypekitContextWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by josongmin on 2016-08-19.
- */
-
 public class OkHomeActivityParent extends AppCompatActivity{
 
     public static List<OkHomeActivityParent> listActivities = new ArrayList();
@@ -57,15 +53,24 @@ public class OkHomeActivityParent extends AppCompatActivity{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        TutoriorPreference.setContext(getApplicationContext());
+        JoSharedPreference.setContext(getApplicationContext());
         inputNewActivity(this);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        TutoriorPreference.setContext(getApplicationContext());
+        JoSharedPreference.setContext(getApplicationContext());
+        super.onResume();
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         inputNewActivity(this);
         super.onCreate(savedInstanceState, persistentState);
-
     }
 
     @Override

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/layerCleaningTipItem_tvTitle"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/okHomeGrayDeep"
+        android:textSize="21sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blow your mind of cleaning"/>
+
+    <TextView
+        android:id="@+id/layerCleaningTipItem_tvDesc"
+        android:textColor="#717276"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textSize="16sp"
+        android:text="You've just started to\nChange your life for better"/>
+
+    <ImageView
+        android:id="@+id/layerCleaningTipItem_ivImg"
+        android:layout_marginTop="30dp"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content" android:adjustViewBounds="true"
+        android:src="@drawable/img_plunger"/>
+</LinearLayout>

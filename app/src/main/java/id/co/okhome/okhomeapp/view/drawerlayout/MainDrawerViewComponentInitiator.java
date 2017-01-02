@@ -21,14 +21,17 @@ import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.DrawerLayoutController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.model.UserModel;
+import id.co.okhome.okhomeapp.view.activity.CleaningTicketActivity;
+import id.co.okhome.okhomeapp.view.activity.PointActivity;
 import id.co.okhome.okhomeapp.view.activity.SigninActivity;
 import id.co.okhome.okhomeapp.view.activity.SignupActivity;
 import id.co.okhome.okhomeapp.view.activity.UserInfoActivity;
-import id.co.okhome.okhomeapp.view.fragment.tabitem.ChargePointFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.PromotionFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.CustomerCenterFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.HistoryFragment;
+import id.co.okhome.okhomeapp.view.fragment.tabitem.InviteUserFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.MakeReservationFragment;
-import id.co.okhome.okhomeapp.view.fragment.tabitem.MyCleaningCalendarFragment2;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.NoticeFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.SettingFragment;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
@@ -45,13 +48,12 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
 
     @BindView(R.id.layerMenuItems_tvCredit)             TextView tvCredit;
     @BindView(R.id.layerMenuItems_tvName)               TextView tvName;
-    @BindView(R.id.layerMenuItems_ivPhoto)              ImageView ivPhoto;
     @BindView(R.id.layerMenuItems_ivMore)               ImageView ivMore;
 
     @BindView(R.id.layerMenuItems_vBtnMakeReservation)  View vbtnMakeReservation;
     @BindView(R.id.layerMenuItems_vBtnCustomerCenter)   View vbtnCustomerCenter;
     @BindView(R.id.layerMenuItems_vBtnHistory)          View vbtnHistory;
-    @BindView(R.id.layerMenuItems_vBtnCharge)           View vbtnCharge;
+    @BindView(R.id.layerMenuItems_vBtnPromotion)        View vbtnPromotion;
     @BindView(R.id.layerMenuItems_vBtnNotice)           View vbtnNotice;
     @BindView(R.id.layerMenuItems_vBtnSchedule)         View vbtnSchedule;
     @BindView(R.id.layerMenuItems_vBtnSetting)          View vbtnSetting;
@@ -60,13 +62,16 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
     @BindView(R.id.layerMenuItems_vPadding)             View vPadding;
     @BindView(R.id.layerMenuItems_vBtnLogin)            View vbtnLogin;
     @BindView(R.id.layerMenuItems_vBtnSignup)           View vbtnSignup;
+    @BindView(R.id.layerMenuItems_vBtnInviteFriend)     View vbtnInviteFriends;
+
+
 
     DrawerLayoutController drawerLayoutController;
     FragmentActivity activity;
     View vTabIconBefore = null;
     TextView tvTitleBefore = null;
     boolean isGuest = false;
-
+    MyCleaningCalendarFragment myCleaningCalendarFragment = null;
     //서랍뷰들 초기화
     @Override
     public void initDrawerContent(FragmentActivity activity, DrawerLayoutController drawerLayoutController, DrawerLayout drawerLayout, View vParent) {
@@ -95,16 +100,16 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
         ivMore.setVisibility(View.GONE);
         vPadding.setVisibility(View.GONE);
         vgCredit.setVisibility(View.GONE);
-        vbtnCharge.setVisibility(View.GONE);
+        vbtnPromotion.setVisibility(View.GONE);
         vbtnHistory.setVisibility(View.GONE);
         vbtnSchedule.setVisibility(View.GONE);
         vbtnSetting.setVisibility(View.GONE);
+        vbtnInviteFriends.setVisibility(View.GONE);
     }
 
 
     //회원일경우 처리
     private void initUserInfo(UserModel userModel){
-        CurrentUserInfo.loadUserImg(activity, userModel.photoUrl, ivPhoto);
         tvCredit.setText(Util.getMoneyString(userModel.getTotalCredit(), '.'));
         tvName.setText(userModel.name);
 
@@ -148,7 +153,7 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
         //--------------------
         if(tvTitleBefore != null){
             //텍스트 작고 안 굵게
-            tvTitleBefore.setTextSize(TypedValue.COMPLEX_UNIT_SP, 15.5f);
+            tvTitleBefore.setTextSize(TypedValue.COMPLEX_UNIT_PX, activity.getResources().getDimension(R.dimen.leftmenu_text));
             tvTitleBefore.setTextColor(Color.parseColor("#818895"));
             tvTitleBefore.setTypeface(Typekit.createFromAsset(activity, "NotoSans-Regular.ttf"));
         }
@@ -157,17 +162,17 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
         TextView tvTitle = (TextView)((ViewGroup)vBtnTab).getChildAt(1);
         if(tvTitle != null){
             //텍스트 크고 굵게
-            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16f);
+            tvTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, activity.getResources().getDimension(R.dimen.leftmenu_boldtext));
             tvTitle.setTextColor(Color.parseColor("#3b3e45"));
             tvTitle.setTypeface(Typekit.createFromAsset(activity, "NotoSans-Bold.ttf"));
             tvTitleBefore = tvTitle;
         }
-
     }
+
 
     @OnClick({R.id.layerMenuItems_vBtnMakeReservation, R.id.layerMenuItems_vBtnSetting, R.id.layerMenuItems_vBtnHistory
             , R.id.layerMenuItems_vBtnNotice
-            , R.id.layerMenuItems_vBtnSchedule, R.id.layerMenuItems_vBtnCharge, R.id.layerMenuItems_vBtnCustomerCenter})
+            , R.id.layerMenuItems_vBtnSchedule, R.id.layerMenuItems_vBtnPromotion, R.id.layerMenuItems_vBtnCustomerCenter, R.id.layerMenuItems_vBtnInviteFriend})
     public void onBtnStartFragmentClick(View v){
 
         markTabItem(v);
@@ -178,11 +183,14 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 break;
 
             case R.id.layerMenuItems_vBtnSchedule:
-                f = new MyCleaningCalendarFragment2();
+                if(myCleaningCalendarFragment == null){
+                    myCleaningCalendarFragment = new MyCleaningCalendarFragment();
+                }
+                f = myCleaningCalendarFragment;
                 break;
 
-            case R.id.layerMenuItems_vBtnCharge:
-                f = new ChargePointFragment();
+            case R.id.layerMenuItems_vBtnPromotion:
+                f = new PromotionFragment();
                 break;
 
             case R.id.layerMenuItems_vBtnSetting:
@@ -199,6 +207,10 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
 
             case R.id.layerMenuItems_vBtnHistory:
                 f = new HistoryFragment();
+                break;
+
+            case R.id.layerMenuItems_vBtnInviteFriend:
+                f = new InviteUserFragment();
                 break;
         }
 
@@ -221,9 +233,12 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
                 vbtnRightSetting.setVisibility(View.VISIBLE);
             }
         }
+
+
     }
 
-    @OnClick({R.id.layerMenuItems_vBtnUserInfo, R.id.layerMenuItems_vBtnSignup, R.id.layerMenuItems_vBtnLogin})
+    @OnClick({R.id.layerMenuItems_vBtnUserInfo, R.id.layerMenuItems_vBtnSignup, R.id.layerMenuItems_vBtnLogin
+            , R.id.layerMenuItems_vBtnPoint, R.id.layerMenuItems_vBtnCleaningTicket})
     public void onBtnStartActivityClick(View v){
         switch(v.getId()) {
             //activity;
@@ -239,6 +254,14 @@ public class MainDrawerViewComponentInitiator implements DrawerLayoutController.
 
             case R.id.layerMenuItems_vBtnLogin:
                 activity.startActivity(new Intent(activity, SigninActivity.class));
+                break;
+
+            case R.id.layerMenuItems_vBtnCleaningTicket:
+                activity.startActivity(new Intent(activity, CleaningTicketActivity.class));
+                break;
+
+            case R.id.layerMenuItems_vBtnPoint:
+                activity.startActivity(new Intent(activity, PointActivity.class));
                 break;
         }
 

@@ -1,6 +1,7 @@
 package id.co.okhome.okhomeapp.view.customview;
 
 import android.content.Context;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -68,4 +69,28 @@ public class ProgressDotsView extends LinearLayout {
         }
         return this;
     }
+
+    public void matchWithViewPager(ViewPager vp){
+        vp.addOnPageChangeListener(onPageChangeListener);
+        setMaxCount(vp.getChildCount());
+    }
+
+    ViewPager.OnPageChangeListener onPageChangeListener = new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            setCurrentPos(position);
+
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
+
 }

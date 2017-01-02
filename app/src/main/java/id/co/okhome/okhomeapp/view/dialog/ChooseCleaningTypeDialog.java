@@ -14,7 +14,7 @@ import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.lib.AnimatedTooltipTextController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
-import id.co.okhome.okhomeapp.view.activity.MakeReservationActivity;
+import id.co.okhome.okhomeapp.view.activity.MakeCleaningReservationActivity;
 
 /**
  * Created by josongmin on 2016-08-09.
@@ -69,7 +69,7 @@ public class ChooseCleaningTypeDialog extends ViewDialog{
 
     @OnClick(R.id.dialogChooseCleaningType_vbtnMoveInCleaning)
     public void onBtnMoveInCleaning(View v){
-        fragment.startActivityForResult(new Intent(getContext(), MakeReservationActivity.class).putExtra("TYPE", "MOVEIN").putExtra("DATE", yyyymmdd), REQ_CODE);
+        fragment.startActivityForResult(new Intent(getContext(), MakeCleaningReservationActivity.class).putExtra("TYPE", "MOVEIN").putExtra("DATE", yyyymmdd), REQ_CODE);
         if(callback != null)    callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "MOVEIN"));
 
         dismiss();
@@ -78,7 +78,7 @@ public class ChooseCleaningTypeDialog extends ViewDialog{
     @OnClick(R.id.dialogChooseCleaningType_vbtnOneTimeCleaning)
     public void onBtnOneTimeCleaning(View v){
 
-        fragment.startActivityForResult(new Intent(getContext(), MakeReservationActivity.class).putExtra("TYPE", "ONEDAY").putExtra("DATE", yyyymmdd), REQ_CODE);
+        fragment.startActivityForResult(new Intent(getContext(), MakeCleaningReservationActivity.class).putExtra("TYPE", "ONEDAY").putExtra("DATE", yyyymmdd), REQ_CODE);
 
         if(callback != null)    callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "ONETIME"));
         dismiss();
@@ -86,7 +86,7 @@ public class ChooseCleaningTypeDialog extends ViewDialog{
 
     @OnClick(R.id.dialogChooseCleaningType_vbtnPeriodicCleaning)
     public void onBtnPeriodicCleaning(View v){
-        fragment.startActivityForResult(new Intent(getContext(), MakeReservationActivity.class).putExtra("TYPE", "PERIODIC"), REQ_CODE);
+        fragment.startActivityForResult(new Intent(getContext(), MakeCleaningReservationActivity.class).putExtra("TYPE", "PERIODIC"), REQ_CODE);
         if(callback != null)    callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "PERIODIC"));
 
         dismiss();

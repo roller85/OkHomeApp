@@ -21,8 +21,14 @@ public class CurrentUserInfo {
 
     private static List<OnUserInfoChangeListener> listListener = new ArrayList();
     private static final String key = "MyUserModel";
+
+
     public final static UserModel get(Context context){
         return JoSharedPreference.with(context).get(key);
+    }
+
+    public final static UserModel get(){
+        return JoSharedPreference.with().get(key);
     }
 
     public final static String getId(Context context){

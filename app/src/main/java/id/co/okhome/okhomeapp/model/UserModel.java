@@ -10,8 +10,11 @@ import static java.lang.Integer.parseInt;
  * Created by josongmin on 2016-08-26.
  */
 public class UserModel {
+    public String uuid;
+    public boolean isNewMember = false;
     public String id, name, email, phone, credit, creditBonus = "0", photoUrl, delYN, pushYN, soundYN, vibeYN, logoutYN, joinDate;
     public String cleaningCount = "0";
+    public String accountType;
     public List<HomeModel> listHomeModel;
 
     public int getTotalCredit(){

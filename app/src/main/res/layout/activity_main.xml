@@ -19,7 +19,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp" android:id="@+id/actMain_rlTop">
+                android:layout_height="55dp" android:id="@+id/actMain_rlTop">
 
                 <LinearLayout
                     android:gravity="center"
@@ -53,9 +53,8 @@
 
                 <TextView
                     android:id="@+id/actMain_tvTitle"
-                    android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Cleaning reservation" android:textSize="17.5sp"
+                    android:layout_height="wrap_content" android:text="Cleaning reservation" android:textSize="18sp"
                     android:textColor="@color/okHomeGrayDeep"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/actMain_llbtnMore" />
@@ -89,7 +88,7 @@
         </RelativeLayout>
 
 
-        <include android:layout_width="275dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"
+        <include android:layout_width="285dp" android:layout_height="match_parent" layout="@layout/layer_menuitems"
             android:layout_gravity="start"/>
 
     </android.support.v4.widget.DrawerLayout>

@@ -61,7 +61,7 @@ public class HouseInfoFragment extends Fragment implements MakeReservationFlow {
                         .addItem(new CommonCheckitemModel("100 or less", "2"))
                         .build());
 
-        mapChoiceView.put("FLOORCOUNT"
+        mapChoiceView.put("ROOMCOUNT"
                 , (CommonChoiceViewController)new CommonChoiceViewController(getContext(), vgChkItemRoomCount, false, 4)
                         .addItem(new CommonCheckitemModel("1", "0")).addItem(new CommonCheckitemModel("2", "1"))
                         .addItem(new CommonCheckitemModel("3", "2")).addItem(new CommonCheckitemModel("4", "3"))
@@ -90,7 +90,7 @@ public class HouseInfoFragment extends Fragment implements MakeReservationFlow {
 
             markCommonChkbox("HOMETYPE", hm.type);
             markCommonChkbox("HOMESIZE", hm.homeSize);
-            markCommonChkbox("FLOORCOUNT", hm.floorCnt);
+            markCommonChkbox("ROOMCOUNT", hm.roomCnt);
             markCommonChkbox("TOILETCOUNT", hm.restroomCnt);
             markCommonChkbox("PET", hm.pets);
         }
@@ -130,7 +130,7 @@ public class HouseInfoFragment extends Fragment implements MakeReservationFlow {
                 throw new OkhomeException("check your home size");
             }
 
-            if(mapChoiceView.get("FLOORCOUNT").getCheckedItemList().size() <= 0){
+            if(mapChoiceView.get("ROOMCOUNT").getCheckedItemList().size() <= 0){
                 throw new OkhomeException("몇층집이십니까");
             }
 
@@ -147,12 +147,12 @@ public class HouseInfoFragment extends Fragment implements MakeReservationFlow {
             return false;
         }
 
-        params.homeId = CurrentUserInfo.getHomeId(getContext());
-        params.homeType = CommonCheckitemModel.getCommaValue(mapChoiceView.get("HOMETYPE").getCheckedItemList());
-        params.homeSize = CommonCheckitemModel.getCommaValue(mapChoiceView.get("HOMESIZE").getCheckedItemList());
-        params.floorcount = CommonCheckitemModel.getCommaValue(mapChoiceView.get("FLOORCOUNT").getCheckedItemList());
-        params.toiletCount = CommonCheckitemModel.getCommaValue(mapChoiceView.get("TOILETCOUNT").getCheckedItemList());
-        params.pet = CommonCheckitemModel.getCommaValue(mapChoiceView.get("PET").getCheckedItemList());
+//        params.homeId = CurrentUserInfo.getHomeId(getContext());
+//        params.homeType = CommonCheckitemModel.getCommaValue(mapChoiceView.get("HOMETYPE").getCheckedItemList());
+//        params.homeSize = CommonCheckitemModel.getCommaValue(mapChoiceView.get("HOMESIZE").getCheckedItemList());
+//        params.roomCount = CommonCheckitemModel.getCommaValue(mapChoiceView.get("ROOMCOUNT").getCheckedItemList());
+//        params.toiletCount = CommonCheckitemModel.getCommaValue(mapChoiceView.get("TOILETCOUNT").getCheckedItemList());
+//        params.pet = CommonCheckitemModel.getCommaValue(mapChoiceView.get("PET").getCheckedItemList());
 
         return true;
     }

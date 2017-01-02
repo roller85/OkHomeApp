@@ -20,7 +20,7 @@
             <TextView
                 android:textStyle=""
                 android:textColor="@color/okHomeGrayDeep"
-                android:textSize="13.5sp"
+                android:textSize="14sp"
                 android:text="All"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -36,7 +36,7 @@
 
             <TextView
                 android:textColor="@color/okHomeGrayDeep"
-                android:textSize="13.5sp"
+                android:textSize="14sp"
                 android:text="Spend"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -52,7 +52,7 @@
 
             <TextView
                 android:textColor="@color/okHomeGrayDeep"
-                android:textSize="13.5sp"
+                android:textSize="14sp"
                 android:text="Charge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />

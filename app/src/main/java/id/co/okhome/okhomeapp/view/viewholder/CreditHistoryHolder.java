@@ -18,7 +18,7 @@ import static java.lang.Integer.parseInt;
 /**
  * Created by josongmin on 2016-08-17.
  */
-@LayoutMatcher(layoutId = R.layout.item_history)
+@LayoutMatcher(layoutId = R.layout.item_point_usage)
 public class CreditHistoryHolder extends JoViewHolder<CreditLogModel> implements View.OnClickListener{
 
     @BindView(R.id.itemHistory_tvComment)       TextView tvComment;
@@ -51,7 +51,14 @@ public class CreditHistoryHolder extends JoViewHolder<CreditLogModel> implements
 
         tvMoney.setText(Util.getMoneyString(totalCredit, '.') + " Credit");
         tvTime.setText(Util.getFormattedDateString(m.insertDate, "MM-dd hh:mma"));
-        tvType.setText(m.typeValue);
+        String typeTag = "";
+        if(m.typeValue.equals("S_REFUND")){
+            typeTag = "환불";
+        }else if(m.typeValue.equals("CARD")){
+            typeTag = "카드";
+        }
+
+        tvType.setText(typeTag);
 
         tvComment.setText(m.comment);
         //

@@ -16,6 +16,7 @@ public class AnimatedTooltipImageController {
     int tooltipDelay = 2200;
     ImageView ivToolTip;
     int[] arrTooltips;
+    boolean isStarted = false;
 
     static Map<ImageView, AnimatedTooltipImageController> mapInstance = new HashMap<>();
 
@@ -43,12 +44,19 @@ public class AnimatedTooltipImageController {
     }
 
     public void start(){
-        ivToolTip.setImageResource(arrTooltips[0]);
-        handlerForTooltip.sendEmptyMessageDelayed(0, 0);
+        if(isStarted){
+            ;
+        }else{
+            isStarted = true;
+            ivToolTip.setImageResource(arrTooltips[0]);
+            handlerForTooltip.sendEmptyMessageDelayed(0, 0);
+        }
+
     }
 
     public void stop(){
         handlerForTooltip.removeMessages(0);
+        isStarted = false;
 
     }
 

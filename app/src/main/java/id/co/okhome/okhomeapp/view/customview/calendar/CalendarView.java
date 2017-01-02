@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import id.co.okhome.okhomeapp.lib.Util;
+import id.co.okhome.okhomeapp.view.customview.calendar.adapter.DayGridAdapter;
 
 
 /**
@@ -15,8 +16,12 @@ import id.co.okhome.okhomeapp.lib.Util;
 
 public class CalendarView extends ViewPager implements MonthViewListener{
 
-    //layer_calendar파싱해서 넣자..ㅅㅂ
+    public final static String GRIDTYPE_CHOOSE_STARTDAY = "GRIDTYPE_CHOOSE_STARTDAY";
+    public final static String GRIDTYPE_CHOOSE_ONEDAY_STARTDAY = "GRIDTYPE_CHOOSE_ONEDAY_STARTDAY";
+    public final static String GRIDTYPE_NORMAL = DayGridAdapter.class.toString();
 
+    //layer_calendar파싱해서 넣자..ㅅㅂ
+    String gridAdapterType = "";
     MonthAdapter monthAdapter;
     View vLeftBtn, vRightBtn;
     TextView tvYearMonth;
@@ -57,6 +62,11 @@ public class CalendarView extends ViewPager implements MonthViewListener{
         tvYearMonth.setText(currentYear + "." + Util.getFull2Decimal(currentMonth));
     }
 
+    public void moveToCalenderByYearMonth(String year, String month){
+
+
+    }
+
     private void init(){
         //inflate
     }
@@ -64,6 +74,7 @@ public class CalendarView extends ViewPager implements MonthViewListener{
     public void initCalendar(int year, int month, int height, MonthViewListener monthViewListener){
         this.monthViewListener = monthViewListener;
         monthAdapter = new MonthAdapter(this, year, month, height, this);
+        monthAdapter.setGridAdapterType(gridAdapterType);
         addOnPageChangeListener(monthAdapter);
         setAdapter(monthAdapter);
         setOffscreenPageLimit(1);
@@ -95,6 +106,16 @@ public class CalendarView extends ViewPager implements MonthViewListener{
         if(monthViewListener != null){
             monthViewListener.onDayClick(position, week, dayModel);
         }
+    }
+
+    public void setGridAdapterType(String gridAdapterType) {
+        this.gridAdapterType = gridAdapterType;
+    }
+
+    public void moveTo(int year, int month){
+        int pos = monthAdapter.getPosByYearMonth(year, month);
+        setCurrentItem(pos);
+
     }
 
     @Override

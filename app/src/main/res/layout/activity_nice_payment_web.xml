@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/actNicePayementWeb_vgTop"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <LinearLayout
+            android:id="@+id/actMain_llbtnMore"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/common_vbtnBack"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Creditcard verification"
+            android:textSize="18sp"
+            android:textColor="@color/okHomeGrayDeep"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/actMain_llbtnMore" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#28000000"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/actNicePayementWeb_vgTop"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/actNicePayementWeb_wv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </WebView>
+
+
+        <TextView
+            android:id="@+id/actNicePayementWeb_tvResult"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ProgressBar
+            android:id="@+id/actNicePayementWeb_vLoading"
+            android:layout_width="40dp"
+            android:layout_height="40dp" android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

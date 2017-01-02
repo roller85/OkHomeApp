@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/actCCM_vgTop"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <LinearLayout
+            android:id="@+id/actCCM_llbtnBack"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/common_vbtnBack"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="중복되는 청소일정이 있습니다"
+            android:textSize="18sp"
+            android:textColor="@color/okHomeGrayDeep"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/actCCM_llbtnBack" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#44000000"/>
+    </RelativeLayout>
+    <!--샘플 -->
+    <RelativeLayout
+        android:layout_above="@+id/actCCM_vgBottom"
+        android:layout_below="@+id/actCCM_vgTop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/actCCM_rcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+        <ProgressBar
+            android:id="@+id/actCCM_vLoading"
+            android:layout_width="40dp"
+            android:layout_height="40dp" android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/actCCM_vgBottom"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#44000000"/>
+
+        <LinearLayout
+            android:id="@+id/actPayment_vbtnOrder"
+            android:layout_marginLeft="12dp" android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="30dp" android:paddingRight="30dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:background="@color/colorAppPrimary"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp">
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="15dp"
+                android:adjustViewBounds="true"
+                android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+            <TextView
+                android:id="@+id/actPayment_tvOrder"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="진행하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

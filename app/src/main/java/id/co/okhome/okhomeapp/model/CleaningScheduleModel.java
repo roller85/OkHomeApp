@@ -1,17 +1,19 @@
 package id.co.okhome.okhomeapp.model;
 
+import java.util.List;
+
 /**
  * Created by josongmin on 2016-09-14.
  */
 public class CleaningScheduleModel {
-    public String id;
-    public String userId, homeId, datetime, cleaningType;
-    public int price;
-    public String periodicYN = "N";
-    public String extraCleaningIds = "";
+    public String
+            rownum, id, cTicketId, orderNo, userId, homeId, managerId, basicCleaningPrice, cleaningType,
+            status, spcCleaningIds, when, duration, insertDate;
+
+    public List<SpcCleaningModel> listExtraCleaning = null;
 
     public String yyyymmdd(){
-        String yyyymmdd = datetime.substring(0, 10).replace("-", "");
+        String yyyymmdd = when.substring(0, 10).replace("-", "");
         return yyyymmdd;
     }
 }

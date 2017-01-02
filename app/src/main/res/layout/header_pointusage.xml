@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:paddingLeft="22dp" android:paddingRight="22dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent" android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginRight="20dp"
+                android:id="@+id/label1"
+                android:textSize="14sp"
+                android:textColor="@color/colorLightGray"
+                android:text="포인트 충전하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:alpha="0.4"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+            </LinearLayout>
+
+            <View
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/label1"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#44000000"/>
+        </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:text="포인트를 충전해보세요. 다양한 혜택이\n다양다양합니다!"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:background="@drawable/bg_inputbox_black"
+                        android:padding="13dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:text="헌재 포인트는 "
+                            android:textColor="@color/okHomeGrayDeep"
+                            android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/headerPointUsage_tvPoint"
+                            android:text="100.000Point"
+                            android:textColor="@color/okHomeGrayDeep"
+                            android:textSize="13sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_marginTop="18dp"
+                android:id="@+id/headerPointUsage_vbtnCharge"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp" android:background="@drawable/circle_gray_whitegray"/>
+
+                <ImageView
+                    android:layout_marginBottom="1dp"
+                    android:layout_width="62dp"
+                    android:layout_height="62dp" android:background="@drawable/circle_appcolor"/>
+
+                <TextView
+                    android:textSize="15sp"
+                    android:layout_gravity="center"
+                    android:textColor="#ffffff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="충전"/>
+            </FrameLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="39dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginRight="20dp"
+                android:id="@+id/label2"
+                android:textSize="14sp"
+                android:textColor="@color/colorLightGray"
+                android:text="포인트 사용내역"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:alpha="0.4"
+                android:layout_centerVertical="true"
+                android:gravity="right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+                <View
+                    android:layout_marginRight="4dp"
+                    android:layout_width="2dp"
+                    android:layout_height="2dp" android:background="@color/colorLightGray"/>
+
+            </LinearLayout>
+            <View
+                android:visibility="gone"
+                android:layout_toRightOf="@+id/label2"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="1px" android:background="#44000000"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>

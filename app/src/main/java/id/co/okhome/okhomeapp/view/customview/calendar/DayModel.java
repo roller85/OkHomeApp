@@ -21,6 +21,7 @@ public class DayModel {
     public boolean optBeginDay = false; //주기예약시 시작일
     public boolean optPlanned = false; //주기예약 진행시 미리 보일날
     public String optBeginTime = null; //주기예약 진행시 미리 보일날
+    public boolean optAbleReservationForPeriod = false;
 
 
     public CleaningScheduleModel cleaningScheduleModel = null;
@@ -44,5 +45,27 @@ public class DayModel {
         }else{
             return false;
         }
+    }
+
+    public void clear(){
+        optBeginDay = false;
+        optPlanned = false;
+        optBeginTime = null;
+        optReserved = false;
+        cleaningScheduleModel = null;
+        optAbleReservationForPeriod = false;
+    }
+
+    public void clear(String key){
+        if(key.equals("optBeginTime")){
+            optBeginTime = null;
+        }
+        else if(key.equals("optBeginDay")){
+            optBeginDay = false;
+        }
+        else if(key.equals("cleaningScheduleModel")){
+            cleaningScheduleModel = null;
+        }
+
     }
 }

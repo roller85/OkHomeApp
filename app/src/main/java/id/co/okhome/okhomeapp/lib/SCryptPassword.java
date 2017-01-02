@@ -16,7 +16,7 @@ public class SCryptPassword {
 //			r: 메모리 비용
 //			p: 병렬화(parallelization)
 //			DLen: 원하는 다이제스트 길이
-            byte[] key = SCrypt.scrypt(password.getBytes(), salt.getBytes(), 16384, 8, 1, 128);
+            byte[] key = SCrypt.scrypt(password.getBytes(), salt.getBytes(), 16384/2/2/2/2, 1, 1, 128);
             return getHexString(key);
         }catch(Exception e){
             e.printStackTrace();

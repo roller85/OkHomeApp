@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--아이템-->
+    <LinearLayout
+        android:layout_marginLeft="14dp" android:layout_marginRight="14dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_inputbox_black"
+        android:paddingTop="15dp" android:paddingBottom="15dp"
+        android:paddingLeft="15dp" android:paddingRight="15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/itemCollisionCleaning_tvDate"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:text="17년 03월 13일(화)"
+                    android:textSize="15sp"
+                    android:textColor="#dd3b3e45"/>
+
+                <LinearLayout
+                    android:gravity="center_vertical"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:layout_marginTop="2dp"
+                        android:id="@+id/itemCollisionCleaning_tvbtnChangeDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="일정변경"
+                        android:textSize="13sp"
+                        android:textColor="@color/colorAppPrimary"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+            <!--서브컨텐츠 -->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:weightSum="9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="청소시간"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorLightGray"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="결제금액"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorLightGray"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="유효기간"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorLightGray"/>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginTop="1dp"
+                        android:weightSum="9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/itemCollisionCleaning_tvDuration"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="08:00~10:00"
+                                android:textSize="13sp"
+                                android:textColor="#dd000000"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/itemCollisionCleaning_tvPrice"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="450.000Rp"
+                                android:textSize="13sp"
+                                android:textColor="#dd000000"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_weight="3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                            <TextView
+                                android:id="@+id/itemCollisionCleaning_tvExpiryDate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:text="07.10.11까지"
+                                android:textSize="13sp"
+                                android:textColor="#dd000000"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

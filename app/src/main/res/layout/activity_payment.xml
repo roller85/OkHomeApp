@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/actPayment_vgTop"
+        android:layout_width="match_parent"
+        android:layout_height="55dp">
+
+        <LinearLayout
+            android:id="@+id/actMain_llbtnMore"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/common_vbtnBack"
+                android:gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="50dp">
+                <ImageView
+                    android:adjustViewBounds="true"
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_action_back" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="결제"
+            android:textSize="18sp"
+            android:textColor="@color/okHomeGrayDeep"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/actMain_llbtnMore" />
+
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#28000000"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/actPayment_vgTop"
+        android:orientation="vertical"
+        android:paddingLeft="30dp" android:paddingRight="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="26dp"
+            android:textSize="14sp"
+            android:textColor="@color/colorLightGray"
+            android:text="결제수단 선택"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--결제 관련-->
+        <LinearLayout
+            android:layout_marginTop="6dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- 페이먼트 탭-->
+            <LinearLayout
+                android:weightSum="10"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+                <LinearLayout
+                    android:id="@+id/actPayment_vTabCreditCard"
+                    android:gravity="center_vertical"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+                    <ImageView
+                        android:id="@+id/actPayment_ivChkCredit"
+                        android:layout_marginRight="10dp"
+                        android:adjustViewBounds="true"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_checked"/>
+                    <TextView
+                        android:text="신용카드 결제"
+                        android:textSize="14sp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGray"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/actPayment_vTabBankTransfer"
+                    android:gravity="center_vertical|right"
+                    android:layout_weight="5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/actPayment_ivChkBank"
+                        android:layout_marginRight="10dp"
+                        android:adjustViewBounds="true"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_check_not_deep"/>
+
+                    <TextView
+                        android:text="은행 가상계좌"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorGray"
+                        android:layout_centerVertical="true" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/actPayment_vgBank"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="14dp"
+                android:textSize="14sp"
+                android:textColor="@color/colorLightGray"
+                android:text="이체할 은행 선택"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/actPayment_vbtnBank"
+                android:layout_marginTop="10dp"
+                android:paddingLeft="14dp" android:paddingRight="10dp"
+                android:background="@drawable/bg_inputbox"
+                android:layout_width="match_parent"
+                android:layout_height="46dp">
+                <TextView
+                    android:id="@+id/actPayment_tvBank"
+                    android:text="선택하세요"
+                    android:textSize="14sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorGray"
+                    android:layout_centerVertical="true" />
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:adjustViewBounds="true"
+                    android:layout_width="10dp" android:src="@drawable/ic_downarrow"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+
+            <TextView
+                android:textColor="@color/colorAppPrimary"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="12sp"
+                android:text="※ 결제를 진행하면 가상계좌가 발급됩니다.\n※ 3일안에 입금이 완료되어야 결제가 완료됩니다."/>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/actPayment_vgCreditCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_marginTop="14dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorLightGray"
+                    android:text="신용카드 번호"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ProgressBar
+                        android:layout_marginRight="5dp"
+                        android:id="@+id/actPayment_vCardLoading"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp" />
+
+                    <ImageView
+                        android:id="@+id/actPayment_ivCardTypeVisa"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="36dp"
+                        android:adjustViewBounds="true"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_visa2_gray"/>
+
+                    <ImageView
+                        android:id="@+id/actPayment_ivCardTypeMaster"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="33dp"
+                        android:adjustViewBounds="true"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_master2_gray"/>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <!--신용카드-->
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:weightSum="12"
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/actPayment_etCardNo1"
+                    android:maxLength="4"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:background="@drawable/bg_inputbox"
+                    android:lines="1" android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/actPayment_etCardNo2"
+                    android:maxLength="4"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:inputType="number"
+                    android:background="@drawable/bg_inputbox"
+                    android:lines="1" android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/actPayment_etCardNo3"
+                    android:maxLength="4"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:inputType="number"
+                    android:background="@drawable/bg_inputbox"
+                    android:lines="1" android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+                <EditText
+                    android:imeOptions="actionDone"
+                    android:id="@+id/actPayment_etCardNo4"
+                    android:maxLength="4"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:layout_marginLeft="4dp"
+                    android:inputType="number"
+                    android:background="@drawable/bg_inputbox"
+                    android:lines="1" android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="14dp"
+                android:weightSum="4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textColor="@color/colorLightGray"
+                        android:text="카드 유효기간"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView" />
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:weightSum="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp">
+
+                        <RelativeLayout
+                            android:id="@+id/actPayment_vbtnExpiryMM"
+                            android:paddingLeft="14dp" android:paddingRight="10dp"
+                            android:background="@drawable/bg_inputbox"
+                            android:layout_weight="1.25"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:hint="Month"
+                                android:id="@+id/actPayment_tvExpiryMM"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right"
+                                android:adjustViewBounds="true"
+                                android:layout_width="10dp" android:src="@drawable/ic_downarrow"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/actPayment_vbtnExpiryYYYY"
+                            android:layout_marginLeft="4dp"
+                            android:paddingLeft="14dp" android:paddingRight="10dp"
+                            android:background="@drawable/bg_inputbox"
+                            android:layout_weight="1.25"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+                            <TextView
+                                android:hint="Year"
+                                android:id="@+id/actPayment_tvExpiryYYYY"
+                                android:textSize="13sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+                            <ImageView
+                                android:layout_centerVertical="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="right"
+                                android:adjustViewBounds="true"
+                                android:layout_width="10dp" android:src="@drawable/ic_downarrow"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent">
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textSize="14sp"
+                            android:textColor="@color/colorLightGray"
+                            android:text="CVV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:paddingLeft="16dp" android:paddingRight="16dp"
+                            android:background="@drawable/bg_inputbox"
+                            android:layout_width="match_parent"
+                            android:layout_height="36dp">
+                            <EditText
+                                android:id="@+id/actPayment_etCVV"
+                                android:background="@null"
+                                android:gravity="center"
+                                android:hint="CVV"
+                                android:inputType="numberDecimal"
+                                android:maxLength="3"
+                                android:textSize="13sp"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textColor="@color/colorGray"
+                                android:layout_centerVertical="true" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:textColor="@color/colorAppPrimary"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:textSize="12sp"
+                android:text="※ 공인인증서가 필요한 한국카드는 결제가 되지 않습니다.\n※ 기타 추가내용은 더적자"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/gm"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorLightGray"
+                    android:text="결제정보"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/gm"
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" android:background="#55000000"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/okHomeGrayDeep"
+                    android:layout_height="wrap_content" android:textSize="14sp"
+                    android:text="Cleaining package 1"
+                    android:id="@+id/actPayment_tvOrderName" />
+
+                <TextView
+                    android:layout_marginTop="3dp"
+                    android:id="@+id/actPayment_tvPrice"
+                    android:layout_width="wrap_content"
+                    android:textColor="#dd000000"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" android:textSize="16sp"
+                    android:text="100.000Rp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/actPayment_vgBottom"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/actPayment_vbtnOrder"
+            android:layout_marginLeft="12dp" android:layout_marginRight="12dp"
+            android:layout_marginBottom="12dp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="30dp" android:paddingRight="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:background="@color/colorAppPrimary"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="54dp">
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="15dp"
+                android:adjustViewBounds="true"
+                android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
+
+            <TextView
+                android:id="@+id/actPayment_tvOrder"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="결제하기"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

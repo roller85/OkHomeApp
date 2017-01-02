@@ -32,6 +32,10 @@ public class CommonInputDialog extends ViewDialog{
         this.title = title; this.subTitle = subTitle; this.content = content; this.callback = callback;
     }
 
+    public EditText getEtInput(){
+        return etInput;
+    }
+
     @Override
     public View getView(LayoutInflater inflater) {
         return inflater.inflate(R.layout.dialog_common_inputbox, null);
@@ -45,13 +49,22 @@ public class CommonInputDialog extends ViewDialog{
         tvTitle.setText(title);
         etInput.setText(content);
 
+        if(subTitle.equals("")){
+            tvSubTitle.setVisibility(View.GONE);
+        }
         Util.setSoftKeyboardVisiblity(etInput, true);
     }
 
 
     @OnClick(R.id.dialogCommon_vbtnConfirm)
     public void onConfirmClick(View v){
-        callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "OK", "TEXT", etInput.getText().toString()));
+        String text = etInput.getText().toString();
+        if(text.length() <= 0){
+            Util.showToast(getContext(), "Text length must be more than zero");
+            return;
+
+        }
+        callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "OK", "TEXT", text));
         Util.setSoftKeyboardVisiblity(etInput, false);
         dismiss();
     }

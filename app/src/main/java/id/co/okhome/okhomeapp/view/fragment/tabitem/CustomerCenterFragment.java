@@ -32,7 +32,7 @@ public class CustomerCenterFragment extends Fragment implements TabFragmentFlow 
 
     @Override
     public String getTitle() {
-        return "Customer center";
+        return "고객센터";
     }
 
     @Override
@@ -48,7 +48,7 @@ public class CustomerCenterFragment extends Fragment implements TabFragmentFlow 
 
     @OnClick(R.id.fragmentCustomerCenter_vbtnEmail)
     public void onEmailClick(View v){
-        Util.openEmailIntent(getContext(), "dhkim@gmail.com", "Inquiry", "\n\n\nfrom " + CurrentUserInfo.get(getContext()).name);
+        Util.openEmailIntent(getContext(), "cs@okhome.id", "Inquiry", "\n\n\nfrom " + CurrentUserInfo.get(getContext()).name);
     }
 
     @OnClick(R.id.fragmentCustomerCenter_vbtnWhatsApp)
@@ -56,4 +56,13 @@ public class CustomerCenterFragment extends Fragment implements TabFragmentFlow 
         Util.openWhatsAppMessageIntent(getContext(), "+821093149449", "Inquiry", "\n\n\nfrom " + CurrentUserInfo.get(getContext()).name);
     }
 
+    @OnClick(R.id.fragmentCustomerCenter_vbtnLine)
+    public void onLineAppClick(View v){
+        Util.openWebIntent(getContext(), "http://line.me/ti/p/yIAkkqZdEP#~");
+    }
+
+    @OnClick(R.id.fragmentCustomerCenter_vbtnKakaoTalk)
+    public void onKakaoAppClick(View v){
+        Util.openWebIntent(getContext(), "http://qr.kakao.com/talk/JB5RfYoN00xW_tLSsqOjr5..AVc-");
+    }
 }

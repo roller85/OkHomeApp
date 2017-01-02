@@ -1,6 +1,5 @@
 package id.co.okhome.okhomeapp.view.fragment.makereservation.periodic;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -17,21 +16,16 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.co.okhome.okhomeapp.R;
-import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.ProgressDialogController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.dialog.DialogController;
 import id.co.okhome.okhomeapp.lib.dialog.ViewDialog;
 import id.co.okhome.okhomeapp.lib.joviewrepeator.JoViewRepeator;
-import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
-import id.co.okhome.okhomeapp.lib.retrofit.restmodel.ErrorModel;
-import id.co.okhome.okhomeapp.restclient.RestClient;
 import id.co.okhome.okhomeapp.view.adapter.DayTimeRepeatorCallback;
 import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationFlow;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeReservationParam;
 
-import static android.app.Activity.RESULT_OK;
 import static id.co.okhome.okhomeapp.R.id.fragmentMakeReservationPeriodInvoice_vgDays;
 
 /**
@@ -79,30 +73,30 @@ public class PeriodicCleaningInvoiceFragment extends Fragment implements MakeRes
 
     @Override
     public void onCurrentPage(int pos, MakeReservationParam params) {
-        int pricePerHour = MakeReservationParam.BASIC_CLEANING_PAY_PER_HOUR;
-        int duration = params.getDuration();
-
-        Util.getPatternedTimeString(params.startDate, "yyyy-MM-dd", "yyyy-MM-dd(E)");
-
-        tvStartDate.setText(params.startDate);
-        tvPrice.setText(Util.getMoneyString(pricePerHour, '.') + "Rp / Hour" + " X " + duration + "Hours = " + Util.getMoneyString(pricePerHour * duration, '.') + "Rp");
-
-
-        List<DayTimeRepeatorCallback.TimeModel> listTimeModel = new ArrayList<>();
-        String[] arrDaytime = params.period.split(",");
-        for(String dayTime : arrDaytime){
-            listTimeModel.add(new DayTimeRepeatorCallback.TimeModel(dayTime));
-        }
+//        int pricePerHour = MakeReservationParam.BASIC_CLEANING_PAY_PER_HOUR;
+//        int duration = params.getDuration();
 //
-        repeatorDay.setList(listTimeModel);
-        repeatorDay.notifyDataSetChanged();
+//        Util.getPatternedTimeString(params.startDate, "yyyy-MM-dd", "yyyy-MM-dd(E)");
+//
+//        tvStartDate.setText(params.startDate);
+//        tvPrice.setText(Util.getMoneyString(pricePerHour, '.') + "Rp / Hour" + " X " + duration + "Hours = " + Util.getMoneyString(pricePerHour * duration, '.') + "Rp");
+//
+//
+//        List<DayTimeRepeatorCallback.TimeModel> listTimeModel = new ArrayList<>();
+//        String[] arrDaytime = params.period.split(",");
+//        for(String dayTime : arrDaytime){
+//            listTimeModel.add(new DayTimeRepeatorCallback.TimeModel(dayTime));
+//        }
+////
+//        repeatorDay.setList(listTimeModel);
+//        repeatorDay.notifyDataSetChanged();
     }
 
 
     @Override
     public boolean next(final MakeReservationParam paramsForReservation) {
 
-        paramsForReservation.homeId = CurrentUserInfo.getHomeId(getContext());
+//        paramsForReservation.homeId = CurrentUserInfo.getHomeId(getContext());
         //두두두두..
         try{
 
@@ -120,27 +114,27 @@ public class PeriodicCleaningInvoiceFragment extends Fragment implements MakeRes
 
                     String paramJson = new Gson().toJson(paramsForReservation);
                     final int pId = ProgressDialogController.show(getContext());
-                    RestClient.getCleaningRequestClient().periodicRequest(CurrentUserInfo.getId(getContext()), paramJson).enqueue(new RetrofitCallback<String>() {
-                        @Override
-                        public void onFinish() {
-                            ProgressDialogController.dismiss(pId);
-                        }
-
-                        @Override
-                        public void onSuccess(String result) {
-                            //완료됬슴다
-                            Util.showToast(getContext(), "Making reservation complete");
-                            Intent i = new Intent();
-                            i.putExtra("RESERVATION_COMPLETE_YN", "Y");
-                            getActivity().setResult(RESULT_OK, i);
-                            getActivity().finish();
-                        }
-
-                        @Override
-                        public void onJodevError(ErrorModel jodevErrorModel) {
-                            Util.showToast(getContext(), jodevErrorModel.message);
-                        }
-                    });
+//                    RestClient.getCleaningRequestClient().requestPeriodCleaning(CurrentUserInfo.getId(getContext()), paramJson).enqueue(new RetrofitCallback<String>() {
+//                        @Override
+//                        public void onFinish() {
+//                            ProgressDialogController.dismiss(pId);
+//                        }
+//
+//                        @Override
+//                        public void onSuccess(String result) {
+//                            //완료됬슴다
+//                            Util.showToast(getContext(), "Making reservation complete");
+//                            Intent i = new Intent();
+//                            i.putExtra("RESERVATION_COMPLETE_YN", "Y");
+//                            getActivity().setResult(RESULT_OK, i);
+//                            getActivity().finish();
+//                        }
+//
+//                        @Override
+//                        public void onJodevError(ErrorModel jodevErrorModel) {
+//                            Util.showToast(getContext(), jodevErrorModel.message);
+//                        }
+//                    });
 
                 }
             }

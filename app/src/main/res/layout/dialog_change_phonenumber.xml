@@ -80,7 +80,6 @@
             android:layout_height="42dp" android:orientation="vertical">
 
             <EditText
-                android:layout_toLeftOf="@+id/dialogChangePhoneNumber_vbtnVerification"
                 android:id="@+id/dialogChangePhoneNumber_etInputVerificationCode"
                 android:inputType="phone"
                 android:background="@drawable/bg_inputbox"
@@ -90,24 +89,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:id="@+id/dialogChangePhoneNumber_vbtnVerification"
-                android:paddingLeft="10dp" android:paddingRight="10dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="3dp"
-                android:layout_weight="1"
-                android:background="@color/colorLightGray"
-                android:layout_alignParentBottom="true"
-                android:layout_width="60dp"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:textSize="11sp"
-                    android:gravity="center"
-                    android:textColor="#ffffff"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" android:text="CHECK"/>
-            </LinearLayout>
 
             <View
                 android:visibility="invisible"

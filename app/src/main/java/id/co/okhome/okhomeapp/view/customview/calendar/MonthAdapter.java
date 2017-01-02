@@ -27,6 +27,7 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
     ViewPager vp;
     LayoutInflater inflater;
     Context context;
+    String gridAdapterType = "";
 
     Map<String, MonthGridView> mapMonthView = new HashMap<>();
     Map<String, List<DayModel>> mapListMonthDayModels = new HashMap<>();
@@ -41,13 +42,21 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
         pivotYear = year;
         pivotMonth = month;
         pivotPos = size / 2;
-
-        this.context = context;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public MonthGridView getCurrentMonthView(){
+    public int getPosByYearMonth(int targetYear, int targetMonth){
 
+        int diffYear = pivotYear - targetYear;
+        int diffMonth = pivotMonth - targetMonth;
+
+        diffMonth = diffMonth + diffYear * 12;
+
+        int pos = pivotPos - diffMonth;
+        return pos;
+    }
+
+    public MonthGridView getCurrentMonthView(){
         MonthGridView monthGridView = mapMonthView.get(makeKey(year, month));
         return monthGridView;
     }
@@ -78,6 +87,11 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
         return monthView;
     }
 
+
+    public void setGridAdapterType(String gridAdapterType) {
+        this.gridAdapterType = gridAdapterType;
+    }
+
     private String makeKey(int year, int month){
         String key = year + "_" + month;
         return key;
@@ -87,6 +101,7 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
     private MonthGridView makeMonthView(int position){
 
         MonthGridView monthView = new MonthGridView(context, monthViewListener);
+        monthView.setGridAdapterType(gridAdapterType);
         return monthView;
     }
 
@@ -139,7 +154,7 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
         if(diffPos < 0){
             //작으면
             posMonth = pivotMonth + diffPos;   //-2
-            while(posMonth < 0){
+            while(posMonth <= 0){
                 posMonth = posMonth + 12;
                 diffYear ++;
             }

@@ -101,6 +101,17 @@ public abstract class JoChoiceViewController <T> {
         return this;
     }
 
+    public void clear(){
+        int size = listItems.size();
+        for(int i = 0; i < size; i++){
+            setChecked(i, false);
+        }
+    }
+
+    public void invokeClickEvent(int pos){
+        chk(listViews.get(pos));
+    }
+
     private void setChecked(View vTarget, boolean checked){
         mapCheck.put(vTarget, checked);
         onItemChecked(vTarget, mapModel.get(vTarget), mapCheck.get(vTarget));
@@ -249,6 +260,21 @@ public abstract class JoChoiceViewController <T> {
             }
         }
 
+    }
+
+    public int getCheckedCount(){
+        int i = 0;
+        Set key = mapModel.keySet();
+        for (Iterator<View> iterator = key.iterator(); iterator.hasNext();) {
+            View vItem = iterator.next();
+            T modelCurrent = mapModel.get(vItem);
+
+            if(mapCheck.get(vItem)){
+                i ++;
+            }
+        }
+
+        return i;
     }
 
     public List<T> getCheckedItemList(){

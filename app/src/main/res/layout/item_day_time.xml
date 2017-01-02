@@ -16,6 +16,7 @@
             android:layout_height="match_parent">
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/itemDayTime_tvTime"
                 android:text="2 PM"
                 android:textColor="@color/colorAppPrimary"

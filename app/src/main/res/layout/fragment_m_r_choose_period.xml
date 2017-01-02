@@ -9,363 +9,33 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content">
 
         <LinearLayout
+
+            android:layout_marginTop="5dp"
             android:paddingLeft="32dp" android:paddingRight="32dp"
-            android:paddingTop="20dp"
+            android:paddingTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:orientation="vertical">
 
             <LinearLayout
-                android:visibility="gone"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="언제부터 올까요"
-                    android:textSize="14sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorLightGray"/>
-
-                <RelativeLayout
-                    android:layout_marginRight="6dp"
-                    android:layout_weight="6"
-                    android:layout_width="match_parent"
-                    android:layout_height="42dp">
-                    <LinearLayout
-                        android:layout_marginTop="12dp"
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <LinearLayout
-                            android:layout_marginRight="6dp"
-                            android:gravity="center"
-                            android:layout_width="16dp"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="wrap_content" android:adjustViewBounds="true"
-                                android:src="@drawable/ic_clock_3"/>
-
-                        </LinearLayout>
-                        <TextView
-                            android:gravity="left"
-                            android:text="2016.08.10 ~"
-                            android:textSize="13sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/okHomeGrayDeep" />
-
-                    </LinearLayout>
-                    <ImageView
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_width="10dp"
-                        android:src="@drawable/ic_right_simplearrow_black"
-                        android:layout_height="wrap_content" android:adjustViewBounds="true" />
-
-                    <View
-                        android:layout_alignParentBottom="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="1px" android:background="#44000000"/>
-                </RelativeLayout>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_marginTop="10dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
                     android:text="얼마나 자주 청소를 받고 싶으세요?"
-                    android:textSize="14sp"
+                    android:textSize="15sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorLightGray"/>
 
                 <LinearLayout
-                    android:layout_marginTop="14dp"
+                    android:id="@+id/fragmentMakeReservationChoosePeriod_vgItems"
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical">
-                    <LinearLayout
-                        android:id="@+id/fragmentMakeReservationChoosePeriod_vbtnEveryWeek"
-                        android:gravity="center_vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <ImageView
-                            android:id="@+id/fragmentMakeReservationChoosePeriod_ivEveryWeekChk"
-                            android:layout_marginRight="10dp"
-                            android:layout_width="24dp"
-                            android:adjustViewBounds="true"
-                            android:layout_height="wrap_content" android:src="@drawable/ic_checked" />
-                        <TextView
-                            android:text="Every a week"
-                            android:textSize="14sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorGray"
-                            android:layout_centerVertical="true" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:orientation="vertical"
-                        android:id="@+id/fragmentMakeReservationChoosePeriod_vgEveryWeek">
-                        <LinearLayout
-                            android:background="#ffffff"
-                            android:layout_below="@+id/layerCalendar_llTop"
-                            android:paddingLeft="1dp" android:paddingRight="1dp"
-                            android:paddingBottom="5dp" android:paddingTop="10dp"
-                            android:weightSum="7"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Sun"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Mon"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Tue"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Wed"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Thu"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Fri"/>
-
-                            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                                android:textColor="@color/okHomeGrayDeep"
-                                android:gravity="center" android:layout_weight="1" android:text="Sat"/>
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content" android:orientation="vertical">
-                            <LinearLayout
-                                android:weightSum="7"
-                                android:id="@+id/fragmentMakeReservationChoosePeriod_vgDaysInEveryWeek"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <LinearLayout
-                                    android:textSize="10sp"
-                                    android:textColor="#ffffff"
-                                    android:gravity="center"
-                                    android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp"
-                                    android:layout_weight="1"
-                                    android:layout_height="match_parent">
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox_focus"
-                                    android:layout_width="0dp" android:layout_weight="1" android:text="6 PM" android:layout_height="match_parent">
-
-                                    <TextView
-                                        android:text="2 PM"
-                                        android:textColor="@color/colorAppPrimary"
-                                        android:textSize="10sp"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content" />
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" />
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" />
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                                <LinearLayout
-                                    android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                    android:gravity="center" android:background="@drawable/bg_inputbox"
-                                    android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_marginTop="6dp"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content">
-                                <TextView
-                                    android:text="※ 매주 선택한 요일에 자동으로 청소가 예약됩니다."
-                                    android:textSize="11sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/colorLightGray"/>
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_marginTop="24dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/fragmentMakeReservationChoosePeriod_vbtnEvery2Week"
-                        android:gravity="center_vertical"
-                        android:layout_centerVertical="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:id="@+id/fragmentMakeReservationChoosePeriod_ivEvery2WeekChk"
-                            android:layout_marginRight="10dp"
-                            android:layout_width="24dp"
-                            android:adjustViewBounds="true"
-                            android:layout_height="wrap_content" android:src="@drawable/ic_check_not" />
-                        <TextView
-                            android:text="Every 2 weeks"
-                            android:textSize="14sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorGray"
-                            android:layout_centerVertical="true" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <LinearLayout
-                    android:id="@+id/fragmentMakeReservationChoosePeriod_vgEvery2Week"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:orientation="vertical">
-                    <LinearLayout
-                        android:background="#ffffff"
-                        android:paddingLeft="1dp" android:paddingRight="1dp"
-                        android:paddingBottom="5dp" android:paddingTop="10dp"
-                        android:weightSum="7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Sun"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Mon"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Tue"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Wed"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Thu"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Fri"/>
-
-                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:textSize="10sp"
-                            android:textColor="@color/okHomeGrayDeep"
-                            android:gravity="center" android:layout_weight="1" android:text="Sat"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:orientation="vertical">
-                        <LinearLayout
-                            android:weightSum="7"
-                            android:id="@+id/fragmentMakeReservationChoosePeriod_vgDaysInEvery2Week"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <LinearLayout
-                                android:textSize="10sp"
-                                android:textColor="#ffffff"
-                                android:gravity="center"
-                                android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp"
-                                android:layout_weight="1"
-                                android:layout_height="match_parent">
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox_focus"
-                                android:layout_width="0dp" android:layout_weight="1" android:text="6 PM" android:layout_height="match_parent">
-
-                                <TextView
-                                    android:text="2 PM"
-                                    android:textColor="@color/colorAppPrimary"
-                                    android:textSize="10sp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content" />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" />
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp" android:layout_weight="1"  android:layout_height="match_parent" />
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                            <LinearLayout
-                                android:layout_marginLeft="2dp" android:textSize="10sp" android:textColor="#ffffff"
-                                android:gravity="center" android:background="@drawable/bg_inputbox"
-                                android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_marginTop="6dp"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <TextView
-                                android:text="※ 2주 간격으로 설정한 요일에 자동으로 청소가 예약됩니다. "
-                                android:textSize="11sp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textColor="@color/colorLightGray"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-
+                    android:layout_height="wrap_content"></LinearLayout>
 
             </LinearLayout>
 
@@ -374,4 +44,8 @@
     </LinearLayout>
 
 
+    <ProgressBar
+        android:id="@+id/fragmentMakeReservationChoosePeriod_vLoading"
+        android:layout_width="40dp"
+        android:layout_height="40dp" android:layout_centerInParent="true"/>
 </RelativeLayout>

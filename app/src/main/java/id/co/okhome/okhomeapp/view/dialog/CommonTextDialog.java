@@ -23,9 +23,22 @@ public class CommonTextDialog extends ViewDialog{
     @BindView(R.id.dialogCommonText_tvTitle)
     TextView tvTitle;
 
+    @BindView(R.id.dialogCommon_vbtnCancel)
+    TextView tvBtnCancel;
+
+    @BindView(R.id.dialogCommon_vbtnConfirm)
+    TextView tvBtnOk;
+
     DialogCommonCallback callback;
     String title, content;
+    boolean showJustOkBtn = false;
 
+    public CommonTextDialog(String title, String content, boolean showJustOkBtn, DialogCommonCallback callback) {
+        this.callback = callback;
+        this.title = title;
+        this.content = content;
+        this.showJustOkBtn = showJustOkBtn;
+    }
 
     public CommonTextDialog(String title, String content, DialogCommonCallback callback) {
         this.callback = callback;
@@ -36,6 +49,11 @@ public class CommonTextDialog extends ViewDialog{
     public CommonTextDialog(String title, String content) {
         this.title = title;
         this.content = content;
+    }
+
+    public void setButtonText(String confirm, String cancel){
+        tvBtnOk.setText(confirm);
+        tvBtnCancel.setText(cancel);
     }
 
     @Override
@@ -49,6 +67,10 @@ public class CommonTextDialog extends ViewDialog{
 
         tvTitle.setText(title);
         tvContent.setText(content);
+
+        if(showJustOkBtn){
+            tvBtnCancel.setVisibility(View.GONE);
+        }
     }
 
     @OnClick(R.id.dialogCommon_vbtnConfirm)

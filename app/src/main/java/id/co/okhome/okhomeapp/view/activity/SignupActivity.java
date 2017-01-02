@@ -38,12 +38,12 @@ public class SignupActivity extends OkHomeActivityParent {
 
     @OnClick(R.id.actSignUp_tvbtnPolicy)
     public void onClickPolicy(View v){
-
+        startActivity(new Intent(this, WebpageActivity.class).putExtra(WebpageActivity.TAG_WEBTYPE, WebpageActivity.WEBTYPE_PRIVACYPOLICY));
     }
 
     @OnClick(R.id.actSignUp_tvbtnTerm)
     public void onClickTerm(View v){
-
+        startActivity(new Intent(this, WebpageActivity.class).putExtra(WebpageActivity.TAG_WEBTYPE, WebpageActivity.WEBTYPE_TERMSOFSERVICE));
     }
 
     @OnClick(R.id.actSignUp_vbtnJoin)

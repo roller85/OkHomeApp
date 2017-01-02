@@ -23,9 +23,9 @@
 
             <TextView
                 android:id="@+id/dialogCommonInputbox_tvTitle"
-                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="@color/colorAppPrimary2"
+                android:textStyle="bold"
+                android:textColor="@color/colorAppPrimary"
                 android:text="Please input some text here"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -48,13 +48,15 @@
                     android:id="@+id/dialogCommonInputbox_etInput"
                     android:background="@drawable/bg_inputbox"
                     android:textSize="13sp"
-                    android:hint="Ang~ jiryuburigi~"
+                    android:hint=""
                     android:padding="14dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <include layout="@layout/layer_dialog_actionbtns" />
+            <include layout="@layout/layer_dialog_actionbtns"
+                android:layout_marginTop="-5dp"
+                android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         </LinearLayout>
 

@@ -42,6 +42,7 @@ public class DrawerLayoutController {
     private DrawerLayout drawerLayout;
     private FragmentManager fm;
     private String lastFragmentString = "";
+    private Fragment fragBefore = null;
 
     private ViewComponentInitiator viewComponentInitiator = null;
 
@@ -92,23 +93,28 @@ public class DrawerLayoutController {
 
     public void show(final Fragment fragment, final boolean showContents){
 
-        //현재 프래그먼트 어떻게 갖고오지?
-        new android.os.Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                final FragmentTransaction tr = fm.beginTransaction();
-                tr.replace(contentId, fragment);
-                tr.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
-                tr.addToBackStack(null);
-                tr.commit();
+        if(fragBefore != fragment){
+            //현재 프래그먼트 어떻게 갖고오지?
+            new android.os.Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    fm.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    final FragmentTransaction tr = fm.beginTransaction();
+                    tr.replace(contentId, fragment);
+                    tr.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE);
+                    tr.addToBackStack(null);
+                    tr.commit();
 
-                lastFragmentString = fragment.getClass().getName();
+                    lastFragmentString = fragment.getClass().getName();
+
+                    fragBefore = fragment;
+
+                    //fragment에 특정 인터페이스 따라오면 textView처리
+                }
+            }, 280);
+        }
 
 
-                //fragment에 특정 인터페이스 따라오면 textView처리
-            }
-        }, 280);
 
         if(showContents){
             drawerLayout.closeDrawers();

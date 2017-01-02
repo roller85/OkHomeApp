@@ -13,39 +13,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_marginTop="10dp"
-            android:textColor="@color/okHomeGrayDeep"
-            android:textSize="17sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Blow your mind of cleaning"/>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/fragmentMakeReservation_vp"
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
 
-        <TextView
-            android:id="@+id/fragmentMakeReservationGuest_tvSubTitle"
-            android:textColor="#717276"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:textSize="14sp"
-            android:text="You've just started to\nChange your life for better"/>
+        </android.support.v4.view.ViewPager>
 
-        <ImageView
-            android:id="@+id/fragmentMakeReservationGuest_ivThumb"
-            android:layout_marginTop="30dp"
-            android:layout_width="70dp"
-            android:layout_height="wrap_content" android:adjustViewBounds="true"
-            android:src="@drawable/img_plunger"/>
+        <id.co.okhome.okhomeapp.view.customview.ProgressDotsView
+            android:layout_marginTop="14dp"
+            android:id="@+id/fragmentMakeReservation_pdv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></id.co.okhome.okhomeapp.view.customview.ProgressDotsView>
+
+
 
         <LinearLayout
-            android:paddingLeft="20dp" android:paddingRight="20dp"
+            android:paddingLeft="50dp" android:paddingRight="50dp"
             android:layout_marginTop="30dp"
             android:id="@+id/fragmentMakeReservationGuest_vbtnDo"
             android:gravity="center"
             android:background="@color/colorAppPrimary"
             android:paddingTop="10dp" android:paddingBottom="10dp"
             android:layout_width="wrap_content"
-            android:layout_height="50dp">
+            android:layout_height="58dp">
 
             <ImageView
                 android:layout_marginRight="10dp"
@@ -54,8 +45,7 @@
                 android:layout_height="wrap_content" android:src="@drawable/ic_check_type2"/>
 
             <TextView
-                android:textStyle="bold"
-                android:textSize="14sp"
+                android:textSize="17sp"
                 android:gravity="center"
                 android:text="Make a reservation"
                 android:layout_width="wrap_content"
@@ -107,7 +97,6 @@
                 android:text="Sign up"/>
 
         </LinearLayout>
-
 
     </LinearLayout>
 

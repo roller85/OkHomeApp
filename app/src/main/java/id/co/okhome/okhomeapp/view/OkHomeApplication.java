@@ -17,5 +17,8 @@ public class OkHomeApplication extends Application{
                 .addBold(Typekit.createFromAsset(this, "NotoSans-Bold.ttf"))
                 .addBoldItalic(Typekit.createFromAsset(this, "NotoSans-BoldItalic.ttf"))
                 .addItalic(Typekit.createFromAsset(this, "NotoSans-Italic.ttf"));
+
+
+
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@drawable/bg_inputbox"
+        android:id="@+id/fragmentChargePoint_vbtnFillingInPromotionCode"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
+
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_toLeftOf="@+id/itemCreditPromotionItem_tvValue"
+                        android:id="@+id/itemCreditPromotionItem_tvTitle"
+                        android:textSize="15sp"
+                        android:textColor="@color/colorGray"
+                        android:text="Filling in promotion code"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:layout_alignParentRight="true"
+                        android:id="@+id/itemCreditPromotionItem_tvValue"
+                        android:gravity="center"
+                        android:textSize="13sp"
+                        android:textColor="@color/colorAppPrimary"
+                        android:text="+ 100.000 Rp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/itemCreditPromotionItem_tvSubTitle"
+                    android:layout_marginTop="2dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/colorLightGray"
+                    android:text="Check promotion code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="1px" android:background="#33000000"/>
+    </RelativeLayout>
+</LinearLayout>

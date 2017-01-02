@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -24,14 +25,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import id.co.okhome.okhomeapp.config.Variables;
-import id.co.okhome.okhomeapp.model.CommonCheckitemModel;
 
 /**
  * Created by josongmin on 2016-07-29.
@@ -39,7 +38,30 @@ import id.co.okhome.okhomeapp.model.CommonCheckitemModel;
 
 public class Util {
 
+    public final static String getCurrentLang(Context context){
+        Locale systemLocale = context.getResources().getConfiguration().locale;
+        String strLanguage = systemLocale.getLanguage();
+        return strLanguage;
+    }
 
+    public static int getScreenHeight(Activity activity){
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int height = metrics.heightPixels;
+        int width = metrics.widthPixels;
+
+        return height;
+    }
+    public static int getScreenWidth(Activity activity){
+        DisplayMetrics metrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+        int height = metrics.heightPixels;
+        int width = metrics.widthPixels;
+
+        return width;
+    }
 
 
     /**포맷형태로 날짜 더해서 변환*/
@@ -246,6 +268,45 @@ public class Util {
         }
     }
 
+    public final static void openLineMessageIntent(Context context, String phone, String subject, String text){
+        try{
+//            Intent waIntent = new Intent(Intent.ACTION_SEND);
+//            waIntent.setType("text/plain");
+//            PackageInfo info= context.getPackageManager().getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+//            waIntent.setPackage("com.whatsapp");
+//            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+//            context.startActivity(Intent.createChooser(waIntent, "Share with"));
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            intent.putExtra(Intent.EXTRA_TEXT, text);
+            intent.setPackage("jp.naver.line.android");
+
+            context.startActivity(intent);
+        }catch(Exception e){
+            openMarketIntent(context, "jp.naver.line.android");
+        }
+    }
+    public final static void openKakaoTalkMessageIntent(Context context, String phone, String subject, String text){
+        try{
+//            Intent waIntent = new Intent(Intent.ACTION_SEND);
+//            waIntent.setType("text/plain");
+//            PackageInfo info= context.getPackageManager().getPackageInfo("com.whatsapp", PackageManager.GET_META_DATA);
+//            waIntent.setPackage("com.whatsapp");
+//            waIntent.putExtra(Intent.EXTRA_TEXT, text);
+//            context.startActivity(Intent.createChooser(waIntent, "Share with"));
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            intent.putExtra(Intent.EXTRA_TEXT, text);
+            intent.setPackage("com.kakao.talk");
+
+            context.startActivity(intent);
+        }catch(Exception e){
+            openMarketIntent(context, "com.kakao.talk");
+        }
+    }
+
     public final static void openEmailIntent(Context context, String email, String subject, String text){
         Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto:"+email));
         i.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -268,7 +329,20 @@ public class Util {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             long time = dateFormat.parse(date).getTime();
 
-            SimpleDateFormat dateFormat2 = new SimpleDateFormat(format, Locale.US);
+            SimpleDateFormat dateFormat2 = new SimpleDateFormat(format, Locale.KOREAN);
+            String s = dateFormat2.format(time);
+            return s;
+        }catch(Exception e){
+            return e.toString();
+        }
+    }
+
+    public final static String changeDatetimeFormat(String date, String formatFrom, String formatTo, Locale locale){
+        try{
+            SimpleDateFormat dateFormat = new SimpleDateFormat(formatFrom);
+            long time = dateFormat.parse(date).getTime();
+
+            SimpleDateFormat dateFormat2 = new SimpleDateFormat(formatTo, locale);
             String s = dateFormat2.format(time);
             return s;
         }catch(Exception e){
@@ -343,6 +417,10 @@ public class Util {
     /**숫자받아서 format카운트만큼 0으로 채워넣기*/
     public static final String fillupWithZero(int decimal, String format){
         return fillupWith(decimal, format, "0");
+    }
+
+    public static final String fillupWith2Zero(String decimal){
+        return fillupWith(Integer.parseInt(decimal), "XX", "0");
     }
 
     /**숫자받아서 format카운트만큼 character로 채워넣기*/

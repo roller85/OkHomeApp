@@ -69,8 +69,13 @@ public class ThirdpartyLoginActivity extends OkHomeActivityParent implements JoT
         authentication(partyName, authKey, id, email, name, imgUrl);
     }
 
-    private void onAuthenticationFinish(){
+    private void onAuthenticationFinish(UserModel result){
         OkHomeActivityParent.finishAllActivities();
+//        if(result.isNewMember == true){
+//            startActivity(new Intent(this, SignupPhoneActivity.class));
+//        }else{
+//            startActivity(new Intent(this, MainActivity.class));
+//        }
         startActivity(new Intent(this, MainActivity.class));
 //        setResult(RESULT_OK);
 //        finish();
@@ -85,7 +90,7 @@ public class ThirdpartyLoginActivity extends OkHomeActivityParent implements JoT
                 CurrentUserInfo.set(ThirdpartyLoginActivity.this, result);
                 ProgressDialogController.dismiss(pId);
 
-                onAuthenticationFinish();
+                onAuthenticationFinish(result);
             }
 
             @Override
@@ -101,6 +106,8 @@ public class ThirdpartyLoginActivity extends OkHomeActivityParent implements JoT
     @Override
     public void onFailed(String message) {
         Util.Log("failed : " + message);
+        Util.showToast(this, message);
+        finish();
     }
 
     @Override
