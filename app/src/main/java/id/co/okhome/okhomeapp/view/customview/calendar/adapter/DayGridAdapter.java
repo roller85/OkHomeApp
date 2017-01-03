@@ -22,16 +22,21 @@ import id.co.okhome.okhomeapp.view.customview.calendar.MonthViewListener;
 public class DayGridAdapter extends ParentDayGridAdapter {
 
 
+    View currentView;
+    DayModel currentModel;
     public DayGridAdapter(Context context, List<DayModel> listDayModel, int itemHeight, MonthViewListener monthViewListener) {
         super(context, listDayModel, itemHeight, monthViewListener);
     }
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
+        final DayModel dayModel = listDayModel.get(position);
         View v = convertView;
         if(v == null){
             v = inflater.inflate(R.layout.item_calendar_day_req_periodic, null);
         }
+
+        currentView = v;
+        currentModel = dayModel;
 
         ViewGroup vgParent = ViewHolderUtil.getView(v, R.id.itemCalendarDayBasic_vgParent);
         View vItem = ViewHolderUtil.getView(v, R.id.itemCalendarDayBasic_vItem);
@@ -42,7 +47,7 @@ public class DayGridAdapter extends ParentDayGridAdapter {
             vgParent.getLayoutParams().height = itemHeight;
         }
 
-        final DayModel dayModel = listDayModel.get(position);
+
 
         tvDay.setText(dayModel.day+"");
         tvCleaning.setVisibility(View.GONE);
@@ -50,7 +55,7 @@ public class DayGridAdapter extends ParentDayGridAdapter {
 
         //공용처리
         //Reserved처리
-        filterIsReserved(v, dayModel);
+        filterIsReserved();
 
         if(dayModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth()) && year == dayModel.year && (month == dayModel.month)){
             //같으면 현재.
@@ -68,25 +73,11 @@ public class DayGridAdapter extends ParentDayGridAdapter {
             //다르면 지난, 앞으로.
             vItem.setBackgroundColor(colorBgNotCurrentMonth);
             tvDay.setTextColor(colorTextNotCurrentMonth);
-//            tvCleaning.setBackgroundColor(colorCaptionReservedAlpha);
         }
 
 
-        //하루짜리 청소신청시 시작시간 설정되었을 때
-        if(dayModel.optBeginTime != null){
-            tvCleaning.setBackgroundColor(colorCaptionBlue);
-            tvCleaning.setVisibility(View.VISIBLE);
-            tvCleaning.setText(dayModel.optBeginTime);
-        }
-
-        //주기청소 신청시 시작일, 파란색
-
-        //예약가능한 날짜인지 확인
-        filterIsAbleReservationForPeriod(v, dayModel);
-
-        //시작일인지
-        filterIsStartDay(v, dayModel);
-
+        filterIsStartToMove();
+        filterIsAbleToBeMoved();
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,47 +88,63 @@ public class DayGridAdapter extends ParentDayGridAdapter {
     }
 
     //청소예약 상태 확인
-    private void filterIsReserved(View v, DayModel dayModel){
+    private void filterIsReserved(){
 
-        TextView tvCleaning = ViewHolderUtil.getView(v, R.id.itemCalendarDayBasic_tvCleaning);
+        TextView tvCleaning = ViewHolderUtil.getView(currentView, R.id.itemCalendarDayBasic_tvCleaning);
 
-        if(dayModel.cleaningScheduleModel != null && dayModel.cleaningScheduleModel.status.equals("OK")){
+        if(currentModel.cleaningScheduleModel != null && currentModel.cleaningScheduleModel.status.equals("OK")){
             tvCleaning.setVisibility(View.VISIBLE);
             tvCleaning.setText("예약완료");
             tvCleaning.setBackgroundColor(colorCaptionReserved);
         }
     }
 
-    //시작일인지 확인
-    private void filterIsStartDay(View v, DayModel dayModel){
-        TextView tvCleaning = ViewHolderUtil.getView(v, R.id.itemCalendarDayBasic_tvCleaning);
+    //이동마크처리
+    private void filterIsStartToMove(){
 
-        if(dayModel.optBeginDay){
-            tvCleaning.setBackgroundColor(colorCaptionBlue);
+        TextView tvCleaning = ViewHolderUtil.getView(currentView, R.id.itemCalendarDayBasic_tvCleaning);
+
+        if(currentModel.startMove){
             tvCleaning.setVisibility(View.VISIBLE);
-            tvCleaning.setText("시작일");
+            tvCleaning.setText("이동대기");
+            tvCleaning.setBackgroundColor(colorRed);
+        }else{
+
         }
     }
 
-    //예약가능한 날짜인지
-    private void filterIsAbleReservationForPeriod(View v, DayModel dayModel){
-        TextView tvCleaning = ViewHolderUtil.getView(v, R.id.itemCalendarDayBasic_tvCleaning);
+    private void filterIsAbleToBeMoved(){
+        TextView tvCleaning = ViewHolderUtil.getView(currentView, R.id.itemCalendarDayBasic_tvCleaning);
 
-        if (dayModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth())) {
-            //현재 보이는 년월
-            if (year == dayModel.year && month == dayModel.month) {
 
-            }
+        if(params.get("expiryMill") != null){
+            long expiryMill = (long)params.get("expiryMill");
 
-            if(dayModel.cleaningScheduleModel != null && dayModel.cleaningScheduleModel.status.equals("OK")){
-                ;
+            if(expiryMill > currentModel.timemill){
+                //예약가능
             }else{
-                if(dayModel.optAbleReservationForPeriod){
-                    tvCleaning.setBackgroundColor(colorCaptionBlueAlpha);
-                    tvCleaning.setVisibility(View.VISIBLE);
-                    tvCleaning.setText("예약가능");
+                //만료일지남
+                tvCleaning.setVisibility(View.VISIBLE);
+                tvCleaning.setText("기간경과");
+
+
+                if(currentModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth()) && year == currentModel.year && (month == currentModel.month)){
+                    tvCleaning.setBackgroundColor(colorCaptionReservedAlpha);
+                }else{
+                    //다르면 지난, 앞으로.
+                    tvCleaning.setBackgroundColor(colorCaptionReservedAlpha2);
                 }
             }
+
+            if(currentModel.cleaningScheduleModel != null && currentModel.cleaningScheduleModel.status.equals("OK")){
+                ;
+            }else{
+            }
+
         }
+
+
     }
+
+
 }

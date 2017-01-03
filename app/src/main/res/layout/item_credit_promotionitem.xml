@@ -10,7 +10,7 @@
         android:id="@+id/fragmentChargePoint_vbtnFillingInPromotionCode"
         android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="72dp">
+        android:layout_height="75dp">
 
         <LinearLayout
             android:gravity="center"
@@ -40,7 +40,7 @@
                         android:layout_alignParentRight="true"
                         android:id="@+id/itemCreditPromotionItem_tvValue"
                         android:gravity="center"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:textColor="@color/colorAppPrimary"
                         android:text="+ 100.000 Rp"
                         android:layout_width="wrap_content"
@@ -49,8 +49,8 @@
 
                 <TextView
                     android:id="@+id/itemCreditPromotionItem_tvSubTitle"
-                    android:layout_marginTop="2dp"
-                    android:textSize="13sp"
+                    android:layout_marginTop="3dp"
+                    android:textSize="14sp"
                     android:textColor="@color/colorLightGray"
                     android:text="Check promotion code"
                     android:layout_width="wrap_content"

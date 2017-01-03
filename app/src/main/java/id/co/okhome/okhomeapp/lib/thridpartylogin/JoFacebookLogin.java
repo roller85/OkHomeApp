@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookAuthorizationException;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
@@ -65,6 +66,11 @@ public class JoFacebookLogin extends JoThirdpartyLogin{
 
             @Override
             public void onError(FacebookException error) {
+                if (error instanceof FacebookAuthorizationException) {
+                    if (AccessToken.getCurrentAccessToken() != null) {
+                        LoginManager.getInstance().logOut();
+                    }
+                }
                 loginListener.onFailed(error.toString());
             }
         });

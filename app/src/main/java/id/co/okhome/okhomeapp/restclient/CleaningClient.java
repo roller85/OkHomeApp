@@ -9,6 +9,7 @@ import id.co.okhome.okhomeapp.model.SpcCleaningModel;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
+import retrofit2.http.PATCH;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -33,6 +34,10 @@ public interface CleaningClient {
     @DELETE("/cleaning/cancel_cleaning")
     Call<String> cancelCleaning(@Query("userId") String userId, @Query("cleaningReqId") String cleaningReqId);
 
+    @PATCH("/cleaning/move_cleaning")
+    Call<String> moveCleaning(@Query("userId") String userId, @Query("cleaningReqId") String cleaningReqId, @Query("when") String when);
+
+    //
     ///cleaning/
 }
 

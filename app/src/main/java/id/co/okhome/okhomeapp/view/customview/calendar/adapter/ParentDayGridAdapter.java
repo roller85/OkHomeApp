@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.util.List;
+import java.util.Map;
 
 import id.co.okhome.okhomeapp.view.customview.calendar.DayModel;
 import id.co.okhome.okhomeapp.view.customview.calendar.MonthViewListener;
@@ -20,7 +21,7 @@ import id.co.okhome.okhomeapp.view.customview.calendar.MonthViewListener;
 public abstract class ParentDayGridAdapter extends BaseAdapter{
     public int colorBgCurrentMonth, colorBgNotCurrentMonth;
     public int colorTextCurrentPlainDay, colorTextCurrentSaturday, colorTextCurrentSunday, colorTextNotCurrentMonth;
-    public int colorCaptionReserved, colorCaptionReservedAlpha;
+    public int colorCaptionReserved, colorCaptionReservedAlpha, colorCaptionReservedAlpha2;
     public int colorCaptionBlue, colorCaptionBlueAlpha;
     public int colorRed, colorYellow;
 
@@ -29,6 +30,8 @@ public abstract class ParentDayGridAdapter extends BaseAdapter{
     public List<DayModel> listDayModel;
     public int size;
     public int year, month;
+
+    public Map<String, Object> params = null;
 
     @IdRes
     int id = 100000;
@@ -50,6 +53,7 @@ public abstract class ParentDayGridAdapter extends BaseAdapter{
         colorTextNotCurrentMonth = Color.parseColor("#e1e1e1");
         colorCaptionReserved = Color.parseColor("#b7bec8");
         colorCaptionReservedAlpha = Color.parseColor("#e2e6e9");
+        colorCaptionReservedAlpha2 = Color.parseColor("#e9edf0");
 
         colorCaptionBlue = Color.parseColor("#008fd5");
         colorCaptionBlueAlpha = Color.parseColor("#c0e3f3");
@@ -62,6 +66,10 @@ public abstract class ParentDayGridAdapter extends BaseAdapter{
         this.year = year;
         this.month = month;
 
+    }
+
+    public void setParams(Map<String, Object> params) {
+        this.params = params;
     }
 
     @Override

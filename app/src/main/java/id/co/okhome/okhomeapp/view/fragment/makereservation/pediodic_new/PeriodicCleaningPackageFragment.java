@@ -149,43 +149,96 @@ public class PeriodicCleaningPackageFragment extends Fragment implements MakeCle
 
         if(params.periodType.equals(MakeCleaningReservationParam.PERIODIC_1DAY_WEEK) || params.periodType.equals(MakeCleaningReservationParam.PERIODIC_DAYS_WEEK)){
             //4주에 4번
-            list = makePaymentListItem(params.periodType, 4, getCleaingDayCount() * 4);
+
+            int cleaningCount = getCleaingDayCount();
+            int[] counts = null;
+            switch(cleaningCount){
+                case 1:
+                    counts = new int[]{4, 8, 12};
+                    break;
+                case 2:
+                    counts = new int[]{4, 8, 16};
+                    break;
+                case 3:
+                    counts = new int[]{6, 12, 18};
+                    break;
+                case 4:
+                    counts = new int[]{4, 8, 16};
+                    break;
+                case 5:
+                    counts = new int[]{5, 10, 20};
+                    break;
+                case 6:
+                    counts = new int[]{6, 12, 24};
+                    break;
+                case 7:
+                    counts = new int[]{7, 14, 28};
+                    break;
+            }
+
+            list = makePaymentListItem(params.periodType, 1, cleaningCount, counts);
+
         }
         else if(params.periodType.equals(MakeCleaningReservationParam.PERIODIC_1DAY_2WEEK)){
             //2주에 한번
-            //8주패키지에 네번, 16패키지 8번, 24주 패키지에 16번
-            list = makePaymentListItem(params.periodType, 8, 4);
+            //4, 8 12
+            list = makePaymentListItem(params.periodType, 2, 1, new int[]{4, 8, 12});
         }
         else if(params.periodType.equals(MakeCleaningReservationParam.PERIODIC_1DAY_4WEEK)){
-            //5주에 한번
-            //8주에 두번, 16주에 4번, 24주에 6번
-            list = makePaymentListItem(params.periodType, 16, 4);
+            //4주에 한번
+            //2, 4, 6
+            list = makePaymentListItem(params.periodType, 4, 1, new int[]{2, 4, 6});
+        }
+
+        return list;
+    }
+
+    private List makePaymentListItem(String periodType, int perioidWeek, int countByPeriodWeek, int[] forCleaningCounts){
+        int pricePer1 = (int)((float)params.optCleaningPrice);
+        List<PeriodicPayItemModel> list = new ArrayList<>();
+
+        float period = (float)perioidWeek / (float)countByPeriodWeek;
+
+
+        for(int cleaningCount : forCleaningCounts){
+            int iPeriod = (int)(cleaningCount * period);
+
+            list.add(new PeriodicPayItemModel(
+                    periodType
+                    , cleaningCount + "회 청소권"
+//                    , howoftenCleangText() + ", " + i + "주 동안"
+                    , iPeriod + "주 청소 패키지"
+                    , cleaningCount
+                    , (getDiscoutedPrice(pricePer1, cleaningCount) * cleaningCount) / 10000 * 10000
+                    , (pricePer1 * cleaningCount) / 10000 * 10000
+                    , getDiscountRate(cleaningCount)
+            ));
         }
 
         return list;
     }
 
     //주단위 계싼
-    private List makePaymentListItem(String periodType, int pivot, int count){
-        int pricePer1 = (int)((float)params.optCleaningPrice);
-        List<PeriodicPayItemModel> list = new ArrayList<>();
-        for(int i = pivot; i <= pivot * 4; i *= 2){
-
-            list.add(new PeriodicPayItemModel(
-                    periodType
-                    , count + "회 청소권"
-//                    , howoftenCleangText() + ", " + i + "주 동안"
-                    , i + "주 청소 패키지"
-                    , count
-                    , (getDiscoutedPrice(pricePer1, count) * count) / 10000 * 10000
-                    , (pricePer1 * count) / 10000 * 10000
-                    , getDiscountRate(count)
-            ));
-            count = count * 2;
-        }
-
-        return list;
-    }
+//    private List makePaymentListItem(String periodType, int pivot, int count){
+//        int pricePer1 = (int)((float)params.optCleaningPrice);
+//        List<PeriodicPayItemModel> list = new ArrayList<>();
+//        for(int i = pivot; i <= pivot * 4; i *= 2){
+//
+//            list.add(new PeriodicPayItemModel(
+//                    periodType
+//                    , count + "회 청소권"
+////                    , howoftenCleangText() + ", " + i + "주 동안"
+//                    , i + "주 청소 패키지"
+//                    , count
+//                    , (getDiscoutedPrice(pricePer1, count) * count) / 10000 * 10000
+//                    , (pricePer1 * count) / 10000 * 10000
+//                    , getDiscountRate(count)
+//            ));
+//            count = count * 2;
+//        }
+//
+//        return list;
+//    }
 
     private int getDiscoutedPrice(int price, int cleaningCount){
         price = price - (price * getDiscountRate(cleaningCount) / 100);

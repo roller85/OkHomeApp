@@ -6,9 +6,10 @@ import java.util.List;
  * Created by josongmin on 2016-09-14.
  */
 public class CleaningScheduleModel {
+
     public String
             rownum, id, cTicketId, orderNo, userId, homeId, managerId, basicCleaningPrice, cleaningType,
-            status, spcCleaningIds, when, duration, insertDate;
+            status, spcCleaningIds, when, duration, insertDate, whenDate, expiryDate;
 
     public List<SpcCleaningModel> listExtraCleaning = null;
 

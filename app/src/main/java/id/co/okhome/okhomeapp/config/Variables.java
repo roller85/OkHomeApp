@@ -5,8 +5,8 @@ package id.co.okhome.okhomeapp.config;
  */
 
 public class Variables {
-    public final static String  APP_BASE_URL            = "http://192.168.0.11:3111";
-//    public final static String  APP_BASE_URL            = "http://52.79.60.218:3111";
+//    public final static String  APP_BASE_URL            = "http://192.168.0.2:3111";
+    public final static String  APP_BASE_URL            = "http://52.79.60.218:3111";
     public final static int     PASSWORD_MIN_LENGTH     = 4;
     public final static String  LOGTAG                  = "OKHOME";
 }

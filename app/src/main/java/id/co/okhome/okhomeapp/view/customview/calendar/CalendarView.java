@@ -6,6 +6,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.view.customview.calendar.adapter.DayGridAdapter;
 
@@ -27,6 +30,7 @@ public class CalendarView extends ViewPager implements MonthViewListener{
     TextView tvYearMonth;
     MonthViewListener monthViewListener;
     int currentYear, currentMonth;
+    Map<String, Object> params = new HashMap<>();
 
     public CalendarView(Context context) {
         super(context);
@@ -36,6 +40,10 @@ public class CalendarView extends ViewPager implements MonthViewListener{
     public CalendarView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
+    }
+
+    public void putParam(String key, Object param){
+        params.put(key, param);
     }
 
     public void setMonthNavigator(View vLeftBtn, View vRightBtn, TextView tvYearMonth){
@@ -75,6 +83,7 @@ public class CalendarView extends ViewPager implements MonthViewListener{
         this.monthViewListener = monthViewListener;
         monthAdapter = new MonthAdapter(this, year, month, height, this);
         monthAdapter.setGridAdapterType(gridAdapterType);
+        monthAdapter.setParams(params);
         addOnPageChangeListener(monthAdapter);
         setAdapter(monthAdapter);
         setOffscreenPageLimit(1);
@@ -98,7 +107,12 @@ public class CalendarView extends ViewPager implements MonthViewListener{
     }
 
     public MonthGridView getCurrentMonthView(){
-        return getAdapter().getCurrentMonthView();
+        try{
+            return getAdapter().getCurrentMonthView();
+        }catch(Exception e){
+            return null;
+        }
+
     }
 
     @Override

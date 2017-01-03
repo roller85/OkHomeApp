@@ -45,13 +45,21 @@ public class Util {
     }
 
     public static int getScreenHeight(Activity activity){
-        DisplayMetrics metrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        try{
+            DisplayMetrics metrics = new DisplayMetrics();
+            activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
 
-        int height = metrics.heightPixels;
-        int width = metrics.widthPixels;
+            int height = metrics.heightPixels;
+            int width = metrics.widthPixels;
 
-        return height;
+            return height;
+        }catch(Exception e){
+
+            return 400;
+        }
+
+
+
     }
     public static int getScreenWidth(Activity activity){
         DisplayMetrics metrics = new DisplayMetrics();

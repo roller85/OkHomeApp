@@ -65,61 +65,99 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px" android:background="#16000000"/>
 
-            <LinearLayout
-                android:paddingLeft="12dp" android:paddingRight="12dp"
-                android:gravity="center"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="36dp">
-
                 <LinearLayout
-                    android:id="@+id/layerMenuItems_vBtnPoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:paddingLeft="12dp" android:paddingRight="12dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp">
+
+                    <LinearLayout
+                        android:id="@+id/layerMenuItems_vBtnPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textStyle="bold"
+                            android:id="@+id/fragmentMyCleaningCalendar_tvCredit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="100개" android:textSize="12.5sp"
+                            android:textColor="#bb000000"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text=" 포인트" android:textSize="12.5sp"
+                            android:textColor="@color/okHomeGrayDeep" />
+
+                    </LinearLayout>
+                    <View
+                        android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_gray_simple"
+                        android:layout_width="3dp"
+                        android:layout_height="3dp" />
+
+                    <LinearLayout
+                        android:id="@+id/layerMenuItems_vBtnCleaningTicket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:textStyle="bold"
+                            android:id="@+id/fragmentMyCleaningCalendar_tvCleaningTicket"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="-" android:textSize="12.5sp"
+                            android:textColor="#bb000000"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text=" 미사용 청소권" android:textSize="12.5sp"
+                            android:textColor="@color/okHomeGrayDeep"/>
+
+                    </LinearLayout>
 
                     <TextView
-                        android:textStyle="bold"
-                        android:id="@+id/fragmentMyCleaningCalendar_tvCredit"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text="-" android:textSize="12.5sp"
-                        android:textColor="#bb000000"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text=" 포인트" android:textSize="12.5sp"
-                        android:textColor="@color/okHomeGrayDeep" />
-
-                </LinearLayout>
-                <View
-                    android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/circle_gray_simple"
-                    android:layout_width="3dp"
-                    android:layout_height="3dp" />
-
-                <LinearLayout
-                    android:id="@+id/layerMenuItems_vBtnCleaningTicket"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:textStyle="bold"
-                        android:id="@+id/fragmentMyCleaningCalendar_tvCleaningTicket"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text="-" android:textSize="12.5sp"
-                        android:textColor="#bb000000"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:text=" 미사용 청소권" android:textSize="12.5sp"
+                        android:layout_height="wrap_content" android:text="" android:textSize="12.5sp"
                         android:textColor="@color/okHomeGrayDeep"/>
-
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="" android:textSize="12.5sp"
-                    android:textColor="@color/okHomeGrayDeep"/>
-            </LinearLayout>
+                <!-- 이동하세여-->
 
+                <LinearLayout
+                    android:id="@+id/fragmentMyCleaningCalendar_vMoveCleaningInfo"
+                    android:gravity="center"
+                    android:background="@color/colorPetSister"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="달력에서 이동할 날짜를 선택하세요" android:textSize="12.5sp"
+                        android:textColor="#ffffff"/>
+
+                    <FrameLayout
+                        android:id="@+id/fragmentMyCleaningCalendar_vbtnCancelMoveCleaning"
+                        android:layout_marginLeft="14dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" android:text="변경취소" android:textSize="12.5sp"
+                            android:textColor="#ffffff"/>
+
+                        <View
+                            android:layout_gravity="bottom"
+                            android:layout_width="50dp"
+                            android:layout_height="1px" android:background="#ffffff"/>
+                    </FrameLayout>
+
+
+                </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
 
         <View
@@ -661,7 +699,6 @@
                         </LinearLayout>
 
                     </LinearLayout>
-
 
                 </LinearLayout>
             </LinearLayout>

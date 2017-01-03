@@ -56,7 +56,6 @@
 
         <!-- 액티비티 시작 -->
         <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.MakeReservationActivity" />
         <activity android:name=".view.activity.MakeCleaningReservationActivity" />
         <activity android:name=".view.activity.IntroActivity">
             <intent-filter>

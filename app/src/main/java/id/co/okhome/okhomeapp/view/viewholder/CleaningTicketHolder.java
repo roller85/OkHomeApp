@@ -27,7 +27,7 @@ public class CleaningTicketHolder extends JoViewHolder<CleaningTicketModel> impl
     @BindView(R.id.itemCleaningTicket_tvCleaningDate)   TextView tvCleaningDate;
     @BindView(R.id.itemCleaningTicket_tvExpiryDate)     TextView tvExpiryDate;
     @BindView(R.id.itemCleaningTicket_tvIssueDate)      TextView tvIssueDate;
-
+    @BindView(R.id.itemCleaningTicket_ivCleaningType)   TextView tvCleaningType;
 
     public CleaningTicketHolder(View itemView) {
         super(itemView);
@@ -47,13 +47,21 @@ public class CleaningTicketHolder extends JoViewHolder<CleaningTicketModel> impl
         String cleaningDate;
         if(s.cleaningDate != null && s.cleaningDate.length() > 0){
             cleaningDate = Util.getFormattedDateString(s.cleaningDate, "yyyy.MM.dd(E)");
+            tvCleaningDate.setTextColor(getContext().getResources().getColor(R.color.okHomeGrayDeep));
         }else{
             cleaningDate = "지정되지 않음";
+            tvCleaningDate.setTextColor(getContext().getResources().getColor(R.color.colorPetSister));
         }
 
-        tvCleaningDate.setText("청소일 : " + cleaningDate);
-        tvIssueDate.setText("발급일 : " + issueDate);
-        tvExpiryDate.setText("만료일 : " + expiryDate);
+        tvCleaningDate.setText(cleaningDate);
+        tvIssueDate.setText(issueDate);
+        tvExpiryDate.setText(expiryDate);
+
+        if(s.cleaningType.equals("NORMAL")){
+            tvCleaningType.setText("일반청소권");
+        }else{
+            tvCleaningType.setText("이사청소권");
+        }
 
         ivMore.setOnClickListener(this);
     }

@@ -3,6 +3,8 @@ package id.co.okhome.okhomeapp.view.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 
@@ -35,7 +37,16 @@ public class IntroActivity extends OkHomeActivityParent {
         TutoriorPreference.clear();
         JoSharedPreference.with().push("ExtraCleaningList", null);
 
-        getVersion();
+        Handler handler = new Handler(){
+            @Override
+            public void dispatchMessage(Message msg) {
+                super.dispatchMessage(msg);
+                getVersion();
+            }
+        };
+
+        handler.sendEmptyMessageDelayed(0, 1800);
+
 
         //셋
     }

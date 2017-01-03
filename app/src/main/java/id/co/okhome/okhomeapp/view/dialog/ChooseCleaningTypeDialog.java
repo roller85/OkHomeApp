@@ -78,9 +78,9 @@ public class ChooseCleaningTypeDialog extends ViewDialog{
     @OnClick(R.id.dialogChooseCleaningType_vbtnOneTimeCleaning)
     public void onBtnOneTimeCleaning(View v){
 
-        fragment.startActivityForResult(new Intent(getContext(), MakeCleaningReservationActivity.class).putExtra("TYPE", "ONEDAY").putExtra("DATE", yyyymmdd), REQ_CODE);
+        fragment.startActivityForResult(new Intent(getContext(), MakeCleaningReservationActivity.class).putExtra("TYPE", "NORMAL").putExtra("DATE", yyyymmdd), REQ_CODE);
 
-        if(callback != null)    callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "ONETIME"));
+        if(callback != null)    callback.onCallback(getDialog(), Util.makeMap("ONCLICK", "NORMAL"));
         dismiss();
     }
 

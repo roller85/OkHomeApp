@@ -223,7 +223,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textColor="#88000000"
+                    android:textColor="@color/colorLightGray"
                     android:textSize="14sp"
                     android:text="전체"
                     android:layout_width="wrap_content"
@@ -231,7 +231,7 @@
                 <TextView
                     android:id="@+id/headerCleaningTicket_tvTotal"
                     android:textColor="#dd000000"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:text="19개"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -245,7 +245,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:textColor="#88000000"
+                    android:textColor="@color/colorLightGray"
                     android:textSize="14sp"
                     android:text="사용중"
                     android:layout_width="wrap_content"
@@ -253,7 +253,7 @@
                 <TextView
                     android:id="@+id/headerCleaningTicket_tvUsed"
                     android:textColor="#dd000000"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:text="10개"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -267,7 +267,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:textColor="#88000000"
+                    android:textColor="@color/colorLightGray"
                     android:textSize="14sp"
                     android:text="미사용"
                     android:layout_width="wrap_content"
@@ -277,7 +277,7 @@
                 <TextView
                     android:id="@+id/headerCleaningTicket_tvUnused"
                     android:textColor="#dd000000"
-                    android:textSize="20sp"
+                    android:textSize="22sp"
                     android:text="7개"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

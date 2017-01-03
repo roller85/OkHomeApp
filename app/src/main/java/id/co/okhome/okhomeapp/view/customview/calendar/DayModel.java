@@ -23,6 +23,7 @@ public class DayModel {
     public String optBeginTime = null; //주기예약 진행시 미리 보일날
     public boolean optAbleReservationForPeriod = false;
 
+    public boolean startMove = false; //이동전
 
     public CleaningScheduleModel cleaningScheduleModel = null;
 

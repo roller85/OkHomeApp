@@ -28,6 +28,7 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
     LayoutInflater inflater;
     Context context;
     String gridAdapterType = "";
+    Map<String, Object> params = null;
 
     Map<String, MonthGridView> mapMonthView = new HashMap<>();
     Map<String, List<DayModel>> mapListMonthDayModels = new HashMap<>();
@@ -43,6 +44,10 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
         pivotMonth = month;
         pivotPos = size / 2;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public void setParams(Map<String, Object> params) {
+        this.params = params;
     }
 
     public int getPosByYearMonth(int targetYear, int targetMonth){
@@ -102,6 +107,7 @@ public class MonthAdapter extends PagerAdapter implements ViewPager.OnPageChange
 
         MonthGridView monthView = new MonthGridView(context, monthViewListener);
         monthView.setGridAdapterType(gridAdapterType);
+        monthView.setParams(params);
         return monthView;
     }
 

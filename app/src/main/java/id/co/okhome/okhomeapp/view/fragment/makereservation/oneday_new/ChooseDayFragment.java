@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import org.joda.time.format.DateTimeFormat;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,6 +22,7 @@ import id.co.okhome.okhomeapp.R;
 import id.co.okhome.okhomeapp.config.CurrentUserInfo;
 import id.co.okhome.okhomeapp.lib.OkhomeCleaningTimeChooser;
 import id.co.okhome.okhomeapp.lib.OkhomeException;
+import id.co.okhome.okhomeapp.lib.ProgressDialogController;
 import id.co.okhome.okhomeapp.lib.Util;
 import id.co.okhome.okhomeapp.lib.retrofit.RetrofitCallback;
 import id.co.okhome.okhomeapp.model.CleaningScheduleModel;
@@ -54,9 +57,11 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
     boolean isFirst = true;
 
     String type;
+    String defaultDate;
     MakeCleaningReservationParam params;
-
     Map<String, String> mapChoosedDay = new HashMap<>();
+
+    int globalLoadingId = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -82,8 +87,13 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
         }
 
         type = getArguments().getString("type");
-    }
+        defaultDate = getArguments().getString("defaultDate");
 
+        if(defaultDate != null){
+            //로딩중..
+            globalLoadingId = ProgressDialogController.show(getContext());
+        }
+    }
 
     Handler handlerDelayed = new Handler(){
         @Override
@@ -105,7 +115,7 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
             handlerDelayed.removeMessages(0);
             handlerDelayed.sendEmptyMessageDelayed(0, 400);
         }
-        if(calendarView != null){
+        if(calendarView != null && calendarView.getCurrentMonthView() != null){
             loadScheduleWithServer(targetYear, targetMonth, calendarView.getCurrentMonthView());
         }
     }
@@ -141,7 +151,7 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
     }
 
     public void loadScheduleWithServer(int year, int month, final MonthGridView monthGridView){
-        Util.Log("------loadScheduleWithServer");
+        Util.Log("------loadScheduleWithServer : " + year + " " + month + " " + monthGridView);
 
         currentYear = year;
         currentMonth = month;
@@ -171,6 +181,13 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
                 }
 
                 adaptCurrentMonthViewData(currentMonthGridView);
+
+                if(defaultDate != null){
+                    showChooseTimeDialog(defaultDate);
+                    defaultDate = null;
+
+                    ProgressDialogController.dismiss(globalLoadingId);
+                }
             }
 
             @Override
@@ -230,14 +247,76 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
         this.calendarView = calendarView;
         calendarView.setMonthNavigator(vbtnMonthLeft, vbtnMonthRight, tvYearMonth);
 
+        //캘린더 내용 채우기 시작
+        final Handler handler = new Handler(){
+            @Override
+            public void dispatchMessage(Message msg) {
+                loadScheduleWithServer(currentYear, currentMonth, calendarView.getCurrentMonthView());
+            }
+        };
+
+        new Thread(){
+            @Override
+            public void run() {
+                for(int i = 0; i < 100; i++){
+                    try{
+                        Thread.sleep(100);
+
+                        if(calendarView.getCurrentMonthView() == null){
+                            Util.Log("calendarView.getCurrentMonthView() = null");
+                        }else{
+                            handler.sendEmptyMessage(0);
+                            break;
+                        }
+                    }catch(Exception e){
+                        ;
+                    }
+                }
+            }
+        }.start();
         //이게 붙고난뒤 호출되니깐
-        loadScheduleWithServer(currentYear, currentMonth, calendarView.getCurrentMonthView());
+
     }
 
     @Override
     public void onMonthSelected(int year, int month, MonthGridView monthGridView) {
         Util.Log("------ onMonthSelected");
         loadScheduleWithServer(year, month, monthGridView);
+    }
+
+    //빈날짜 클릭했을때
+    private void showChooseTimeDialog(final String yyyymmdd){
+
+        final String title = DateTimeFormat.forPattern("yy.MM.dd 청소 시작시간 선택").print(DateTimeFormat.forPattern("yyyyMMdd").parseLocalDate(yyyymmdd));
+
+        if(type.equals("MOVEIN")){
+            new OkhomeCleaningTimeChooser(getActivity(), title, new OkhomeCleaningTimeChooser.TimeListener() {
+                @Override
+                public void onTimeChoosed(String time, String timeValue) {
+                    mapChoosedDay.clear();
+                    mapChoosedDay.put(yyyymmdd, timeValue);
+                    //여러개 선택모드
+                    adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
+                }
+            }).show();
+
+        }else{
+            if(mapChoosedDay.get(yyyymmdd) != null){
+                mapChoosedDay.remove(yyyymmdd);
+                adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
+            }else{
+
+                new OkhomeCleaningTimeChooser(getActivity(), title, new OkhomeCleaningTimeChooser.TimeListener() {
+                    @Override
+                    public void onTimeChoosed(String time, String timeValue) {
+                        mapChoosedDay.put(yyyymmdd, timeValue);
+                        //여러개 선택모드
+                        adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
+                    }
+                }).show();
+
+            }
+        }
     }
 
     @Override
@@ -250,40 +329,12 @@ public class ChooseDayFragment extends Fragment implements MakeCleaningReservati
             return;
         }
 
+        showChooseTimeDialog(dayModel.yyyymmdd);
+
         //기존에 클릭해놓은거 없애기1
 //        calendarView.getCurrentMonthView().clear("optBeginDay");
 
         //이사청소면 하루만 선택가능
-        if(type.equals("MOVEIN")){
-            new OkhomeCleaningTimeChooser(getActivity(), new OkhomeCleaningTimeChooser.TimeListener() {
-                @Override
-                public void onTimeChoosed(String time, String timeValue) {
-                    mapChoosedDay.clear();
-                    mapChoosedDay.put(dayModel.yyyymmdd, timeValue);
-                    //여러개 선택모드
-                    adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
-                }
-            }).show();
-
-        }else{
-            if(mapChoosedDay.get(dayModel.yyyymmdd) != null){
-                mapChoosedDay.remove(dayModel.yyyymmdd);
-                adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
-            }else{
-
-                new OkhomeCleaningTimeChooser(getActivity(), new OkhomeCleaningTimeChooser.TimeListener() {
-                    @Override
-                    public void onTimeChoosed(String time, String timeValue) {
-                        mapChoosedDay.put(dayModel.yyyymmdd, timeValue);
-                        //여러개 선택모드
-                        adaptCurrentMonthViewData(calendarView.getCurrentMonthView());
-                    }
-                }).show();
-
-            }
-        }
-
-
 
 //        params.periodStartDate = dayModel.yyyymmdd;
 

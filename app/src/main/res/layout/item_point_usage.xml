@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:paddingLeft="22dp" android:paddingRight="22dp"
+        android:paddingLeft="25dp" android:paddingRight="25dp"
         android:paddingTop="15dp" android:paddingBottom="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -50,7 +50,7 @@
                     <TextView
                         android:id="@+id/itemHistory_tvComment"
                         android:text="Using 100.000 Rupiah, it was charged"
-                        android:textColor="#77000000"
+                        android:textColor="#aa000000"
                         android:textSize="13sp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />

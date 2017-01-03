@@ -35,11 +35,16 @@ public class MonthGridView extends FrameLayout{
     int height = 0;
     MonthViewListener monthViewListener;
     String gridAdapterType = "";
+    Map<String, Object> params;
 
     public MonthGridView(Context context, MonthViewListener monthViewListener) {
         super(context);
         this.monthViewListener = monthViewListener;
         initViews();
+    }
+
+    public void setParams(Map<String, Object> params) {
+        this.params = params;
     }
 
     public int getYear() {
@@ -158,6 +163,7 @@ public class MonthGridView extends FrameLayout{
             }
 
             dayGridAdapter.setYearMonth(year, month);
+            dayGridAdapter.setParams(params);
             gv.setAdapter(dayGridAdapter);
 
         }else{

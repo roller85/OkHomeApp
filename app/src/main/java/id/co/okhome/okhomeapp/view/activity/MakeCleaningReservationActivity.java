@@ -36,6 +36,7 @@ import id.co.okhome.okhomeapp.view.fragment.makereservation.flow.MakeCleaningRes
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday_new.ChooseDayFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.oneday_new.DaySpecialCleaningChkFragment;
 import id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.RequestorInfoFragment;
+import id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.SettingCleaningPeriodFragment;
 
 public class MakeCleaningReservationActivity extends OkHomeActivityParent {
 
@@ -98,6 +99,7 @@ public class MakeCleaningReservationActivity extends OkHomeActivityParent {
             ChooseDayFragment chooseDayFragment = new ChooseDayFragment();
             Bundle bundle = new Bundle();
             bundle.putString("type", "NORMAL");
+            bundle.putString("defaultDate", defaultDate);
             chooseDayFragment.setArguments(bundle);
 
             RequestorInfoFragment requestorInfoFragment = new RequestorInfoFragment();
@@ -119,6 +121,7 @@ public class MakeCleaningReservationActivity extends OkHomeActivityParent {
             ChooseDayFragment chooseDayFragment = new ChooseDayFragment();
             Bundle bundle = new Bundle();
             bundle.putString("type", "MOVEIN");
+            bundle.putString("defaultDate", defaultDate);
             chooseDayFragment.setArguments(bundle);
 
             RequestorInfoFragment requestorInfoFragment = new RequestorInfoFragment();
@@ -136,7 +139,7 @@ public class MakeCleaningReservationActivity extends OkHomeActivityParent {
             list.add(new ModelPageItem(daySpecialCleaningChkFragment, "스페셜 청소를 선택해보세요!"));
         }
         else{
-            list.add(new ModelPageItem(new id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.SettingCleaningPeriodFragment(), "원하는 주기청소 일정을 선택하세요"));
+            list.add(new ModelPageItem(new SettingCleaningPeriodFragment(), "원하는 주기청소 일정을 선택하세요"));
             list.add(new ModelPageItem(new id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.ChooseStartDayFragment(), "청소 언제부터 시작할까요?"));
             list.add(new ModelPageItem(new id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.RequestorInfoFragment(), "추가 정보가 조금 더 필요해요!"));
             list.add(new ModelPageItem(new id.co.okhome.okhomeapp.view.fragment.makereservation.pediodic_new.PeriodicCleaningPackageFragment(), "청소 패키지를 선택하세요!"));
@@ -260,7 +263,7 @@ public class MakeCleaningReservationActivity extends OkHomeActivityParent {
     private void submit(){
         String type = getIntent().getStringExtra("TYPE");
 
-        if(type.equals("ONEDAY")){
+        if(type.equals("NORMAL")){
             submitForOnedays();
         }else if(type.equals("MOVEIN")){
             submitForOnedays();

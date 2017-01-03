@@ -48,6 +48,8 @@ import id.co.okhome.okhomeapp.view.dialog.CommonTextDialog;
 import id.co.okhome.okhomeapp.view.dialog.PaySpecialCleaningDialog;
 import id.co.okhome.okhomeapp.view.fragment.tabitem.flow.TabFragmentFlow;
 
+import static org.joda.time.format.DateTimeFormat.forPattern;
+
 
 /**
  * Created by josongmin on 2016-07-28.
@@ -77,6 +79,8 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
     @BindView(R.id.fragmentMyCleaningCalendar_tvCleaningTicket)         TextView tvCleaningTicket;
     @BindView(R.id.fragmentMyCleaningCalendar_tvCredit)                 TextView tvCredit;
 
+    //청소이동
+    @BindView(R.id.fragmentMyCleaningCalendar_vMoveCleaningInfo)        View vMoveCleaningInfo;
 
     CalendarView calendarView;
     int targetYear, targetMonth;
@@ -92,10 +96,14 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
     int currentYear, currentMonth;
     MonthGridView currentMonthGridView;
 
+    DayModel currentDayModel;
     CleaningScheduleModel cleaningScheduleModel;
     View contentView;
+    boolean isMoveMode = false;
+    long targetExpiryMill = 0;
 
     boolean isFirst = true;
+
 
     @Override
     public String getTitle() {
@@ -171,6 +179,12 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
 
         CurrentUserInfo.registerUserInfoChangeListener(this);
         getUserInfo();
+
+        initViews();
+    }
+
+    private void initViews(){
+        vMoveCleaningInfo.setVisibility(View.GONE);
     }
 
     @Override
@@ -210,6 +224,11 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
     }
 
     //서버에서 스케쥴 불러오기
+
+    public void reloadSchedule() {
+        loadSchedule(currentYear, currentMonth, currentMonthGridView);
+    }
+
     public void loadSchedule(int year, int month, final MonthGridView monthGridView) {
         currentYear = year;
         currentMonth = month;
@@ -236,6 +255,16 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
                         dayModel.cleaningScheduleModel = m;
                     }
                 }
+
+                if(isMoveMode){
+                    //순회하면서 expiryDate 아래로는 다 체크함.
+                    LocalDateTime localDateTime = forPattern("yyyy-MM-dd").parseLocalDateTime(currentDayModel.cleaningScheduleModel.expiryDate);
+
+
+                }else{
+
+                }
+
                 monthGridView.notifyDataSetChanged();
             }
 
@@ -274,20 +303,26 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
                 calendarView.post(new Runnable() {
                     @Override
                     public void run() {
-                        calendarView.getAdapter().onPageSelected(calendarView.getCurrentItem());
 
-                        calendarHeaderHeight = getView().findViewById(R.id.layerCalendar_llTop).getHeight() + getView().findViewById(R.id.layerCalendar_llWeeks).getHeight();
-                        calendarTop = getView().findViewById(R.id.layerCalendar_llTop).getTop();
-                        popupHeight = vPopup.getHeight();
-                        calendarDayHeight = flContent.getHeight() / 6;
-                        popupTop = vPopup.getTop();
-                        Log.d("JO", "calendarHeaderHeight : " + calendarHeaderHeight);
-                        Log.d("JO", "calendarTop : " + calendarTop);
-                        Log.d("JO", "popupHeight : " + popupHeight);
-                        Log.d("JO", "calendarDayHeight : " + calendarDayHeight);
-                        Log.d("JO", "popupTop : " + popupTop);
+                        try{
+                            calendarView.getAdapter().onPageSelected(calendarView.getCurrentItem());
 
-                        moveViewPosition(false, 0, null);
+                            calendarHeaderHeight = getView().findViewById(R.id.layerCalendar_llTop).getHeight() + getView().findViewById(R.id.layerCalendar_llWeeks).getHeight();
+                            calendarTop = getView().findViewById(R.id.layerCalendar_llTop).getTop();
+                            popupHeight = vPopup.getHeight();
+                            calendarDayHeight = flContent.getHeight() / 6;
+                            popupTop = vPopup.getTop();
+                            Log.d("JO", "calendarHeaderHeight : " + calendarHeaderHeight);
+                            Log.d("JO", "calendarTop : " + calendarTop);
+                            Log.d("JO", "popupHeight : " + popupHeight);
+                            Log.d("JO", "calendarDayHeight : " + calendarDayHeight);
+                            Log.d("JO", "popupTop : " + popupTop);
+
+                            moveViewPosition(false, 0, null);
+                        }catch(Exception e){
+                            ;
+                        }
+
                     }
                 });
 
@@ -302,11 +337,58 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
         loadSchedule(year, month, monthGridView);
     }
 
-    @Override
-    public void onDayClick(int position, int week, DayModel dayModel) {
-        //week은 달력의 첫째주면 0임. +1씩..
+    //일정변경모드에서 날짜클릭
+    public void onDayClickInMoveMode(int position, int week, DayModel dayModel) {
+        if(!dayModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth())){
+            return;
+        }
+
+        if(dayModel.timemill > targetExpiryMill){
+            //변경불가능
+            return;
+        }
+
+        if(dayModel.cleaningScheduleModel != null && dayModel.cleaningScheduleModel == cleaningScheduleModel){
+            endMoveCleaning();
+            return;
+        }
+
+        if(dayModel.cleaningScheduleModel != null && dayModel.cleaningScheduleModel.status.equals("OK") ){
+            //변경불가능
+            return;
+        }
 
 
+
+        //변경날짜 yyyy-MM-dd HH:mm:ss
+
+        String time = currentDayModel.cleaningScheduleModel.when.substring(11);
+        //변경하기 서버 호출 후 다시 로딩
+        String moveDateTime = DateTimeFormat.forPattern("yyyy-MM-dd").print(dayModel.timemill);
+        moveDateTime += " " + time;
+
+        final int pId = ProgressDialogController.show(getActivity());
+        RestClient.getCleaningClient().moveCleaning(CurrentUserInfo.getId(getContext()), currentDayModel.cleaningScheduleModel.id, moveDateTime).enqueue(new RetrofitCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                currentMonthGridView.notifyDataSetChanged();
+                reloadSchedule();
+                endMoveCleaning();
+            }
+
+            @Override
+            public void onFinish() {
+                super.onFinish();
+                ProgressDialogController.dismiss(pId);
+            }
+        });
+
+
+
+    }
+
+    //일반모드에서 날짜클릭
+    public void onDayClickInPlainMode(int position, int week, DayModel dayModel) {
         //예약가능날짜에만 팝업띄운다
         if(!dayModel.isAbleToReservation(Util.getCurrentYear(), Util.getCurrentMonth())){
             return;
@@ -315,10 +397,25 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
         if(dayModel.cleaningScheduleModel != null && dayModel.cleaningScheduleModel.status.equals("OK")){
             moveViewPosition(true, week, dayModel);
             this.cleaningScheduleModel = dayModel.cleaningScheduleModel;
+            currentDayModel = dayModel;
             updateScheduleDetailPopup();
         }else{
             DialogController.showBottomDialog(getContext(), new ChooseCleaningTypeDialog(this, false, dayModel.yyyymmdd));
         }
+    }
+
+    @Override
+    public void onDayClick(int position, int week, DayModel dayModel) {
+        //week은 달력의 첫째주면 0임. +1씩..
+
+        if(isMoveMode){
+            onDayClickInMoveMode(position, week, dayModel);
+            return;
+        }else{
+            onDayClickInPlainMode(position, week, dayModel);
+        }
+
+
     }
 
     //spc변경
@@ -332,6 +429,8 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
                 updateScheduleDetailPopup();
 
                 getUserInfo();
+
+                Util.showToast(getContext(), "변경되었습니다.");
             }
 
             @Override
@@ -344,7 +443,6 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
 
     //팝업 내용 업데이트
     private void updateScheduleDetailPopup(){
-
 
         Map<Integer, View> mapSpcViews = new HashMap<>();
         mapSpcViews.put(SpcCleaningModel.ID_CELLING, vgCleaningItems.getChildAt(0));
@@ -361,9 +459,9 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
 
 
         //시간
-        LocalDateTime datetime = DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss").parseLocalDateTime(cleaningScheduleModel.when.substring(0, 19));
-        String date = DateTimeFormat.forPattern("yyyy.MM.dd(E)").print(datetime);
-        String beginTime = DateTimeFormat.forPattern("aa hh:mm").withLocale(Locale.KOREAN).print(datetime);
+        LocalDateTime datetime = forPattern("yyyy-MM-dd HH:mm:ss").parseLocalDateTime(cleaningScheduleModel.when.substring(0, 19));
+        String date = forPattern("yyyy.MM.dd(E)").print(datetime);
+        String beginTime = forPattern("aa hh:mm").withLocale(Locale.KOREAN).print(datetime);
         int totalPrice = Integer.parseInt(cleaningScheduleModel.basicCleaningPrice);
         float duration = Float.parseFloat(cleaningScheduleModel.duration);
 
@@ -399,7 +497,7 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
         }
         int iDuration = (int)duration;
         float minute = iDuration % 1 * 60;
-        String endTime = DateTimeFormat.forPattern("aa hh:mm").withLocale(Locale.KOREAN).print(datetime.plusHours(iDuration).plusMinutes((int)minute));
+        String endTime = forPattern("aa hh:mm").withLocale(Locale.KOREAN).print(datetime.plusHours(iDuration).plusMinutes((int)minute));
         String cleaningType = cleaningScheduleModel.cleaningType.equals("NORMAL") ? "일반청소" : "이사청소";
         //넣기
         tvDate.setText(date);
@@ -410,6 +508,42 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
 
 
         tvPrice.setText(Util.getMoneyString(totalPrice, '.'));
+    }
+
+    //캘린더 이동 활성화
+    private void startMoveCleaning(){
+
+        isMoveMode = true;
+//        calendarView.animate().scaleX(1f).scaleY(0.9f).translationYBy(0.9f).setDuration(400).start();
+        vMoveCleaningInfo.setVisibility(View.VISIBLE);
+        vMoveCleaningInfo.setAlpha(0);
+        vMoveCleaningInfo.animate().alpha(1f).setDuration(500).start();
+
+
+        //하단 팝업 닫아주고
+        moveViewPosition(false, 0, null);
+        currentDayModel.startMove = true;
+        calendarView.putParam("moveMode", true);
+        long expiryMill = DateTimeFormat.forPattern("yyyy-MM-dd").parseMillis(currentDayModel.cleaningScheduleModel.expiryDate);
+        targetExpiryMill = expiryMill;
+        calendarView.putParam("expiryMill", expiryMill);
+        calendarView.putParam("expiryDate", currentDayModel.cleaningScheduleModel.expiryDate);
+        currentMonthGridView.notifyDataSetChanged();
+
+    }
+
+    //캘린더 이동 끝
+    private void endMoveCleaning(){
+        isMoveMode = false;
+        calendarView.putParam("moveMode", false);
+        calendarView.putParam("expiryDate", null);
+        calendarView.putParam("expiryMill", null);
+
+        currentDayModel.startMove = false;
+        vMoveCleaningInfo.animate().alpha(0f).setDuration(500).start();
+
+        currentMonthGridView.notifyDataSetChanged();
+//        calendarView.animate().scaleX(1f).scaleY(1f).translationYBy(1f).setDuration(400).start();
     }
 
     //예약 취소하기
@@ -457,6 +591,30 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
 //            //캔슬
 //            RestClient.getCleaningRequestClient().cancel(cleaningScheduleModel.id).enqueue(callback);
 //        }
+    }
+
+
+    @OnClick(R.id.fragmentMyCleaningCalendar_vbtnChangeSchedule)
+    public void onMoveSchedule(View v){
+
+
+        if(v.getTag() == null){
+            v.setTag(true);
+        }
+
+        boolean is = (boolean)v.getTag();
+        if(is){
+            startMoveCleaning();
+
+        }else{
+            endMoveCleaning();
+        }
+
+    }
+
+    @OnClick(R.id.fragmentMyCleaningCalendar_vbtnCancelMoveCleaning)
+    public void onCancelMoveCleaning(View v){
+        endMoveCleaning();
     }
 
     @OnClick(R.id.fragmentMyCleaningCalendar_vbtnCancel)
@@ -539,7 +697,15 @@ public class MyCleaningCalendarFragment extends Fragment implements TabFragmentF
                                 }
                             }));
 
-                        }else{
+                        }
+                        else if(result == 0){
+                            if(fSpcCleaningIds.length() <= 0){
+                                ;
+                            }else{
+                                requestChangeSpcCleaning(CurrentUserInfo.getId(getActivity()), cleaningScheduleModel.id, fSpcCleaningIds, list);
+                            }
+                        }
+                        else{
                             //0보다 작으면 환급됨..
                             DialogController.showAlertDialog(getContext(), "Okhome", "스페셜청소 시간이 단축됩니다.\n" + Util.getMoneyString(Math.abs(result), '.') + " 포인트를 환급해드립니다.", true, new ViewDialog.DialogCommonCallback() {
                                 @Override

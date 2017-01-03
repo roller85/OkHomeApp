@@ -6,11 +6,10 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/layer_leftmenu_padding_common"
-
+        android:background="@color/colorAppPrimary"
         android:paddingLeft="@dimen/layer_leftmenu_padding_common"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="140dp">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:visibility="gone"
@@ -21,7 +20,6 @@
             app:riv_oval="true" />
 
         <LinearLayout
-            android:layout_marginTop="14dp"
             android:orientation="vertical"
             android:layout_centerVertical="true"
             android:layout_below="@+id/layerMenuItems_ivPhoto"
@@ -37,17 +35,17 @@
                     android:id="@+id/layerMenuItems_tvName"
                     android:textStyle="bold"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="19.5sp"
-                    android:textColor="#3b3e45"/>
+                    android:layout_height="wrap_content" android:text="Mr.Jo" android:textSize="20sp"
+                    android:textColor="#ffffff"/>
                 <ImageView
                     android:layout_alignParentRight="true"
                     android:layout_marginLeft="20dp"
                     android:layout_centerVertical="true"
                     android:id="@+id/layerMenuItems_ivMore"
-                    android:layout_marginRight="38dp"
+                    android:layout_marginRight="25dp"
                     android:adjustViewBounds="true"
-                    android:layout_width="15dp"
-                    android:layout_height="wrap_content" android:src="@drawable/ic_tab_more"/>
+                    android:layout_width="14dp"
+                    android:layout_height="wrap_content" android:src="@drawable/ic_right_simplearrow_left_white"/>
             </RelativeLayout>
 
 
@@ -68,6 +66,7 @@
                     android:layout_height="wrap_content" android:src="@drawable/ic_money"/>
 
                 <LinearLayout
+                    android:orientation="vertical"
                     android:layout_marginTop="2dp"
                     android:visibility="visible"
                     android:id="@+id/layerMenuItems_vgCredit"
@@ -82,36 +81,38 @@
                         <TextView
                             android:id="@+id/layerMenuItems_tvCredit"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:text="100개" android:textSize="13sp"
-                            android:textColor="#6e798d"/>
+                            android:layout_height="wrap_content" android:text="100개" android:textSize="14sp"
+                            android:textColor="#ffffff"/>
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:text=" 포인트" android:textSize="13sp"
-                            android:textColor="#818895" />
+                            android:layout_height="wrap_content" android:text=" 포인트" android:textSize="14sp"
+                            android:textColor="#aaffffff" />
 
                     </LinearLayout>
                     <View
+                        android:visibility="gone"
                         android:layout_marginLeft="6dp" android:layout_marginRight="6dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/circle_gray_simple"
+                        android:background="@drawable/circle_gray_whitegray"
                         android:layout_width="3dp"
                         android:layout_height="3dp" />
 
                     <LinearLayout
+                        android:layout_marginTop="1dp"
                         android:id="@+id/layerMenuItems_vBtnCleaningTicket"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <TextView
                             android:id="@+id/layerMenuItems_tvCleaning"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:text="10개" android:textSize="13sp"
-                            android:textColor="#6e798d"/>
+                            android:layout_height="wrap_content" android:text="10개" android:textSize="14sp"
+                            android:textColor="#ffffff"/>
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:text=" 청소권" android:textSize="13sp"
-                            android:textColor="#818895"/>
+                            android:layout_height="wrap_content" android:text=" 청소권" android:textSize="14sp"
+                            android:textColor="#aaffffff"/>
 
                     </LinearLayout>
 
@@ -163,7 +164,7 @@
 
     <!--좌측메뉴-->
     <LinearLayout
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -197,7 +198,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/layer_leftmenu_padding_common"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:text="청소일정" android:textSize="@dimen/leftmenu_text"
+                android:layout_height="wrap_content" android:text="캘린더" android:textSize="@dimen/leftmenu_text"
                 android:textColor="#818895"/>
 
         </RelativeLayout>

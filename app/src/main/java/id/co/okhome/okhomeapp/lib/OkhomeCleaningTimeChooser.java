@@ -47,7 +47,7 @@ public class OkhomeCleaningTimeChooser {
 
 
     public void show(){
-        DialogController.showListDialog(act, title != null ? title : "Choose time to start cleaning", arrTimeText, (int)(Util.getScreenHeight(act) / 1.5), new ViewDialog.DialogCommonCallback(){
+        DialogController.showListDialog(act, title != null ? title : "청소 시작 시간을 선택하세요", arrTimeText, (int)(Util.getScreenHeight(act) / 1.5), new ViewDialog.DialogCommonCallback(){
             @Override
             public void onCallback(Object dialog, Map<String, Object> params) {
                 String item = (String)params.get(CommonListDialog.TAG_ITEM);

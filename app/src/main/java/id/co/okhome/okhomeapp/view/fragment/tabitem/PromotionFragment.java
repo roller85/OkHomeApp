@@ -170,7 +170,7 @@ public class PromotionFragment extends Fragment implements TabFragmentFlow {
 
             tvSubTitle.setText(model.subtitle);
             tvTitle.setText(model.title);
-            tvValue.setText("+ " + Util.getMoneyString(reward, '.') + " Point" );
+            tvValue.setText(Util.getMoneyString(reward, '.') + " Point" );
 
             v.setOnClickListener(new View.OnClickListener() {
                 @Override

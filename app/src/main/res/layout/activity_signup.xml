@@ -199,9 +199,10 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" android:textSize="12sp"
-                        android:text="Terms of Service "/>
+                        android:text="Terms and condition "/>
 
                     <TextView
+                        android:visibility="gone"
                         android:textColor="#717276"
                         android:gravity="center"
                         android:layout_width="wrap_content"
@@ -209,6 +210,7 @@
                         android:text="and "/>
 
                     <TextView
+                        android:visibility="gone"
                         android:id="@+id/actSignUp_tvbtnPolicy"
                         android:textColor="@color/colorAppPrimary2"
                         android:gravity="center"
